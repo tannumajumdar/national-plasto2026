@@ -140,76 +140,184 @@
             letter-spacing: 0.5px;
         }
 
-        /* Leadership Section */
+        /* Leadership / Our Management */
         #about_us_overview .leadership_section {
             padding: 90px 0;
             background: #FFFFFF;
+        }
+        #about_us_overview .mgmt_intro {
+            max-width: 860px;
+            margin: 0 auto 48px;
+            text-align: center;
+        }
+        #about_us_overview .mgmt_intro h2 {
+            margin: 6px 0 18px;
+            font-size: 36px;
+            color: #0F172A;
+        }
+        #about_us_overview .mgmt_intro h2 span {
+            color: var(--brand-primary);
+        }
+        #about_us_overview .mgmt_intro p {
+            margin: 0 0 14px;
+            font-size: 16px;
+            line-height: 1.75;
+            color: #475569;
+        }
+        #about_us_overview .leadership_badge {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 6px 14px;
+            border: 1px solid var(--brand-icy-blue);
+            border-radius: 20px;
+            background: var(--brand-icy-blue-light);
+            color: var(--brand-primary);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
         #about_us_overview .leadership_card_main {
             display: flex;
             align-items: center;
             gap: 50px;
-            background: #F8FAFC;
-            border-radius: 16px;
             padding: 48px;
             border: 1px solid #E2E8F0;
+            border-radius: 16px;
+            background: #F8FAFC;
         }
         #about_us_overview .leadership_img_box {
-            width: 360px;
             flex-shrink: 0;
+            width: 360px;
             border-radius: 18px;
             overflow: hidden;
             box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
         }
         #about_us_overview .leadership_img_box img {
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
             display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
         }
         #about_us_overview .leadership_info {
             flex: 1;
         }
-        #about_us_overview .leadership_badge {
-            display: inline-block;
-            background: var(--brand-icy-blue-light);
-            color: var(--brand-primary);
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 6px 14px;
-            border-radius: 20px;
-            margin-bottom: 12px;
-            border: 1px solid var(--brand-icy-blue);
-        }
-        #about_us_overview .leadership_info h3 {
+        #about_us_overview .leadership_info h3,
+        #about_us_overview .mgmt_body h3 {
+            margin: 0 0 6px;
             font-size: 32px;
-            margin: 0 0 8px 0;
             color: #0F172A;
         }
-        #about_us_overview .leadership_info .leadership_title {
-            font-size: 16px;
-            color: var(--brand-primary);
-            font-weight: 600;
+        #about_us_overview .leadership_title {
             margin-bottom: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--brand-primary);
         }
-        #about_us_overview .leadership_info p {
+        #about_us_overview .leadership_info p,
+        #about_us_overview .mgmt_body p {
+            margin-bottom: 14px;
             font-size: 16px;
             line-height: 1.7;
             color: #334155;
-            margin-bottom: 16px;
         }
-        #about_us_overview .leadership_quote {
-            border-left: 3px solid var(--brand-primary);
-            padding-left: 20px;
+        #about_us_overview .mgmt_quote {
+            position: relative;
+            margin: 32px 0 56px;
+            padding: 36px 48px 32px 72px;
+            border: none;
+            border-radius: 16px;
+            background: #1F2937;
+            color: #FFFFFF;
+        }
+        #about_us_overview .mgmt_quote::before {
+            content: "\201C";
+            position: absolute;
+            top: 6px;
+            left: 22px;
+            font: 700 90px/1 Georgia, serif;
+            color: #ED3237;
+        }
+        #about_us_overview .mgmt_quote p {
+            margin: 0 0 14px;
+            font-size: 19px;
             font-style: italic;
-            font-size: 16px;
-            color: #1E293B;
-            margin-top: 24px;
-            background: rgba(179, 230, 251, 0.15);
-            padding: 16px 20px;
-            border-radius: 0 8px 8px 0;
+            line-height: 1.7;
+            color: #F1F5F9;
+        }
+        #about_us_overview .mgmt_quote cite {
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            color: #FCA5A5;
+        }
+        #about_us_overview .mgmt_grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 28px;
+        }
+        #about_us_overview .mgmt_card {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #E2E8F0;
+            border-radius: 16px;
+            background: #FFFFFF;
+            overflow: hidden;
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+        }
+        #about_us_overview .mgmt_card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 34px rgba(15, 23, 42, 0.08);
+        }
+        #about_us_overview .mgmt_photo {
+            position: relative;
+            aspect-ratio: 16 / 11;
+            background: #E2E8F0;
+            overflow: hidden;
+        }
+        #about_us_overview .mgmt_photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 22%;
+        }
+        /* portrait photo: show it whole, with a blurred copy filling the sides */
+        #about_us_overview .mgmt_photo_memorial::before {
+            content: "";
+            position: absolute;
+            inset: -30px;
+            background: url("images/team/sukhram-sharma-director-production.jpg") center / cover no-repeat;
+            filter: blur(22px) brightness(0.75);
+        }
+        #about_us_overview .mgmt_photo_memorial img {
+            position: relative;
+            object-fit: contain;
+        }
+        #about_us_overview .mgmt_memorial_tag {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 28px 16px 12px;
+            background: linear-gradient(180deg, transparent, rgba(17, 24, 39, 0.85));
+            font: 500 13px "Poppins", sans-serif;
+            letter-spacing: 2px;
+            text-align: center;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        #about_us_overview .mgmt_body {
+            padding: 28px 30px 24px;
+        }
+        #about_us_overview .mgmt_body h3 {
+            font-size: 24px;
+        }
+        #about_us_overview .mgmt_body .leadership_title {
+            margin-bottom: 14px;
+        }
+        #about_us_overview .mgmt_body p {
+            font-size: 15px;
         }
 
         /* Pillars Section */
@@ -263,14 +371,20 @@
         @media (max-width: 991px) {
             #about_us_overview .vision_mission { flex-direction: column; }
             #about_us_overview .we_village_flex { flex-direction: column; }
-            #about_us_overview .leadership_card_main { flex-direction: column; padding: 30px; }
+            #about_us_overview .leadership_card_main { flex-direction: column; gap: 28px; padding: 30px; }
             #about_us_overview .leadership_img_box { width: 100%; max-width: 320px; }
+            #about_us_overview .mgmt_grid { grid-template-columns: 1fr; }
             #about_us_overview .pillars_grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 575px) {
             #about_us_overview .pillars_grid { grid-template-columns: 1fr; }
             #about_us_overview .foundation_title .heading-text { font-size: 26px; }
             #about_us_overview .leadership_info h3 { font-size: 24px; }
+            #about_us_overview .leadership_card_main { padding: 22px 18px; }
+            #about_us_overview .mgmt_intro h2 { font-size: 26px; }
+            #about_us_overview .mgmt_quote { padding: 52px 22px 24px; }
+            #about_us_overview .mgmt_quote p { font-size: 16px; }
+            #about_us_overview .mgmt_body { padding: 22px 18px 18px; }
         }
     </style>
 </head>
@@ -295,12 +409,13 @@
                             <li><a href="about.html">Overview</a></li>
                             <li><a href="about.html#leadership">Leadership</a></li>
                             <li><a href="manufacturing.html">Manufacturing Facilities</a></li>
-                            <li><a href="index.html#virtues_section">Virtues</a></li>
-                            <li><a href="index.html#milestones_section">Milestones</a></li>
+                            <li><a href="manufacturing.html#certifications">Certifications</a></li>
+                            <li><a href="index.html#scroll_down">Virtues</a></li>
+                            <li><a href="index.html#our-divisions">Our Divisions</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="products.html">Businesses</a>
+                        <a href="products.html">Products</a>
                         <ul class="sub-menu">
                             <li><a href="products.html?category=chairs">Moulded Furniture</a></li>
                             <li><a href="products.html?category=tables">Dining Tables</a></li>
@@ -313,6 +428,7 @@
                     <li><a href="distributor.html">Dealer Desk</a></li>
                     <li><a href="manufacturing.html">Manufacturing</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
+                    <li class="np-nav-download-item"><a href="docs/national-plasto-catalogue-2026.pdf" class="np-nav-download" download><i class="fas fa-file-pdf" aria-hidden="true"></i> Catalogue</a></li>
                 </ul>
                 <ul class="social_links">
                     <li class="header_social search_icon">
@@ -330,16 +446,13 @@
                         </div>
                     </li>
                     <li class="header_social">
-                        <a href="https://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/share/1GMoEgyWs7/?mibextid=wwXIfr" rel="noopener" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                     </li>
                     <li class="header_social">
-                        <a href="https://www.youtube.com/" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.linkedin.com/company/nationalplasto/" rel="noopener" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </li>
                     <li class="header_social">
-                        <a href="https://www.linkedin.com/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </li>
-                    <li class="header_social">
-                        <a href="https://www.instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/national_plasto_group/" rel="noopener" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
                     </li>
                 </ul>
             </nav>
@@ -379,17 +492,18 @@
                     </span>
                     <ul class="dropdown-menu">
                         <li><a href="about.html">Overview</a></li>
-                        <li><a href="about.html#milestones">Milestones</a></li>
-                        <li><a href="distributor.html">Group Locations</a></li>
-                        <li><a href="manufacturing.html">Sustainability</a></li>
-                        <li><a href="about.html#csr">CSR</a></li>
+                        <li><a href="about.html#leadership">Leadership</a></li>
+                        <li><a href="manufacturing.html">Manufacturing Facilities</a></li>
+                        <li><a href="manufacturing.html#certifications">Certifications</a></li>
+                        <li><a href="index.html#scroll_down">Virtues</a></li>
+                        <li><a href="index.html#our-divisions">Our Divisions</a></li>
                     </ul>
                 </div>
             </li>
             <li>
                 <div class="dropdown">
                     <span class="dropdown-toggle" id="dropdownMenuBiz" onclick="$(this).parent().toggleClass('open');">
-                        Businesses
+                        Products
                         <span class="caret"></span>
                     </span>
                     <ul class="dropdown-menu">
@@ -409,14 +523,13 @@
         <div class="social-div">
             <h3>Get regular updates <br>about us on</h3>
             <div class="icon-row">
-                <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1GMoEgyWs7/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/company/nationalplasto/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/national_plasto_group/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
         <div class="download-div" style="margin-top:20px;">
-            <a href="javascript:void(0);" onclick="$('#brochureModal').modal('show');" class="btn_project_default" style="display:inline-flex; align-items:center; justify-content:center; background:#ED3237; color:#fff; padding:12px 28px; border-radius:4px; font-weight:600; font-size:15px; text-decoration:none; width:100%; box-sizing:border-box;">
+            <a href="docs/national-plasto-catalogue-2026.pdf" download class="btn_project_default" style="display:inline-flex; align-items:center; justify-content:center; background:#ED3237; color:#fff; padding:12px 28px; border-radius:4px; font-weight:600; font-size:15px; text-decoration:none; width:100%; box-sizing:border-box;">
                 <i class="fas fa-file-pdf" style="margin-right:8px;"></i> Download Catalogue
             </a>
         </div>
@@ -520,23 +633,90 @@
             </div>
         </section>
 
-        <!-- Executive Leadership Section -->
+        <!-- Our Management -->
         <section class="leadership_section" id="leadership">
             <div class="container">
-                <div class="leadership_card_main">
+                <div class="mgmt_intro">
+                    <span class="leadership_badge">Our Management</span>
+                    <h2>A family-led team, <span>building since 1997</span></h2>
+                    <p>Since 1997, National Plasto Products Pvt. Ltd. (NPPL) has been manufacturing plastic moulded furniture designed for every space and every need. From homes and educational institutions to healthcare facilities, government establishments and businesses across the country, our products have become part of everyday environments across India.</p>
+                    <p>What began as a single manufacturing unit has grown into four manufacturing plants located in Howrah (West Bengal), Guwahati (Assam), Roorkee (Uttarakhand) and Hajipur (Bihar). All NPPL manufacturing units are ISO certified across various levels, reflecting our commitment to consistent processes and quality standards.</p>
+                    <p>Behind this growth is a family-led management team that brings together decades of hands-on experience, strong operational knowledge and clearly defined responsibilities across finance, production, sales and marketing.</p>
+                </div>
+
+                <!-- Chairman & Managing Director -->
+                <article class="leadership_card_main">
                     <div class="leadership_img_box">
-                        <img src="images/team/rajkumar-sharma.png" alt="Rajkumar Sharma, Managing Director" />
+                        <img src="images/team/ratan-kumar-sharma-cmd.jpg" alt="Mr. Ratan Kumar Sharma, Chairman &amp; Managing Director" loading="lazy" width="720" height="900">
                     </div>
                     <div class="leadership_info">
-                        <span class="leadership_badge">Executive Leadership</span>
-                        <h3>Mr. Rajkumar Sharma</h3>
-                        <div class="leadership_title">Managing Director &bull; National Plasto Products Pvt. Ltd.</div>
-                        <p>Under the stewardship of Mr. Rajkumar Sharma, National Plasto has scaled from an agile regional tooling facility into an integrated multi-plant polymer conglomerate. His focus on continuous press modernization, robotic automation, and direct dealer relationship management has established NPPL as a household name across Eastern, Central, and Northern India.</p>
-                        <p>With an unyielding commitment to consumer trust, Mr. Sharma oversees group expansion, raw material procurement hedging, and the engineering of the next-generation <strong>NEXT</strong> monoblock designer furniture collection.</p>
-                        <div class="leadership_quote">
-                            "True manufacturing pedigree is not measured simply by press tonnage or factory square footage; it is reflected in the trust an Indian family places in our chair every single day for decades."
-                        </div>
+                        <span class="leadership_badge">Founder</span>
+                        <h3>Mr. Ratan Kumar Sharma</h3>
+                        <div class="leadership_title">Chairman &amp; Managing Director</div>
+                        <p>With 18 years of experience in the plastic furniture industry prior to establishing National Plasto Products Pvt. Ltd., Mr. Ratan Kumar Sharma brought extensive industry knowledge and practical experience to the foundation of the company in 1997.</p>
+                        <p>He founded National Plasto Products Pvt. Ltd. in 1997 and has led its journey from a single manufacturing unit to four plants across Howrah, Hajipur, Guwahati and Roorkee.</p>
+                        <p>Over nearly three decades, he has built the company on a foundation of perseverance, relationships and the values passed down by his father, whose guidance continues to influence his approach to business and leadership.</p>
+                        <p>Under his leadership, NPPL has grown not only in scale and turnover, but also in the trust and respect it has built among its employees, partners and associates. He believes that every challenge presents an opportunity to learn, adapt and return stronger.</p>
                     </div>
+                </article>
+
+                <blockquote class="mgmt_quote">
+                    <p>&ldquo;Every business goes through difficult phases. What matters is not avoiding losses, but learning from them and growing bigger and better each time. My father taught me that how you treat people matters as much as how you run a business &mdash; that belief has shaped this company since 1997, and it continues to guide how we build for the future.&rdquo;</p>
+                    <cite>&mdash; Mr. Ratan Kumar Sharma, Chairman &amp; Managing Director</cite>
+                </blockquote>
+
+                <div class="mgmt_grid">
+                    <article class="mgmt_card">
+                        <div class="mgmt_photo">
+                            <img src="images/team/rajkumar-sharma-director-finance.jpg" alt="Mr. Rajkumar Sharma, Director - Finance" loading="lazy" width="720" height="900">
+                        </div>
+                        <div class="mgmt_body">
+                            <h3>Mr. Rajkumar Sharma</h3>
+                            <div class="leadership_title">Director &ndash; Finance</div>
+                            <p>Mr. Rajkumar Sharma, the eldest of the family and elder brother of Mr. Ratan Kumar Sharma, has overseen the company's financial operations since its inception in 1997.</p>
+                            <p>As the senior-most member of the management team, his steady and disciplined approach to financial management and accounts has been a constant strength behind the company's growth. His experience and practical understanding continue to play an important role in shaping key financial decisions across the organisation and its four manufacturing units.</p>
+                        </div>
+                    </article>
+
+                    <article class="mgmt_card mgmt_card_memorial">
+                        <div class="mgmt_photo mgmt_photo_memorial">
+                            <img src="images/team/sukhram-sharma-director-production.jpg" alt="Late Mr. Sukhram Sharma, Director - Production" loading="lazy" width="479" height="681">
+                            <span class="mgmt_memorial_tag">In Loving Memory</span>
+                        </div>
+                        <div class="mgmt_body">
+                            <h3>Late Mr. Sukhram Sharma</h3>
+                            <div class="leadership_title">Director &ndash; Production</div>
+                            <p>Mr. Sukhram Sharma, the youngest brother of Mr. Rajkumar Sharma and Mr. Ratan Kumar Sharma, was an integral part of National Plasto Products Pvt. Ltd. and made a significant contribution to the Company's growth and establishment.</p>
+                            <p>He was closely involved with the factory and production operations, where his hands-on approach and dedication earned him the trust and respect of the entire factory team. He shared a strong bond with the employees and treated them like family.</p>
+                            <p>Mr. Sukhram Sharma passed away three years ago, leaving behind a legacy of dedication, relationships and contribution to the Company's growth. He will always be remembered as a valued member of the NPPL family.</p>
+                        </div>
+                    </article>
+
+                    <article class="mgmt_card">
+                        <div class="mgmt_photo">
+                            <img src="images/team/bhavesh-sharma-executive-director.jpg" alt="Mr. Bhavesh Sharma, Executive Director" loading="lazy" width="720" height="900">
+                        </div>
+                        <div class="mgmt_body">
+                            <h3>Mr. Bhavesh Sharma</h3>
+                            <div class="leadership_title">Executive Director</div>
+                            <p>Mr. Bhavesh Sharma, son of Mr. Ratan Kumar Sharma, oversees production, sales and marketing across all four manufacturing units, working closely with teams to maintain consistency in quality, output and operations.</p>
+                            <p>A key part of the company's next phase of growth has been its expansion into E-Commerce. Under his leadership, NPPL has strengthened its presence on platforms such as Amazon and Flipkart, extending the company's reach beyond traditional dealer networks.</p>
+                            <p>With a hands-on approach and focus on exploring new markets, he continues to drive the company's growth while remaining firmly connected to the values on which NPPL was built.</p>
+                        </div>
+                    </article>
+
+                    <article class="mgmt_card">
+                        <div class="mgmt_photo">
+                            <img src="images/team/devesh-sharma-executive-director.jpg" alt="Mr. Devesh Sharma, Executive Director" loading="lazy" width="720" height="900">
+                        </div>
+                        <div class="mgmt_body">
+                            <h3>Mr. Devesh Sharma</h3>
+                            <div class="leadership_title">Executive Director</div>
+                            <p>Mr. Devesh Sharma, the youngest member of the family and son of Late Mr. Sukhram Sharma, oversees production and sales operations across the company's manufacturing units.</p>
+                            <p>Working closely with the teams on a day-to-day basis, he contributes to operational efficiency and the company's continued expansion. His attention to detail, willingness to embrace new challenges and commitment to the business reflect the evolving role of the next generation in taking NPPL forward.</p>
+                            <p>As part of the next generation of leadership, he continues to carry forward the company's values while contributing to its future growth and ambitions.</p>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -581,111 +761,97 @@
         <!-- ==========================================================================
          CORPORATE FOOTER (Supreme 1:1 Pixel-Perfect Layout)
          ========================================================================== -->
-    <footer>
+    <footer class="np-footer">
         <div class="scroll_section_box" id="scroll_btn">
             <div class="scroll icon">
                 <a class="scollTop" href="javascript:void(0);" onclick="$('html, body').animate({scrollTop:0}, 600);">
-                    <img src="images/icons/arrow_up.png" alt="scroll up">
+                    <img src="images/icons/arrow_up.png" alt="Back to top">
                 </a>
             </div>
         </div>
-        <div class="container">
-            <div class="footer-links footer_links_new">
-                <div class="footer_flex">
-                    <div class="page-links">
-                        <div class="inside-links">
-                            <ul class="footer_list">
-                                <li><a href="javascript:void(0);" class="bold-text">Businesses</a></li>
-                                <li><a href="products.html?category=chairs">Moulded Furniture</a></li>
-                                <li><a href="products.html?category=tables">Dining &amp; Multipurpose Tables</a></li>
-                                <li><a href="products.html?category=stools">Commercial Stools</a></li>
-                                <li><a href="products.html?category=baby-kids">Baby &amp; Kids Furniture</a></li>
-                                <li><a href="products.html?category=storage">Modular Storage &amp; Drawers</a></li>
-                                <li><a href="products.html?category=utility">Industrial Utility &amp; Crates</a></li>
-                            </ul>
-                        </div>
-                    </div>
 
-                    <div class="page-links link_padding">
-                        <ul class="footer_list">
-                            <li><a href="javascript:void(0);" class="bold-text">About Us</a></li>
-                            <li><a href="about.html">Overview</a></li>
-                            <li><a href="about.html#leadership">Leadership</a></li>
-                            <li><a href="manufacturing.html">Group Locations</a></li>
-                            <li><a href="index.html#sustainability_section">Sustainability</a></li>
-                            <li><a href="index.html#virtues_section">Corporate Virtues</a></li>
-                            <li><a href="index.html#milestones_section">Milestones</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="page-links">
-                        <ul class="footer_list">
-                            <li><a href="distributor.html" class="color_white">Dealer Desk</a></li>
-                            <li><a href="products.html" class="color_white">Product Catalog</a></li>
-                            <li class="career_top"><a href="manufacturing.html" class="color_white">Manufacturing</a></li>
-                            <li><a href="manufacturing.html#howrah">Howrah Facility</a></li>
-                            <li><a href="manufacturing.html#assam">Assam &amp; Bihar Hubs</a></li>
-                            <li><a href="distributor.html#portal">Trade Network</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="page-links">
-                        <ul class="footer_list">
-                            <li><a href="contact.html" class="bold-text">Contact Us</a></li>
-                            <li><a href="distributor.html" class="color_white">Find a Dealer</a></li>
-                            <li><a href="distributor.html" class="color_white">Become a Dealer</a></li>
-                            <li><a href="contact.html#locations" class="color_white">Head Office</a></li>
-                            <li><a href="contact.html#enquiry-section" class="color_white">Submit Enquiry</a></li>
-                        </ul>
-                    </div>
+        <div class="container np-footer-main">
+            <!-- Brand -->
+            <div class="np-footer-brand">
+                <div class="np-footer-logos">
+                    <a href="index.html" aria-label="National Plasto home"><img src="images/brand/national-plasto-dark.png" alt="National - NPPL" loading="lazy"></a>
+                    <span class="np-footer-divider" aria-hidden="true"></span>
+                    <a href="products.html?brand=next" aria-label="NEXT products"><img src="images/brand/next-nppl-dark.png" alt="Next - From the House of NPPL" loading="lazy"></a>
                 </div>
+                <p>Plastic moulded furniture for every space and every need &mdash; made in four ISO-certified plants across India since 1997.</p>
+                <ul class="np-footer-social">
+                    <li><a href="https://www.facebook.com/share/1GMoEgyWs7/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.linkedin.com/company/nationalplasto/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://www.instagram.com/national_plasto_group/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
 
-                <div class="footer_flex_right">
-                    <div class="footer_flex_img">
-                        <img src="images/icons/book.png" class="img-responsive" alt="book">
-                    </div>
-                    <div class="footer_flex_pdf">
-                        <p class="para-text" data-scroll>National Plasto Corporate Brochure</p>
-                        <div class="btn_section">
-                            <a href="javascript:void(0)" onclick="openBrochureModal()" class="btn_project_default">
-                                <img src="images/icons/icon_pdf.png" alt="pdf">VIEW BROCHURE
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <!-- Products -->
+            <nav class="np-footer-col" aria-label="Products">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="products.html?brand=next">NEXT &mdash; Premium</a></li>
+                    <li><a href="products.html?brand=national">NATIONAL</a></li>
+                    <li><a href="products.html?brand=captain">CAPTAIN</a></li>
+                    <li><a href="products.html?brand=sapphire">SAPPHIRE</a></li>
+                    <li><a href="products.html">Full Catalogue</a></li>
+                </ul>
+            </nav>
 
+            <!-- Company -->
+            <nav class="np-footer-col" aria-label="Company">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="about.html#leadership">Leadership</a></li>
+                    <li><a href="index.html#our-divisions">Our Divisions</a></li>
+                    <li><a href="manufacturing.html">Manufacturing</a></li>
+                    <li><a href="manufacturing.html#certifications">Certifications</a></li>
+                </ul>
+            </nav>
+
+            <!-- Dealers -->
+            <nav class="np-footer-col" aria-label="Dealers">
+                <h4>Dealers</h4>
+                <ul>
+                    <li><a href="distributor.html">Find a Dealer</a></li>
+                    <li><a href="distributor.html#portal">Become a Dealer</a></li>
+                    <li><a href="contact.html#enquiry-section">Bulk &amp; Institutional Orders</a></li>
+                </ul>
+            </nav>
+
+            <!-- Contact -->
+            <div class="np-footer-col np-footer-contact">
+                <h4>Contact</h4>
+                <address>
+                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>19 Sukeas Lane, Kolkata,<br>West Bengal, India 700001</span></p>
+                    <p><i class="fas fa-phone-alt" aria-hidden="true"></i><a href="tel:+919830012345">+91 98300 12345</a></p>
+                    <p><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:info@nationalplasto.com">info@nationalplasto.com</a></p>
+                    <p><i class="fab fa-whatsapp" aria-hidden="true"></i><a href="https://wa.me/919830012345" target="_blank" rel="noopener">Chat on WhatsApp</a></p>
+                </address>
             </div>
         </div>
 
-        <hr>
-
-        <div class="container footer_inner">
-            <div class="copyright_text">
-                <p>Copyright &copy; <span id="currentYear">2026</span> nationalplasto.com. All Rights Reserved.</p>
+        <div class="np-footer-bar">
+            <div class="container np-footer-bar-inner">
+                <p>&copy; <span id="currentYear">2026</span> National Plasto Products Private Limited. All Rights Reserved. Est. 1997 &middot; Precision Polymer Manufacturing.</p>
+                <nav class="np-footer-legal" aria-label="Legal">
+                    <a href="policies.html#privacy">Privacy Policy</a>
+                    <a href="policies.html#terms">Terms &amp; Conditions</a>
+                    <a href="policies.html#quality">Quality Policy</a>
+                </nav>
             </div>
-
-            <div class="page-links">
-                <div class="social_links">
-                    <ul class="social">
-                        <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a></li>
-                        <li><a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
-                        <li><a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="made_by_ting_sec made_by_agency">
-                <a href="javascript:void(0);" class="rem_link_style agency_credit_link" title="Made by Lionoar Digital">
-                    <span class="agency_made_by">Made by</span>
-                    <span class="agency_brand_tag">
-                        <i class="fas fa-heart agency_heart"></i>
-                        <span class="agency_brand_name">Lionoar Digital</span>
-                    </span>
-                </a>
+            <div class="container np-footer-credit">
+                <span>Made with <i class="fas fa-heart" aria-hidden="true"></i> by Lionoar Digital</span>
             </div>
         </div>
     </footer>
+
+    <!-- Floating WhatsApp chat -->
+    <a href="https://wa.me/919830012345?text=Hello%20National%20Plasto%2C%20I%20would%20like%20to%20know%20more%20about%20your%20products." class="np-whatsapp" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        <span>Chat with us</span>
+    </a>
 
     <!-- Corporate Brochure Modal -->
     <div class="np-modal-backdrop" id="brochureModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,0.8);z-index:99999;align-items:center;justify-content:center;">

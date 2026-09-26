@@ -69,6 +69,68 @@
 </head>
 <body id="index_page">
 
+    <!-- BRAND INTRO: National slides in from left, Next from right, then site intro -->
+    <div class="np-intro" id="np_intro" role="presentation">
+        <button type="button" class="np-intro__skip" id="np_intro_skip">Skip</button>
+        <div class="np-intro__logos">
+            <div class="np-intro__logo np-intro__logo--national">
+                <img src="images/brand/national-plasto-dark.png" alt="National - Excellence in Plastic Moulded Products">
+            </div>
+            <span class="np-intro__divider" aria-hidden="true"></span>
+            <div class="np-intro__logo np-intro__logo--next">
+                <img src="images/brand/next-nppl-dark.png" alt="Next - From the House of NPPL National">
+            </div>
+        </div>
+        <div class="np-intro__text">
+            <h2 class="np-intro__title">National Plasto Products Pvt. Ltd.</h2>
+            <p class="np-intro__tagline">Precision Plastic Moulded Products</p>
+            <p class="np-intro__meta">Since 1997 &middot; ISO Certified Plants &middot; Built for India</p>
+        </div>
+        <span class="np-intro__bar" aria-hidden="true"></span>
+    </div>
+    <script>
+    (function () {
+        var intro = document.getElementById('np_intro');
+        var root = document.documentElement;
+
+        // Play only when the site is opened fresh or reloaded — not when the
+        // visitor comes back to Home from another page of this site.
+        var navType = '';
+        try {
+            var nav = performance.getEntriesByType('navigation')[0];
+            navType = nav ? nav.type : (performance.navigation && performance.navigation.type === 1 ? 'reload' : '');
+        } catch (e) {}
+        var fromThisSite = false;
+        try {
+            fromThisSite = !!document.referrer && new URL(document.referrer).origin === location.origin;
+        } catch (e) {}
+        var seenThisTab = false;
+        try {
+            seenThisTab = sessionStorage.getItem('np_intro_seen') === '1';
+            sessionStorage.setItem('np_intro_seen', '1');
+        } catch (e) {}
+        if (navType !== 'reload' && (seenThisTab || fromThisSite || navType === 'back_forward')) {
+            intro.parentNode.removeChild(intro);
+            return;
+        }
+
+        root.classList.add('np-intro-lock');
+        if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+        window.scrollTo(0, 0);
+        function finish() {
+            root.classList.remove('np-intro-lock');
+            if (intro && intro.parentNode) { intro.parentNode.removeChild(intro); }
+        }
+        intro.addEventListener('animationend', function (e) {
+            if (e.target === intro) { finish(); }
+        });
+        document.getElementById('np_intro_skip').addEventListener('click', function () {
+            intro.classList.add('np-intro--skip');
+        });
+        setTimeout(finish, 6000); // safety net
+    })();
+    </script>
+
     <!-- DESKTOP SUPREME 1:1 HEADER -->
     <header class="header">
         <div class="container">
@@ -83,26 +145,29 @@
                     <li>
                         <a href="about.html">About Us</a>
                         <ul class="sub-menu">
-                            <li><a href="about.html">Overview & Pedigree</a></li>
-                            <li><a href="about.html#milestones">Milestones</a></li>
+                            <li><a href="about.html">Overview</a></li>
                             <li><a href="about.html#leadership">Leadership</a></li>
-                            <li><a href="about.html#sustainability">Sustainability</a></li>
+                            <li><a href="manufacturing.html">Manufacturing Facilities</a></li>
+                            <li><a href="manufacturing.html#certifications">Certifications</a></li>
+                            <li><a href="index.html#scroll_down">Virtues</a></li>
+                            <li><a href="index.html#our-divisions">Our Divisions</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="products.html">Products</a>
                         <ul class="sub-menu">
-                            <li><a href="products.html?cat=monoblock">Monoblock Chairs</a></li>
-                            <li><a href="products.html?cat=cushioned">Premium Cushioned & Dining</a></li>
-                            <li><a href="products.html?cat=tables">Tables & Desks</a></li>
-                            <li><a href="products.html?cat=stools">Heavy-Duty Stools</a></li>
-                            <li><a href="products.html?cat=storage">Modular Storage & Racks</a></li>
-                            <li><a href="products.html?cat=industrial">Industrial Crates & Handling</a></li>
+                            <li><a href="products.html?category=chairs">Moulded Furniture</a></li>
+                            <li><a href="products.html?category=tables">Dining Tables</a></li>
+                            <li><a href="products.html?category=stools">Commercial Stools</a></li>
+                            <li><a href="products.html?category=baby-kids">Baby &amp; Kids Furniture</a></li>
+                            <li><a href="products.html?category=storage">Modular Storage</a></li>
+                            <li><a href="products.html?category=utility">Industrial Crates</a></li>
                         </ul>
                     </li>
+                    <li><a href="distributor.html">Dealer Desk</a></li>
                     <li><a href="manufacturing.html">Manufacturing</a></li>
-                    <li><a href="distributor.html">Distributor Network</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
+                    <li class="np-nav-download-item"><a href="docs/national-plasto-catalogue-2026.pdf" class="np-nav-download" download><i class="fas fa-file-pdf" aria-hidden="true"></i> Catalogue</a></li>
                 </ul>
                 <ul class="social_links">
                     <li class="header_social search_icon">
@@ -119,16 +184,13 @@
                         </div>
                     </li>
                     <li class="header_social">
-                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/share/1GMoEgyWs7/?mibextid=wwXIfr" rel="noopener" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     </li>
                     <li class="header_social">
-                        <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.linkedin.com/company/nationalplasto/" rel="noopener" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </li>
                     <li class="header_social">
-                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </li>
-                    <li class="header_social">
-                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/national_plasto_group/" rel="noopener" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </li>
                 </ul>
             </nav>
@@ -162,48 +224,51 @@
     <!-- MOBILE SIDEBAR DRAWER -->
     <div class="sidebar_wrap">
         <div class="links">
-            <li><a href="index.html" class="single-link" style="color: #ED3237; font-weight: 700;">Home</a></li>
             <li>
                 <div class="dropdown">
-                    <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        About Us
+                    <span class="dropdown-toggle" id="dropdownMenuAbout" onclick="$(this).parent().toggleClass('open');">
+                        About us
                         <span class="caret"></span>
                     </span>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="about.html">Overview & Pedigree</a></li>
-                        <li><a href="about.html#milestones">Milestones</a></li>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">Overview</a></li>
                         <li><a href="about.html#leadership">Leadership</a></li>
-                        <li><a href="about.html#sustainability">Sustainability</a></li>
+                        <li><a href="manufacturing.html">Manufacturing Facilities</a></li>
+                        <li><a href="manufacturing.html#certifications">Certifications</a></li>
+                        <li><a href="index.html#scroll_down">Virtues</a></li>
+                        <li><a href="index.html#our-divisions">Our Divisions</a></li>
                     </ul>
                 </div>
             </li>
             <li>
                 <div class="dropdown">
-                    <span class="dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="dropdown-toggle" id="dropdownMenuBiz" onclick="$(this).parent().toggleClass('open');">
                         Products
                         <span class="caret"></span>
                     </span>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <li><a href="products.html?cat=monoblock">Monoblock Chairs</a></li>
-                        <li><a href="products.html?cat=cushioned">Premium Cushioned & Dining</a></li>
-                        <li><a href="products.html?cat=tables">Tables & Desks</a></li>
-                        <li><a href="products.html?cat=stools">Heavy-Duty Stools</a></li>
-                        <li><a href="products.html?cat=storage">Modular Storage & Racks</a></li>
-                        <li><a href="products.html?cat=industrial">Industrial Crates & Handling</a></li>
+                    <ul class="dropdown-menu">
+                        <li><a href="products.html?category=chairs">Moulded Furniture</a></li>
+                        <li><a href="products.html?category=tables">Dining &amp; Multipurpose Tables</a></li>
+                        <li><a href="products.html?category=stools">Commercial &amp; Step Stools</a></li>
+                        <li><a href="products.html?category=baby-kids">Baby &amp; Kids Furniture</a></li>
+                        <li><a href="products.html?category=storage">Modular Storage &amp; Drawers</a></li>
+                        <li><a href="products.html?category=utility">Industrial Utility &amp; Crates</a></li>
                     </ul>
                 </div>
             </li>
-            <li><a href="manufacturing.html" class="single-link">Manufacturing</a></li>
-            <li><a href="distributor.html" class="single-link">Distributor Network</a></li>
-            <li><a href="contact.html" class="single-link">Contact Us</a></li>
+            <li><a href="manufacturing.html">Manufacturing Hubs</a></li>
+            <li><a href="distributor.html">Distributor Desk</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </div>
+        <div class="download-div np-side-download">
+            <a href="docs/national-plasto-catalogue-2026.pdf" download class="btn_project_default"><i class="fas fa-file-pdf" aria-hidden="true"></i> Download Catalogue</a>
         </div>
         <div class="social_main">
             <p>Connect with us</p>
             <ul class="social_links">
-                <li class="header_social"><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                <li class="header_social"><a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a></li>
-                <li class="header_social"><a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-                <li class="header_social"><a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                <li class="header_social"><a href="https://www.facebook.com/share/1GMoEgyWs7/?mibextid=wwXIfr" rel="noopener" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                <li class="header_social"><a href="https://www.linkedin.com/company/nationalplasto/" rel="noopener" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                <li class="header_social"><a href="https://www.instagram.com/national_plasto_group/" rel="noopener" target="_blank"><i class="fab fa-instagram"></i></a></li>
             </ul>
         </div>
     </div>
@@ -213,88 +278,87 @@
 
       <div class="slider home-banner-slider">
 
-        <div class="banner_item">
+        <div class="banner_item np-hero-slide" data-brand="next">
           <div class="banner-slider-img banner-slider-img1">
             <div class="banner_img">
-              <img src="https://www.supreme.co.in/dist/img/home/banner_slider/banner_one.jpg" class="img-responsive mobile_banner_hide"
-                alt="banner img">
-              <img src="https://www.supreme.co.in/dist/img/home/banner_slider/banner_mobile_one.jpg" class="img-responsive mobile_banner_show"
-                alt="banner img">
+              <video class="np-hero-video mobile_banner_hide" muted playsinline preload="auto"
+                poster="images/banner/next.jpg" aria-label="NEXT product showcase">
+                <source src="images/banner/next.mp4" type="video/mp4">
+              </video>
+              <video class="np-hero-video mobile_banner_show" muted playsinline preload="auto"
+                poster="images/banner/next-mobile.jpg" aria-label="NEXT product showcase">
+                <source src="images/banner/next-mobile.mp4" type="video/mp4">
+              </video>
             </div>
             <div class="banner_content">
-              <h2 class="heading-text">Innovations that <br> transform the <br>way of life</h2>
+              <h2 class="heading-text"><span class="np-hero-brand">NEXT</span>Premium virgin <br>plastic furniture</h2>
+              <a href="products.html?brand=next" class="np-hero-cta">Explore NEXT <span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
 
         </div>
 
-        <div class="banner_item">
+        <div class="banner_item np-hero-slide" data-brand="national">
           <div class="banner-slider-img banner-slider-img2">
             <div class="banner_img">
-              <img src="https://www.supreme.co.in/dist/img/home/banner_slider/banner_two.jpg" class="img-responsive mobile_banner_hide"
-                alt="banner img">
-              <img src="https://www.supreme.co.in/dist/img/home/banner_slider/banner_mobile_two.jpg" class="img-responsive mobile_banner_show"
-                alt="banner img">
+              <video class="np-hero-video mobile_banner_hide" muted playsinline preload="metadata"
+                poster="images/banner/national.jpg" aria-label="NATIONAL product showcase">
+                <source src="images/banner/national.mp4" type="video/mp4">
+              </video>
+              <video class="np-hero-video mobile_banner_show" muted playsinline preload="metadata"
+                poster="images/banner/national-mobile.jpg" aria-label="NATIONAL product showcase">
+                <source src="images/banner/national-mobile.mp4" type="video/mp4">
+              </video>
             </div>
-            <div class="banner_content white_color">
-              <h2 class="heading-text">Nurturing a <br>legacy of trust</h2>
+            <div class="banner_content">
+              <h2 class="heading-text"><span class="np-hero-brand">NATIONAL</span>Value, variety &amp; <br>trust for every space</h2>
+              <a href="products.html?brand=national" class="np-hero-cta">Explore NATIONAL <span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
 
         </div>
 
-        <div class="banner_item">
+        <div class="banner_item np-hero-slide" data-brand="captain">
           <div class="banner-slider-img banner-slider-img3">
             <div class="banner_img">
-              <img src="https://www.supreme.co.in/dist/img/home/banner_slider/banner_three.jpg" class="img-responsive mobile_banner_hide"
-                alt="banner img">
-              <img src="https://www.supreme.co.in/dist/img/home/banner_slider/banner_mobile_three.jpg" class="img-responsive mobile_banner_show"
-                alt="banner img">
+              <video class="np-hero-video mobile_banner_hide" muted playsinline preload="metadata"
+                poster="images/banner/captain.jpg" aria-label="CAPTAIN product showcase">
+                <source src="images/banner/captain.mp4" type="video/mp4">
+              </video>
+              <video class="np-hero-video mobile_banner_show" muted playsinline preload="metadata"
+                poster="images/banner/captain-mobile.jpg" aria-label="CAPTAIN product showcase">
+                <source src="images/banner/captain-mobile.mp4" type="video/mp4">
+              </video>
             </div>
             <div class="banner_content">
-              <h2 class="heading-text">Committed to <br> improving quality <br>of life </h2>
+              <h2 class="heading-text"><span class="np-hero-brand">CAPTAIN</span>Economical furniture <br>for everyday use</h2>
+              <a href="products.html?brand=captain" class="np-hero-cta">Explore CAPTAIN <span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
 
         </div>
 
-        <div class="banner_item">
+        <div class="banner_item np-hero-slide" data-brand="sapphire">
           <div class="banner-slider-img banner-slider-img4">
             <div class="banner_img">
-              <img src="https://www.supreme.co.in/dist/img/home/banner_slider/banner_four.jpg" class="img-responsive mobile_banner_hide"
-                alt="banner img">
-              <img src="https://www.supreme.co.in/dist/img/home/banner_slider/banner_mobile_four.jpg" class="img-responsive mobile_banner_show"
-                alt="banner img">
-            </div>
-            <div class="banner_content white_color">
-              <h2 class="heading-text">Growing responsibly <br> for a better tommorow </h2>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="banner_item">
-          <div class="banner-slider-img banner-slider-img5">
-            <div class="banner_img">
-              <img src="https://www.supreme.co.in/dist/img/home/banner_slider/banner_five.jpg" class="img-responsive mobile_banner_hide"
-                alt="banner img">
-              <img src="https://www.supreme.co.in/dist/img/home/banner_slider/banner_mobile_five.jpg" class="img-responsive mobile_banner_show"
-                alt="banner img">
+              <video class="np-hero-video mobile_banner_hide" muted playsinline preload="metadata"
+                poster="images/banner/sapphire.jpg" aria-label="SAPPHIRE product showcase">
+                <source src="images/banner/sapphire.mp4" type="video/mp4">
+              </video>
+              <video class="np-hero-video mobile_banner_show" muted playsinline preload="metadata"
+                poster="images/banner/sapphire-mobile.jpg" aria-label="SAPPHIRE product showcase">
+                <source src="images/banner/sapphire-mobile.mp4" type="video/mp4">
+              </video>
             </div>
             <div class="banner_content">
-              <h2 class="heading-text">Building a <br> sustainable future </h2>
+              <h2 class="heading-text"><span class="np-hero-brand">SAPPHIRE</span>A distinct range <br>of value seating</h2>
+              <a href="products.html?brand=sapphire" class="np-hero-cta">Explore SAPPHIRE <span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
 
         </div>
 
       </div>
-      <!-- <div class="how_blume_work_left">
-        <video loop="" muted="" autoplay="">
-          <source type="video/mp4" src="https://www.supreme.co.in/dist/img/home/banner_video.mp4">
-        </video>
-      </div> -->
-
       <div class="scrool-down">
         <div class="l-section-top">
           <div class="scroll_down">
@@ -378,7 +442,7 @@
                   <img src="images/icons/people_first.gif" alt="icon">
                 </div>
                 <h4 class="subheading-text">People First</h4>
-                <p class="para-text">Supreme has always placed a great emphasis on taking care of those who are
+                <p class="para-text">National Plasto has always placed a great emphasis on taking care of those who are
                   associated with us as they are one of our greatest assets.</p>
               </div>
             </div>
@@ -405,14 +469,15 @@
       <div class="container">
         <div class="testimonial_flex">
           <div class="testimonial_img" data-scroll>
-            <img src="images/team/rajkumar-sharma.jpg" loading="lazy" data-lazy-src="images/team/rajkumar-sharma.jpg" class="img-responsive" alt="icon">
+            <img src="images/team/ratan-kumar-sharma-cmd.jpg" loading="lazy" data-lazy-src="images/team/ratan-kumar-sharma-cmd.jpg" class="img-responsive" alt="Mr. Ratan Kumar Sharma, Chairman &amp; Managing Director">
           </div>
           <div class="testimonial_content toTop" data-scroll>
             <p class="para-text color_para"><span class="quate_img"><img src="images/icons/quate_one.jpg"
-                  alt="icon"></span><span>National Plasto has always nurtured a positive and customer-centric attitude. We express our gratitude by delivering dignity, durability, and innovation to our partners and customers. Every product and mould remains rooted in precision, humility, stakeholder empathy, and perseverance as we build sustainable, high-performance polymer solutions for India.</span></p>
+                  alt="icon"></span><span>Every business goes through difficult phases. What matters is not avoiding losses, but learning from them and growing bigger and better each time. My father taught me that how you treat people matters as much as how you run a business &mdash; that belief has shaped this company since 1997, and it continues to guide how we build for the future.</span></p>
             <div class="testmonial_name">
-              <h3>Rajkumar Sharma</h3>
-              <p class="para-text color_para">Founder & Chairman, National Plasto Products Pvt. Ltd.</p>
+              <h3>Ratan Kumar Sharma</h3>
+              <p class="para-text color_para">Founder, Chairman &amp; Managing Director, National Plasto Products Pvt. Ltd.</p>
+              <a href="about.html#leadership" class="btn_project_default" style="margin-top:14px;display:inline-block;">Meet Our Management</a>
             </div>
           </div>
         </div>
@@ -427,8 +492,8 @@
               <h2 class="heading-text"><span class="color_red_home">India's Leading</span> Precision Plastic Processor</h2>
             </div>
             <div class="largest_plastic_content toTop" data-scroll>
-              <p class="para-text color_para">Powered by a robust infrastructure and expertise, Supreme is India's
-                largest plastic manufacturing and processing company.</p>
+              <p class="para-text color_para">Powered by four ISO-certified manufacturing plants and a family-led management team,
+                National Plasto has been making plastic moulded furniture for every space and every need since 1997.</p>
               <div class="btn_section">
                 <a href="about.html" class="btn_project_default">About Us</a>
               </div>
@@ -466,20 +531,20 @@
                 <p class="para-text">Distributors & Dealers</p>
               </div>
               <div class="value_content">
-                <h5>6</h5>
-                <p class="para-text">Business Verticals</p>
+                <h5>4</h5>
+                <p class="para-text">Brands &amp; Divisions</p>
               </div>
 
             </div>
 
             <div class="value_item value_item_flex">
               <div class="value_content">
-                <h5>2</h5>
-                <p class="para-text">Manufacturing Hubs</p>
+                <h5>4</h5>
+                <p class="para-text">Manufacturing Plants</p>
               </div>
               <div class="value_content">
-                <h5>ISO 9001:2015</h5>
-                <p class="para-text">Certified Quality Rating</p>
+                <h5><a href="manufacturing.html#certifications" style="color:inherit;">ISO &middot; CE &middot; BIFMA</a></h5>
+                <p class="para-text">Certified Plants</p>
               </div>
 
             </div>
@@ -537,767 +602,100 @@
         </div>
       </div>
     </section>
-<section class="our_business_main">
+<section class="np-div" id="our-divisions">
       <div class="container">
-        <div class="our_business_flex">
-
-          <div class="our_business_title">
-            <h2 class="heading-text di_none">Our <span class="color_red_home">Businesses</span></h2>
-            <div class="our_business_title_slider" id="business_title">
-              <div class="slider_title_item">
-				<a href="products.html">
-					<h4 class="subheading-text">Moulded Furniture <img src="images/icons/arrow-right.svg" loading="lazy" data-lazy-src="images/icons/arrow-right.svg"
-						class="slider_arrow" alt="icon">
-					</h4>
-				</a>
-
-              </div>
-              <div class="slider_title_item">
-				<a href="products.html">
-					<h4 class="subheading-text">Industrial Crates & Handling <img src="images/icons/arrow-right.svg" loading="lazy" data-lazy-src="images/icons/arrow-right.svg"
-						class="slider_arrow" alt="icon"></h4>
-				</a>
-
-              </div>
-              <div class="slider_title_item">
-				<a href="products.html">
-					<h4 class="subheading-text">Moulded Furniture <img src="images/icons/arrow-right.svg" loading="lazy" data-lazy-src="images/icons/arrow-right.svg"
-						class="slider_arrow" alt="icon"></h4>
-				</a>
-
-              </div>
-              <div class="slider_title_item">
-				<a href="products.html">
-					<h4 class="subheading-text">Heavy-Duty Stools & Seating <img src="images/icons/arrow-right.svg" loading="lazy" data-lazy-src="images/icons/arrow-right.svg"
-						class="slider_arrow" alt="icon"></h4>
-				</a>
-
-              </div>
-              <div class="slider_title_item">
-				<a href="products.html">
-					<h4 class="subheading-text">Modular Storage & Racks <img src="images/icons/arrow-right.svg" loading="lazy" data-lazy-src="images/icons/arrow-right.svg"
-						class="slider_arrow" alt="icon"></h4>
-				</a>
-
-              </div>
-              <div class="slider_title_item">
-				<a href="products.html">
-					<h4 class="subheading-text">Custom Industrial Polymers <img src="images/icons/arrow-right.svg" loading="lazy" data-lazy-src="images/icons/arrow-right.svg"
-						class="slider_arrow" alt="icon"></h4>
-				</a>
-
-              </div>
-              <div class="slider_title_item">
-				<a href="products.html">
-					<h4 class="subheading-text">Institutional & School Furniture <img src="images/icons/arrow-right.svg" loading="lazy" data-lazy-src="images/icons/arrow-right.svg"
-						class="slider_arrow" alt="icon"></h4>
-				</a>
-
-              </div>
-
-              <div class="slider_title_item">
-				<a href="products.html">
-					<h4 class="subheading-text">Hospitality & Commercial Seating <img src="images/icons/arrow-right.svg" loading="lazy" data-lazy-src="images/icons/arrow-right.svg"
-						class="slider_arrow" alt="icon"></h4>
-				</a>
-
-              </div>
-              <div class="slider_title_item">
-				<a href="products.html">
-					<h4 class="subheading-text">Eco-Polymer Household Solutions <img src="images/icons/arrow-right.svg" loading="lazy" data-lazy-src="images/icons/arrow-right.svg"
-						class="slider_arrow" alt="icon"></h4>
-				</a>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="our_business_img">
-            <h2 class="heading-text di_show">Our <span class="color_red_home">Businesses</span></h2>
-            <div class="our_business_img_slider" id="business_img">
-              <div class="our_business_img_item">
-                <img src="images/business/heavy-duty-stools.jpg" loading="lazy" data-lazy-src="images/business/heavy-duty-stools.jpg" class="img-responsive" alt="business img">
-              </div>
-              <div class="our_business_img_item">
-                <img src="images/business/dining-tables.jpg" loading="lazy" data-lazy-src="images/business/dining-tables.jpg" class="img-responsive" alt="business img">
-              </div>
-              <div class="our_business_img_item">
-                <img src="images/business/moulded-furniture.jpg" loading="lazy" data-lazy-src="images/business/moulded-furniture.jpg" class="img-responsive" alt="business img">
-              </div>
-              <div class="our_business_img_item">
-                <img src="images/business/modular-storage.jpg" loading="lazy" data-lazy-src="images/business/modular-storage.jpg" class="img-responsive" alt="business img">
-              </div>
-              <div class="our_business_img_item">
-                <img src="images/brand/ind-automotive.jpg" loading="lazy" data-lazy-src="images/brand/ind-automotive.jpg" class="img-responsive" alt="business img">
-              </div>
-              <div class="our_business_img_item">
-                <img src="https://www.supreme.co.in/dist/img/home/industrial_product.jpg" loading="lazy" data-lazy-src="https://www.supreme.co.in/dist/img/home/industrial_product.jpg" class="img-responsive" alt="business img">
-              </div>
-              <div class="our_business_img_item">
-                <img src="images/business/industrial-crates.jpg" loading="lazy" data-lazy-src="images/business/industrial-crates.jpg" class="img-responsive" alt="business img">
-              </div>
-
-              <div class="our_business_img_item">
-                <img src="https://www.supreme.co.in/dist/img/home/performance_films.jpg" loading="lazy" data-lazy-src="https://www.supreme.co.in/dist/img/home/performance_films.jpg" class="img-responsive" alt="business img">
-              </div>
-              <div class="our_business_img_item">
-                <img src="images/brand/ind-home.jpg" loading="lazy" data-lazy-src="images/brand/ind-home.jpg" class="img-responsive" alt="business img">
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-<section class="milestones_main">
-
-      <div class="container">
-
-        <div class="milestones_title">
-          <h2 class="heading-text"><span class="color_red_home">National Plasto</span> Milestones</h2>
-          <div class="btn_section">
-            <a href="about.html#milestones" class="btn_project_default">MILESTONES</a>
-          </div>
+        <div class="np-div-head">
+          <span class="np-div-eyebrow">Our Divisions</span>
+          <h2 class="heading-text">One Company. <span class="color_red_home">Four Distinct Market Propositions.</span></h2>
+          <p>From premium virgin-plastic furniture to economical reprocessed-plastic solutions, our four divisions allow us to serve customers across multiple price points and market segments.</p>
+          <p>Each division has its own identity, product focus and customer proposition &mdash; while collectively contributing to our larger vision of making quality plastic furniture accessible to every space and every need.</p>
         </div>
 
-      </div>
-
-      <div class="container right-zero">
-
-        <div class="milestones_slider" id="milestones_slider">
-
-          <div class="milestones_flex">
-            <div class="dassed_border"></div>
-            <div class="milestones_img">
-              <img src="https://www.supreme.co.in/dist/img/home/milstone_img.jpg" loading="lazy" data-lazy-src="https://www.supreme.co.in/dist/img/home/milstone_img.jpg" class="img-responsive" alt="business img">
+        <!-- 01 NEXT -->
+        <article class="np-div-row np-div-next">
+          <a class="np-div-stage" href="products.html?brand=next" aria-label="Explore the NEXT range">
+            <span class="np-div-num" aria-hidden="true">01</span>
+            <span class="np-div-badge"><img src="images/brand/company-next-logo.png" alt="NEXT" loading="lazy"></span>
+            <div class="np-div-products">
+              <img class="np-div-side" src="images/catalogue/next/next-caliber-super-deluxe-armless-chairs-1.webp" alt="NEXT Caliber Super Deluxe chair" loading="lazy">
+              <img class="np-div-hero" src="images/catalogue/next/next-vanity-super-deluxe-premium-arm-chairs-1.webp" alt="NEXT Vanity Super Deluxe chair" loading="lazy">
+              <img class="np-div-side" src="images/catalogue/next/next-kraft-1.webp" alt="NEXT Kraft steel moulded chair" loading="lazy">
             </div>
-
-            <div class="milestones_content">
-              <h2 class="heading-text"><span class="color_red_home fonthigh">1942</span></h2>
-              <p class="para-text color_para">8 decades ago, as India fought for independence, a group of
-                enterprising promoters laid the foundation for a new venture. The Modi family established Supreme
-                Industries Limited to produce and market various products.</p>
-            </div>
+          </a>
+          <div class="np-div-text">
+            <span class="np-div-index">01</span>
+            <h3>NEXT</h3>
+            <span class="np-div-tag">Premium Virgin Plastic Furniture</span>
+            <p>NEXT represents our premium segment of plastic moulded furniture, developed for customers seeking a combination of premium materials, contemporary designs, functionality and superior aesthetics.</p>
+            <p>The division primarily focuses on products manufactured using virgin plastic, allowing us to develop furniture with a premium look and finish for modern homes and contemporary spaces.</p>
+            <a class="np-div-cta" href="products.html?brand=next">Explore NEXT range <span aria-hidden="true">&rarr;</span></a>
           </div>
+        </article>
 
-          <div class="milestones_flex">
-            <div class="dassed_border"></div>
-            <div class="milestones_img">
-              <img src="https://www.supreme.co.in/dist/img/home/s1942_66.jpg" loading="lazy" data-lazy-src="https://www.supreme.co.in/dist/img/home/s1942_66.jpg" class="img-responsive" alt="business img">
+        <!-- 02 NATIONAL -->
+        <article class="np-div-row np-div-national np-div-flip">
+          <a class="np-div-stage" href="products.html?brand=national" aria-label="Explore the NATIONAL range">
+            <span class="np-div-num" aria-hidden="true">02</span>
+            <span class="np-div-badge"><img src="images/brand/company-national-logo.png" alt="NATIONAL" loading="lazy"></span>
+            <div class="np-div-products">
+              <img class="np-div-side" src="images/catalogue/national/national-dream-1.webp" alt="NATIONAL Dream arm chair" loading="lazy">
+              <img class="np-div-hero" src="images/catalogue/national/national-galaxy-premium-1.webp" alt="NATIONAL Galaxy Premium arm chair" loading="lazy">
+              <img class="np-div-side" src="images/catalogue/national/national-fusion-1.webp" alt="NATIONAL Fusion arm chair" loading="lazy">
             </div>
-
-            <div class="milestones_content">
-              <h2 class="heading-text"><span class="color_red_home">1942-1966</span></h2>
-              <p class="para-text color_para">The company started to bloom as its turnover reached 18.77 lakh rupees in
-                1965-66 which is equivalent to today's 40 CR. In August 1966, Supreme's management was taken over by
-                the Taparia family who defined the field of plastic processing as the company's core business.</p>
-            </div>
+          </a>
+          <div class="np-div-text">
+            <span class="np-div-index">02</span>
+            <h3>NATIONAL</h3>
+            <span class="np-div-tag">Semi-Virgin &amp; Reprocessed Plastic Furniture</span>
+            <p>NATIONAL is our established mass-market plastic furniture division, offering a broad range of products designed to provide value, functionality and accessibility to customers across India.</p>
+            <p>The division works with a combination of semi-virgin and reprocessed plastic, enabling us to offer a wide product portfolio across different price points.</p>
+            <p>NATIONAL is positioned as one of India's leading reprocessed plastic furniture brands, with a strong presence across the market. Its broad product range allows the brand to address diverse requirements across households, businesses, institutions and other establishments.</p>
+            <a class="np-div-cta" href="products.html?brand=national">Explore NATIONAL range <span aria-hidden="true">&rarr;</span></a>
           </div>
+        </article>
 
-          <div class="milestones_flex">
-            <div class="dassed_border"></div>
-            <div class="milestones_img">
-              <img src="https://www.supreme.co.in/dist/img/home/Milestones-1966-80.png" loading="lazy" data-lazy-src="https://www.supreme.co.in/dist/img/home/Milestones-1966-80.png" class="img-responsive" alt="business img">
+        <!-- 03 CAPTAIN -->
+        <article class="np-div-row np-div-captain">
+          <a class="np-div-stage" href="products.html?brand=captain" aria-label="Explore the CAPTAIN range">
+            <span class="np-div-num" aria-hidden="true">03</span>
+            <span class="np-div-badge"><img src="images/brand/captain-logo.png" alt="CAPTAIN" loading="lazy"></span>
+            <div class="np-div-products">
+              <img class="np-div-side" src="images/catalogue/captain/captain-baby-ultimate-1.webp" alt="CAPTAIN Baby Ultimate chair" loading="lazy">
+              <img class="np-div-hero" src="images/catalogue/captain/captain-curl-1.webp" alt="CAPTAIN Curl arm chair" loading="lazy">
+              <img class="np-div-side" src="images/catalogue/captain/captain-charm-2.webp" alt="CAPTAIN Charm stool" loading="lazy">
             </div>
-
-            <div class="milestones_content">
-              <h2 class="heading-text"><span class="color_red_home">1966-1980</span></h2>
-              <p class="para-text color_para">Supreme soon opened the floodgates of development and expansion,
-                transforming the company into a leading powerhouse in the realm of plastic products, pioneering the
-                manufacture of 'Satranj' PP mats, PVC pipes, HMHDPE film and bags, and injection moulded plastic
-                products. In 1974, the company started manufacturing units at Andheri & Taloja</p>
-            </div>
+          </a>
+          <div class="np-div-text">
+            <span class="np-div-index">03</span>
+            <h3>CAPTAIN</h3>
+            <span class="np-div-tag">Economical Reprocessed Plastic Furniture</span>
+            <p>CAPTAIN is focused on providing economical plastic furniture solutions using reprocessed plastic.</p>
+            <p>The division is designed around affordability, practicality and high-volume everyday use, making it particularly relevant to customers in Tier 2 and Tier 3 cities and towns.</p>
+            <a class="np-div-cta" href="products.html?brand=captain">Explore CAPTAIN range <span aria-hidden="true">&rarr;</span></a>
           </div>
+        </article>
 
-          <div class="milestones_flex">
-            <div class="dassed_border"></div>
-            <div class="milestones_img">
-              <img src="https://www.supreme.co.in/dist/img/home/s1981_90.jpg" loading="lazy" data-lazy-src="https://www.supreme.co.in/dist/img/home/s1981_90.jpg" class="img-responsive" alt="business img">
+        <!-- 04 SAPPHIRE -->
+        <article class="np-div-row np-div-sapphire np-div-flip">
+          <a class="np-div-stage" href="products.html?brand=sapphire" aria-label="Explore the SAPPHIRE range">
+            <span class="np-div-num" aria-hidden="true">04</span>
+            <span class="np-div-badge"><img src="images/brand/sapphire-logo.png" alt="NATIONAL SAPPHIRE" loading="lazy"></span>
+            <div class="np-div-products">
+              <img class="np-div-side" src="images/catalogue/sapphire/sapphire-pluto-2.webp" alt="SAPPHIRE Pluto chair" loading="lazy">
+              <img class="np-div-hero" src="images/catalogue/sapphire/sapphire-safari-2.webp" alt="SAPPHIRE Safari arm chair" loading="lazy">
+              <img class="np-div-side" src="images/catalogue/sapphire/sapphire-disc-1.webp" alt="SAPPHIRE Disc stool" loading="lazy">
             </div>
-
-            <div class="milestones_content">
-              <h2 class="heading-text"><span class="color_red_home">1981-1990</span></h2>
-              <p class="para-text color_para">During 1981-82, the Taloja unit began producing polyethylene foam. Soon
-                after, Supreme collaborated with Rasmussen Polymer Development AG, Switzerland to set up Siltap
-                Chemicals Ltd. to manufacture cross laminated films. The company started spreading its roots across the
-                nation with new manufacturing units in Jalgaon (PVC pipes and fittings) and Noida (IPD). In 1989-90, the
-                Group crossed the landmark milestone of Rs 100 crore sales turnover and also opened a state-of-the-art
-                Technology Centre at Goregaon, Mumbai.</p>
-            </div>
+          </a>
+          <div class="np-div-text">
+            <span class="np-div-index">04</span>
+            <h3>SAPPHIRE</h3>
+            <span class="np-div-tag">Economical Reprocessed Plastic Furniture</span>
+            <p>SAPPHIRE operates in a similar economical segment to CAPTAIN, with a distinct focus within the chair, table, stool and baby chair category.</p>
+            <p>The division uses reprocessed plastic and is positioned to address the requirements of price-conscious markets, particularly across Tier 2 and Tier 3 cities.</p>
+            <p>While CAPTAIN has a broader focus covering chairs, tables and children's furniture, SAPPHIRE provides a separate and differentiated range of chairs, allowing us to address another segment of the market.</p>
+            <a class="np-div-cta" href="products.html?brand=sapphire">Explore SAPPHIRE range <span aria-hidden="true">&rarr;</span></a>
           </div>
-
-          <div class="milestones_flex">
-            <div class="dassed_border"></div>
-            <div class="milestones_img">
-              <img src="https://www.supreme.co.in/dist/img/home/s1991_2000.jpg" loading="lazy" data-lazy-src="https://www.supreme.co.in/dist/img/home/s1991_2000.jpg" class="img-responsive" alt="business img">
-            </div>
-
-            <div class="milestones_content">
-              <h2 class="heading-text"><span class="color_red_home">1991-2000</span></h2>
-              <p class="para-text color_para">Supreme scaled high and wide - from pioneering new product
-                verticals such as plastic moulded furniture, thermoformed food service ware, crates, multilayer sheets,
-                BOPP films and non crosslinked PE foam products to establishing new manufacturing units in Daman,
-                Puducherry, Malanpur, Silvassa and Kolkata. Furthermore, the company reached unprecedented heights
-                through major acquisitions and joint ventures. Supreme became the first Indian corporation in the
-                plastic sector to accomplish ISO 14002/ISO 9002 Certification and ISO 9001 Certification, paving the way
-                for another defining decade.</p>
-            </div>
-          </div>
-
-          <div class="milestones_flex">
-            <div class="dassed_border"></div>
-            <div class="milestones_img">
-              <img src="https://www.supreme.co.in/dist/img/home/s2001_2010.jpg" loading="lazy" data-lazy-src="https://www.supreme.co.in/dist/img/home/s2001_2010.jpg" class="img-responsive" alt="business img">
-            </div>
-
-            <div class="milestones_content">
-              <h2 class="heading-text"><span class="color_red_home">2001-2010</span></h2>
-              <p class="para-text color_para">The cruise of expansion continued for Supreme with 7 new
-                manufacturing plants. At the start of the decade, 5 new plants came up in Punjab, Rajasthan, Assam,
-                U.P., and West Bengal which marked Supreme’s PAN India presence. Following this, in 2007-08 Supreme
-                built a 132-acre mega-complex to produce diverse plastic products in Gadegaon, Maharashtra. Thereafter,
-                Supreme started a production unit at Urse near Pune for protective packaging products. With projects of
-                such a magnum scale, Supreme set things in motion for a golden decade.</p>
-            </div>
-          </div>
-
-          <div class="milestones_flex">
-            <div class="dassed_border"></div>
-            <div class="milestones_img">
-              <img src="https://www.supreme.co.in/dist/img/home/s2011_2015.jpg" loading="lazy" data-lazy-src="https://www.supreme.co.in/dist/img/home/s2011_2015.jpg" class="img-responsive" alt="business img">
-            </div>
-
-            <div class="milestones_content">
-              <h2 class="heading-text"><span class="color_red_home">2011-2015</span></h2>
-              <p class="para-text color_para">Supreme established a one-of-a-kind ‘Knowledge Centre’ to train plumbing
-                professionals. The company also built Supreme Chambers, a Platinum Rated Green Building in Andheri.
-                Supreme started its manufacturing units in Chennai and Noida for industrial products & Hosur for
-                protective packaging products. The company also revamped the Malanpur Plant & built extensive facilities
-                at the Gadegaon Plant in Maharashtra. Supreme achieved two milestones in the year 2014-15. First,
-                Supreme secured exclusive global rights to produce and market cross laminated film products. Second, the
-                company also began commercial production of composite cylinders in Halol, Gujarat.</p>
-            </div>
-          </div>
-
-          <div class="milestones_flex">
-            <div class="dassed_border"></div>
-            <div class="milestones_img">
-              <img src="https://www.supreme.co.in/dist/img/home/s2016_2020.jpg" loading="lazy" data-lazy-src="https://www.supreme.co.in/dist/img/home/s2016_2020.jpg" class="img-responsive" alt="business img">
-            </div>
-
-            <div class="milestones_content">
-              <h2 class="heading-text"><span class="color_red_home">2016-2020</span></h2>
-              <p class="para-text color_para">Supreme established two new multi-product mega complexes – the first one
-                was at Kharagpur (West Bengal), spread across 59 Acres and another one was at Jadcherla (Telangana),
-                spread across 50 acres. Meanwhile, the company also established a new facility in Giloth (Rajasthan) for
-                the production of industrial moulded products. Supreme also expanded its facilities in Kanpur and Hosur.
-                The company started manufacturing new product lines like water tanks, blow moulded furniture &
-                rotomoulded products. </p>
-            </div>
-          </div>
-
-          <div class="milestones_flex">
-            <div class="dassed_border"></div>
-            <div class="milestones_img">
-              <img src="https://www.supreme.co.in/dist/img/home/s2021_onwards.jpg" loading="lazy" data-lazy-src="https://www.supreme.co.in/dist/img/home/s2021_onwards.jpg" class="img-responsive" alt="business img">
-            </div>
-
-            <div class="milestones_content">
-              <h2 class="heading-text"><span class="color_red_home">2021 <span
-                    class="font_small">onwards...</span></span></h2>
-              <p class="para-text color_para">In the new decade, Supreme initiated three greenfield projects in
-                Guwahati, Cuttack & Erode, paving the way for deeper penetration across India. With net revenue of 7841
-                CR in 2021-22, Supreme's journey only seems to escalate moving forward. Supreme has also taken up many
-                sustainability initiatives in terms of manufacturing processes that will reduce its carbon footprints.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-
-
-      </div>
-
-    </section>
-<section class="solar_banner">
-      <div class="solar_banner_box">
-        <img src="images/brand/sustainability-solar.jpg" loading="lazy" data-lazy-src="images/brand/sustainability-solar.jpg" class="img-responsive solar_img" alt="solar plant">
-      </div>
-    </section>
-<section class="sustainability_main">
-      <div class="container">
-
-        <div class="sustainability_flex">
-          <div class="sustainability_content toTop" data-scroll>
-            <h2 class="heading-text"><span class="color_red_home">Sustain</span>ability</h2>
-            <p class="para-text color_para">With an all-encompassing goal of driving change for the betterment of society, National Plasto has always
-              made choices that nurture and protect the environment.</p>
-            <p class="para-text color_para para_sapce">The company strives to reduce carbon emissions in its operations by increasing the use of renewable energy and low-carbon fuels.</p>
-          </div>
-          <div class="sustainability_content mobile_reverse toTop" data-scroll>
-            <div class="btn_section">
-              <a href="about.html#sustainability" class="btn_project_default">Know More</a>
-            </div>
-            <p class="para-text color_para">
-              It is indeed every company's responsibility to make changes and choices that benefit the environment.
-              Hence as a company, we aim to foster an environment-first culture in the future as well.</p>
-          </div>
-        </div>
-
-        <div class="sustainability_icon_flex toTop" data-scroll>
-
-          <div class="sustainability_icon">
-            <img src="images/icons/iso.svg" alt="icon">
-            <p class="para-text">ISO 50001 <br>Certification</p>
-          </div>
-          <div class="sustainability_icon">
-            <img src="images/icons/carbon.svg" alt="icon">
-            <p class="para-text">Lower Carbon <br>Emission</p>
-          </div>
-          <div class="sustainability_icon">
-            <img src="images/icons/renewable.svg" alt="icon">
-            <p class="para-text">Renewable <br>Power Usage</p>
-          </div>
-          <div class="sustainability_icon">
-            <img src="images/icons/waste.svg" alt="icon">
-            <p class="para-text">Waste <br>Management</p>
-          </div>
-          <div class="sustainability_icon">
-            <img src="images/icons/cii_certified.svg" alt="icon">
-            <p class="para-text">CII Certified <br>Green Products</p>
-          </div>
-          <!-- <div class="sustainability_icon">
-            <img src="https://www.supreme.co.in/dist/img/home/water.svg" alt="icon">
-            <p class="para-text">Water & Energy <br>conservation</p>
-          </div> -->
-
-        </div>
-
-      </div>
-    </section>
-<section class="touching_lives">
-      <div class="container">
-        <div class="touching_flex toTop" data-scroll>
-          <div class="touching_img">
-            <img src="https://www.supreme.co.in/dist/img/home/touching_img.jpg" loading="lazy" data-lazy-src="https://www.supreme.co.in/dist/img/home/touching_img.jpg" class="img-responsive" alt="touching img">
-          </div>
-          <div class="touching_content">
-            <h2 class="heading-text">Touching Lives <br>In Little Ways</h2>
-            <p class="para-text color_para">Intending to give back to society that we benefit so much from, National Plasto Foundation has taken several significant steps to actively pursue our social responsibility. With
-              various initiatives like female education, healthcare support, financial provisions for the
-              underprivileged and development programs in many villages, National Plasto plays its part in creating a better,
-              brighter world for our future generations to inherit.</p>
-            <div class="btn_section">
-              <a href="about.html#csr" class="btn_project_default white-button">National Plasto CSR Initiatives</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-<section class="innovative_banner">
-      <div class="innovative_box">
-        <img src="https://www.supreme.co.in/dist/img/home/girl_boy.jpg" loading="lazy" data-lazy-src="https://www.supreme.co.in/dist/img/home/girl_boy.jpg" class="img-responsive innovative_img hidden-xs" alt="girl boy">
-        <img src="https://www.supreme.co.in/dist/img/home/girl_boy_mobile.jpg" loading="lazy" data-lazy-src="https://www.supreme.co.in/dist/img/home/girl_boy_mobile.jpg" class="img-responsive innovative_img visible-xs" alt="girl boy">
-      </div>
-    </section>
-<section class="innovative_content">
-      <div class="container">
-
-        <div class="innovative_content_flex">
-          <div class="innovative_content_desc toTop" data-scroll>
-            <h2 class="heading-text"><span class="color_red_home">Innovating Products,</span> Creating Impact</h2>
-            <div class="btn_section">
-              <a href="about.html#impact" class="btn_project_default">Our Impact</a>
-            </div>
-          </div>
-          <div class="innovative_content_desc toTop" data-scroll>
-            <p class="para-text">Every <span>National Plasto</span> product is not just made to be consumed but designed to
-              create an <span>Impact</span>.
-              Hence, National Plasto has become a trusted name of choice in every Indian household for quality and innovative plastic
-              products. Our diverse product portfolio brings convenience, accessibility, affordability and, most
-              importantly, adds value to everyday life.</p>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-<section class="awards_main">
-        <div class="container">
-            <div class="awards_title">
-                <h2 class="heading-text toTop" data-scroll><span class="color_red_home">Awards</span> & Accolades</h2>
-                <p class="para-text toTop" data-scroll>National Plasto has set benchmarks for quality and engineering excellence in the plastics industry over the years. We do nothing less than the best when it comes to creating products with the highest process and quality standards.
-                </p>
-            </div>
-            <div class="awards_flex toTop" id="awards_slider" data-scroll>
-                <div class="awards_box">
-                  <div class="awards_item">
-                      <div class="awards_content">
-                          <div class="awards_icon_img">
-                              <img src="https://www.supreme.co.in/dist/img/home/Logo.jpg" class="img-responsive" alt="logo">
-                          </div>
-                          <h4 class="subheading-text">2026</h4>
-                          <p class="para-text">Best Factory Award Telangana State Labour & Factories Department
-                          </p>
-                          <a class="arrow_right" target="_blank"
-                              href="dist/img/awards_pdf/Award.pdf"><img
-                                  src="images/icons/arrow_slider.svg" alt="icon"></a>
-                      </div>
-                  </div>
-              </div><div class="awards_box">
-                 <div class="awards_item">
-                    <div class="awards_content">
-                        <div class="awards_icon_img">
-                            <img src="https://www.supreme.co.in/dist/img/home/Ekam.jpg" class="img-responsive" alt="logo">
-                        </div>
-                        <h4 class="subheading-text">2026</h4>
-                        <p class="para-text">Water Guardian Award by Ekam Eco Solutions 2026
-                        </p>
-                        <a class="arrow_right" target="_blank"
-                            href="dist/img/awards_pdf/Water-Guardian-Award-by-Ekam-Eco-Solutions.pdf"><img
-                                src="images/icons/arrow_slider.svg" alt="icon"></a>
-                    </div>
-                </div>
-              </div><div class="awards_box">
-                  <div class="awards_item">
-                      <div class="awards_content">
-                          <div class="awards_icon_img">
-                              <img src="https://www.supreme.co.in/dist/img/home/CII-logo.jpg" class="img-responsive" alt="logo">
-                          </div>
-                          <h4 class="subheading-text">2025</h4>
-                          <p class="para-text">CII National EHS Awards 2025 (Bronze Category) at the EHS Summit 2026
-                          </p>
-                          <a class="arrow_right" target="_blank"
-                              href="dist/img/awards_pdf/CII-National-EHS-Award.pdf"><img
-                                  src="images/icons/arrow_slider.svg" alt="icon"></a>
-                      </div>
-                  </div>
-              </div><div class="awards_box">
-                <div class="awards_item">
-                    <div class="awards_content">
-                        <div class="awards_icon_img">
-                            <img src="https://www.supreme.co.in/dist/img/home/Bradstreet.jpg" class="img-responsive" alt="logo">
-                        </div>
-                        <h4 class="subheading-text">2025</h4>
-                        <p class="para-text">SUPREME featured in Dun & Bradstreet's India’s Top Value Creator 2025 – Plastic & Plastic Products
-                        </p>
-                        <a class="arrow_right" target="_blank"
-                            href="dist/img/awards_pdf/Dun-Brandstreet.pdf"><img
-                                src="images/icons/arrow_slider.svg" alt="icon"></a>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-    </section>
-<section class="investor_main">
-      <div class="container">
-
-        <div class="investor_flex">
-
-          <div class="investor_img toTop" data-scroll>
-            <img src="https://www.supreme.co.in/dist/img/home/investor.jpg" loading="lazy" data-lazy-src="https://www.supreme.co.in/dist/img/home/investor.jpg" class="img-responsive innovative_img" alt="investor">
-          </div>
-
-          <div class="investor_content toTop" data-scroll>
-            <h2 class="heading-text"><span class="color_red_home">Corporate</span> Desk</h2>
-            <p class="para-text">National Plasto has always been committed to creating value for its stakeholders by adhering to corporate governance standards and by making rewarding decisions.</p>
-            <div class="btn_section">
-              <a href="about.html" class="btn_project_default">Corporate Governance</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-<section class="blogs-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2 class="heading-text toTop" data-scroll><span class="color_red_home">Headlines </span> & Updates</h2>
-            <div class="slider blogs-slider-new" id="headline_slider">
-                            <div class="blogs_box">
-                <div class="blogs-inside">
-                  <div class="blogs-img-sec">
-                    <img src="https://www.supreme.co.in/uploads/images/GUnbV14HHUQKkp584ENS6emIagBOq5nWXljk1MM3.jpg" loading="lazy" data-lazy-src="https://www.supreme.co.in/uploads/images/GUnbV14HHUQKkp584ENS6emIagBOq5nWXljk1MM3.jpg" class="img-responsive">
-                    <div class="share right_icn_click"><i class="fas fa-share"></i></div>
-                    <div class="share-sheet">
-                      <a target="_blank"
-                        href="https://www.facebook.com/sharer/sharer.php?u=https://www.supreme.co.in/blog/supreme-upcoming-events">
-                        <i class="fab fa-facebook-f"></i></a>
-                      </a>
-                      <a target="_blank"
-                        href="https://twitter.com/intent/tweet?text=https://www.supreme.co.in/blog/supreme-upcoming-events">
-                        <i class="fab fa-twitter"></i>
-                      </a>
-                      <a target="_blank"
-                        href="https://www.linkedin.com/shareArticle?url=https://www.supreme.co.in/blog/supreme-upcoming-events">
-                        <i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                      </a>
-                      <a class="" data-effect="" target="_blank"
-                        href="https://api.whatsapp.com/send?text=https://www.supreme.co.in/blog/supreme-upcoming-events">
-                        <i class="fab fa-whatsapp whatsapp_icon"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="blogs-info-sec">
-                    <div class="name-date-sec">
-                      <h5>Corporate</h5>
-                      <h5>July 30, 2026</h5>
-                    </div>
-                                            <p>
-                        <span class="read_time">Read Time: 1 minutes</span>
-                      </p>
-                                            <h3>Supreme Upcoming Events</h3>
-                      <h4>Supreme at various events 2026...</h4>
-                      <a href="about.html" class="read-more">LOAD MORE</a>
-                  </div>
-                </div>
-              </div>
-                            <div class="blogs_box">
-                <div class="blogs-inside">
-                  <div class="blogs-img-sec">
-                    <img src="https://www.supreme.co.in/uploads/images/fSRO2ebsS2iVkSQ2agG0EM1ByTwv4JoQ1lFbcaDr.jpg" loading="lazy" data-lazy-src="https://www.supreme.co.in/uploads/images/fSRO2ebsS2iVkSQ2agG0EM1ByTwv4JoQ1lFbcaDr.jpg" class="img-responsive">
-                    <div class="share right_icn_click"><i class="fas fa-share"></i></div>
-                    <div class="share-sheet">
-                      <a target="_blank"
-                        href="https://www.facebook.com/sharer/sharer.php?u=https://www.supreme.co.in/blog/financial-results">
-                        <i class="fab fa-facebook-f"></i></a>
-                      </a>
-                      <a target="_blank"
-                        href="https://twitter.com/intent/tweet?text=https://www.supreme.co.in/blog/financial-results">
-                        <i class="fab fa-twitter"></i>
-                      </a>
-                      <a target="_blank"
-                        href="https://www.linkedin.com/shareArticle?url=https://www.supreme.co.in/blog/financial-results">
-                        <i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                      </a>
-                      <a class="" data-effect="" target="_blank"
-                        href="https://api.whatsapp.com/send?text=https://www.supreme.co.in/blog/financial-results">
-                        <i class="fab fa-whatsapp whatsapp_icon"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="blogs-info-sec">
-                    <div class="name-date-sec">
-                      <h5>Investor</h5>
-                      <h5>July 29, 2026</h5>
-                    </div>
-                                            <p>
-                        <span class="read_time">Read Time: 1 minutes</span>
-                      </p>
-                                            <h3>Financial Results</h3>
-                      <h4>Presenting the financial results of Supreme Industries Ltd. ...</h4>
-                      <a href="about.html" class="read-more">LOAD MORE</a>
-                  </div>
-                </div>
-              </div>
-                            <div class="blogs_box">
-                <div class="blogs-inside">
-                  <div class="blogs-img-sec">
-                    <img src="https://www.supreme.co.in/uploads/images/O4d34q1I35Pvtx7cUGhwQepXM1iPKD4t0GFF38R4.jpg" loading="lazy" data-lazy-src="https://www.supreme.co.in/uploads/images/O4d34q1I35Pvtx7cUGhwQepXM1iPKD4t0GFF38R4.jpg" class="img-responsive">
-                    <div class="share right_icn_click"><i class="fas fa-share"></i></div>
-                    <div class="share-sheet">
-                      <a target="_blank"
-                        href="https://www.facebook.com/sharer/sharer.php?u=https://www.supreme.co.in/blog/supreme-in-news">
-                        <i class="fab fa-facebook-f"></i></a>
-                      </a>
-                      <a target="_blank"
-                        href="https://twitter.com/intent/tweet?text=https://www.supreme.co.in/blog/supreme-in-news">
-                        <i class="fab fa-twitter"></i>
-                      </a>
-                      <a target="_blank"
-                        href="https://www.linkedin.com/shareArticle?url=https://www.supreme.co.in/blog/supreme-in-news">
-                        <i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                      </a>
-                      <a class="" data-effect="" target="_blank"
-                        href="https://api.whatsapp.com/send?text=https://www.supreme.co.in/blog/supreme-in-news">
-                        <i class="fab fa-whatsapp whatsapp_icon"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="blogs-info-sec">
-                    <div class="name-date-sec">
-                      <h5>Corporate</h5>
-                      <h5>March 30, 2026</h5>
-                    </div>
-                                            <p>
-                        <span class="read_time">Read Time: 4 minutes</span>
-                      </p>
-                                            <h3>Supreme In NEWS</h3>
-                      <h4>Supreme news highlights...</h4>
-                      <a href="about.html" class="read-more">LOAD MORE</a>
-                  </div>
-                </div>
-              </div>
-                            <div class="blogs_box">
-                <div class="blogs-inside">
-                  <div class="blogs-img-sec">
-                    <img src="https://www.supreme.co.in/uploads/images/R1grTKLZFZUdu77W3PiNleWgDYe9CJ1rq7kIBNAI.jpg" loading="lazy" data-lazy-src="https://www.supreme.co.in/uploads/images/R1grTKLZFZUdu77W3PiNleWgDYe9CJ1rq7kIBNAI.jpg" class="img-responsive">
-                    <div class="share right_icn_click"><i class="fas fa-share"></i></div>
-                    <div class="share-sheet">
-                      <a target="_blank"
-                        href="https://www.facebook.com/sharer/sharer.php?u=https://www.supreme.co.in/blog/supreme-at-exhibitions">
-                        <i class="fab fa-facebook-f"></i></a>
-                      </a>
-                      <a target="_blank"
-                        href="https://twitter.com/intent/tweet?text=https://www.supreme.co.in/blog/supreme-at-exhibitions">
-                        <i class="fab fa-twitter"></i>
-                      </a>
-                      <a target="_blank"
-                        href="https://www.linkedin.com/shareArticle?url=https://www.supreme.co.in/blog/supreme-at-exhibitions">
-                        <i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                      </a>
-                      <a class="" data-effect="" target="_blank"
-                        href="https://api.whatsapp.com/send?text=https://www.supreme.co.in/blog/supreme-at-exhibitions">
-                        <i class="fab fa-whatsapp whatsapp_icon"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="blogs-info-sec">
-                    <div class="name-date-sec">
-                      <h5>Corporate</h5>
-                      <h5>April 1, 2025</h5>
-                    </div>
-                                            <p>
-                        <span class="read_time">Read Time: 5 minutes</span>
-                      </p>
-                                            <h3>Supreme At Exhibitions</h3>
-                      <h4>Supreme at various exhibitions 2025...</h4>
-                      <a href="about.html" class="read-more">LOAD MORE</a>
-                  </div>
-                </div>
-              </div>
-              
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-    </section>
-<section class="blogs-section blogs-section1">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2 class="heading-text toTop" data-scroll><span class="color_red_home">Blogs </span></h2>
-            <div class="slider blogs-slider-new" id="headline_slider1">
-              <div class="blogs_box">
-                <div class="blogs-inside">
-                  <div class="blogs-img-sec">
-                    <img src="https://www.supreme.co.in/uploads/images/MjoeWGtMsl1IogyXrwClm5dilmozAT7czsGU8S0d.jpg" loading="lazy" data-lazy-src="https://www.supreme.co.in/uploads/images/MjoeWGtMsl1IogyXrwClm5dilmozAT7czsGU8S0d.jpg" class="img-responsive">
-                    <div class="share right_icn_click"><i class="fas fa-share"></i></div>
-                    <div class="share-sheet">
-                      <a target="_blank"
-                        href="https://www.facebook.com/sharer/sharer.php?u=https://www.supreme.co.in/blog/how-to-organise-a-cluttered-room-with-smart-cupboard-choices">
-                        <i class="fab fa-facebook-f"></i></a>
-                      </a>
-                      <a target="_blank"
-                        href="https://twitter.com/intent/tweet?text=https://www.supreme.co.in/blog/how-to-organise-a-cluttered-room-with-smart-cupboard-choices">
-                        <i class="fab fa-twitter"></i>
-                      </a>
-                      <a target="_blank"
-                        href="https://www.linkedin.com/shareArticle?url=https://www.supreme.co.in/blog/how-to-organise-a-cluttered-room-with-smart-cupboard-choices">
-                        <i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                      </a>
-                      <a class="" data-effect="" target="_blank"
-                        href="https://api.whatsapp.com/send?text=https://www.supreme.co.in/blog/how-to-organise-a-cluttered-room-with-smart-cupboard-choices">
-                        <i class="fab fa-whatsapp whatsapp_icon"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="blogs-info-sec">
-                    <div class="name-date-sec">
-                      <h5>Furniture</h5>
-                      <h5>January 22, 2026</h5>
-                    </div>
-                                            <p>
-                        <span class="read_time">Read Time: 02:50 minutes</span>
-                      </p>
-                                            <h3>How to organise a cluttered room with smart cupboard choices?</h3>
-                      <h4>A cluttered room can quickly become overwhelming, making it ...</h4>
-                      <a href="https://www.supreme.co.in/blog/how-to-organise-a-cluttered-room-with-smart-cupboard-choices" class="read-more">LOAD MORE</a>
-                  </div>
-                </div>
-              </div><div class="blogs_box">
-                <div class="blogs-inside">
-                  <div class="blogs-img-sec">
-                    <img src="https://www.supreme.co.in/uploads/images/yeCBOlasRLxPlRxX5vsp1LlWK7DjVqmzjjpnUSyJ.png" loading="lazy" data-lazy-src="https://www.supreme.co.in/uploads/images/yeCBOlasRLxPlRxX5vsp1LlWK7DjVqmzjjpnUSyJ.png" class="img-responsive">
-                    <div class="share right_icn_click"><i class="fas fa-share"></i></div>
-                    <div class="share-sheet">
-                      <a target="_blank"
-                        href="https://www.facebook.com/sharer/sharer.php?u=https://www.supreme.co.in/blog/what-is-a-casing-pipe-features-and-benefits">
-                        <i class="fab fa-facebook-f"></i></a>
-                      </a>
-                      <a target="_blank"
-                        href="https://twitter.com/intent/tweet?text=https://www.supreme.co.in/blog/what-is-a-casing-pipe-features-and-benefits">
-                        <i class="fab fa-twitter"></i>
-                      </a>
-                      <a target="_blank"
-                        href="https://www.linkedin.com/shareArticle?url=https://www.supreme.co.in/blog/what-is-a-casing-pipe-features-and-benefits">
-                        <i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                      </a>
-                      <a class="" data-effect="" target="_blank"
-                        href="https://api.whatsapp.com/send?text=https://www.supreme.co.in/blog/what-is-a-casing-pipe-features-and-benefits">
-                        <i class="fab fa-whatsapp whatsapp_icon"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="blogs-info-sec">
-                    <div class="name-date-sec">
-                      <h5>Pipe</h5>
-                      <h5>January 12, 2026</h5>
-                    </div>
-                                            <p>
-                        <span class="read_time">Read Time: 02:50 minutes</span>
-                      </p>
-                                            <h3>What is a Casing Pipe? Features and Benefits</h3>
-                      <h4>Whether it’s for agriculture, construction, or residential...</h4>
-                      <a href="https://www.supreme.co.in/blog/what-is-a-casing-pipe-features-and-benefits" class="read-more">LOAD MORE</a>
-                  </div>
-                </div>
-              </div><div class="blogs_box">
-                <div class="blogs-inside">
-                  <div class="blogs-img-sec">
-                    <img src="https://www.supreme.co.in/uploads/images/1q4PZo114RHlIzrK8EYT09zMY0rDJvWZ6oOJEwA5.jpg" loading="lazy" data-lazy-src="https://www.supreme.co.in/uploads/images/1q4PZo114RHlIzrK8EYT09zMY0rDJvWZ6oOJEwA5.jpg" class="img-responsive">
-                    <div class="share right_icn_click"><i class="fas fa-share"></i></div>
-                    <div class="share-sheet">
-                      <a target="_blank"
-                        href="https://www.facebook.com/sharer/sharer.php?u=https://www.supreme.co.in/blog/how-to-create-a-stylish-garden-seating-area-using-plastic-furniture">
-                        <i class="fab fa-facebook-f"></i></a>
-                      </a>
-                      <a target="_blank"
-                        href="https://twitter.com/intent/tweet?text=https://www.supreme.co.in/blog/how-to-create-a-stylish-garden-seating-area-using-plastic-furniture">
-                        <i class="fab fa-twitter"></i>
-                      </a>
-                      <a target="_blank"
-                        href="https://www.linkedin.com/shareArticle?url=https://www.supreme.co.in/blog/how-to-create-a-stylish-garden-seating-area-using-plastic-furniture">
-                        <i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                      </a>
-                      <a class="" data-effect="" target="_blank"
-                        href="https://api.whatsapp.com/send?text=https://www.supreme.co.in/blog/how-to-create-a-stylish-garden-seating-area-using-plastic-furniture">
-                        <i class="fab fa-whatsapp whatsapp_icon"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="blogs-info-sec">
-                    <div class="name-date-sec">
-                      <h5>Furniture</h5>
-                      <h5>December 30, 2025</h5>
-                    </div>
-                                            <p>
-                        <span class="read_time">Read Time: 02:50 minutes</span>
-                      </p>
-                                            <h3>How to Create a Stylish Garden Seating Area Using Plastic Furniture</h3>
-                      <h4>Creating a stylish garden seating area with plastic furnitur...</h4>
-                      <a href="https://www.supreme.co.in/blog/how-to-create-a-stylish-garden-seating-area-using-plastic-furniture" class="read-more">LOAD MORE</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </article>
       </div>
     </section>
 <section class="contact_us">
@@ -1309,14 +707,14 @@
             <div class="contact-details-home toTop" data-scroll>
               <p class="para-text flex_st">
                 <img src="images/icons/location.svg" loading="lazy" data-lazy-src="images/icons/location.svg" class="">
-                <span>National Plasto Products Pvt. Ltd., 2nd Floor, Corporate Hub, B.T. Road, Kolkata, West Bengal - 700058</span>
+                <span>National Plasto Products Pvt. Ltd., 19 Sukeas Lane, Kolkata, West Bengal, India 700001</span>
               </p>
             </div>
 
             <div class="contact-details-home toTop" data-scroll>
               <p>
                 <img src="images/icons/telephone.svg" loading="lazy" data-lazy-src="images/icons/telephone.svg" class="">
-                <a href="tel:+91-33-2553-0101">+91-33-2553-0101</a>, <a href="tel:022 +91-33-2553-0102"> +91-33-2553-0102</a>
+                <a href="tel:+919830012345">+91 98300 12345</a>
               </p>
             </div>
 
@@ -1335,7 +733,6 @@
 
             <div class="contact_us_form toTop" data-scroll>
                 <form id="enquiry-form" action="#" onsubmit="alert('Thank you! Your inquiry has been received. Our team will contact you shortly.'); return false;" method="POST">
-    <input type="hidden" name="_token" value="xip5SiEugIxO2N8SWccrzfoHQ9KHsPRCm4CkPTfo">    <input type="hidden" name="page_url" value="https://www.supreme.co.in">
     <input type="hidden" name="utm_source" value="">
     <input type="hidden" name="utm_medium" value="">
     <input type="hidden" name="utm_campaign" value="">
@@ -1343,16 +740,12 @@
         <div class="col-sm-12">
             <select name="business" class="down_arrow" id="select-business" autocomplete="nope" required>
                 <option value="" selected="" disabled="">Area of Interest *</option>
-                <option value="Plastic Piping systems">Plastic Piping systems</option>
-                <option value="Moulded Furniture">Moulded Furniture</option>
-                <option value="Griham Doors & Windows">Griham Doors & Windows</option>
-                <option value="Protective Packaging Products">Protective Packaging Products</option>
-                <option value="Multi-layer Cross Laminated Films">Multi-layer Cross Laminated Films</option>
-                <option value="Industrial Moulded Products">Industrial Moulded Products</option>
-                <option value="Material Handling Products">Material Handling Products</option>
-                <option value="Performance Films">Performance Films</option>
-                <option value="Composite Cylinders">Composite Cylinders</option>
-                <option value="Investor Desk">Investor Desk</option>
+                <option value="NEXT - Premium Furniture">NEXT - Premium Furniture</option>
+                <option value="NATIONAL - Moulded Furniture">NATIONAL - Moulded Furniture</option>
+                <option value="CAPTAIN - Economical Furniture">CAPTAIN - Economical Furniture</option>
+                <option value="SAPPHIRE - Economical Furniture">SAPPHIRE - Economical Furniture</option>
+                <option value="Bulk / Institutional Order">Bulk / Institutional Order</option>
+                <option value="Dealership / Distributorship">Dealership / Distributorship</option>
                 <option value="Others">Others</option>
             </select>
                     </div>
@@ -1424,18 +817,11 @@
                             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <div id="g_captcha">
-                <div class="g-recaptcha" data-sitekey="6LdbOTMjAAAAAKeO4Nssv3Qy3TkMJcncRrx2ZSAQ"></div>
-            </div>
-                    </div>
-    </div>
 
     <div class="row" id="form-wait" style="display: none;">
         <div class="col-sm-12">
             <div class="input-field">
-                <p><img src="https://www.supreme.co.in/dist/img/loading.gif" alt="Please wait..."/> Please wait...</p>
+                <p>Please wait...</p>
             </div>
         </div>
     </div>
@@ -1451,118 +837,97 @@
       </div>
     </section>
 
-<footer>
-    <div class="scroll_section_box" id="scroll_btn">
-        <div class="scroll icon">
-            <a class="scollTop">
-                <img src="images/icons/arrow_up.png" alt="">
-            </a>
-        </div>
-    </div>
-    <div class="container">
-        <div class="footer-links footer_links_new">
-            <div class="footer_flex">
-                <div class="page-links">
-                    <!-- <h5 class="bold-text">Businesses</h5> -->
-                    <div class="inside-links">
-                        <ul class="footer_list">
-                            <li><a href="javascript:void(0);" class="bold-text">Businesses</a></li>
-                            <li><a href="index.html/pipe">Plastic Piping Systems</a></li>
-                            <li><a href="index.html/griham">Griham Doors & Windows</a></li>
-                            <li><a href="index.html/furniture">Moulded Furniture </a></li>
-                            <li><a href="index.html/ppd">Protective Packaging Products</a></li>
-                            <li><a href="index.html/xf">Multi-layer Cross Laminated Films</a></li>
-                            <li><a href="index.html/ipd">Industrial Moulded Products</a></li>
-                            <li><a href="index.html/mhd">Material Handling Products</a></li>
-                            <li><a href="index.html/pfd">Performance Films </a></li>
-                            <li><a href="index.html/cylinder">Composite Cylinders</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="page-links link_padding">
-                    <ul class="footer_list">
-                        <li><a href="javascript:void(0);" class="bold-text">About Us</a></li>
-                        <li><a href="index.html/overview" class="">Overview</a></li>
-                        <li><a href="index.html/milestones" class="">Milestones</a></li>
-                        <li><a href="index.html/group-locations" class="">Group Locations</a></li>
-                        <li><a href="index.html/sustainability" class="">Sustainability</a></li>
-                        <li><a href="index.html/csr" class="">CSR</a></li>
-                        <li><a href="index.html/supreme-impact" class="">Supreme Impact</a></li>
-                    </ul>
-                </div>
-                <div class="page-links">
-                    <ul class="footer_list">
-                        <li><a href="index.html/investor" class="color_white">Investor Desk</a></li>
-                        <li><a href="index.html/brochures" class="color_white">Brochures</a></li>
-                        <li><a href="index.html/blogs" class="color_white">Blogs </a></li>
-                        <li class="career_top"><a href="javascript:void(0);" class="color_white">Careers </a></li>
-                        <li><a href="index.html/careers" class="">Work at Supreme</a></li>
-                        <li><a href="https://mysupreme.darwinbox.in/ms/candidate/careers" target="_blank" class="">Join Us</a></li>
-                    </ul>
-                </div>
-                <div class="page-links">
-                    <ul class="footer_list">
-                        <li><a href="index.html/contact-us" class="bold-text">Contact Us</a></li>
-                        <li><a href="index.html/stores" class="color_white">Find a store</a></li>
-                        <li><a href="index.html/become-a-dealer" class="color_white">Become a dealer</a></li>
-                        <li><a href="index.html/privacy-policy" class="color_white">Privacy Policy</a></li>
-                        <li><a href="index.html/terms-conditions" class="color_white">Terms & Conditions</a></li>
-                    </ul>
-                </div>
+<footer class="np-footer">
+        <div class="scroll_section_box" id="scroll_btn">
+            <div class="scroll icon">
+                <a class="scollTop" href="javascript:void(0);" onclick="$('html, body').animate({scrollTop:0}, 600);">
+                    <img src="images/icons/arrow_up.png" alt="Back to top">
+                </a>
             </div>
-
-            <div class="footer_flex_right">
-                <div class="footer_flex_img">
-                    <img src="index.html/dist/img/home/book.png" class="img-responsive" alt="book">
-                </div>
-                <div class="footer_flex_pdf">
-                    <p class="para-text" data-scroll>Supreme Corporate Brochure</p>
-                    <div class="btn_section">
-                        <a href="index.html/dist/img/home/corporate-brochure.pdf" target="_blank"class="btn_project_default"><img src="index.html/dist/img/home/icon_pdf.png"
-                                alt="book">VIEW BROCHURE</a>
-                    </div>
-                </div>
-            </div>
-
         </div>
 
-    </div>
-
-    <hr>
-
-    <div class="container footer_inner">
-        <div class="copyright_text">
-            <p>Copyright &copy; <span class="current_year"></span> supreme.co.in. All Rights Reserved.</p>
-        </div>
-
-        <div class="page-links">
-            <div class="social_links">
-                <ul class="social">
-                    <li><a href="https://www.facebook.com/thesupremeindustrieslimited" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                    <!-- <li><a href="" target="_blank"><i class="fab fa-twitter"></i></a></li> -->
-                    <li><a href="https://www.youtube.com/user/TheSupremeIndustries" target="_blank"><i class="fab fa-youtube"></i></a></li>
-                    <li><a href="https://www.linkedin.com/company/thesupremeindustriesltd" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
-                    <li><a href="https://www.instagram.com/thesupremeindustriesltd/" target="_blank"><i class="fab fa-instagram"></i></a></li>
-
+        <div class="container np-footer-main">
+            <!-- Brand -->
+            <div class="np-footer-brand">
+                <div class="np-footer-logos">
+                    <a href="index.html" aria-label="National Plasto home"><img src="images/brand/national-plasto-dark.png" alt="National - NPPL" loading="lazy"></a>
+                    <span class="np-footer-divider" aria-hidden="true"></span>
+                    <a href="products.html?brand=next" aria-label="NEXT products"><img src="images/brand/next-nppl-dark.png" alt="Next - From the House of NPPL" loading="lazy"></a>
+                </div>
+                <p>Plastic moulded furniture for every space and every need &mdash; made in four ISO-certified plants across India since 1997.</p>
+                <ul class="np-footer-social">
+                    <li><a href="https://www.facebook.com/share/1GMoEgyWs7/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.linkedin.com/company/nationalplasto/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://www.instagram.com/national_plasto_group/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
                 </ul>
             </div>
+
+            <!-- Products -->
+            <nav class="np-footer-col" aria-label="Products">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="products.html?brand=next">NEXT &mdash; Premium</a></li>
+                    <li><a href="products.html?brand=national">NATIONAL</a></li>
+                    <li><a href="products.html?brand=captain">CAPTAIN</a></li>
+                    <li><a href="products.html?brand=sapphire">SAPPHIRE</a></li>
+                    <li><a href="products.html">Full Catalogue</a></li>
+                </ul>
+            </nav>
+
+            <!-- Company -->
+            <nav class="np-footer-col" aria-label="Company">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="about.html#leadership">Leadership</a></li>
+                    <li><a href="index.html#our-divisions">Our Divisions</a></li>
+                    <li><a href="manufacturing.html">Manufacturing</a></li>
+                    <li><a href="manufacturing.html#certifications">Certifications</a></li>
+                </ul>
+            </nav>
+
+            <!-- Dealers -->
+            <nav class="np-footer-col" aria-label="Dealers">
+                <h4>Dealers</h4>
+                <ul>
+                    <li><a href="distributor.html">Find a Dealer</a></li>
+                    <li><a href="distributor.html#portal">Become a Dealer</a></li>
+                    <li><a href="contact.html#enquiry-section">Bulk &amp; Institutional Orders</a></li>
+                </ul>
+            </nav>
+
+            <!-- Contact -->
+            <div class="np-footer-col np-footer-contact">
+                <h4>Contact</h4>
+                <address>
+                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>19 Sukeas Lane, Kolkata,<br>West Bengal, India 700001</span></p>
+                    <p><i class="fas fa-phone-alt" aria-hidden="true"></i><a href="tel:+919830012345">+91 98300 12345</a></p>
+                    <p><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:info@nationalplasto.com">info@nationalplasto.com</a></p>
+                    <p><i class="fab fa-whatsapp" aria-hidden="true"></i><a href="https://wa.me/919830012345" target="_blank" rel="noopener">Chat on WhatsApp</a></p>
+                </address>
+            </div>
         </div>
 
-        <div class="made_by_ting_sec">
-            <a href="https://www.ting.in/" target="_blank" class="rem_link_style">
-                <img src="index.html/dist/img/ting-footer-img.png" class="img-responsive">
-                <!-- <div class="foot-right ting-unit-wrap">
-                    <div class="made-by-text">
-                        <p>made</p>
-                        <p>by</p>
-                    </div>
-                    <img src="index.html/dist/img/ting-footer.png" class="img-responsive">
-                </div> -->
-            </a>
+        <div class="np-footer-bar">
+            <div class="container np-footer-bar-inner">
+                <p>&copy; <span id="currentYear">2026</span> National Plasto Products Private Limited. All Rights Reserved. Est. 1997 &middot; Precision Polymer Manufacturing.</p>
+                <nav class="np-footer-legal" aria-label="Legal">
+                    <a href="policies.html#privacy">Privacy Policy</a>
+                    <a href="policies.html#terms">Terms &amp; Conditions</a>
+                    <a href="policies.html#quality">Quality Policy</a>
+                </nav>
+            </div>
+            <div class="container np-footer-credit">
+                <span>Made with <i class="fas fa-heart" aria-hidden="true"></i> by Lionoar Digital</span>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
+
+    <!-- Floating WhatsApp chat -->
+    <a href="https://wa.me/919830012345?text=Hello%20National%20Plasto%2C%20I%20would%20like%20to%20know%20more%20about%20your%20products." class="np-whatsapp" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        <span>Chat with us</span>
+    </a>
 
     <!-- Core JS dependencies -->
     <script src="js/jquery.min.js"></script>
@@ -1575,15 +940,43 @@
     $(document).ready(function() {
         // Hero Banner Slider
         if ($('.home-banner-slider').length && !$('.home-banner-slider').hasClass('slick-initialized')) {
-            $('.home-banner-slider').slick({
+            // Hero: one product video per brand. Each video plays through once, then the
+            // slider moves to the next brand. If a video can't play, its poster (three
+            // products merged) stays on screen for a few seconds instead.
+            var $hero = $('.home-banner-slider');
+            var heroTimer = null;
+            function heroVideo($slide) {
+                return $slide.find('video.np-hero-video').filter(function () { return $(this).is(':visible'); }).get(0);
+            }
+            function heroPlay() {
+                clearTimeout(heroTimer);
+                $hero.find('video.np-hero-video').each(function () { this.pause(); });
+                var v = heroVideo($hero.find('.slick-current'));
+                var next = function () { $hero.slick('slickNext'); };
+                if (!v || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    heroTimer = setTimeout(next, 5000);
+                    return;
+                }
+                v.onended = next;
+                v.onerror = function () { heroTimer = setTimeout(next, 5000); };
+                try { v.currentTime = 0; } catch (e) {}
+                var p = v.play();
+                if (p && p.catch) { p.catch(function () { heroTimer = setTimeout(next, 5000); }); }
+                // safety net in case "ended" never fires
+                heroTimer = setTimeout(next, 12000);
+            }
+            $hero.on('init', function () { setTimeout(heroPlay, 50); });
+            $hero.on('afterChange', heroPlay);
+            $hero.slick({
                 slidesToShow: 1,
                 slidesToScroll: 1,
-                loop: true,
-                autoplay: true,
+                infinite: true,
+                autoplay: false,
                 fade: true,
-                autoplaySpeed: 3000,
+                speed: 700,
                 cssEase: 'ease-in-out',
                 arrows: false,
+                dots: true,
                 pauseOnHover: false,
                 pauseOnFocus: false
             });

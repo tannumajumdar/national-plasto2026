@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Moulded Furniture &amp; Polymer Products Catalogue | National Plasto</title>
-    <meta name="description" content="Explore National Plasto's complete product catalogue: 160+ monoblock chairs, dining tables, stools, storage cabinets, outdoor furniture, and institutional solutions.">
+    <meta name="description" content="Explore National Plasto's complete product catalogue: 360+ moulded chairs, dining sets, tables, stools, trolleys and wardrobes across the National, Next, Sapphire and Captain ranges.">
     <meta name="keywords" content="plastic chairs, moulded furniture, plastic tables, storage drawers, National Plasto catalogue, bulk furniture India">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Moulded Furniture &amp; Polymer Products Catalogue | National Plasto">
-    <meta property="og:description" content="Browse 160+ certified models of monoblock chairs, dining tables, modular drawers, and crates.">
+    <meta property="og:description" content="Browse 360+ models of moulded chairs, dining sets, tables, stools and storage.">
     <meta property="og:image" content="images/brand/company-photo.jpg">
 
     <!-- Favicon -->
@@ -30,231 +30,272 @@
     <link rel="stylesheet" href="css/supreme_common.css">
 
     <style>
-        /* Product Filter Tabs & Search Bar */
-        .catalog_header_section {
-            padding: 40px 0 20px;
-            background: #FFFFFF;
-            border-bottom: 1px solid var(--brand-border);
+        /* ================= Product Catalogue (2026 photoshoot) ================= */
+        .np-cat-controls {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            padding: 22px 0 14px;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(6px);
+            border-bottom: 1px solid #E2E8F0;
         }
-        .catalog_controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .catalog_tabs {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .catalog_tab_btn {
-            background: #F1F5F9;
-            color: #334155;
-            border: 1px solid #CBD5E1;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 13.5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-family: var(--font-heading);
-        }
-        .catalog_tab_btn:hover,
-        .catalog_tab_btn.active {
-            background: var(--brand-primary);
-            color: #FFFFFF;
-            border-color: var(--brand-primary);
-            box-shadow: 0 4px 12px rgba(194, 17, 33, 0.25);
-        }
-        .catalog_search_box {
-            position: relative;
-            min-width: 260px;
-        }
-        .catalog_search_box input {
-            width: 100%;
-            padding: 9px 36px 9px 16px;
-            border: 1px solid #CBD5E1;
-            border-radius: 20px;
-            font-size: 13.5px;
-            outline: none;
-            transition: border-color 0.2s ease;
-            box-sizing: border-box;
-        }
-        .catalog_search_box input:focus {
-            border-color: var(--brand-primary);
-            box-shadow: 0 0 0 3px rgba(194, 17, 33, 0.1);
-        }
-        .catalog_search_box i {
-            position: absolute;
-            right: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #94A3B8;
-        }
-
-        /* Products Grid */
-        .catalog_grid_section {
-            padding: 50px 0 80px;
-            background: #F8FAFC;
-        }
-        .products_grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-        .product_card {
-            background: #FFFFFF;
-            border-radius: 12px;
-            border: 1px solid #E2E8F0;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            display: flex;
-            flex-direction: column;
-        }
-        .product_card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
-            border-color: var(--brand-icy-blue);
-        }
-        .product_img_wrap {
-            height: 240px;
-            background: #F8FAFC;
-            position: relative;
+        .np-cat-row {
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 24px;
-            border-bottom: 1px solid #F1F5F9;
-        }
-        .product_img_wrap img {
-            max-height: 190px;
-            max-width: 100%;
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-        .product_card:hover .product_img_wrap img {
-            transform: scale(1.04);
-        }
-        .product_brand_badge {
-            position: absolute;
-            top: 14px;
-            left: 14px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            padding: 4px 10px;
-            border-radius: 4px;
-        }
-        .badge_national {
-            background: var(--brand-primary);
-            color: #FFFFFF;
-        }
-        .badge_next {
-            background: #076282;
-            color: #FFFFFF;
-        }
-        .product_details {
-            padding: 24px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
             justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
         }
-        .product_details h3 {
-            font-size: 18px;
-            margin: 0 0 8px 0;
-            color: #0F172A;
-            line-height: 1.4;
-        }
-        .product_sku {
-            font-size: 12px;
-            color: #64748B;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .product_specs_list {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 20px 0;
-            font-size: 12.5px;
-            color: #475569;
-            background: #F8FAFC;
-            border-radius: 6px;
-            padding: 10px 12px;
-            line-height: 1.6;
-        }
-        .product_action_btns {
-            display: flex;
-            gap: 10px;
-        }
-        .btn_quick_view {
-            flex: 1;
-            background: #F1F5F9;
+        .np-brand-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+        .np-brand-tab {
+            border: 1.5px solid #CBD5E1;
+            background: #FFFFFF;
             color: #1E293B;
-            border: 1px solid #CBD5E1;
-            padding: 10px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 600;
-            text-align: center;
+            padding: 9px 18px;
+            border-radius: 999px;
+            font: 600 14px "Poppins", sans-serif;
             cursor: pointer;
             transition: all 0.2s ease;
         }
-        .btn_quick_view:hover {
-            background: #E2E8F0;
-            color: #0F172A;
+        .np-brand-tab span { margin-left: 4px; font-size: 12px; font-weight: 500; opacity: 0.6; }
+        .np-brand-tab:hover { border-color: #ED3237; color: #ED3237; }
+        .np-brand-tab.active { background: #ED3237; border-color: #ED3237; color: #FFFFFF; }
+        .np-brand-tab.np-brand-next.active { background: #1E3A93; border-color: #1E3A93; }
+        .np-brand-tab.np-brand-sapphire.active { background: #0F5E9C; border-color: #0F5E9C; }
+        .np-brand-tab.np-brand-captain.active { background: #1F2937; border-color: #1F2937; }
+        .np-brand-tab.active span { opacity: 0.85; }
+        .np-search { position: relative; flex: 0 1 300px; min-width: 220px; }
+        .np-search input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px 38px 10px 16px;
+            border: 1.5px solid #CBD5E1;
+            border-radius: 999px;
+            font: 400 14px "Poppins", sans-serif;
+            outline: none;
         }
-        .btn_card_enquire {
-            flex: 1;
-            background: var(--brand-primary);
+        .np-search input:focus { border-color: #ED3237; }
+        .np-search i { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: #94A3B8; }
+        .np-chips {
+            display: flex;
+            gap: 8px;
+            margin-top: 14px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+            scrollbar-width: thin;
+        }
+        .np-chip {
+            flex: none;
+            border: 1px solid #E2E8F0;
+            background: #F8FAFC;
+            color: #334155;
+            padding: 6px 14px;
+            border-radius: 999px;
+            font: 500 13px "Poppins", sans-serif;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .np-chip span { color: #94A3B8; margin-left: 2px; }
+        .np-chip:hover { border-color: #ED3237; color: #ED3237; }
+        .np-chip.active { background: #1F1F1F; border-color: #1F1F1F; color: #FFFFFF; }
+        .np-chip.active span { color: #CBD5E1; }
+        .np-result-count { margin: 10px 0 0; font: 400 13px "Poppins", sans-serif; color: #64748B; }
+
+        .np-catalogue-wrap { background: #F4F6F9; padding: 36px 0 80px; min-height: 60vh; }
+        .np-cat-section { margin-bottom: 48px; scroll-margin-top: 180px; }
+        .np-cat-head {
+            position: relative;
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #E2E8F0;
+        }
+        .np-cat-head::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 64px;
+            height: 2px;
+            background: #ED3237;
+        }
+        .np-cat-head h2 { margin: 0; font: 700 24px "Poppins", sans-serif; color: #111827; }
+        .np-cat-head span { font: 500 13px "Poppins", sans-serif; color: #94A3B8; }
+        .np-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
+        .np-card {
+            display: flex;
+            flex-direction: column;
+            background: #FFFFFF;
+            border-radius: 14px;
+            border: 1px solid #E8ECF1;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .np-card:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(15, 23, 42, 0.10); }
+        .np-card-media {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            background: radial-gradient(circle at 50% 42%, #FFFFFF 0%, #F1F4F8 70%);
+            cursor: pointer;
+        }
+        .np-card-img {
+            position: absolute;
+            top: 8%;
+            left: 8%;
+            width: 84%;
+            height: 84%;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 12px rgba(15, 23, 42, 0.12));
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .np-card-img-alt { opacity: 0; }
+        .np-card:not(.np-card-picked):hover .np-card-img-alt { opacity: 1; }
+        .np-card:not(.np-card-picked):hover .np-card-img:not(.np-card-img-alt) { opacity: 0; }
+        .np-card:hover .np-card-img { transform: scale(1.03); }
+        .np-card-brand {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 1;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font: 700 10.5px "Poppins", sans-serif;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
             color: #FFFFFF;
-            border: none;
-            padding: 10px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 700;
+        }
+        .np-badge-national { background: #ED3237; }
+        .np-badge-next { background: #1E3A93; }
+        .np-badge-sapphire { background: #0F5E9C; }
+        .np-badge-captain { background: #1F2937; }
+        .np-card-thumbs { display: flex; gap: 6px; padding: 10px 14px 0; }
+        .np-card-thumbs img {
+            width: 38px;
+            height: 38px;
+            padding: 3px;
+            box-sizing: border-box;
+            object-fit: contain;
+            background: #F4F6F9;
+            border: 1.5px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .np-card-thumbs img.on, .np-card-thumbs img:hover { border-color: #ED3237; }
+        .np-card-body { display: flex; flex-direction: column; flex: 1; padding: 12px 14px 14px; }
+        .np-card-body h3 { margin: 0 0 2px; font: 600 16.5px "Poppins", sans-serif; color: #111827; }
+        .np-card-body p { margin: 0 0 12px; font: 400 12.5px "Poppins", sans-serif; color: #64748B; }
+        .np-card-actions { display: flex; gap: 8px; margin-top: auto; }
+        .np-btn-view, .np-btn-enquire {
+            flex: 1;
+            padding: 8px 10px;
+            border-radius: 8px;
+            font: 600 13px "Poppins", sans-serif;
             text-align: center;
             text-decoration: none;
             cursor: pointer;
             transition: all 0.2s ease;
         }
-        .btn_card_enquire:hover {
-            background: var(--brand-primary-hover);
-            box-shadow: 0 4px 10px rgba(194, 17, 33, 0.3);
-            color: #FFFFFF;
-        }
+        .np-btn-view { background: #FFFFFF; color: #1E293B; border: 1px solid #CBD5E1; }
+        .np-btn-view:hover { border-color: #1E293B; }
+        .np-btn-enquire { background: #ED3237; color: #FFFFFF; border: 1px solid #ED3237; }
+        .np-btn-enquire:hover { background: #C8242A; color: #FFFFFF; text-decoration: none; }
+        .np-empty { padding: 80px 20px; text-align: center; }
+        .np-empty h3 { margin-bottom: 16px; font: 600 20px "Poppins", sans-serif; color: #64748B; }
 
-        /* Modal Styles */
-        .np-modal-backdrop {
-            display: none;
+        /* Quick view */
+        .np-modal {
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(11, 25, 44, 0.75);
-            backdrop-filter: blur(4px);
+            inset: 0;
             z-index: 99999;
+            display: none;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 16px;
+            background: rgba(15, 23, 42, 0.72);
+            backdrop-filter: blur(4px);
         }
+        .np-modal.open { display: flex; }
         .np-modal-box {
-            background: #FFFFFF;
-            border-radius: 12px;
-            max-width: 640px;
-            width: 100%;
-            padding: 32px;
             position: relative;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            width: 100%;
+            max-width: 920px;
+            max-height: calc(100vh - 32px);
+            overflow: auto;
+            background: #FFFFFF;
+            border-radius: 16px;
         }
+        .np-modal-x {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 2;
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 50%;
+            background: #F1F5F9;
+            font-size: 22px;
+            line-height: 1;
+            cursor: pointer;
+        }
+        .np-modal-stage {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 24px;
+            background: radial-gradient(circle at 50% 40%, #FFFFFF 0%, #EEF2F6 75%);
+        }
+        .np-modal-stage > img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: contain;
+            filter: drop-shadow(0 14px 16px rgba(15, 23, 42, 0.14));
+        }
+        .np-modal-thumbs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+        .np-modal-thumbs button {
+            width: 58px;
+            height: 58px;
+            padding: 4px;
+            background: #FFFFFF;
+            border: 2px solid #E2E8F0;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .np-modal-thumbs button.on { border-color: #ED3237; }
+        .np-modal-thumbs img { width: 100%; height: 100%; object-fit: contain; }
+        .np-modal-info { display: flex; flex-direction: column; justify-content: center; padding: 36px 32px; }
+        .np-modal-info .np-card-brand { position: static; align-self: flex-start; }
+        .np-modal-info h3 { margin: 14px 0 4px; font: 700 30px "Poppins", sans-serif; color: #111827; }
+        .np-modal-meta { margin: 0 0 18px; font: 500 14px "Poppins", sans-serif; color: #64748B; }
+        .np-modal-points { list-style: none; margin: 0 0 24px; padding: 0; font: 400 14px "Poppins", sans-serif; color: #334155; }
+        .np-modal-points li { padding: 6px 0; border-bottom: 1px dashed #E2E8F0; }
+        .np-modal-points i { width: 20px; color: #ED3237; }
+        .np-modal-info .np-btn-enquire { flex: none; padding: 12px 18px; font-size: 14px; }
 
+        @media (max-width: 1199px) { .np-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
         @media (max-width: 991px) {
-            .products_grid { grid-template-columns: repeat(2, 1fr); }
-            .catalog_controls { flex-direction: column; align-items: stretch; }
-            .catalog_search_box { width: 100%; }
+            .np-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+            .np-search { flex: 1 1 100%; }
+            .np-modal-box { grid-template-columns: 1fr; }
+            .np-modal-info { padding: 22px; }
         }
         @media (max-width: 575px) {
-            .products_grid { grid-template-columns: 1fr; }
+            .np-cat-controls { position: static; }
+            .np-brand-tabs { flex-wrap: nowrap; overflow-x: auto; }
+            .np-brand-tab { flex: none; padding: 8px 14px; font-size: 13px; }
+            .np-cat-head h2 { font-size: 20px; }
+            .np-card-body { padding: 10px; }
+            .np-card-body h3 { font-size: 14.5px; }
+            .np-card-thumbs { gap: 4px; padding: 8px 10px 0; }
+            .np-card-thumbs img { width: 30px; height: 30px; }
+            .np-card-thumbs img:nth-child(n+4) { display: none; }
+            .np-card-actions { flex-direction: column; gap: 6px; }
+            .np-modal-info h3 { font-size: 24px; }
         }
     </style>
 </head>
@@ -279,12 +320,13 @@
                             <li><a href="about.html">Overview</a></li>
                             <li><a href="about.html#leadership">Leadership</a></li>
                             <li><a href="manufacturing.html">Manufacturing Facilities</a></li>
-                            <li><a href="index.html#virtues_section">Virtues</a></li>
-                            <li><a href="index.html#milestones_section">Milestones</a></li>
+                            <li><a href="manufacturing.html#certifications">Certifications</a></li>
+                            <li><a href="index.html#scroll_down">Virtues</a></li>
+                            <li><a href="index.html#our-divisions">Our Divisions</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="products.html">Businesses</a>
+                        <a href="products.html">Products</a>
                         <ul class="sub-menu">
                             <li><a href="products.html?category=chairs">Moulded Furniture</a></li>
                             <li><a href="products.html?category=tables">Dining Tables</a></li>
@@ -297,6 +339,7 @@
                     <li><a href="distributor.html">Dealer Desk</a></li>
                     <li><a href="manufacturing.html">Manufacturing</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
+                    <li class="np-nav-download-item"><a href="docs/national-plasto-catalogue-2026.pdf" class="np-nav-download" download><i class="fas fa-file-pdf" aria-hidden="true"></i> Catalogue</a></li>
                 </ul>
                 <ul class="social_links">
                     <li class="header_social search_icon">
@@ -314,16 +357,13 @@
                         </div>
                     </li>
                     <li class="header_social">
-                        <a href="https://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/share/1GMoEgyWs7/?mibextid=wwXIfr" rel="noopener" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                     </li>
                     <li class="header_social">
-                        <a href="https://www.youtube.com/" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.linkedin.com/company/nationalplasto/" rel="noopener" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </li>
                     <li class="header_social">
-                        <a href="https://www.linkedin.com/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </li>
-                    <li class="header_social">
-                        <a href="https://www.instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/national_plasto_group/" rel="noopener" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
                     </li>
                 </ul>
             </nav>
@@ -363,17 +403,18 @@
                     </span>
                     <ul class="dropdown-menu">
                         <li><a href="about.html">Overview</a></li>
-                        <li><a href="about.html#milestones">Milestones</a></li>
-                        <li><a href="distributor.html">Group Locations</a></li>
-                        <li><a href="manufacturing.html">Sustainability</a></li>
-                        <li><a href="about.html#csr">CSR</a></li>
+                        <li><a href="about.html#leadership">Leadership</a></li>
+                        <li><a href="manufacturing.html">Manufacturing Facilities</a></li>
+                        <li><a href="manufacturing.html#certifications">Certifications</a></li>
+                        <li><a href="index.html#scroll_down">Virtues</a></li>
+                        <li><a href="index.html#our-divisions">Our Divisions</a></li>
                     </ul>
                 </div>
             </li>
             <li>
                 <div class="dropdown">
                     <span class="dropdown-toggle" id="dropdownMenuBiz" onclick="$(this).parent().toggleClass('open');">
-                        Businesses
+                        Products
                         <span class="caret"></span>
                     </span>
                     <ul class="dropdown-menu">
@@ -393,14 +434,13 @@
         <div class="social-div">
             <h3>Get regular updates <br>about us on</h3>
             <div class="icon-row">
-                <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1GMoEgyWs7/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/company/nationalplasto/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/national_plasto_group/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
         <div class="download-div" style="margin-top:20px;">
-            <a href="javascript:void(0);" onclick="$('#brochureModal').modal('show');" class="btn_project_default" style="display:inline-flex; align-items:center; justify-content:center; background:#ED3237; color:#fff; padding:12px 28px; border-radius:4px; font-weight:600; font-size:15px; text-decoration:none; width:100%; box-sizing:border-box;">
+            <a href="docs/national-plasto-catalogue-2026.pdf" download class="btn_project_default" style="display:inline-flex; align-items:center; justify-content:center; background:#ED3237; color:#fff; padding:12px 28px; border-radius:4px; font-weight:600; font-size:15px; text-decoration:none; width:100%; box-sizing:border-box;">
                 <i class="fas fa-file-pdf" style="margin-right:8px;"></i> Download Catalogue
             </a>
         </div>
@@ -409,8 +449,8 @@
     <!-- Inner Page Banner -->
     <section class="banner-section inner_banner">
         <div class="container">
-            <h1 class="heading-text">Businesses &mdash; <span class="color_red_home">Product Catalogue</span></h1>
-            <p class="para-text">Engineered for endurance. Built for India. Discover our 160+ certified models of monoblock chairs, tables, and modular storage systems.</p>
+            <h1 class="heading-text">Our Products &mdash; <span class="color_red_home">Product Catalogue</span></h1>
+            <p class="para-text">Engineered for endurance. Built for India. Explore 360+ models across National, Next, Sapphire and Captain &mdash; chairs, dining sets, tables, stools and storage.</p>
         </div>
         <div class="scrool-down">
             <div class="l-section-top">
@@ -425,56 +465,46 @@
 
     <main class="smooth_scroll_pages">
 
-        <!-- Controls: Tabs & Real-time Search -->
-        <section class="catalog_header_section">
+        <!-- Catalogue controls: brand tabs, search, category chips -->
+        <section class="np-cat-controls">
             <div class="container">
-                <div class="catalog_controls">
-                    <div class="catalog_tabs" id="categoryTabs">
-                        <button type="button" class="catalog_tab_btn active" onclick="filterCategory('all', this)">All Products</button>
-                        <button type="button" class="catalog_tab_btn" onclick="filterCategory('chairs', this)">Chairs &amp; Seating</button>
-                        <button type="button" class="catalog_tab_btn" onclick="filterCategory('tables', this)">Dining Tables</button>
-                        <button type="button" class="catalog_tab_btn" onclick="filterCategory('stools', this)">Stools &amp; Step Stools</button>
-                        <button type="button" class="catalog_tab_btn" onclick="filterCategory('baby-kids', this)">Baby &amp; Kids</button>
-                        <button type="button" class="catalog_tab_btn" onclick="filterCategory('storage', this)">Modular Storage</button>
-                        <button type="button" class="catalog_tab_btn" onclick="filterCategory('utility', this)">Industrial Crates</button>
-                    </div>
-
-                    <div class="catalog_search_box">
-                        <input type="text" id="catalogSearch" placeholder="Search by model or SKU..." oninput="handleSearch(this.value)">
+                <div class="np-cat-row">
+                    <div class="np-brand-tabs" id="npBrandTabs"></div>
+                    <div class="np-search">
+                        <input type="search" id="npSearch" placeholder="Search model, e.g. Cherish, Florence..." aria-label="Search products">
                         <i class="fas fa-search"></i>
                     </div>
                 </div>
+                <div class="np-chips" id="npCategoryChips"></div>
+                <p class="np-result-count" id="npResultCount"></p>
             </div>
         </section>
 
-        <!-- Product Grid Section -->
-        <section class="catalog_grid_section">
-            <div class="container">
-                <div class="products_grid" id="productsGridContainer">
-                    <!-- Populated dynamically by JS -->
-                </div>
-            </div>
+        <!-- Catalogue grouped by category (rendered by js/catalogue-page.js) -->
+        <section class="np-catalogue-wrap">
+            <div class="container" id="npCatalogue"></div>
         </section>
 
     </main>
 
     <!-- Quick View Modal -->
-    <div class="np-modal-backdrop" id="productModal">
+    <div class="np-modal" id="npModal" role="dialog" aria-modal="true" aria-labelledby="npModalTitle">
         <div class="np-modal-box">
-            <button type="button" class="np-modal-close" onclick="closeProductModal()" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:24px;cursor:pointer;">&times;</button>
-            <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center;">
-                <div style="background:#F8FAFC;border-radius:8px;padding:20px;text-align:center;">
-                    <img id="modalProductImg" src="" style="max-height:220px;max-width:100%;object-fit:contain;" alt="Product">
-                </div>
-                <div>
-                    <span style="font-size:11px;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:1px;">National Plasto Certified</span>
-                    <h3 id="modalProductTitle" style="font-family:'Outfit', sans-serif;font-size:22px;color:#0F172A;margin:6px 0 12px;font-weight:700;"></h3>
-                    <p id="modalProductDesc" style="font-size:14px;color:#475569;line-height:1.6;margin-bottom:14px;"></p>
-                    <div id="modalProductSpecs" style="font-size:12px;background:#F1F5F9;padding:10px 14px;border-radius:6px;color:#1E293B;font-weight:600;margin-bottom:18px;"></div>
-                    <div style="display:flex;gap:10px;">
-                        <a href="contact.html#enquiry-section" class="btn_card_enquire" style="text-decoration:none;padding:10px 18px;">Enquire For Bulk Order</a>
-                    </div>
-                </div>
+            <button type="button" class="np-modal-x" aria-label="Close">&times;</button>
+            <div class="np-modal-stage">
+                <img id="npModalImg" alt="">
+                <div class="np-modal-thumbs" id="npModalThumbs"></div>
+            </div>
+            <div class="np-modal-info">
+                <span id="npModalBrand" class="np-card-brand"></span>
+                <h3 id="npModalTitle"></h3>
+                <p class="np-modal-meta" id="npModalMeta"></p>
+                <ul class="np-modal-points">
+                    <li><i class="fas fa-images"></i> <span id="npModalViews"></span></li>
+                    <li><i class="fas fa-check-circle"></i> ISO 9001:2015 certified manufacturing</li>
+                    <li><i class="fas fa-truck"></i> Available through our Pan-India dealer network</li>
+                </ul>
+                <a href="contact.html#enquiry-section" id="npModalEnquire" class="np-btn-enquire">Enquire for Bulk Order</a>
             </div>
         </div>
     </div>
@@ -501,111 +531,97 @@
         <!-- ==========================================================================
          CORPORATE FOOTER (Supreme 1:1 Pixel-Perfect Layout)
          ========================================================================== -->
-    <footer>
+    <footer class="np-footer">
         <div class="scroll_section_box" id="scroll_btn">
             <div class="scroll icon">
                 <a class="scollTop" href="javascript:void(0);" onclick="$('html, body').animate({scrollTop:0}, 600);">
-                    <img src="images/icons/arrow_up.png" alt="scroll up">
+                    <img src="images/icons/arrow_up.png" alt="Back to top">
                 </a>
             </div>
         </div>
-        <div class="container">
-            <div class="footer-links footer_links_new">
-                <div class="footer_flex">
-                    <div class="page-links">
-                        <div class="inside-links">
-                            <ul class="footer_list">
-                                <li><a href="javascript:void(0);" class="bold-text">Businesses</a></li>
-                                <li><a href="products.html?category=chairs">Moulded Furniture</a></li>
-                                <li><a href="products.html?category=tables">Dining &amp; Multipurpose Tables</a></li>
-                                <li><a href="products.html?category=stools">Commercial Stools</a></li>
-                                <li><a href="products.html?category=baby-kids">Baby &amp; Kids Furniture</a></li>
-                                <li><a href="products.html?category=storage">Modular Storage &amp; Drawers</a></li>
-                                <li><a href="products.html?category=utility">Industrial Utility &amp; Crates</a></li>
-                            </ul>
-                        </div>
-                    </div>
 
-                    <div class="page-links link_padding">
-                        <ul class="footer_list">
-                            <li><a href="javascript:void(0);" class="bold-text">About Us</a></li>
-                            <li><a href="about.html">Overview</a></li>
-                            <li><a href="about.html#leadership">Leadership</a></li>
-                            <li><a href="manufacturing.html">Group Locations</a></li>
-                            <li><a href="index.html#sustainability_section">Sustainability</a></li>
-                            <li><a href="index.html#virtues_section">Corporate Virtues</a></li>
-                            <li><a href="index.html#milestones_section">Milestones</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="page-links">
-                        <ul class="footer_list">
-                            <li><a href="distributor.html" class="color_white">Dealer Desk</a></li>
-                            <li><a href="products.html" class="color_white">Product Catalog</a></li>
-                            <li class="career_top"><a href="manufacturing.html" class="color_white">Manufacturing</a></li>
-                            <li><a href="manufacturing.html#howrah">Howrah Facility</a></li>
-                            <li><a href="manufacturing.html#assam">Assam &amp; Bihar Hubs</a></li>
-                            <li><a href="distributor.html#portal">Trade Network</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="page-links">
-                        <ul class="footer_list">
-                            <li><a href="contact.html" class="bold-text">Contact Us</a></li>
-                            <li><a href="distributor.html" class="color_white">Find a Dealer</a></li>
-                            <li><a href="distributor.html" class="color_white">Become a Dealer</a></li>
-                            <li><a href="contact.html#locations" class="color_white">Head Office</a></li>
-                            <li><a href="contact.html#enquiry-section" class="color_white">Submit Enquiry</a></li>
-                        </ul>
-                    </div>
+        <div class="container np-footer-main">
+            <!-- Brand -->
+            <div class="np-footer-brand">
+                <div class="np-footer-logos">
+                    <a href="index.html" aria-label="National Plasto home"><img src="images/brand/national-plasto-dark.png" alt="National - NPPL" loading="lazy"></a>
+                    <span class="np-footer-divider" aria-hidden="true"></span>
+                    <a href="products.html?brand=next" aria-label="NEXT products"><img src="images/brand/next-nppl-dark.png" alt="Next - From the House of NPPL" loading="lazy"></a>
                 </div>
+                <p>Plastic moulded furniture for every space and every need &mdash; made in four ISO-certified plants across India since 1997.</p>
+                <ul class="np-footer-social">
+                    <li><a href="https://www.facebook.com/share/1GMoEgyWs7/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.linkedin.com/company/nationalplasto/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://www.instagram.com/national_plasto_group/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
 
-                <div class="footer_flex_right">
-                    <div class="footer_flex_img">
-                        <img src="images/icons/book.png" class="img-responsive" alt="book">
-                    </div>
-                    <div class="footer_flex_pdf">
-                        <p class="para-text" data-scroll>National Plasto Corporate Brochure</p>
-                        <div class="btn_section">
-                            <a href="javascript:void(0)" onclick="openBrochureModal()" class="btn_project_default">
-                                <img src="images/icons/icon_pdf.png" alt="pdf">VIEW BROCHURE
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <!-- Products -->
+            <nav class="np-footer-col" aria-label="Products">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="products.html?brand=next">NEXT &mdash; Premium</a></li>
+                    <li><a href="products.html?brand=national">NATIONAL</a></li>
+                    <li><a href="products.html?brand=captain">CAPTAIN</a></li>
+                    <li><a href="products.html?brand=sapphire">SAPPHIRE</a></li>
+                    <li><a href="products.html">Full Catalogue</a></li>
+                </ul>
+            </nav>
 
+            <!-- Company -->
+            <nav class="np-footer-col" aria-label="Company">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="about.html#leadership">Leadership</a></li>
+                    <li><a href="index.html#our-divisions">Our Divisions</a></li>
+                    <li><a href="manufacturing.html">Manufacturing</a></li>
+                    <li><a href="manufacturing.html#certifications">Certifications</a></li>
+                </ul>
+            </nav>
+
+            <!-- Dealers -->
+            <nav class="np-footer-col" aria-label="Dealers">
+                <h4>Dealers</h4>
+                <ul>
+                    <li><a href="distributor.html">Find a Dealer</a></li>
+                    <li><a href="distributor.html#portal">Become a Dealer</a></li>
+                    <li><a href="contact.html#enquiry-section">Bulk &amp; Institutional Orders</a></li>
+                </ul>
+            </nav>
+
+            <!-- Contact -->
+            <div class="np-footer-col np-footer-contact">
+                <h4>Contact</h4>
+                <address>
+                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>19 Sukeas Lane, Kolkata,<br>West Bengal, India 700001</span></p>
+                    <p><i class="fas fa-phone-alt" aria-hidden="true"></i><a href="tel:+919830012345">+91 98300 12345</a></p>
+                    <p><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:info@nationalplasto.com">info@nationalplasto.com</a></p>
+                    <p><i class="fab fa-whatsapp" aria-hidden="true"></i><a href="https://wa.me/919830012345" target="_blank" rel="noopener">Chat on WhatsApp</a></p>
+                </address>
             </div>
         </div>
 
-        <hr>
-
-        <div class="container footer_inner">
-            <div class="copyright_text">
-                <p>Copyright &copy; <span id="currentYear">2026</span> nationalplasto.com. All Rights Reserved.</p>
+        <div class="np-footer-bar">
+            <div class="container np-footer-bar-inner">
+                <p>&copy; <span id="currentYear">2026</span> National Plasto Products Private Limited. All Rights Reserved. Est. 1997 &middot; Precision Polymer Manufacturing.</p>
+                <nav class="np-footer-legal" aria-label="Legal">
+                    <a href="policies.html#privacy">Privacy Policy</a>
+                    <a href="policies.html#terms">Terms &amp; Conditions</a>
+                    <a href="policies.html#quality">Quality Policy</a>
+                </nav>
             </div>
-
-            <div class="page-links">
-                <div class="social_links">
-                    <ul class="social">
-                        <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a></li>
-                        <li><a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
-                        <li><a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="made_by_ting_sec made_by_agency">
-                <a href="javascript:void(0);" class="rem_link_style agency_credit_link" title="Made by Lionoar Digital">
-                    <span class="agency_made_by">Made by</span>
-                    <span class="agency_brand_tag">
-                        <i class="fas fa-heart agency_heart"></i>
-                        <span class="agency_brand_name">Lionoar Digital</span>
-                    </span>
-                </a>
+            <div class="container np-footer-credit">
+                <span>Made with <i class="fas fa-heart" aria-hidden="true"></i> by Lionoar Digital</span>
             </div>
         </div>
     </footer>
+
+    <!-- Floating WhatsApp chat -->
+    <a href="https://wa.me/919830012345?text=Hello%20National%20Plasto%2C%20I%20would%20like%20to%20know%20more%20about%20your%20products." class="np-whatsapp" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        <span>Chat with us</span>
+    </a>
 
     <!-- Corporate Brochure Modal -->
     <div class="np-modal-backdrop" id="brochureModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,0.8);z-index:99999;align-items:center;justify-content:center;">
@@ -629,107 +645,11 @@
     <script src="js/supreme_app.min.js"></script>
     <script src="js/supreme_mobile.js"></script>
     <script src="js/store.js"></script>
+    <script src="js/catalogue-2026.js"></script>
+    <script src="js/catalogue-page.js"></script>
 
     <script>
-        // Catalog Products Data
-        var productsData = [
-            { id: 1, name: "National Deluxe Armchair (NP-201)", category: "chairs", brand: "national", img: "images/products/chair-deluxe.jpg", desc: "Ergonomic monoblock heavy-duty armchair engineered with virgin PP for Indian climatic durability.", specs: "Dimensions: 560 x 580 x 840 mm | Load Rating: 200 kg" },
-            { id: 2, name: "NEXT Monarch Executive Chair (NX-505)", category: "chairs", brand: "next", img: "images/products/chair-executive.jpg", desc: "Premium architectural armless banquet chair featuring matte finish and curved lumbar contours.", specs: "Dimensions: 480 x 520 x 860 mm | Load Rating: 220 kg" },
-            { id: 3, name: "National Imperial Dining Table 6-Seater", category: "tables", brand: "national", img: "images/products/table-dining.jpg", desc: "Large format injection-moulded dining table with heavy-gauge detachable legs and umbrella slot.", specs: "Dimensions: 1400 x 850 x 740 mm | Static Load: 150 kg" },
-            { id: 4, name: "NEXT Metro Multipurpose Table", category: "tables", brand: "next", img: "images/products/table-multipurpose.jpg", desc: "Compact weather-resistant study and café table with textured wooden grain finish.", specs: "Dimensions: 900 x 900 x 740 mm | Static Load: 120 kg" },
-            { id: 5, name: "National Jumbo Step Stool (NP-401)", category: "stools", brand: "national", img: "images/products/stool-step.jpg", desc: "Dual-height anti-skid step stool with ribbed non-slip rubber feet for household and trade utility.", specs: "Dimensions: 420 x 380 x 450 mm | Test Load: 180 kg" },
-            { id: 6, name: "National Round Bathroom Stool", category: "stools", brand: "national", img: "images/products/stool-round.jpg", desc: "High-grade water-resistant commercial stool with textured anti-skid surface.", specs: "Dimensions: 320 x 320 x 460 mm | Test Load: 150 kg" },
-            { id: 7, name: "National Junior Wonder Desk & Chair Set", category: "baby-kids", brand: "national", img: "images/products/kids-desk.jpg", desc: "Non-toxic rounded-edge ergonomic study table and companion chair for toddlers and nursery schools.", specs: "Dimensions: 620 x 480 x 520 mm | EN71 Toy Safety Tested" },
-            { id: 8, name: "National Modular 4-Tier Drawer Cabinet", category: "storage", brand: "national", img: "images/products/storage-drawer.jpg", desc: "Heavy-duty modular drawer storage unit with smooth pull-out runners and dust-sealed seams.", specs: "Dimensions: 400 x 480 x 980 mm | Capacity: 80 Litres" },
-            { id: 9, name: "National Industrial Perforated Crate (600x400)", category: "utility", brand: "national", img: "images/products/crate-industrial.jpg", desc: "High-density polyethylene (HDPE) stackable logistics crate for cold storage, agriculture, and warehousing.", specs: "Dimensions: 600 x 400 x 320 mm | Stacking Load: 450 kg" }
-        ];
-
-        var currentCategory = "all";
-        var currentQuery = "";
-
-        function renderProducts() {
-            var container = $('#productsGridContainer');
-            container.empty();
-
-            var filtered = productsData.filter(function(p) {
-                var matchesCat = (currentCategory === "all") || (p.category === currentCategory);
-                var matchesQuery = (currentQuery === "") || (p.name.toLowerCase().indexOf(currentQuery.toLowerCase()) !== -1);
-                return matchesCat && matchesQuery;
-            });
-
-            if (filtered.length === 0) {
-                container.html('<div style="grid-column:1/-1;text-align:center;padding:60px 0;"><h3 style="color:#64748B;">No products match your filter criteria.</h3><button class="catalog_tab_btn active" onclick="filterCategory(\'all\', document.querySelector(\'.catalog_tab_btn\'))" style="margin-top:16px;">View All Products</button></div>');
-                return;
-            }
-
-            filtered.forEach(function(p) {
-                var badgeClass = p.brand === 'next' ? 'badge_next' : 'badge_national';
-                var badgeLabel = p.brand === 'next' ? 'NEXT DESIGNER' : 'NATIONAL CERTIFIED';
-
-                var cardHtml = `
-                    <div class="product_card">
-                        <div class="product_img_wrap">
-                            <span class="product_brand_badge ${badgeClass}">${badgeLabel}</span>
-                            <img src="${p.img}" alt="${p.name}">
-                        </div>
-                        <div class="product_details">
-                            <div>
-                                <h3>${p.name}</h3>
-                                <div class="product_sku">Category: ${p.category.toUpperCase()} &bull; ISO 9001:2015</div>
-                                <ul class="product_specs_list">
-                                    <li><i class="fas fa-check" style="color:var(--brand-primary);margin-right:6px;"></i> ${p.specs}</li>
-                                </ul>
-                            </div>
-                            <div class="product_action_btns">
-                                <button type="button" class="btn_quick_view" onclick="openProductModal('${p.name.replace(/'/g, "\\'")}', '${p.img}', '${p.desc.replace(/'/g, "\\'")}', '${p.specs.replace(/'/g, "\\'")}')">Quick Specs</button>
-                                <a href="contact.html?product=${encodeURIComponent(p.name)}#enquiry-section" class="btn_card_enquire">Enquire</a>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                container.append(cardHtml);
-            });
-        }
-
-        function filterCategory(cat, btn) {
-            currentCategory = cat;
-            $('.catalog_tab_btn').removeClass('active');
-            $(btn).addClass('active');
-            renderProducts();
-        }
-
-        function handleSearch(q) {
-            currentQuery = q;
-            renderProducts();
-        }
-
-        function openProductModal(title, img, desc, specs) {
-            $('#modalProductTitle').text(title);
-            $('#modalProductImg').attr('src', img);
-            $('#modalProductDesc').text(desc);
-            $('#modalProductSpecs').text(specs);
-            $('#productModal').css('display', 'flex');
-        }
-
-        function closeProductModal() {
-            $('#productModal').hide();
-        }
-
         $(document).ready(function() {
-            // URL Query Parameter check
-            var urlParams = new URLSearchParams(window.location.search);
-            var catParam = urlParams.get('category');
-            if (catParam) {
-                var matchingBtn = document.querySelector(`[onclick*="'${catParam}'"]`);
-                if (matchingBtn) {
-                    filterCategory(catParam, matchingBtn);
-                } else {
-                    renderProducts();
-                }
-            } else {
-                renderProducts();
-            }
-
             // Mobile Navigation Toggle (Supreme 1:1)
             $('#nav-icon3').on('click', function() {
                 $(this).toggleClass('open');

@@ -1430,3 +1430,975 @@ h1, h2, h3, h4, h5, h6 {
 .virtues_main .slick-arrow {
     display: none !important;
 }
+
+/* ==========================================================
+   Brand intro (index.html) — National from left, Next from right
+   ========================================================== */
+.np-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    background: #0b1220;
+    overflow: hidden;
+    animation: npIntroExit 0.7s cubic-bezier(0.7, 0, 0.3, 1) 4.1s forwards;
+}
+/* building photo, slowly zooming, under a dark overlay so the logos read clearly */
+.np-intro::before,
+.np-intro::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+.np-intro::before {
+    background: url("../images/brand/company-photo.jpg") center / cover no-repeat;
+    transform: scale(1.12);
+    animation: npIntroZoom 5s ease-out forwards;
+}
+.np-intro::after {
+    background:
+        radial-gradient(ellipse at center, rgba(8, 14, 28, 0.55) 0%, rgba(8, 14, 28, 0.88) 75%),
+        linear-gradient(180deg, rgba(8, 14, 28, 0.35), rgba(8, 14, 28, 0.75));
+}
+.np-intro__logos,
+.np-intro__text {
+    position: relative;
+    z-index: 1;
+}
+.np-intro__bar,
+.np-intro__skip {
+    z-index: 2;
+}
+.np-intro.np-intro--skip {
+    animation: npIntroExit 0.45s cubic-bezier(0.7, 0, 0.3, 1) 0s forwards;
+}
+html.np-intro-lock,
+html.np-intro-lock body {
+    overflow: hidden !important;
+}
+.np-intro__logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 1000px;
+}
+.np-intro__logo {
+    flex: 0 1 380px;
+    min-width: 0;
+    opacity: 0;
+}
+.np-intro__logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.np-intro__logo--national {
+    animation: npFromLeft 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+}
+.np-intro__logo--next {
+    animation: npFromRight 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+}
+.np-intro__divider {
+    flex: 0 0 2px;
+    align-self: stretch;
+    background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+    transform: scaleY(0);
+    animation: npGrowY 0.6s ease-out 1.1s forwards;
+}
+.np-intro__text {
+    margin-top: 36px;
+    text-align: center;
+    font-family: "Poppins", "Work Sans", sans-serif;
+}
+.np-intro__text > * {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: npFadeUp 0.7s ease-out forwards;
+}
+.np-intro__title {
+    margin: 0;
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    animation-delay: 1.6s !important;
+}
+.np-intro__tagline {
+    margin: 8px 0 0;
+    font-size: clamp(13px, 1.6vw, 17px);
+    font-weight: 600;
+    color: #FF5A5F;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation-delay: 2s !important;
+}
+.np-intro__meta {
+    margin: 14px 0 0;
+    font-size: clamp(12px, 1.3vw, 14px);
+    color: rgba(255, 255, 255, 0.78);
+    animation-delay: 2.4s !important;
+}
+.np-intro__bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, #ED3237, #1E3A93);
+    transform-origin: left center;
+    transform: scaleX(0);
+    animation: npGrowX 4.1s linear forwards;
+}
+.np-intro__skip {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 6px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    font: 500 13px "Poppins", sans-serif;
+    cursor: pointer;
+}
+.np-intro__skip:hover {
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+@keyframes npFromLeft {
+    from { opacity: 0; transform: translateX(-60vw); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes npFromRight {
+    from { opacity: 0; transform: translateX(60vw); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes npIntroZoom { to { transform: scale(1); } }
+@keyframes npGrowY { to { transform: scaleY(1); } }
+@keyframes npGrowX { to { transform: scaleX(1); } }
+@keyframes npFadeUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes npIntroExit {
+    to { opacity: 0; visibility: hidden; transform: translateY(-4%); }
+}
+
+@media (max-width: 767px) {
+    .np-intro__logos {
+        flex-direction: column;
+        gap: 22px;
+    }
+    .np-intro__logo {
+        flex: none;
+        width: min(78vw, 320px);
+    }
+    .np-intro__divider {
+        flex: none;
+        align-self: center;
+        width: 60%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+        transform: scaleX(0);
+        animation-name: npGrowX;
+    }
+    .np-intro__text {
+        margin-top: 26px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .np-intro__logo,
+    .np-intro__text > * {
+        transform: none !important;
+        animation: npFadeUp 0.4s ease-out 0.1s forwards !important;
+    }
+    .np-intro__divider { transform: none; animation: none; }
+    .np-intro::before { transform: none; animation: none; }
+    .np-intro { animation-delay: 2.2s; }
+    .np-intro__bar { animation-duration: 2.2s; }
+}
+
+/* ==========================================================
+   Site footer (all pages)
+   ========================================================== */
+footer.np-footer {
+    padding: 0;
+    background: #0B0F17;
+    color: #A7B0BE;
+    text-align: left;
+    font-family: "Poppins", "Work Sans", sans-serif;
+}
+.np-footer a {
+    color: #D5DBE4;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.np-footer a:hover,
+.np-footer a:focus {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.np-footer-main {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr 1.4fr;
+    gap: 40px;
+    padding-top: 64px;
+    padding-bottom: 48px;
+}
+.np-footer-main::before,
+.np-footer-main::after,
+.np-footer-bar-inner::before,
+.np-footer-bar-inner::after {
+    display: none;
+}
+.np-footer-logos {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 18px;
+}
+.np-footer-logos img {
+    display: block;
+    height: 58px;
+    width: auto;
+}
+.np-footer-divider {
+    width: 1px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.2);
+}
+.np-footer-brand p {
+    max-width: 320px;
+    margin: 0 0 20px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #A7B0BE;
+}
+.np-footer-social {
+    display: flex;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.np-footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+    font-size: 15px;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+.np-footer-social a:hover {
+    border-color: #ED3237;
+    background: #ED3237;
+}
+.np-footer-col h4 {
+    margin: 0 0 18px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+.np-footer-col ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.np-footer-col li {
+    margin: 0 0 11px;
+    font-size: 14px;
+}
+.np-footer-contact address {
+    margin: 0;
+    font-style: normal;
+}
+.np-footer-contact p {
+    display: flex;
+    gap: 12px;
+    margin: 0 0 12px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #D5DBE4;
+}
+.np-footer-contact i {
+    flex: none;
+    width: 16px;
+    margin-top: 4px;
+    color: #ED3237;
+    text-align: center;
+}
+.np-footer-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.np-footer-bar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 24px;
+    padding-top: 22px;
+    padding-bottom: 10px;
+}
+.np-footer-bar p {
+    margin: 0;
+    font-size: 13px;
+    color: #A7B0BE;
+}
+.np-footer-legal {
+    display: flex;
+    flex: none;
+    gap: 8px 20px;
+    font-size: 13.5px;
+    white-space: nowrap;
+}
+.np-footer-credit {
+    padding-bottom: 22px;
+    font-size: 12px;
+    color: #6B7483;
+}
+.np-footer-credit i {
+    color: #ED3237;
+}
+@media (max-width: 1199px) {
+    .np-footer-bar-inner { flex-direction: column; align-items: flex-start; }
+    .np-footer-main { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .np-footer-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 767px) {
+    .np-footer-main { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 20px; padding-top: 48px; padding-bottom: 32px; }
+    .np-footer-contact { grid-column: 1 / -1; }
+    .np-footer-logos img { height: 46px; }
+    .np-footer-bar-inner { flex-direction: column; align-items: flex-start; }
+    .np-footer-legal { flex-wrap: wrap; white-space: normal; }
+}
+
+/* ==========================================================
+   Floating WhatsApp chat (all pages)
+   ========================================================== */
+.np-whatsapp {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9990;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px 10px 12px;
+    border-radius: 999px;
+    background: #25D366;
+    color: #ffffff;
+    font: 600 15px "Poppins", sans-serif;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.np-whatsapp i {
+    font-size: 28px;
+    line-height: 1;
+}
+.np-whatsapp::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: #25D366;
+    animation: npWaPulse 2.4s ease-out infinite;
+}
+.np-whatsapp:hover,
+.np-whatsapp:focus {
+    background: #1EBE5A;
+    color: #ffffff;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.5);
+}
+@keyframes npWaPulse {
+    0%   { opacity: 0.55; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.35, 1.6); }
+}
+@media (max-width: 767px) {
+    .np-whatsapp {
+        right: 14px;
+        bottom: 14px;
+        gap: 8px;
+        padding: 8px 16px 8px 10px;
+        font-size: 14px;
+    }
+    .np-whatsapp i {
+        font-size: 24px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .np-whatsapp::before { animation: none; opacity: 0; }
+}
+
+/* ==========================================================
+   Our Divisions (index.html) — NEXT, NATIONAL, CAPTAIN, SAPPHIRE
+   ========================================================== */
+.np-div {
+    padding: 90px 0 60px;
+    background: #FFFFFF;
+}
+.np-div-head {
+    max-width: 860px;
+    margin: 0 auto 56px;
+    text-align: center;
+}
+.np-div-eyebrow {
+    display: inline-block;
+    margin-bottom: 14px;
+    padding: 5px 14px;
+    border-radius: 999px;
+    background: #FDECEC;
+    color: #ED3237;
+    font: 700 12px "Poppins", sans-serif;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+.np-div-head .heading-text {
+    margin-bottom: 18px;
+}
+.np-div-head p {
+    margin: 0 0 12px;
+    font: 400 16px/1.75 "Work Sans", sans-serif;
+    color: #475569;
+}
+.np-div-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 56px;
+    margin-bottom: 72px;
+}
+.np-div-row:last-child {
+    margin-bottom: 0;
+}
+.np-div-flip .np-div-stage {
+    order: 2;
+}
+
+/* --- showcase stage --- */
+.np-div-stage {
+    --div-a: #1E3A93;
+    --div-b: #0B1B4F;
+    --div-glow: rgba(120, 160, 255, 0.35);
+    position: relative;
+    display: block;
+    aspect-ratio: 5 / 4;
+    border-radius: 24px;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse 60% 55% at 50% 58%, var(--div-glow) 0%, transparent 70%),
+        linear-gradient(150deg, var(--div-a) 0%, var(--div-b) 100%);
+    box-shadow: 0 24px 50px -18px rgba(15, 23, 42, 0.45);
+    text-decoration: none;
+}
+.np-div-national .np-div-stage { --div-a: #E0343A; --div-b: #6E0E14; --div-glow: rgba(255, 200, 190, 0.35); }
+.np-div-captain .np-div-stage { --div-a: #3B4252; --div-b: #111827; --div-glow: rgba(255, 196, 80, 0.28); }
+.np-div-sapphire .np-div-stage { --div-a: #1476C2; --div-b: #062D55; --div-glow: rgba(150, 215, 255, 0.35); }
+
+/* floor line under the products */
+.np-div-stage::after {
+    content: "";
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: 16%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+}
+.np-div-num {
+    position: absolute;
+    right: 22px;
+    bottom: -18px;
+    font: 800 150px/1 "Poppins", sans-serif;
+    color: rgba(255, 255, 255, 0.07);
+    pointer-events: none;
+}
+.np-div-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    height: 58px;
+    padding: 8px 14px;
+    border-radius: 12px;
+    background: #FFFFFF;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+.np-div-badge img {
+    height: 100%;
+    width: auto;
+}
+.np-div-wordmark {
+    font: 800 22px "Poppins", sans-serif;
+    letter-spacing: 4px;
+    color: #111827;
+}
+.np-div-sapphire .np-div-badge { height: 76px; }
+.np-div-products {
+    position: absolute;
+    left: 6%;
+    right: 6%;
+    bottom: 14%;
+    height: 66%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.np-div-products img {
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 18px 16px rgba(0, 0, 0, 0.45));
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.np-div-hero {
+    position: relative;
+    z-index: 2;
+    width: 40%;
+    max-height: 100%;
+    margin: 0 -4%;
+}
+.np-div-side {
+    position: relative;
+    z-index: 1;
+    width: 30%;
+    max-height: 72%;
+    opacity: 0.96;
+}
+.np-div-stage:hover .np-div-hero { transform: translateY(-10px) scale(1.03); }
+.np-div-stage:hover .np-div-side:first-child { transform: translateX(-8px); }
+.np-div-stage:hover .np-div-side:last-child { transform: translateX(8px); }
+
+/* --- text column --- */
+.np-div-index {
+    display: block;
+    font: 700 14px "Poppins", sans-serif;
+    letter-spacing: 2px;
+    color: #ED3237;
+}
+.np-div-text h3 {
+    margin: 6px 0 10px;
+    font: 800 38px "Poppins", sans-serif;
+    letter-spacing: 1px;
+    color: #111827;
+}
+.np-div-tag {
+    display: inline-block;
+    margin-bottom: 18px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    background: #F1F5F9;
+    color: #1E293B;
+    font: 600 14px "Poppins", sans-serif;
+}
+.np-div-next .np-div-tag { background: #E8EDFB; color: #1E3A93; }
+.np-div-national .np-div-tag { background: #FDECEC; color: #B91C22; }
+.np-div-captain .np-div-tag { background: #FEF3D7; color: #8A5A00; }
+.np-div-sapphire .np-div-tag { background: #E3F1FB; color: #0F5E9C; }
+.np-div-text p {
+    margin: 0 0 14px;
+    font: 400 16px/1.75 "Work Sans", sans-serif;
+    color: #475569;
+}
+.np-div-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    padding: 11px 22px;
+    border-radius: 999px;
+    background: #111827;
+    color: #FFFFFF;
+    font: 600 14px "Poppins", sans-serif;
+    text-decoration: none;
+    transition: background 0.2s ease, gap 0.2s ease;
+}
+.np-div-cta:hover,
+.np-div-cta:focus {
+    gap: 12px;
+    background: #ED3237;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+@media (max-width: 991px) {
+    .np-div { padding: 60px 0 40px; }
+    .np-div-row { grid-template-columns: 1fr; gap: 26px; margin-bottom: 56px; }
+    .np-div-flip .np-div-stage { order: 0; }
+    .np-div-text h3 { font-size: 30px; }
+}
+@media (max-width: 575px) {
+    .np-div-head { margin-bottom: 36px; }
+    .np-div-head p, .np-div-text p { font-size: 15px; }
+    .np-div-stage { border-radius: 18px; }
+    .np-div-badge { top: 12px; left: 12px; height: 44px; padding: 6px 10px; border-radius: 10px; }
+    .np-div-sapphire .np-div-badge { height: 58px; }
+    .np-div-wordmark { font-size: 16px; letter-spacing: 3px; }
+    .np-div-num { font-size: 96px; right: 12px; bottom: -10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .np-div-products img { transition: none; }
+}
+
+/* ==========================================================
+   Home hero: brand product videos
+   ========================================================== */
+.banner-section .banner_img .np-hero-video {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    background: #0B1220;
+}
+.banner-section .banner-slider-img .banner_content {
+    border-left-color: #ED3237;
+}
+.banner-section .banner-slider-img .banner_content h2 {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.25);
+}
+.np-hero-brand {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.62em;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: rgba(255, 255, 255, 0.85);
+}
+.np-hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    padding: 11px 22px;
+    border-radius: 999px;
+    background: #FFFFFF;
+    color: #111827;
+    font: 600 15px "Poppins", sans-serif;
+    text-decoration: none;
+    transition: gap 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.np-hero-cta:hover,
+.np-hero-cta:focus {
+    gap: 12px;
+    background: #ED3237;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.banner-section .home-banner-slider .slick-dots {
+    position: absolute;
+    bottom: 28px;
+    left: 0;
+    right: 0;
+    display: flex !important;
+    justify-content: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.banner-section .home-banner-slider .slick-dots li button {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.45);
+    font-size: 0;
+    transition: width 0.3s ease, background 0.3s ease;
+}
+.banner-section .home-banner-slider .slick-dots li.slick-active button {
+    width: 28px;
+    background: #FFFFFF;
+}
+@media (max-width: 767px) {
+    .banner-section .banner_img .np-hero-video {
+        height: auto;
+        aspect-ratio: 3 / 4;
+    }
+    .banner-section .home-banner-slider .slick-dots {
+        display: none !important;
+    }
+    .np-hero-cta {
+        margin-top: 12px;
+        padding: 9px 18px;
+        font-size: 14px;
+    }
+}
+
+/* ==========================================================
+   Certifications (manufacturing.html#certifications)
+   ========================================================== */
+.np-certs {
+    padding: 90px 0;
+    background: #F4F6F9;
+    scroll-margin-top: 90px;
+}
+.np-cert-head {
+    max-width: 860px;
+    margin: 0 auto 36px;
+    text-align: center;
+}
+.np-cert-eyebrow {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 999px;
+    background: #FDECEC;
+    color: #ED3237;
+    font: 700 12px "Poppins", sans-serif;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+.np-cert-head h2 {
+    margin: 14px 0 14px;
+    font: 700 34px "Poppins", sans-serif;
+    color: #111827;
+}
+.np-cert-head h2 span { color: #ED3237; }
+.np-cert-head > p {
+    margin: 0 0 24px;
+    font: 400 16px/1.7 "Work Sans", sans-serif;
+    color: #475569;
+}
+.np-cert-standards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.np-cert-standards li {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 16px;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    background: #FFFFFF;
+    font: 400 12px "Poppins", sans-serif;
+    color: #64748B;
+}
+.np-cert-standards strong {
+    font-size: 15px;
+    font-weight: 700;
+    color: #111827;
+}
+.np-cert-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+}
+.np-cert-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 18px;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 12px;
+    background: #FFFFFF;
+    color: #111827;
+    font: 700 18px "Poppins", sans-serif;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+.np-cert-tab span {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: #64748B;
+}
+.np-cert-tab:hover { border-color: #ED3237; }
+.np-cert-tab.active {
+    border-color: #ED3237;
+    background: #ED3237;
+    color: #FFFFFF;
+}
+.np-cert-tab.active span { color: rgba(255, 255, 255, 0.85); }
+.np-cert-plant {
+    margin: 0 0 18px;
+    font: 400 14px/1.6 "Poppins", sans-serif;
+    color: #64748B;
+}
+.np-cert-plant strong { color: #111827; }
+.np-cert-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 16px;
+}
+.np-cert-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    background: #FFFFFF;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.np-cert-card:hover,
+.np-cert-card:focus {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+    color: inherit;
+    text-decoration: none;
+}
+.np-cert-thumb {
+    display: block;
+    padding: 12px 12px 0;
+    background: #EEF2F6;
+}
+.np-cert-thumb img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 210 / 297;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+.np-cert-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 2px;
+    padding: 12px 12px 14px;
+    font-family: "Poppins", sans-serif;
+}
+.np-cert-info strong { font-size: 15px; color: #111827; }
+.np-cert-info em { font-size: 12.5px; font-style: normal; color: #475569; }
+.np-cert-info small { margin-top: 4px; font-size: 11px; color: #94A3B8; }
+.np-cert-view {
+    margin-top: auto;
+    padding-top: 10px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #ED3237;
+}
+@media (max-width: 1199px) {
+    .np-cert-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+    .np-certs { padding: 60px 0; }
+    .np-cert-head h2 { font-size: 26px; }
+    .np-cert-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .np-cert-tab { padding: 10px 12px; font-size: 16px; }
+    .np-cert-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+}
+
+/* ==========================================================
+   Catalogue download (desktop nav + mobile sidebar)
+   ========================================================== */
+.header nav .menu li.np-nav-download-item > a.np-nav-download,
+.np-nav-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: #ED3237;
+    color: #FFFFFF !important;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+}
+.header nav .menu li.np-nav-download-item > a.np-nav-download:hover,
+.np-nav-download:hover {
+    background: #C8242A;
+    color: #FFFFFF !important;
+    text-decoration: none;
+}
+.header nav .menu li.np-nav-download-item > a.np-nav-download::after,
+.header nav .menu li.np-nav-download-item > a.np-nav-download::before {
+    display: none;
+}
+.np-side-download {
+    margin-top: 20px;
+}
+.np-side-download a {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 6px;
+    background: #ED3237;
+    color: #FFFFFF;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* ==========================================================
+   Brand intro on phones: show the whole building as a photo
+   band instead of cropping it to a narrow slice
+   ========================================================== */
+@media (max-width: 767px) and (orientation: portrait) {
+    .np-intro::before {
+        background: url("../images/brand/company-photo.jpg") center 14% / 150% auto no-repeat, #0B1220;
+        transform-origin: center 25%;
+    }
+    .np-intro::after {
+        background:
+            linear-gradient(180deg,
+                rgba(8, 14, 28, 0.25) 0%,
+                rgba(8, 14, 28, 0.35) 30%,
+                rgba(8, 14, 28, 0.85) 50%,
+                rgba(11, 18, 32, 1) 58%);
+    }
+    .np-intro {
+        justify-content: flex-end;
+        padding-bottom: 72px;
+    }
+}
+
+/* Keep desktop menu items on one line; compact catalogue pill */
+.header nav ul.menu > li > a {
+    white-space: nowrap;
+}
+.header nav ul.menu > li.np-nav-download-item {
+    display: flex;
+    align-items: center;
+    margin-left: 6px;
+}
+.header nav ul.menu > li.np-nav-download-item > a.np-nav-download {
+    height: auto !important;
+    padding: 9px 16px !important;
+    line-height: 1.2 !important;
+    font-size: 14px;
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .header nav .social_links .header_social:not(.search_icon) {
+        display: none !important;
+    }
+    .header nav .logo_section {
+        flex: none;
+    }
+    .header nav ul.menu > li > a {
+        padding-left: 7px !important;
+        padding-right: 7px !important;
+        font-size: 14px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1399px) {
+    .header nav ul.menu > li > a {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        font-size: 14.5px;
+    }
+}
