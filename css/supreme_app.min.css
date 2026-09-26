@@ -117,4 +117,18 @@
 .faq-section_common .faq-inside .content {
   display: none;
   padding: 0px 30px 40px;
+}@media screen and (max-width:767px){
+#index_page .largest_plastic_white_box .value_item_flex,
+#index_page .largest_plastic .largest_plastic_box .largest_plastic_white_box .value_item.value_item_flex,
+#index_page .largest_plastic .largest_plastic_box .largest_plastic_white_box .value_item_flex,
+.largest_plastic_white_box .value_item.value_item_flex,
+.largest_plastic_white_box .value_item_flex{grid-column:1 / -1 !important;width:100% !important;display:flex !important;flex-direction:row !important;flex-wrap:nowrap !important;justify-content:space-between !important;align-items:flex-start !important;gap:12px !important;padding:0 !important;margin-top:12px !important;box-sizing:border-box !important}
+#index_page .largest_plastic_white_box .value_item_flex .value_content,
+#index_page .largest_plastic .largest_plastic_box .largest_plastic_white_box .value_item.value_item_flex .value_content,
+#index_page .largest_plastic .largest_plastic_box .largest_plastic_white_box .value_item_flex .value_content,
+.largest_plastic_white_box .value_item.value_item_flex .value_content,
+.largest_plastic_white_box .value_item_flex .value_content{flex:1 1 50% !important;width:50% !important;max-width:50% !important;box-sizing:border-box !important;margin-bottom:0 !important;text-align:left !important;padding:0 !important}
+#index_page .largest_plastic_white_box .value_item_flex .value_content h5,
+#index_page .largest_plastic .largest_plastic_box .largest_plastic_white_box .value_item.value_item_flex .value_content h5,
+.largest_plastic_white_box .value_item_flex .value_content h5{font-size:17px !important;line-height:1.25 !important}
 }

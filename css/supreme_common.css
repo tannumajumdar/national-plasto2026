@@ -876,26 +876,57 @@ h1, h2, h3, h4, h5, h6 {
         line-height: 1.6 !important;
     }
 
+    #index_page .largest_plastic_white_box,
     .largest_plastic_white_box {
         width: 100% !important;
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
-        gap: 12px !important;
+        gap: 16px 12px !important;
+        padding: 24px 16px !important;
+        box-sizing: border-box !important;
     }
 
+    #index_page .largest_plastic_white_box .value_item,
     .largest_plastic_white_box .value_item {
-        padding: 16px 12px !important;
-        text-align: center !important;
+        width: 100% !important;
+        padding: 0 !important;
+        text-align: left !important;
+        box-sizing: border-box !important;
     }
 
-    .largest_plastic_white_box .value_item h3 {
-        font-size: 26px !important;
-        margin-bottom: 4px !important;
+    #index_page .largest_plastic_white_box .value_item .value_content,
+    .largest_plastic_white_box .value_item .value_content {
+        margin-bottom: 20px !important;
     }
 
-    .largest_plastic_white_box .value_item p {
-        font-size: 12px !important;
-        line-height: 1.3 !important;
+    #index_page .largest_plastic_white_box .value_item .value_content:last-child,
+    .largest_plastic_white_box .value_item .value_content:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    #index_page .largest_plastic_white_box .value_item.value_item_flex,
+    .largest_plastic_white_box .value_item_flex {
+        grid-column: 1 / -1 !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        gap: 12px !important;
+        padding: 0 !important;
+        margin-top: 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    #index_page .largest_plastic_white_box .value_item.value_item_flex .value_content,
+    .largest_plastic_white_box .value_item_flex .value_content {
+        flex: 1 1 50% !important;
+        width: 50% !important;
+        max-width: 50% !important;
+        box-sizing: border-box !important;
+        margin-bottom: 0 !important;
+        text-align: left !important;
+        padding: 0 !important;
     }
 
     /* Pan-India Footprint Section */
@@ -2628,4 +2659,49 @@ footer.np-footer {
 .contact_us .contact_us_content .contact-details-home p img {
     flex-shrink: 0 !important;
 }
+
+/* ==========================================================
+   Home Stats: Fix Manufacturing Plants & ISO Certs Overlap
+   ========================================================== */
+@media (max-width: 767px) {
+    #index_page .largest_plastic_white_box .value_item_flex,
+    #index_page .largest_plastic .largest_plastic_box .largest_plastic_white_box .value_item.value_item_flex,
+    #index_page .largest_plastic .largest_plastic_box .largest_plastic_white_box .value_item_flex,
+    .largest_plastic_white_box .value_item.value_item_flex,
+    .largest_plastic_white_box .value_item_flex {
+        grid-column: 1 / -1 !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        gap: 12px !important;
+        padding: 0 !important;
+        margin-top: 15px !important;
+        box-sizing: border-box !important;
+    }
+
+    #index_page .largest_plastic_white_box .value_item_flex .value_content,
+    #index_page .largest_plastic .largest_plastic_box .largest_plastic_white_box .value_item.value_item_flex .value_content,
+    #index_page .largest_plastic .largest_plastic_box .largest_plastic_white_box .value_item_flex .value_content,
+    .largest_plastic_white_box .value_item.value_item_flex .value_content,
+    .largest_plastic_white_box .value_item_flex .value_content {
+        flex: 1 1 50% !important;
+        width: 50% !important;
+        max-width: 50% !important;
+        box-sizing: border-box !important;
+        margin-bottom: 0 !important;
+        text-align: left !important;
+        padding: 0 !important;
+    }
+
+    #index_page .largest_plastic_white_box .value_item_flex .value_content h5,
+    #index_page .largest_plastic .largest_plastic_box .largest_plastic_white_box .value_item.value_item_flex .value_content h5,
+    .largest_plastic_white_box .value_item_flex .value_content h5 {
+        font-size: 17px !important;
+        line-height: 1.25 !important;
+    }
+}
+
 
