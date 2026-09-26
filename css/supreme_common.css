@@ -2402,3 +2402,164 @@ footer.np-footer {
         font-size: 14.5px;
     }
 }
+
+/* Hero headline entrance on each brand slide */
+.banner-section .slick-current .banner_content .np-hero-brand,
+.banner-section .slick-current .banner_content h2,
+.banner-section .slick-current .banner_content .np-hero-cta {
+    animation: npHeroIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.banner-section .slick-current .banner_content h2 { animation-delay: 0.1s; }
+.banner-section .slick-current .banner_content .np-hero-cta { animation-delay: 0.3s; }
+@keyframes npHeroIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .banner-section .slick-current .banner_content * { animation: none !important; }
+}
+
+/* ==========================================================
+   Home: Sustainability
+   ========================================================== */
+.np-sust {
+    padding: 90px 0 70px;
+    background: #FFFFFF;
+}
+.np-sust-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 22px;
+}
+.np-sust-top .heading-text { margin: 0; }
+.np-sust-text {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 36px;
+}
+.np-sust-text p {
+    margin: 0 0 14px;
+    font: 400 17px/1.7 "Work Sans", sans-serif;
+    color: #475569;
+}
+.np-sust-icons {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+    margin: 0;
+    padding: 30px 20px;
+    list-style: none;
+    border-radius: 12px;
+    background: #E9EFF2;
+}
+.np-sust-icons li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    text-align: center;
+    font: 600 16px/1.4 "Work Sans", sans-serif;
+    color: #1F2937;
+}
+.np-sust-ico {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border: 2px solid #1F2937;
+    border-radius: 50%;
+    background: #FFFFFF;
+    font-size: 28px;
+    color: #ED3237;
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+.np-sust-icons li:hover .np-sust-ico {
+    transform: translateY(-4px) rotate(-6deg);
+    background: #ED3237;
+    color: #FFFFFF;
+}
+
+/* ==========================================================
+   Home: Investor's Room
+   ========================================================== */
+.np-invest {
+    padding: 70px 0 90px;
+    background: #FFFFFF;
+}
+.np-invest-flex {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+.np-invest-flex::before,
+.np-invest-flex::after { display: none; }
+.np-invest-img {
+    position: relative;
+}
+.np-invest-img img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 6px;
+}
+.np-invest-badge {
+    position: absolute;
+    right: -22px;
+    bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 22px;
+    border-radius: 10px;
+    background: #ED3237;
+    color: #FFFFFF;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0 14px 30px rgba(237, 50, 55, 0.35);
+}
+.np-invest-badge strong { font-size: 22px; }
+.np-invest-badge span { font-size: 13px; opacity: 0.9; }
+.np-invest-content .heading-text { margin-bottom: 18px; }
+.np-invest-content p {
+    margin: 0 0 18px;
+    font: 400 17px/1.7 "Work Sans", sans-serif;
+    color: #3D3D3D;
+}
+.np-invest-points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 0 0 22px;
+    padding: 0;
+    list-style: none;
+}
+.np-invest-points li {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 16px;
+    border-left: 3px solid #ED3237;
+    background: #F4F6F9;
+    border-radius: 0 8px 8px 0;
+}
+.np-invest-points strong { font: 700 22px "Poppins", sans-serif; color: #111827; }
+.np-invest-points span { font: 400 13px "Poppins", sans-serif; color: #64748B; }
+
+@media (max-width: 991px) {
+    .np-sust-text { grid-template-columns: 1fr; gap: 0; }
+    .np-sust-icons { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 26px; }
+    .np-invest-flex { grid-template-columns: 1fr; gap: 40px; }
+    .np-invest-badge { right: 12px; }
+}
+@media (max-width: 575px) {
+    .np-sust { padding: 60px 0 50px; }
+    .np-sust-top { flex-direction: column; align-items: flex-start; }
+    .np-sust-text p, .np-invest-content p { font-size: 15.5px; }
+    .np-sust-icons { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .np-sust-icons li { font-size: 14px; }
+    .np-sust-ico { width: 60px; height: 60px; font-size: 23px; }
+    .np-invest { padding: 40px 0 60px; }
+}
