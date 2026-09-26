@@ -9,29 +9,30 @@
         var navIcon = document.getElementById('nav-icon3');
         var sidebar = document.querySelector('.sidebar_wrap');
 
-        // 1. Mobile Hamburger Toggle
-        if (navIcon && sidebar) {
-            navIcon.addEventListener('click', function (e) {
+        // 1 + 2. Hamburger and sidebar dropdowns. Handled in the capture phase and
+        // stopped there, so the template's own jQuery / inline handlers never also
+        // run - otherwise several toggles fire per tap and cancel each other out.
+        document.addEventListener('click', function (e) {
+            var icon = e.target.closest && e.target.closest('#nav-icon3');
+            if (icon && sidebar) {
                 e.preventDefault();
                 e.stopPropagation();
-                navIcon.classList.toggle('open');
-                sidebar.classList.toggle('open');
-                document.body.classList.toggle('overflow-hidden');
-            });
-        }
-
-        // 2. Mobile Accordion Dropdowns inside Sidebar
-        var dropdownToggles = document.querySelectorAll('.sidebar_wrap .dropdown-toggle');
-        dropdownToggles.forEach(function (toggle) {
-            toggle.addEventListener('click', function (e) {
+                var open = !sidebar.classList.contains('open');
+                icon.classList.toggle('open', open);
+                sidebar.classList.toggle('open', open);
+                document.body.classList.toggle('overflow-hidden', open);
+                return;
+            }
+            var toggle = e.target.closest && e.target.closest('.sidebar_wrap .dropdown-toggle');
+            if (toggle) {
                 e.preventDefault();
                 e.stopPropagation();
                 var dropdown = toggle.closest('.dropdown');
                 if (dropdown) {
                     dropdown.classList.toggle('open');
                 }
-            });
-        });
+            }
+        }, true);
 
         // 3. Close Drawer on Navigating
         var navLinks = document.querySelectorAll('.sidebar_wrap .links a');

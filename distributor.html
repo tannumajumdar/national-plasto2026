@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/supreme_app.min.css">
-    <link rel="stylesheet" href="css/supreme_common.css">
+    <link rel="stylesheet" href="css/supreme_common.css?v=20260926">
 
     <style>
         /* Advantages Grid */
@@ -682,8 +682,8 @@
 
     <!-- Scripts: jQuery, Supreme JS -->
     <script src="js/jquery.min.js"></script>
-    <script src="js/supreme_app.min.js"></script>
-    <script src="js/supreme_mobile.js"></script>
+    <script src="js/supreme_app.min.js?v=20260926"></script>
+    <script src="js/supreme_mobile.js?v=20260926"></script>
 
     <script>
         function handleDealerSubmit(e) {
@@ -702,15 +702,6 @@
         }
 
         $(document).ready(function() {
-            // Mobile Navigation Toggle (Supreme 1:1)
-            $('#nav-icon3').on('click', function() {
-                $(this).toggleClass('open');
-                $('.sidebar_wrap').toggleClass('open');
-            });
-            $('.sidebar_wrap .links a').on('click', function() {
-                $('#nav-icon3').removeClass('open');
-                $('.sidebar_wrap').removeClass('open');
-            });
 
             // Back to top scroll button
             $(window).scroll(function() {
