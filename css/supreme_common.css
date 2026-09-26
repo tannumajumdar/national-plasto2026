@@ -1590,22 +1590,19 @@ html.np-intro-lock body {
 }
 
 @media (max-width: 767px) {
+    /* phones: keep the two logos side by side so one enters from each side */
     .np-intro__logos {
-        flex-direction: column;
-        gap: 22px;
+        flex-direction: row;
+        gap: 14px;
+        padding: 0 4px;
     }
     .np-intro__logo {
-        flex: none;
-        width: min(78vw, 320px);
+        flex: 1 1 0;
+        width: auto;
     }
     .np-intro__divider {
-        flex: none;
-        align-self: center;
-        width: 60%;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
-        transform: scaleX(0);
-        animation-name: npGrowX;
+        flex: 0 0 1px;
+        align-self: stretch;
     }
     .np-intro__text {
         margin-top: 26px;
