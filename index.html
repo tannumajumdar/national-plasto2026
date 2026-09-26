@@ -65,6 +65,46 @@
             padding-top: 0 !important;
             margin-top: 0 !important;
         }
+
+        /* Home Hero: Hide scroll down on mobile to prevent overlap */
+        @media (max-width: 767px) {
+            #index_page .banner-section .scrool-down,
+            .banner-section .scrool-down {
+                display: none !important;
+            }
+        }
+
+        /* Home Plants Slider: Fix plant_btn badge wrapping & shape */
+        #index_page .plant_main .plant_slider .plant_item .container .plant_btn,
+        .plant_main .plant_slider .plant_item .container .plant_btn {
+            display: inline-block !important;
+            white-space: normal !important;
+            max-width: 90% !important;
+            font-size: 15px !important;
+            line-height: 1.35 !important;
+            padding: 9px 18px !important;
+            border-radius: 8px 8px 0 0 !important;
+            background-color: #C21121 !important;
+            color: #ffffff !important;
+            text-align: center !important;
+            box-sizing: border-box !important;
+            vertical-align: bottom !important;
+        }
+
+        @media (max-width: 767px) {
+            #index_page .plant_main .plant_slider .plant_item .container,
+            .plant_main .plant_slider .plant_item .container {
+                bottom: 0 !important;
+                padding: 0 10px !important;
+                text-align: center !important;
+            }
+            #index_page .plant_main .plant_slider .plant_item .container .plant_btn,
+            .plant_main .plant_slider .plant_item .container .plant_btn {
+                font-size: 13.5px !important;
+                padding: 7px 14px !important;
+                border-radius: 6px 6px 0 0 !important;
+            }
+        }
     </style>
 </head>
 <body id="index_page">
