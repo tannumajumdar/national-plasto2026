@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/supreme_app.min.css">
-    <link rel="stylesheet" href="css/supreme_common.css?v=20260926">
+    <link rel="stylesheet" href="css/supreme_common.css?v=20260928">
 
     <style>
         /* ================= Product Catalogue (2026 photoshoot) ================= */
@@ -298,6 +298,7 @@
             .np-modal-info h3 { font-size: 24px; }
         }
     </style>
+    <link rel="stylesheet" href="css/np-revamp.css?v=20260929d">
 </head>
 
 <body id="products_page">
@@ -340,7 +341,7 @@
                     <li><a href="distributor.html">Dealer Desk</a></li>
                     <li><a href="manufacturing.html">Manufacturing</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
-                    <li class="np-nav-download-item"><a href="docs/national-plasto-catalogue-2026.pdf" class="np-nav-download" download><i class="fas fa-file-pdf" aria-hidden="true"></i> Catalogue</a></li>
+                    <li class="np-nav-download-item"><a href="docs/national-plasto-catalogue-2026.pdf" class="np-nav-download" download title="Download Catalogue (PDF)"><i class="fas fa-download" aria-hidden="true"></i><span>Catalogue</span></a></li>
                 </ul>
                 <ul class="social_links">
                     <li class="header_social search_icon">
@@ -448,18 +449,18 @@
     </div>
 
     <!-- Inner Page Banner -->
-    <section class="banner-section inner_banner">
+    <section class="banner-section inner_banner np-page-banner">
         <div class="container">
             <h1 class="heading-text">Our Products &mdash; <span class="color_red_home">Product Catalogue</span></h1>
             <p class="para-text">Engineered for endurance. Built for India. Explore 360+ models across National, Next, Sapphire and Captain &mdash; chairs, dining sets, tables, stools and storage.</p>
         </div>
-        <div class="scrool-down">
-            <div class="l-section-top">
-                <div class="c-scrolldown">
-                    <div class="c-line"></div>
-                </div>
+        <nav class="np-breadcrumbs" aria-label="Breadcrumb">
+            <div class="container">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                <span aria-current="page">Products</span>
             </div>
-        </div>
+        </nav>
     </section>
 
     
@@ -476,7 +477,11 @@
                         <i class="fas fa-search"></i>
                     </div>
                 </div>
-                <div class="np-chips" id="npCategoryChips"></div>
+                <div class="np-chips-wrap" id="npChipsWrap">
+                    <button type="button" class="np-chips-arrow np-chips-prev" aria-label="Scroll categories left" hidden><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                    <div class="np-chips" id="npCategoryChips"></div>
+                    <button type="button" class="np-chips-arrow np-chips-next" aria-label="Scroll categories right" hidden><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
                 <p class="np-result-count" id="npResultCount"></p>
             </div>
         </section>
@@ -532,7 +537,7 @@
         <!-- ==========================================================================
          CORPORATE FOOTER (Supreme 1:1 Pixel-Perfect Layout)
          ========================================================================== -->
-    <footer class="np-footer">
+    <footer class="np-sfooter">
         <div class="scroll_section_box" id="scroll_btn">
             <div class="scroll icon">
                 <a class="scollTop" href="javascript:void(0);" onclick="$('html, body').animate({scrollTop:0}, 600);">
@@ -541,80 +546,74 @@
             </div>
         </div>
 
-        <div class="container np-footer-main">
-            <!-- Brand -->
-            <div class="np-footer-brand">
-                <div class="np-footer-logos">
-                    <a href="index.html" aria-label="National Plasto home"><img src="images/brand/national-plasto-dark.png" alt="National - NPPL" loading="lazy"></a>
-                    <span class="np-footer-divider" aria-hidden="true"></span>
-                    <a href="products.html?brand=next" aria-label="NEXT products"><img src="images/brand/next-nppl-dark.png" alt="Next - From the House of NPPL" loading="lazy"></a>
-                </div>
-                <p>Plastic moulded furniture for every space and every need &mdash; made in four ISO-certified plants across India since 1997.</p>
-                <ul class="np-footer-social">
-                    <li><a href="https://www.facebook.com/share/1GMoEgyWs7/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="https://www.linkedin.com/company/nationalplasto/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
-                    <li><a href="https://www.instagram.com/national_plasto_group/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
-                </ul>
+        <div class="container np-sfooter-brand">
+            <a href="index.html" aria-label="National Plasto home"><img src="images/brand/national-plasto-dark.png" alt="National - Excellence in Plastic Moulded Products" width="486" height="236" loading="lazy"></a>
+            <span class="np-sfooter-brand-divider" aria-hidden="true"></span>
+            <a href="products.html?brand=next" aria-label="NEXT products"><img src="images/brand/next-nppl-dark.png" alt="Next - From the House of NPPL National" width="436" height="189" loading="lazy"></a>
+        </div>
+
+        <div class="container np-sfooter-top">
+            <div class="np-sfooter-links">
+                <nav class="np-sfooter-col" aria-label="Our brands">
+                    <h4>Our Brands</h4>
+                    <ul>
+                        <li><a href="products.html?brand=next">NEXT &mdash; Premium Furniture</a></li>
+                        <li><a href="products.html?brand=national">NATIONAL</a></li>
+                        <li><a href="products.html?brand=captain">CAPTAIN</a></li>
+                        <li><a href="products.html?brand=sapphire">SAPPHIRE</a></li>
+                        <li><a href="products.html">Full Product Range</a></li>
+                    </ul>
+                </nav>
+                <nav class="np-sfooter-col" aria-label="About us">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="about.html">Overview</a></li>
+                        <li><a href="about.html#leadership">Leadership</a></li>
+                        <li><a href="index.html#our-divisions">Our Divisions</a></li>
+                        <li><a href="manufacturing.html">Manufacturing</a></li>
+                        <li><a href="manufacturing.html#certifications">Certifications</a></li>
+                        <li><a href="index.html#sustainability">Sustainability</a></li>
+                    </ul>
+                </nav>
+                <nav class="np-sfooter-col np-sfooter-col--plain" aria-label="Business">
+                    <ul>
+                        <li><a href="index.html#investors">Investor's Room</a></li>
+                        <li><a href="distributor.html">Dealer Desk</a></li>
+                        <li><a href="distributor.html#portal">Become a Dealer</a></li>
+                        <li><a href="contact.html#enquiry-section">Bulk &amp; Institutional Orders</a></li>
+                        <li><a href="docs/national-plasto-catalogue-2026.pdf" download>Download Catalogue</a></li>
+                    </ul>
+                </nav>
+                <nav class="np-sfooter-col" aria-label="Contact">
+                    <h4><a href="contact.html">Contact Us</a></h4>
+                    <ul>
+                        <li><a href="https://www.google.com/maps/search/?api=1&amp;query=19+Sukeas+Lane+Kolkata+700001" target="_blank" rel="noopener">19 Sukeas Lane, Kolkata, West Bengal 700001</a></li>
+                        <li><a href="tel:+919830012345">+91 98300 12345</a></li>
+                        <li><a href="mailto:info@nationalplasto.com">info@nationalplasto.com</a></li>
+                        <li><a href="policies.html#privacy">Privacy Policy</a></li>
+                        <li><a href="policies.html#terms">Terms &amp; Conditions</a></li>
+                    </ul>
+                </nav>
             </div>
 
-            <!-- Products -->
-            <nav class="np-footer-col" aria-label="Products">
-                <h4>Products</h4>
-                <ul>
-                    <li><a href="products.html?brand=next">NEXT &mdash; Premium</a></li>
-                    <li><a href="products.html?brand=national">NATIONAL</a></li>
-                    <li><a href="products.html?brand=captain">CAPTAIN</a></li>
-                    <li><a href="products.html?brand=sapphire">SAPPHIRE</a></li>
-                    <li><a href="products.html">Full Catalogue</a></li>
-                </ul>
-            </nav>
-
-            <!-- Company -->
-            <nav class="np-footer-col" aria-label="Company">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="about.html#leadership">Leadership</a></li>
-                    <li><a href="index.html#our-divisions">Our Divisions</a></li>
-                    <li><a href="manufacturing.html">Manufacturing</a></li>
-                    <li><a href="manufacturing.html#certifications">Certifications</a></li>
-                </ul>
-            </nav>
-
-            <!-- Dealers -->
-            <nav class="np-footer-col" aria-label="Dealers">
-                <h4>Dealers</h4>
-                <ul>
-                    <li><a href="distributor.html">Find a Dealer</a></li>
-                    <li><a href="distributor.html#portal">Become a Dealer</a></li>
-                    <li><a href="contact.html#enquiry-section">Bulk &amp; Institutional Orders</a></li>
-                </ul>
-            </nav>
-
-            <!-- Contact -->
-            <div class="np-footer-col np-footer-contact">
-                <h4>Contact</h4>
-                <address>
-                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>19 Sukeas Lane, Kolkata,<br>West Bengal, India 700001</span></p>
-                    <p><i class="fas fa-phone-alt" aria-hidden="true"></i><a href="tel:+919830012345">+91 98300 12345</a></p>
-                    <p><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:info@nationalplasto.com">info@nationalplasto.com</a></p>
-                    <p><i class="fab fa-whatsapp" aria-hidden="true"></i><a href="https://wa.me/919830012345" target="_blank" rel="noopener">Chat on WhatsApp</a></p>
-                </address>
+            <div class="np-sfooter-brochure">
+                <img src="images/brand/catalogue-mockup.png" alt="National Plasto Product Catalogue 2026" width="467" height="421" loading="lazy">
+                <p>National Plasto Product Catalogue 2026</p>
+                <a href="docs/national-plasto-catalogue-2026.pdf" target="_blank" rel="noopener" class="btn_project_default"><img src="images/icons/icon_pdf.png" alt="" aria-hidden="true">View Catalogue</a>
             </div>
         </div>
 
-        <div class="np-footer-bar">
-            <div class="container np-footer-bar-inner">
-                <p>&copy; <span id="currentYear">2026</span> National Plasto Products Private Limited. All Rights Reserved. Est. 1997 &middot; Precision Polymer Manufacturing.</p>
-                <nav class="np-footer-legal" aria-label="Legal">
-                    <a href="policies.html#privacy">Privacy Policy</a>
-                    <a href="policies.html#terms">Terms &amp; Conditions</a>
-                    <a href="policies.html#quality">Quality Policy</a>
-                </nav>
-            </div>
-            <div class="container np-footer-credit">
-                <span>Made with <i class="fas fa-heart" aria-hidden="true"></i> by Lionoar Digital</span>
-            </div>
+        <hr>
+
+        <div class="container np-sfooter-bar">
+            <p class="np-sfooter-copy">Copyright &copy; 2026 National Plasto Products Pvt. Ltd. All Rights Reserved.</p>
+            <ul class="np-sfooter-social">
+                <li><a href="https://www.facebook.com/share/1GMoEgyWs7/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/nationalplasto/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="https://www.instagram.com/national_plasto_group/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://wa.me/919830012345" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+            </ul>
+            <p class="np-sfooter-credit">Made with <i class="fas fa-heart" aria-hidden="true"></i> by Lionoar Digital</p>
         </div>
     </footer>
 
@@ -647,7 +646,7 @@
     <script src="js/supreme_mobile.js?v=20260926"></script>
     <script src="js/store.js"></script>
     <script src="js/catalogue-2026.js"></script>
-    <script src="js/catalogue-page.js"></script>
+    <script src="js/catalogue-page.js?v=20260928"></script>
 
     <script>
         $(document).ready(function() {
@@ -673,6 +672,27 @@
             alert('Thank you! The National Plasto Corporate Brochure 2026 is downloading.');
             closeBrochureModal();
         }
+    </script>
+
+    <script>
+    (function () {
+        var wrap = document.getElementById('npChipsWrap');
+        if (!wrap) return;
+        var row = document.getElementById('npCategoryChips');
+        var prev = wrap.querySelector('.np-chips-prev'), next = wrap.querySelector('.np-chips-next');
+        function update() {
+            var left = row.scrollLeft > 4, right = row.scrollLeft + row.clientWidth < row.scrollWidth - 4;
+            prev.hidden = !left; next.hidden = !right;
+            wrap.classList.toggle('can-left', left);
+            wrap.classList.toggle('can-right', right);
+        }
+        prev.addEventListener('click', function () { row.scrollBy({ left: -row.clientWidth * 0.7 }); });
+        next.addEventListener('click', function () { row.scrollBy({ left: row.clientWidth * 0.7 }); });
+        row.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update);
+        new MutationObserver(update).observe(row, { childList: true });
+        update();
+    })();
     </script>
 </body>
 </html>
