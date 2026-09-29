@@ -2000,3 +2000,35 @@ html.np-anim .np-reveal.np-in {
     #furniture .collections-section .collections-info .collections-inside .collection-img h4 { font-size: 22px !important; top: -30px !important; }
     #furniture .collections-section .collections-info .collections-inside { padding-top: 30px; }
 }
+
+/* Virtues: prev / next arrows on desktop, as on supreme.co.in */
+@media (min-width: 992px) {
+    .virtues_main .virtues_flex { position: relative; padding: 20px 48px !important; margin: 0 -48px !important; }
+    .virtues_main .slick-prev,
+    .virtues_main .slick-next,
+    .virtues_main .slick-arrow {
+        display: block !important;
+        position: absolute;
+        top: 58%;
+        z-index: 3;
+        width: 34px;
+        height: 34px;
+        border: 0;
+        background: transparent url("../images/icons/slider-arrow.png") center / 11px auto no-repeat;
+        font-size: 0;
+        cursor: pointer;
+        transform: translateY(-50%);
+    }
+    .virtues_main .slick-prev { left: 0; transform: translateY(-50%) rotate(180deg); }
+    .virtues_main .slick-next { right: 0; }
+}
+/* Phones: centred card with the next / previous card peeking in */
+@media (max-width: 767px) {
+    .virtues_main .virtues_flex .slick-list,
+    #index_page .np-awards .awards_flex .slick-list { margin: 0 -15px; }
+    .virtues_main .virtues_flex .slick-slide,
+    #index_page .np-awards .awards_flex .slick-slide { opacity: 0.55; transition: opacity 0.3s ease; }
+    .virtues_main .virtues_flex .slick-slide.slick-center,
+    #index_page .np-awards .awards_flex .slick-slide.slick-center { opacity: 1; }
+    .virtues_main .item_box { padding: 0 8px !important; }
+}
