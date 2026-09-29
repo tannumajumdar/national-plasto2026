@@ -951,26 +951,6 @@ h1, h2, h3, h4, h5, h6 {
         display: block !important;
     }
 
-    /* Our Businesses Grid */
-    #index_page .our_business_main,
-    .our_business_main {
-        padding: 50px 0 !important;
-    }
-
-    .our_business_main .our_business_flex {
-        flex-direction: column !important;
-        gap: 20px !important;
-    }
-
-    .our_business_main .our_business_flex .our_business_title {
-        width: 100% !important;
-    }
-
-    .our_business_main .our_business_flex .our_business_title .heading-text {
-        font-size: 26px !important;
-        margin-bottom: 15px !important;
-    }
-
     /* Executive Testimonial / Quote */
     #index_page .testimonial_main,
     .testimonial_main {

@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/supreme_app.min.css?v=20260926_fix6">
-    <link rel="stylesheet" href="css/supreme_common.css?v=20260928">
+    <link rel="stylesheet" href="css/supreme_common.css?v=20260929b">
 
     <style>
         :root {
@@ -45,13 +45,6 @@
         section {
             opacity: 1 !important;
             visibility: visible !important;
-        }
-        /* Ensure clean display of our business images */
-        .our_business_img_slider .our_business_img_item img {
-            width: 100% !important;
-            height: 420px !important;
-            object-fit: cover !important;
-            border-radius: 12px !important;
         }
 
         /* Remove gap between header and hero section banner */
@@ -106,7 +99,7 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="css/np-revamp.css?v=20260929q">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20260929zc">
 </head>
 <body id="index_page">
 
@@ -184,7 +177,7 @@
                 <ul class="menu">
                     <li><a class="homer active" href="index.html">Home</a></li>
                     <li>
-                        <a href="about.html">About Us</a>
+                        <a href="javascript:void(0)">About Us</a>
                         <ul class="sub-menu">
                             <li><a href="about.html">Overview</a></li>
                             <li><a href="about.html#leadership">Leadership</a></li>
@@ -196,14 +189,13 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="products.html">Products</a>
+                        <a href="javascript:void(0)">Products</a>
                         <ul class="sub-menu">
-                            <li><a href="products.html?category=chairs">Moulded Furniture</a></li>
-                            <li><a href="products.html?category=tables">Dining Tables</a></li>
-                            <li><a href="products.html?category=stools">Commercial Stools</a></li>
-                            <li><a href="products.html?category=baby-kids">Baby &amp; Kids Furniture</a></li>
-                            <li><a href="products.html?category=storage">Modular Storage</a></li>
-                            <li><a href="products.html?category=utility">Industrial Crates</a></li>
+                            <li><a href="products.html?brand=next">NEXT &mdash; Premium Furniture</a></li>
+                            <li><a href="products.html?brand=national">NATIONAL &mdash; Moulded Furniture</a></li>
+                            <li><a href="products.html?brand=captain">CAPTAIN &mdash; Economical Furniture</a></li>
+                            <li><a href="products.html?brand=sapphire">SAPPHIRE &mdash; Value Seating</a></li>
+                            <li><a href="products.html">All Products</a></li>
                         </ul>
                     </li>
                     <li><a href="distributor.html">Dealer Desk</a></li>
@@ -219,7 +211,7 @@
                             </a>
                             <div class="search_box">
                                 <div class="autocomplete" id="autocomplete">
-                                    <input type="text" class="header_search_input" placeholder="Search products, chairs, crates, tables..." id="desktop_search_input">
+                                    <input type="text" class="header_search_input" placeholder="Search products, chairs, crates, tables..." id="desktop_search_input" onkeyup="if(event.key==='Enter'&&this.value.trim()){window.location.href='products.html?search='+encodeURIComponent(this.value.trim());}">
                                 </div>
                             </div>
                         </div>
@@ -249,14 +241,14 @@
             <span></span>
             <span></span>
         </div>
-        <div class="search_main_box remove_box">
+        <div class="search_main_box">
             <a class="icon_open_close" href="#" onclick="searchToggle(this, event);" aria-label="Toggle Search">
                 <img src="images/icons/search_icon.svg" alt="Search">
                 <i class="fas fa-times"></i>
             </a>
             <div class="search_box">
                 <div class="autocomplete" id="autocomplete_mobile">
-                    <input type="text" class="header_search_input" placeholder="Search National Plasto..." id="mobile_search_input">
+                    <input type="text" class="header_search_input" placeholder="Search National Plasto..." id="mobile_search_input" onkeyup="if(event.key==='Enter'&&this.value.trim()){window.location.href='products.html?search='+encodeURIComponent(this.value.trim());}">
                 </div>
             </div>
         </div>
@@ -288,17 +280,16 @@
                         <span class="caret"></span>
                     </span>
                     <ul class="dropdown-menu">
-                        <li><a href="products.html?category=chairs">Moulded Furniture</a></li>
-                        <li><a href="products.html?category=tables">Dining &amp; Multipurpose Tables</a></li>
-                        <li><a href="products.html?category=stools">Commercial &amp; Step Stools</a></li>
-                        <li><a href="products.html?category=baby-kids">Baby &amp; Kids Furniture</a></li>
-                        <li><a href="products.html?category=storage">Modular Storage &amp; Drawers</a></li>
-                        <li><a href="products.html?category=utility">Industrial Utility &amp; Crates</a></li>
+                        <li><a href="products.html?brand=next">NEXT &mdash; Premium Furniture</a></li>
+                        <li><a href="products.html?brand=national">NATIONAL &mdash; Moulded Furniture</a></li>
+                        <li><a href="products.html?brand=captain">CAPTAIN &mdash; Economical Furniture</a></li>
+                        <li><a href="products.html?brand=sapphire">SAPPHIRE &mdash; Value Seating</a></li>
+                        <li><a href="products.html">All Products</a></li>
                     </ul>
                 </div>
             </li>
-            <li><a href="manufacturing.html">Manufacturing Hubs</a></li>
-            <li><a href="distributor.html">Distributor Desk</a></li>
+            <li><a href="manufacturing.html">Manufacturing</a></li>
+            <li><a href="distributor.html">Dealer Desk</a></li>
             <li><a href="contact.html">Contact Us</a></li>
         </div>
         <div class="download-div np-side-download">
@@ -594,83 +585,59 @@
         </div>
       </div>
     </section>
-<section class="our_business_main np-biz" id="our-divisions">
+<section class="our_business_main" id="our-divisions">
       <div class="container">
         <div class="our_business_flex">
 
           <div class="our_business_title">
-            <h2 class="heading-text">Our <span class="color_red_home">Divisions</span></h2>
-            <p class="np-biz-intro">One company, four distinct market propositions &mdash; serving every space and every price point across India.</p>
-            <ul class="np-biz-titles" role="tablist">
-              <li class="np-biz-title is-active" data-idx="0">
+            <h2 class="heading-text di_none">Our <span class="color_red_home">Divisions</span></h2>
+            <div class="our_business_title_slider" id="business_title">
+              <div class="slider_title_item">
                 <a href="products.html?brand=next">
-                  <span class="np-biz-num">01</span>
-                  <span class="np-biz-name"><h4 class="subheading-text">NEXT</h4><small>Premium Virgin Plastic Furniture</small></span>
-                  <img src="images/icons/arrow-right.svg" class="slider_arrow" alt="" aria-hidden="true">
+                  <h4 class="subheading-text">NEXT &mdash; Premium Furniture <img src="images/icons/arrow-right.svg" class="slider_arrow" alt="icon"></h4>
                 </a>
-              </li>
-              <li class="np-biz-title" data-idx="1">
+              </div>
+              <div class="slider_title_item">
                 <a href="products.html?brand=national">
-                  <span class="np-biz-num">02</span>
-                  <span class="np-biz-name"><h4 class="subheading-text">NATIONAL</h4><small>Semi-Virgin &amp; Reprocessed Plastic Furniture</small></span>
-                  <img src="images/icons/arrow-right.svg" class="slider_arrow" alt="" aria-hidden="true">
+                  <h4 class="subheading-text">NATIONAL &mdash; Moulded Furniture <img src="images/icons/arrow-right.svg" class="slider_arrow" alt="icon"></h4>
                 </a>
-              </li>
-              <li class="np-biz-title" data-idx="2">
+              </div>
+              <div class="slider_title_item">
                 <a href="products.html?brand=captain">
-                  <span class="np-biz-num">03</span>
-                  <span class="np-biz-name"><h4 class="subheading-text">CAPTAIN</h4><small>Economical Reprocessed Plastic Furniture</small></span>
-                  <img src="images/icons/arrow-right.svg" class="slider_arrow" alt="" aria-hidden="true">
+                  <h4 class="subheading-text">CAPTAIN &mdash; Economical Furniture <img src="images/icons/arrow-right.svg" class="slider_arrow" alt="icon"></h4>
                 </a>
-              </li>
-              <li class="np-biz-title" data-idx="3">
+              </div>
+              <div class="slider_title_item">
                 <a href="products.html?brand=sapphire">
-                  <span class="np-biz-num">04</span>
-                  <span class="np-biz-name"><h4 class="subheading-text">SAPPHIRE</h4><small>Economical Reprocessed Plastic Furniture</small></span>
-                  <img src="images/icons/arrow-right.svg" class="slider_arrow" alt="" aria-hidden="true">
+                  <h4 class="subheading-text">SAPPHIRE &mdash; Value Seating <img src="images/icons/arrow-right.svg" class="slider_arrow" alt="icon"></h4>
                 </a>
-              </li>
-            </ul>
+              </div>
+              <div class="slider_title_item">
+                <a href="products.html">
+                  <h4 class="subheading-text">Full Product Range <img src="images/icons/arrow-right.svg" class="slider_arrow" alt="icon"></h4>
+                </a>
+              </div>
+            </div>
           </div>
 
           <div class="our_business_img">
-            <div class="np-biz-stage">
-              <figure class="np-biz-slide is-active" data-idx="0">
-                <img src="images/divisions/next.jpg" alt="NEXT range &mdash; chairs, tables, stools and baby chairs" width="1280" height="1000" loading="lazy">
-                <figcaption>
-                  <img class="np-biz-logo" src="images/brand/company-next-logo.png" alt="NEXT" loading="lazy">
-                  <p>Contemporary designs in virgin plastic, with a premium look and finish for modern homes and spaces.</p>
-                  <a href="products.html?brand=next">Explore NEXT <span aria-hidden="true">&rarr;</span></a>
-                </figcaption>
-              </figure>
-              <figure class="np-biz-slide" data-idx="1">
-                <img src="images/divisions/national.jpg" alt="NATIONAL range &mdash; chairs, tables, stools and baby chairs" width="1280" height="1000" loading="lazy">
-                <figcaption>
-                  <img class="np-biz-logo" src="images/brand/company-national-logo.png" alt="NATIONAL" loading="lazy">
-                  <p>Our established mass-market range &mdash; value, variety and reliability for households, businesses and institutions across India.</p>
-                  <a href="products.html?brand=national">Explore NATIONAL <span aria-hidden="true">&rarr;</span></a>
-                </figcaption>
-              </figure>
-              <figure class="np-biz-slide" data-idx="2">
-                <img src="images/divisions/captain.jpg" alt="CAPTAIN range &mdash; chairs, tables, stools and baby chairs" width="1280" height="1000" loading="lazy">
-                <figcaption>
-                  <img class="np-biz-logo" src="images/brand/captain-logo.png" alt="CAPTAIN" loading="lazy">
-                  <p>Affordable, practical chairs, tables and children&rsquo;s furniture built for high-volume everyday use.</p>
-                  <a href="products.html?brand=captain">Explore CAPTAIN <span aria-hidden="true">&rarr;</span></a>
-                </figcaption>
-              </figure>
-              <figure class="np-biz-slide" data-idx="3">
-                <img src="images/divisions/sapphire.jpg" alt="SAPPHIRE range &mdash; chairs, tables, stools and baby chairs" width="1280" height="1000" loading="lazy">
-                <figcaption>
-                  <img class="np-biz-logo" src="images/brand/sapphire-logo.png" alt="SAPPHIRE" loading="lazy">
-                  <p>A distinct range of chairs, tables, stools and baby chairs for price-conscious markets.</p>
-                  <a href="products.html?brand=sapphire">Explore SAPPHIRE <span aria-hidden="true">&rarr;</span></a>
-                </figcaption>
-              </figure>
-            </div>
-            <div class="np-biz-nav">
-              <button type="button" class="np-biz-prev" aria-label="Previous division"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
-              <button type="button" class="np-biz-next" aria-label="Next division"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+            <h2 class="heading-text di_show">Our <span class="color_red_home">Divisions</span></h2>
+            <div class="our_business_img_slider" id="business_img">
+              <div class="our_business_img_item">
+                <img src="images/divisions/next.jpg" class="img-responsive" alt="NEXT - Premium Furniture" loading="lazy">
+              </div>
+              <div class="our_business_img_item">
+                <img src="images/divisions/national.jpg" class="img-responsive" alt="NATIONAL - Moulded Furniture" loading="lazy">
+              </div>
+              <div class="our_business_img_item">
+                <img src="images/divisions/captain.jpg" class="img-responsive" alt="CAPTAIN - Economical Furniture" loading="lazy">
+              </div>
+              <div class="our_business_img_item">
+                <img src="images/divisions/sapphire.jpg" class="img-responsive" alt="SAPPHIRE - Value Seating" loading="lazy">
+              </div>
+              <div class="our_business_img_item">
+                <img src="images/business/moulded-furniture.jpg" class="img-responsive" alt="Full Product Range" loading="lazy">
+              </div>
             </div>
           </div>
 
@@ -1168,7 +1135,7 @@
     <!-- Core JS dependencies -->
     <script src="js/jquery.min.js"></script>
     <script src="js/slick.min.js"></script>
-    <script src="js/supreme_app.min.js?v=20260926"></script>
+    <script src="js/supreme_app.min.js?v=20260929"></script>
     <script src="js/supreme_mobile.js?v=20260926"></script>
 
     <!-- Supreme 1:1 Homepage Slick Initializations -->
@@ -1226,58 +1193,10 @@
             });
         }
 
-        // Our Business Sliders
-        if ($('#business_title').length && !$('#business_title').hasClass('slick-initialized')) {
-            $('#business_title').slick({
-                autoplay: true,
-                vertical: true,
-                infinite: true,
-                verticalSwiping: true,
-                slidesPerRow: 5,
-                slidesToShow: 5,
-                asNavFor: '#business_img',
-                focusOnSelect: true,
-                arrows: false,
-                pauseOnHover: false,
-                responsive: [
-                    { breakpoint: 1199, settings: { slidesPerRow: 4, slidesToShow: 4 } },
-                    { breakpoint: 991, settings: { vertical: false, slidesToShow: 3, dots: true } },
-                    { breakpoint: 767, settings: { vertical: false, slidesToShow: 1, dots: true } }
-                ]
-            });
-        }
-        if ($('#business_img').length && !$('#business_img').hasClass('slick-initialized')) {
-            $('#business_img').slick({
-                autoplay: true,
-                vertical: true,
-                infinite: true,
-                slidesPerRow: 1,
-                slidesToShow: 1,
-                asNavFor: '#business_title',
-                arrows: true,
-                pauseOnHover: false,
-                responsive: [
-                    { breakpoint: 991, settings: { vertical: false, arrows: false } },
-                    { breakpoint: 767, settings: { vertical: false, arrows: false, dots: false } }
-                ]
-            });
-        }
 
-        // Milestones Slider
-        if ($('#milestones_slider').length && !$('#milestones_slider').hasClass('slick-initialized')) {
-            $('#milestones_slider').slick({
-                dots: false,
-                arrows: true,
-                infinite: true,
-                speed: 1000,
-                autoplay: false,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                responsive: [
-                    { breakpoint: 991, settings: { arrows: false, dots: true } }
-                ]
-            });
-        }
+
+        // Our Divisions (#business_title / #business_img) and Milestones sliders are
+        // initialised by supreme_app.min.js, exactly as on supreme.co.in.
 
         // Awards Slider
         if ($('#awards_slider').length && !$('#awards_slider').hasClass('slick-initialized')) {
@@ -1347,45 +1266,6 @@
             $('html, body').animate({ scrollTop: 0 }, 800);
         });
 
-        // Our Divisions: title list drives the image stage (supreme.co.in "Our Businesses")
-        (function () {
-            var $sec = $('.np-biz');
-            if (!$sec.length) return;
-            var $titles = $sec.find('.np-biz-title'), $slides = $sec.find('.np-biz-slide');
-            var n = $titles.length, cur = 0, timer = null;
-            var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            function show(i) {
-                cur = (i + n) % n;
-                $titles.removeClass('is-active').eq(cur).addClass('is-active');
-                $slides.removeClass('is-active').eq(cur).addClass('is-active');
-            }
-            function start() { if (!reduce) { stop(); timer = setInterval(function () { show(cur + 1); }, 4500); } }
-            function stop() { clearInterval(timer); }
-            $titles.on('mouseenter focusin', function () { show(+$(this).data('idx')); stop(); })
-                   .on('mouseleave focusout', start);
-            // Touch screens have no hover: the first tap shows that division,
-            // tapping the already-selected division opens its products.
-            var touched = false, wasActive = false;
-            $titles.find('a').on('touchstart pointerdown', function (e) {
-                var t = e.originalEvent && e.originalEvent.pointerType;
-                if (e.type === 'touchstart' || t === 'touch' || t === 'pen') {
-                    touched = true;
-                    wasActive = $(this).closest('.np-biz-title').hasClass('is-active');
-                } else if (e.type === 'pointerdown') {
-                    touched = false;
-                }
-            }).on('click', function (e) {
-                var $li = $(this).closest('.np-biz-title');
-                if (touched && !wasActive) {
-                    e.preventDefault();
-                    show(+$li.data('idx'));
-                    start();
-                }
-            });
-            $sec.find('.np-biz-prev').on('click', function () { show(cur - 1); start(); });
-            $sec.find('.np-biz-next').on('click', function () { show(cur + 1); start(); });
-            start();
-        })();
 
         // Pan India map: click a pin (or a location chip) to see its name and address
         (function () {

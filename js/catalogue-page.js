@@ -45,14 +45,17 @@
     return true;
   }
 
+  function option(attr, value, label, count, on) {
+    return '<button type="button" class="np-f-opt' + (on ? ' on' : '') + '" ' + attr + '="' + esc(value) + '">' +
+      '<span class="np-f-tick" aria-hidden="true"></span>' + esc(label) +
+      (count != null ? '<em>' + count + '</em>' : '') + '</button>';
+  }
+
   function renderBrandTabs() {
     var counts = { all: DATA.length };
     DATA.forEach(function (p) { counts[p.b] = (counts[p.b] || 0) + 1; });
     $('npBrandTabs').innerHTML = ['all'].concat(BRANDS).map(function (b) {
-      var label = b === 'all' ? 'All Brands' : b;
-      return '<button type="button" class="np-brand-tab np-brand-' + b.toLowerCase() +
-        (state.brand === b ? ' active' : '') + '" data-brand="' + b + '">' +
-        esc(label) + ' <span>' + (counts[b] || 0) + '</span></button>';
+      return option('data-brand', b, b === 'all' ? 'All brands' : b.toUpperCase(), counts[b] || 0, state.brand === b);
     }).join('');
   }
 
@@ -60,14 +63,18 @@
     var counts = {};
     DATA.forEach(function (p) { if (matches(p, true)) counts[p.c] = (counts[p.c] || 0) + 1; });
     var total = Object.keys(counts).reduce(function (s, k) { return s + counts[k]; }, 0);
-    var html = '<button type="button" class="np-chip' + (state.cats.length ? '' : ' active') +
-      '" data-cat="">All Categories <span>' + total + '</span></button>';
+    var html = option('data-cat', '', 'All collections', total, !state.cats.length);
     CATEGORY_ORDER.forEach(function (c) {
       if (!counts[c]) return;
-      var on = state.cats.length && state.cats.indexOf(c) !== -1;
-      html += '<button type="button" class="np-chip' + (on ? ' active' : '') + '" data-cat="' + esc(c) + '">' +
-        esc(c) + ' <span>' + counts[c] + '</span></button>';
+      html += option('data-cat', c, c, counts[c], state.cats.length === 1 && state.cats[0] === c);
     });
+    // grouped links from the menu (e.g. "Moulded Furniture") select several collections at once
+    if (state.cats.length > 1) {
+      html = option('data-cat', '', 'All collections', total, false) +
+        CATEGORY_ORDER.filter(function (c) { return counts[c]; }).map(function (c) {
+          return option('data-cat', c, c, counts[c], state.cats.indexOf(c) !== -1);
+        }).join('');
+    }
     $('npCategoryChips').innerHTML = html;
   }
 
@@ -131,7 +138,17 @@
         '<button type="button" class="np-chip active" id="npResetAll">Show all products</button></div>';
     }
     $('npCatalogue').innerHTML = html;
-    $('npResultCount').innerHTML = '<strong>' + shown + '</strong> of ' + DATA.length + ' products';
+    var bits = [];
+    if (state.cats.length === 1) bits.push(esc(state.cats[0]));
+    else if (state.cats.length > 1) bits.push(state.cats.length + ' collections');
+    if (state.brand !== 'all') bits.push(esc(state.brand.toUpperCase()));
+    if (state.query) bits.push('&ldquo;' + esc(state.query) + '&rdquo;');
+    var filtered = bits.length > 0;
+    $('npResultCount').innerHTML = 'Showing <strong>' + shown + '</strong> product' + (shown === 1 ? '' : 's') +
+      (filtered ? ' <span class="np-rc-tags">&middot; ' + bits.join(' &middot; ') + '</span>' +
+        ' <button type="button" class="np-rc-clear" data-clear>Clear all</button>' : '');
+    var apply = $('npFilterApply');
+    if (apply) apply.textContent = 'Show ' + shown + ' product' + (shown === 1 ? '' : 's');
   }
 
   function renderAll() {
@@ -180,16 +197,29 @@
     BRANDS.forEach(function (b) { if (b.toLowerCase() === brand) state.brand = b; });
     var cat = (params.get('category') || params.get('cat') || '').toLowerCase();
     if (CATEGORY_GROUPS[cat]) state.cats = CATEGORY_GROUPS[cat].slice();
+    else CATEGORY_ORDER.forEach(function (c) {
+      // exact category, by name or slug (e.g. ?cat=arm-chairs from the collection cards)
+      if (c.toLowerCase() === cat || catSlug(c) === cat) state.cats = [c];
+    });
     var q = params.get('search');
     if (q) { state.query = q.toLowerCase(); $('npSearch').value = q; }
 
     renderAll();
 
+    // arriving from a collection / brand link: jump to the product list
+    if (params.get('brand') || cat || q) {
+      var list = document.getElementById('all-products');
+      if (list) setTimeout(function () { list.scrollIntoView(); }, 60);
+    }
+
     $('npBrandTabs').addEventListener('click', function (e) {
       var b = e.target.closest('[data-brand]');
       if (!b) return;
       state.brand = b.getAttribute('data-brand');
-      state.cats = [];
+      // keep the chosen collection if this brand makes it, otherwise show all
+      state.cats = state.cats.filter(function (c) {
+        return DATA.some(function (p) { return p.c === c && (state.brand === 'all' || p.b === state.brand); });
+      });
       renderAll();
     });
     $('npCategoryChips').addEventListener('click', function (e) {
@@ -205,6 +235,29 @@
       var v = this.value.trim().toLowerCase();
       clearTimeout(t);
       t = setTimeout(function () { state.query = v; renderCategoryChips(); renderGrid(); }, 120);
+    });
+
+    function clearAll() {
+      state = { brand: 'all', cats: [], query: '' };
+      $('npSearch').value = '';
+      renderAll();
+    }
+    document.addEventListener('click', function (e) {
+      if (e.target.closest('[data-clear]')) clearAll();
+    });
+
+    // mobile: filter panel opens as a drawer
+    var filterPanel = $('npFilter');
+    function setFilterOpen(open) {
+      document.documentElement.classList.toggle('np-filter-open', open);
+    }
+    $('npFilterOpen').addEventListener('click', function () { setFilterOpen(true); });
+    $('npFilterClose').addEventListener('click', function () { setFilterOpen(false); });
+    $('npFilterBackdrop').addEventListener('click', function () { setFilterOpen(false); });
+    $('npFilterApply').addEventListener('click', function () {
+      setFilterOpen(false);
+      var list = document.getElementById('all-products');
+      if (list) list.scrollIntoView();
     });
 
     $('npCatalogue').addEventListener('click', function (e) {
@@ -235,6 +288,6 @@
     $('npModal').addEventListener('click', function (e) {
       if (e.target === this || e.target.closest('.np-modal-x')) closeModal();
     });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeModal(); setFilterOpen(false); } });
   });
 })();

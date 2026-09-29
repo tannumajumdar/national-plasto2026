@@ -1677,3 +1677,326 @@ html.np-anim .np-reveal.np-in {
 @media (max-width: 767px) {
     html.np-anim .np-reveal.np-reveal-up:not(.np-in) { transform: translateY(40px) !important; }
 }
+
+/* ==========================================================================
+   Products page in the supreme.co.in/furniture layout (main#furniture)
+   ========================================================================== */
+#furniture .banner-section .banner-slider-img { position: relative; }
+#furniture .banner-section .banner-slider-img::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.72) 32%, rgba(255, 255, 255, 0) 62%);
+    pointer-events: none;
+}
+#furniture .banner-section .banner-description { position: relative; z-index: 1; }
+#furniture .banner-section .banner-description img.np-furn-logo {
+    width: 190px !important;
+    max-width: 190px !important;
+    height: auto !important;
+    margin-bottom: 14px;
+}
+#furniture .banner-section .banner-sunheading h1 {
+    margin: 0 0 12px;
+    color: #111827;
+    font: 700 42px/1.2 "Poppins", sans-serif;
+}
+#furniture .banner-section .banner-sunheading p { color: #1F2937; font-size: 17px; line-height: 1.55; }
+#furniture .banner-section .breadcrums a { color: #1F2937; }
+#furniture .banner-section .breadcrums span i { font-size: 10px; color: var(--np-red); margin: 0 6px; }
+
+/* brands: four cards in one row */
+#furniture .np-brands-sec .collections-info {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+}
+#furniture .np-brands-sec .collections-inside { width: auto !important; margin: 0 !important; }
+#furniture .np-brands-sec .collection-img img { aspect-ratio: 1280 / 1000; object-fit: cover; }
+@media (max-width: 991px) { #furniture .np-brands-sec .collections-info { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* store icons (font icons in place of supreme's images) */
+#furniture .store-section .np-store-ico {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 12px;
+    color: var(--np-red);
+    font-size: 40px;
+}
+/* reels play button */
+#furniture .tv-sec .video-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#furniture .tv-sec .video-icon i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    padding-left: 4px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.75);
+    color: #FFFFFF;
+    font-size: 20px;
+}
+/* all products heading */
+.np-all-products { padding: 70px 0 10px; background: #FFFFFF; scroll-margin-top: 92px; }
+.np-all-title { margin: 0; text-align: center; color: #3D3D3D; font: 600 44px/1.2 "Poppins", sans-serif; }
+.np-all-title span { font-weight: 700; }
+@media (max-width: 767px) { .np-all-title { font-size: 30px; } .np-all-products { padding-top: 48px; } }
+#furniture .story-section > img.hidden-xs {
+    display: block;
+    width: 100% !important;
+    height: 560px !important;
+    object-fit: cover;
+    object-position: center 40%;
+}
+@media (max-width: 767px) {
+    #furniture .story-section > img.visible-xs { width: 100% !important; height: auto !important; }
+}
+@media (max-width: 767px) {
+    #furniture .banner-section .banner-slider-img {
+        background-image: none !important;
+        background-color: #F4F4F2;
+        height: auto !important;
+        min-height: 0 !important;
+    }
+    #furniture .banner-section .banner-slider-img::before { display: none; }
+    #furniture .banner-section .banner-description { padding: 64px 0 22px; }
+    #furniture .banner-section .banner-description img.np-furn-logo { width: 140px !important; max-width: 140px !important; margin: 0 auto 12px; }
+    #furniture .banner-section .banner-sunheading h1 { font-size: 28px; text-align: center; }
+    #furniture .banner-section .banner-sunheading p { font-size: 15px; text-align: center; }
+    #furniture .banner-section .mob-banner-img { display: block; width: 100%; height: auto; aspect-ratio: 1062 / 838; object-fit: cover; }
+}
+@media (max-width: 767px) {
+    #furniture .banner-section .banner-slider-img { display: block !important; }
+    #furniture .banner-section .banner-slider-img .banner-description {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        width: 100%;
+    }
+}
+@media (max-width: 767px) {
+    #furniture .banner-section .banner-slider-img .banner-sunheading h1,
+    #furniture .banner-section .banner-sunheading h1 { font-size: 28px !important; line-height: 1.25 !important; text-align: center !important; margin: 0 0 8px !important; }
+    #furniture .banner-section .banner-sunheading p { text-align: center !important; }
+    #furniture .banner-section .breadcrums { top: 14px !important; bottom: auto !important; }
+    #furniture .banner-section .banner-description { padding-top: 56px !important; }
+}
+#furniture .banner-section .banner-sunheading { margin: 0; }
+@media (max-width: 767px) { #furniture .banner-section .banner-sunheading { padding: 0 16px; } }
+/* Our Divisions uses supreme's "Our Businesses" slider; keep images the same shape as theirs */
+#index_page .our_business_main .our_business_img_item img { aspect-ratio: 1280 / 1000; object-fit: cover; object-position: center; }
+/* Certifications: room between the slider dots and the button */
+#index_page .np-awards .awards_flex.slick-dotted { margin-bottom: 40px !important; }
+#index_page .np-awards .np-awards-more { margin-top: 44px; }
+
+/* ==========================================================================
+   Products: filter sidebar (supreme.co.in/furniture/products pattern)
+   ========================================================================== */
+.np-shop { padding: 20px 0 80px; background: #FFFFFF; }
+.np-shop-layout {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    gap: 40px;
+    align-items: start;
+}
+.np-filter {
+    position: sticky;
+    top: 110px;
+    max-height: calc(100vh - 130px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+.np-filter-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--np-line);
+    color: #3D3D3D;
+    font: 600 15px "Poppins", sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.np-filter-head i { margin-right: 6px; }
+.np-filter-x { display: none; border: 0; background: none; font-size: 28px; line-height: 1; color: #64748B; cursor: pointer; }
+.np-filter-search { position: relative; margin: 16px 0 6px; }
+.np-filter-search input {
+    width: 100% !important;
+    height: 40px !important;
+    margin: 0 !important;
+    padding: 0 36px 0 12px !important;
+    box-sizing: border-box !important;
+    border: 1px solid #CBD5E1 !important;
+    border-radius: 6px !important;
+    background: #FFFFFF !important;
+    box-shadow: none !important;
+    font: 400 14px "Work Sans", sans-serif !important;
+}
+.np-filter-search input:focus { border-color: var(--np-red) !important; outline: none; }
+.np-filter-search i { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: #94A3B8; pointer-events: none; }
+.np-filter-group { padding: 16px 0; border-bottom: 1px solid var(--np-line); }
+.np-filter-group h4 { margin: 0 0 8px; color: #3D3D3D; font: 600 15px "Poppins", sans-serif; }
+.np-f-opt {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 7px 0;
+    border: 0;
+    background: none;
+    color: #4B5563;
+    font: 400 14.5px "Work Sans", sans-serif;
+    text-align: left;
+    cursor: pointer;
+}
+.np-f-opt em { margin-left: auto; color: #94A3B8; font-style: normal; font-size: 13px; }
+.np-f-tick {
+    flex: none;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid #9CA3AF;
+    border-radius: 3px;
+    background: #FFFFFF;
+    transition: all 0.15s ease;
+}
+.np-f-opt:hover { color: var(--np-red); }
+.np-f-opt.on { color: #111827; font-weight: 600; }
+.np-f-opt.on .np-f-tick {
+    border-color: var(--np-red);
+    background: var(--np-red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 12px no-repeat;
+}
+.np-filter-foot { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; }
+.np-filter-clear, .np-rc-clear {
+    border: 0;
+    background: none;
+    padding: 0;
+    color: var(--np-red);
+    font: 600 14px "Poppins", sans-serif;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.np-filter-apply { display: none !important; }
+.np-filter-backdrop { display: none; }
+.np-shop-bar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 44px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--np-line);
+    margin-bottom: 24px;
+}
+.np-result-count { margin: 0 !important; color: #4B5563; font: 400 15px "Work Sans", sans-serif; }
+.np-result-count strong { color: #111827; }
+.np-rc-tags { color: #111827; font-weight: 500; }
+.np-rc-clear { margin-left: 8px; font-size: 13.5px; }
+.np-filter-open {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    height: 40px;
+    padding: 0 16px;
+    border: 1px solid #3D3D3D;
+    border-radius: 6px;
+    background: #FFFFFF;
+    color: #3D3D3D;
+    font: 600 14px "Poppins", sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+/* products next to the sidebar: 3 per row */
+.np-shop .np-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+.np-shop .np-cat-section { scroll-margin-top: 110px; }
+
+@media (max-width: 991px) {
+    .np-shop-layout { grid-template-columns: 1fr; gap: 0; }
+    .np-filter-open { display: inline-flex; }
+    .np-shop-bar { flex-wrap: wrap; position: sticky; top: 70px; z-index: 20; background: #FFFFFF; padding-top: 10px; }
+    .np-filter {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 100001;
+        width: min(340px, 88vw);
+        max-height: none;
+        padding: 18px 20px 90px;
+        background: #FFFFFF;
+        box-shadow: 8px 0 30px rgba(15, 23, 42, 0.18);
+        transform: translateX(-105%);
+        transition: transform 0.3s ease;
+    }
+    .np-filter-x { display: block; }
+    .np-filter-foot {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: min(340px, 88vw);
+        box-sizing: border-box;
+        padding: 12px 20px;
+        background: #FFFFFF;
+        border-top: 1px solid var(--np-line);
+        transform: translateX(-105%);
+        transition: transform 0.3s ease;
+    }
+    .np-filter-apply { display: inline-flex !important; }
+    .np-filter-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 100000;
+        background: rgba(15, 23, 42, 0.5);
+    }
+    html.np-filter-open .np-filter,
+    html.np-filter-open .np-filter-foot { transform: none; }
+    html.np-filter-open .np-filter-backdrop { display: block; }
+    html.np-filter-open, html.np-filter-open body { overflow: hidden; }
+    .np-shop .np-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 767px) {
+    .np-shop .np-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+    .np-shop-bar { top: 60px; }
+    .np-result-count { font-size: 13.5px; }
+}
+
+/* Header dropdowns: supreme.co.in style (no red top line, compact rows, colour-only hover) */
+.header .menu > li .sub-menu {
+    border-top: 0 !important;
+    border-radius: 0 !important;
+    padding: 6px 0 !important;
+    min-width: 265px !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12) !important;
+}
+.header .menu > li .sub-menu li a {
+    padding: 8px 18px !important;
+    font-weight: 400 !important;
+}
+.header .menu > li .sub-menu li a:hover {
+    background-color: transparent !important;
+    padding-left: 18px !important;
+    color: #ED3237 !important;
+}
+
+/* Collection card numbers: upright, sitting above the card's top-left corner */
+#furniture .collections-section .collections-info .collections-inside .collection-img h4 {
+    -webkit-transform: none !important;
+    transform: none !important;
+    top: -34px !important;
+    left: 0 !important;
+    font-size: 26px !important;
+    line-height: 1 !important;
+}
+#furniture .collections-section .collections-info .collections-inside { padding-top: 34px; }
+@media (max-width: 767px) {
+    #furniture .collections-section .collections-info .collections-inside .collection-img h4 { font-size: 22px !important; top: -30px !important; }
+    #furniture .collections-section .collections-info .collections-inside { padding-top: 30px; }
+}

@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/supreme_app.min.css">
-    <link rel="stylesheet" href="css/supreme_common.css?v=20260928">
+    <link rel="stylesheet" href="css/supreme_common.css?v=20260929b">
 
     <style>
         /* ================= Product Catalogue (2026 photoshoot) ================= */
@@ -298,7 +298,8 @@
             .np-modal-info h3 { font-size: 24px; }
         }
     </style>
-    <link rel="stylesheet" href="css/np-revamp.css?v=20260929q">
+    <link rel="stylesheet" href="css/supreme_furniture.css?v=20260929">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20260929zc">
 </head>
 
 <body id="products_page">
@@ -316,7 +317,7 @@
                 <ul class="menu">
                     <li><a class="homer" href="index.html">Home</a></li>
                     <li>
-                        <a href="about.html">About Us</a>
+                        <a href="javascript:void(0)">About Us</a>
                         <ul class="sub-menu">
                             <li><a href="about.html">Overview</a></li>
                             <li><a href="about.html#leadership">Leadership</a></li>
@@ -328,14 +329,13 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="products.html">Products</a>
+                        <a href="javascript:void(0)">Products</a>
                         <ul class="sub-menu">
-                            <li><a href="products.html?category=chairs">Moulded Furniture</a></li>
-                            <li><a href="products.html?category=tables">Dining Tables</a></li>
-                            <li><a href="products.html?category=stools">Commercial Stools</a></li>
-                            <li><a href="products.html?category=baby-kids">Baby &amp; Kids Furniture</a></li>
-                            <li><a href="products.html?category=storage">Modular Storage</a></li>
-                            <li><a href="products.html?category=utility">Industrial Crates</a></li>
+                            <li><a href="products.html?brand=next">NEXT &mdash; Premium Furniture</a></li>
+                            <li><a href="products.html?brand=national">NATIONAL &mdash; Moulded Furniture</a></li>
+                            <li><a href="products.html?brand=captain">CAPTAIN &mdash; Economical Furniture</a></li>
+                            <li><a href="products.html?brand=sapphire">SAPPHIRE &mdash; Value Seating</a></li>
+                            <li><a href="products.html">All Products</a></li>
                         </ul>
                     </li>
                     <li><a href="distributor.html">Dealer Desk</a></li>
@@ -419,17 +419,16 @@
                         <span class="caret"></span>
                     </span>
                     <ul class="dropdown-menu">
-                        <li><a href="products.html?category=chairs">Moulded Furniture</a></li>
-                        <li><a href="products.html?category=tables">Dining &amp; Multipurpose Tables</a></li>
-                        <li><a href="products.html?category=stools">Commercial &amp; Step Stools</a></li>
-                        <li><a href="products.html?category=baby-kids">Baby &amp; Kids Furniture</a></li>
-                        <li><a href="products.html?category=storage">Modular Storage &amp; Drawers</a></li>
-                        <li><a href="products.html?category=utility">Industrial Utility &amp; Crates</a></li>
+                        <li><a href="products.html?brand=next">NEXT &mdash; Premium Furniture</a></li>
+                        <li><a href="products.html?brand=national">NATIONAL &mdash; Moulded Furniture</a></li>
+                        <li><a href="products.html?brand=captain">CAPTAIN &mdash; Economical Furniture</a></li>
+                        <li><a href="products.html?brand=sapphire">SAPPHIRE &mdash; Value Seating</a></li>
+                        <li><a href="products.html">All Products</a></li>
                     </ul>
                 </div>
             </li>
-            <li><a href="manufacturing.html">Manufacturing Hubs</a></li>
-            <li><a href="distributor.html">Distributor Desk</a></li>
+            <li><a href="manufacturing.html">Manufacturing</a></li>
+            <li><a href="distributor.html">Dealer Desk</a></li>
             <li><a href="contact.html">Contact Us</a></li>
         </div>
         <div class="social-div">
@@ -448,48 +447,668 @@
     </div>
 
     <!-- Inner Page Banner -->
-    <section class="banner-section inner_banner np-page-banner">
-        <div class="container">
-            <h1 class="heading-text">Our Products &mdash; <span class="color_red_home">Product Catalogue</span></h1>
-            <p class="para-text">Engineered for endurance. Built for India. Explore 360+ models across National, Next, Sapphire and Captain &mdash; chairs, dining sets, tables, stools and storage.</p>
-        </div>
-        <nav class="np-breadcrumbs" aria-label="Breadcrumb">
-            <div class="container">
-                <a href="index.html">Home</a>
-                <i class="fas fa-chevron-right" aria-hidden="true"></i>
-                <span aria-current="page">Products</span>
+    <main id="furniture" class="smooth_scroll_pages">
+        <section class="banner-section">
+            <div class="slider banner-slider">
+                <div>
+                    <div class="banner-slider-img banner-slider-img1" style="background-image: url('images/business/moulded-furniture.jpg');">
+                        <div class="banner-description">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <img src="images/brand/company-national-logo.png" class="img-responsive np-furn-logo" alt="National Plasto">
+                                        <div class="banner-sunheading">
+                                            <h1>Living Room Furniture</h1>
+                                            <p>Comfortable, durable moulded chairs<br>and tables for every living space.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="images/business/moulded-furniture.jpg" class="img-responsive mob-banner-img" alt="Living Room Furniture">
+                </div>
+                <div>
+                    <div class="banner-slider-img banner-slider-img1" style="background-image: url('images/business/dining-tables.jpg');">
+                        <div class="banner-description">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <img src="images/brand/company-national-logo.png" class="img-responsive np-furn-logo" alt="National Plasto">
+                                        <div class="banner-sunheading">
+                                            <h1>Dining Sets &amp; Tables</h1>
+                                            <p>Easy-to-clean dining tables and chairs<br>for everyday family meals.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="images/business/dining-tables.jpg" class="img-responsive mob-banner-img" alt="Dining Sets and Tables">
+                </div>
+                <div>
+                    <div class="banner-slider-img banner-slider-img1" style="background-image: url('images/business/kids-furniture.jpg');">
+                        <div class="banner-description">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <img src="images/brand/company-national-logo.png" class="img-responsive np-furn-logo" alt="National Plasto">
+                                        <div class="banner-sunheading">
+                                            <h1>Kids Furniture</h1>
+                                            <p>Colourful, safe and sturdy chairs<br>and tables for playful spaces.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="images/business/kids-furniture.jpg" class="img-responsive mob-banner-img" alt="Kids Furniture">
+                </div>
             </div>
-        </nav>
-    </section>
-
-    
-
-    <main class="smooth_scroll_pages">
-
-        <!-- Catalogue controls: brand tabs, search, category chips -->
-        <section class="np-cat-controls">
-            <div class="container">
-                <div class="np-cat-row">
-                    <div class="np-brand-tabs" id="npBrandTabs"></div>
-                    <div class="np-search">
-                        <input type="search" id="npSearch" placeholder="Search model, e.g. Cherish, Florence..." aria-label="Search products">
-                        <i class="fas fa-search"></i>
+            <div class="scrool-down">
+                <div class="l-section-top">
+                    <div class="c-scrolldown">
+                        <div class="c-line"></div>
                     </div>
                 </div>
-                <div class="np-chips-wrap" id="npChipsWrap">
-                    <button type="button" class="np-chips-arrow np-chips-prev" aria-label="Scroll categories left" hidden><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
-                    <div class="np-chips" id="npCategoryChips"></div>
-                    <button type="button" class="np-chips-arrow np-chips-next" aria-label="Scroll categories right" hidden><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+            </div>
+            <div class="breadcrums">
+                <div class="container">
+                    <a href="index.html">Home</a>
+                    <span><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+                    <a href="javascript:void(0)">Products</a>
                 </div>
-                <p class="np-result-count" id="npResultCount"></p>
             </div>
         </section>
 
-        <!-- Catalogue grouped by category (rendered by js/catalogue-page.js) -->
-        <section class="np-catalogue-wrap">
-            <div class="container" id="npCatalogue"></div>
+        <section class="collections-section">
+            <div class="container" id="explore-collection">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="hidden-xs" data-scroll>Explore <span>our collections</span></h2>
+                        <h2 class="visible-xs" data-scroll>Explore our <span>collections</span></h2>
+                        <p data-scroll>Browse through a wide range of chairs, tables, <br class="hidden-xs">dining sets, stools, storage and kids furniture.</p>
+                        <div class="collections-info">
+                            <div class="collections-inside">
+                                <a href="products.html?cat=arm-chairs">
+                                    <div class="collection-img">
+                                        <img src="images/collections/arm-chairs.jpg" loading="lazy" class="img-responsive" alt="Arm Chairs">
+                                        <h4>01</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Arm Chairs</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Sturdy, comfortable moulded arm chairs for homes, offices and events.</h6>
+                                    <h6><span>135 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=premium-arm-chairs">
+                                    <div class="collection-img">
+                                        <img src="images/collections/premium-arm-chairs.jpg" loading="lazy" class="img-responsive" alt="Premium Arm Chairs">
+                                        <h4>02</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Premium Arm Chairs</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Cushioned premium arm chairs with a rich finish.</h6>
+                                    <h6><span>2 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=armless-chairs">
+                                    <div class="collection-img">
+                                        <img src="images/collections/armless-chairs.jpg" loading="lazy" class="img-responsive" alt="Armless Chairs">
+                                        <h4>03</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Armless Chairs</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Space-saving, stackable armless chairs for every room.</h6>
+                                    <h6><span>52 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=premium-armless-chairs">
+                                    <div class="collection-img">
+                                        <img src="images/collections/premium-armless-chairs.jpg" loading="lazy" class="img-responsive" alt="Premium Armless Chairs">
+                                        <h4>04</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Premium Armless Chairs</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Premium cushioned armless chairs for dining and lounges.</h6>
+                                    <h6><span>4 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=metallic-chairs">
+                                    <div class="collection-img">
+                                        <img src="images/collections/metallic-chairs.jpg" loading="lazy" class="img-responsive" alt="Metallic Chairs">
+                                        <h4>05</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Metallic Chairs</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Chairs with a metallic finish for a modern look.</h6>
+                                    <h6><span>11 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=steel-moulded-chairs">
+                                    <div class="collection-img">
+                                        <img src="images/collections/steel-moulded-chairs.jpg" loading="lazy" class="img-responsive" alt="Steel Moulded Chairs">
+                                        <h4>06</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Steel Moulded Chairs</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Moulded seats on strong steel legs for cafes and offices.</h6>
+                                    <h6><span>3 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=baby-chairs">
+                                    <div class="collection-img">
+                                        <img src="images/collections/baby-chairs.jpg" loading="lazy" class="img-responsive" alt="Baby Chairs">
+                                        <h4>07</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Baby Chairs</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Bright, safe and lightweight chairs for little ones.</h6>
+                                    <h6><span>14 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=stools">
+                                    <div class="collection-img">
+                                        <img src="images/collections/stools.jpg" loading="lazy" class="img-responsive" alt="Stools">
+                                        <h4>08</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Stools</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Strong, portable stools for kitchens, shops and everyday use.</h6>
+                                    <h6><span>39 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=tables">
+                                    <div class="collection-img">
+                                        <img src="images/collections/tables.jpg" loading="lazy" class="img-responsive" alt="Tables">
+                                        <h4>09</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Tables</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Durable, easy-to-clean tables for homes and businesses.</h6>
+                                    <h6><span>51 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=dining-sets">
+                                    <div class="collection-img">
+                                        <img src="images/collections/dining-sets.jpg" loading="lazy" class="img-responsive" alt="Dining Sets">
+                                        <h4>10</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Dining Sets</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Table and chair sets for family dining, indoors and out.</h6>
+                                    <h6><span>45 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=trolleys-and-racks">
+                                    <div class="collection-img">
+                                        <img src="images/collections/trolleys-and-racks.jpg" loading="lazy" class="img-responsive" alt="Trolleys &amp; Racks">
+                                        <h4>11</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Trolleys &amp; Racks</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Multi-tier utility racks and trolleys for smart storage.</h6>
+                                    <h6><span>4 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?cat=wardrobes">
+                                    <div class="collection-img">
+                                        <img src="images/collections/wardrobes.jpg" loading="lazy" class="img-responsive" alt="Wardrobes">
+                                        <h4>12</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h3>Wardrobes</h3>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Lockable plastic wardrobes for clutter-free rooms.</h6>
+                                    <h6><span>2 Products</span></h6>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="btn_section">
+                            <a href="#all-products" class="btn_project_default">View all products</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
+        <section class="collections-section seller-best-seler np-brands-sec">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="hidden-xs" data-scroll>Shop <span>by brand</span></h2>
+                        <h2 class="visible-xs" data-scroll>Shop <span>by brand</span></h2>
+                        <p data-scroll>Four brands, one promise &mdash; quality moulded furniture at every price point.</p>
+                        <div class="collections-info">
+                            <div class="collections-inside">
+                                <a href="products.html?brand=next">
+                                    <div class="collection-img">
+                                        <img src="images/divisions/next.jpg" loading="lazy" class="img-responsive" alt="NEXT range">
+                                        <h4>01</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h4>NEXT</h4>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Premium virgin plastic furniture</h6>
+                                    <h6><span>148 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?brand=national">
+                                    <div class="collection-img">
+                                        <img src="images/divisions/national.jpg" loading="lazy" class="img-responsive" alt="NATIONAL range">
+                                        <h4>02</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h4>NATIONAL</h4>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Value, variety and trust for every space</h6>
+                                    <h6><span>132 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?brand=sapphire">
+                                    <div class="collection-img">
+                                        <img src="images/divisions/sapphire.jpg" loading="lazy" class="img-responsive" alt="SAPPHIRE range">
+                                        <h4>03</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h4>SAPPHIRE</h4>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>A distinct range of value seating</h6>
+                                    <h6><span>56 Products</span></h6>
+                                </a>
+                            </div>
+                            <div class="collections-inside">
+                                <a href="products.html?brand=captain">
+                                    <div class="collection-img">
+                                        <img src="images/divisions/captain.jpg" loading="lazy" class="img-responsive" alt="CAPTAIN range">
+                                        <h4>04</h4>
+                                    </div>
+                                    <div class="heading-arrow-sec">
+                                        <h4>CAPTAIN</h4>
+                                        <img src="images/icons/arrow-right.svg" alt="">
+                                    </div>
+                                    <h6>Economical furniture for everyday use</h6>
+                                    <h6><span>26 Products</span></h6>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="tv-sec">
+            <div class="container">
+                <h2 class="heading-text" data-scroll>Furniture<span> Reels</span></h2>
+                <div class="tv-commercial-slider">
+                    <div class="item" data-fancybox="reels" href="images/banner/next.mp4">
+                        <div class="video-sec">
+                            <img src="images/banner/next.jpg" loading="lazy" class="img-responsive img-radius" alt="">
+                            <div class="video-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
+                        </div>
+                        <div class="name">NEXT &mdash; Premium Virgin Plastic Furniture</div>
+                    </div>
+                    <div class="item" data-fancybox="reels" href="images/banner/national.mp4">
+                        <div class="video-sec">
+                            <img src="images/banner/national.jpg" loading="lazy" class="img-responsive img-radius" alt="">
+                            <div class="video-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
+                        </div>
+                        <div class="name">NATIONAL &mdash; Value, Variety &amp; Trust</div>
+                    </div>
+                    <div class="item" data-fancybox="reels" href="images/banner/captain.mp4">
+                        <div class="video-sec">
+                            <img src="images/banner/captain.jpg" loading="lazy" class="img-responsive img-radius" alt="">
+                            <div class="video-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
+                        </div>
+                        <div class="name">CAPTAIN &mdash; Economical Everyday Furniture</div>
+                    </div>
+                    <div class="item" data-fancybox="reels" href="images/banner/sapphire.mp4">
+                        <div class="video-sec">
+                            <img src="images/banner/sapphire.jpg" loading="lazy" class="img-responsive img-radius" alt="">
+                            <div class="video-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
+                        </div>
+                        <div class="name">SAPPHIRE &mdash; Distinct Value Seating</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="story-section">
+            <img src="images/brand/company-photo.jpg" loading="lazy" class="img-responsive hidden-xs" alt="National Plasto manufacturing facility">
+            <img src="images/brand/company-photo.jpg" loading="lazy" class="img-responsive visible-xs" alt="National Plasto manufacturing facility">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="story-info">
+                            <div class="story-inside">
+                                <h2 data-scroll>What makes<br> <span>us unique?</span></h2>
+                                <div class="btn_section">
+                                    <a href="about.html" class="btn_project_default">Know our story</a>
+                                </div>
+                            </div>
+                            <div class="story-inside" data-scroll>
+                                <p>Since 1997, National Plasto has been making moulded plastic furniture for every space and every need. Four ISO-certified plants, four brands across price points and a Pan-India dealer network let us deliver durable, affordable furniture to homes, businesses and institutions across India.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="furniture-occasion-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 data-scroll>Furniture for <span> every occasion</span></h2>
+                        <p data-scroll>From homes and kitchens to classrooms, cafes and resorts &mdash; find moulded furniture made for the way you use your space.</p>
+                        <div class="furniture-occasion-info">
+                            <div class="furniture-occasion-inside">
+                                <a href="products.html?cat=arm-chairs">
+                                    <div class="furniture-occasion-img">
+                                        <img src="images/business/moulded-furniture.jpg" loading="lazy" class="img-responsive" alt="Living Room Furniture">
+                                        <div class="overlay"><div class="text">View Collection</div></div>
+                                    </div>
+                                    <h3>Living Room Furniture</h3>
+                                    <h6>Comfortable, modern seating for everyday living.</h6>
+                                </a>
+                            </div>
+                            <div class="furniture-occasion-inside">
+                                <a href="products.html?cat=dining-sets">
+                                    <div class="furniture-occasion-img">
+                                        <img src="images/business/dining-tables.jpg" loading="lazy" class="img-responsive" alt="Dining Sets">
+                                        <div class="overlay"><div class="text">View Collection</div></div>
+                                    </div>
+                                    <h3>Dining Sets</h3>
+                                    <h6>Tables and chairs made for family meals.</h6>
+                                </a>
+                            </div>
+                            <div class="furniture-occasion-inside">
+                                <a href="products.html?cat=baby-chairs">
+                                    <div class="furniture-occasion-img">
+                                        <img src="images/business/kids-furniture.jpg" loading="lazy" class="img-responsive" alt="Kids' Furniture">
+                                        <div class="overlay"><div class="text">View Collection</div></div>
+                                    </div>
+                                    <h3>Kids' Furniture</h3>
+                                    <h6>Bright, safe furniture for playrooms and schools.</h6>
+                                </a>
+                            </div>
+                            <div class="furniture-occasion-inside">
+                                <a href="products.html?cat=trolleys-and-racks">
+                                    <div class="furniture-occasion-img">
+                                        <img src="images/business/modular-storage.jpg" loading="lazy" class="img-responsive" alt="Storage">
+                                        <div class="overlay"><div class="text">View Collection</div></div>
+                                    </div>
+                                    <h3>Storage</h3>
+                                    <h6>Wardrobes, racks and trolleys that keep rooms tidy.</h6>
+                                </a>
+                            </div>
+                            <div class="furniture-occasion-inside">
+                                <a href="products.html?cat=stools">
+                                    <div class="furniture-occasion-img">
+                                        <img src="images/business/heavy-duty-stools.jpg" loading="lazy" class="img-responsive" alt="Kitchen &amp; Utility">
+                                        <div class="overlay"><div class="text">View Collection</div></div>
+                                    </div>
+                                    <h3>Kitchen &amp; Utility</h3>
+                                    <h6>Strong, portable stools for everyday tasks.</h6>
+                                </a>
+                            </div>
+                            <div class="furniture-occasion-inside">
+                                <a href="products.html?cat=armless-chairs">
+                                    <div class="furniture-occasion-img">
+                                        <img src="images/brand/case-study-education.jpg" loading="lazy" class="img-responsive" alt="Schools &amp; Institutions">
+                                        <div class="overlay"><div class="text">View Collection</div></div>
+                                    </div>
+                                    <h3>Schools &amp; Institutions</h3>
+                                    <h6>Durable seating for classrooms, halls and canteens.</h6>
+                                </a>
+                            </div>
+                            <div class="furniture-occasion-inside">
+                                <a href="products.html?cat=dining-sets">
+                                    <div class="furniture-occasion-img">
+                                        <img src="images/brand/case-study-hospitality.jpg" loading="lazy" class="img-responsive" alt="Hotels &amp; Resorts">
+                                        <div class="overlay"><div class="text">View Collection</div></div>
+                                    </div>
+                                    <h3>Hotels &amp; Resorts</h3>
+                                    <h6>Weather-friendly furniture for outdoor dining.</h6>
+                                </a>
+                            </div>
+                            <div class="furniture-occasion-inside">
+                                <a href="products.html?cat=tables">
+                                    <div class="furniture-occasion-img">
+                                        <img src="images/brand/ind-retail.jpg" loading="lazy" class="img-responsive" alt="Cafes &amp; Restaurants">
+                                        <div class="overlay"><div class="text">View Collection</div></div>
+                                    </div>
+                                    <h3>Cafes &amp; Restaurants</h3>
+                                    <h6>Easy-to-clean chairs and tables for busy spaces.</h6>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section_common">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="heading-text" data-scroll>Commonly Asked Queries</h2>
+                        <div class="faq-inside">
+                            <div class="set">
+                                <a href="javascript:void(0);">
+                                    <span>What is the difference between NEXT, NATIONAL, CAPTAIN and SAPPHIRE?</span>
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <div class="content">
+                                    <p class="para-text">NEXT is our premium range made from virgin plastic. NATIONAL uses semi-virgin and reprocessed plastic across a wide range of price points. CAPTAIN and SAPPHIRE are our economical reprocessed-plastic ranges, built for affordable everyday use.</p>
+                                </div>
+                            </div>
+                            <div class="set">
+                                <a href="javascript:void(0);">
+                                    <span>Where can I buy National Plasto furniture?</span>
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <div class="content">
+                                    <p class="para-text">Our furniture is sold through a network of distributors and dealers across India. Use the Dealer Desk page to find a dealer near you, or send us an enquiry and our team will connect you.</p>
+                                </div>
+                            </div>
+                            <div class="set">
+                                <a href="javascript:void(0);">
+                                    <span>Do you supply bulk and institutional orders?</span>
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <div class="content">
+                                    <p class="para-text">Yes. We supply schools, offices, hotels, restaurants, event organisers and other institutions. Share your requirement through the enquiry form and our sales team will get back to you.</p>
+                                </div>
+                            </div>
+                            <div class="set">
+                                <a href="javascript:void(0);">
+                                    <span>Is plastic furniture suitable for outdoor use?</span>
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <div class="content">
+                                    <p class="para-text">Moulded plastic furniture does not rust or absorb water, which makes it well suited to verandas, gardens and outdoor dining. Storing it in the shade when not in use helps it keep its colour for longer.</p>
+                                </div>
+                            </div>
+                            <div class="set">
+                                <a href="javascript:void(0);">
+                                    <span>How do I clean and maintain plastic furniture?</span>
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <div class="content">
+                                    <p class="para-text">Wipe it with a soft cloth and mild soap and water. Avoid abrasive scrubbers and harsh chemicals so the surface finish stays smooth.</p>
+                                </div>
+                            </div>
+                            <div class="set">
+                                <a href="javascript:void(0);">
+                                    <span>Are National Plasto plants certified?</span>
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <div class="content">
+                                    <p class="para-text">Yes. All four of our plants are independently certified, with 23 current certificates covering ISO 9001, ISO 14001, ISO 45001, ISO 50001, CE and BIFMA.</p>
+                                </div>
+                            </div>
+                            <div class="set">
+                                <a href="javascript:void(0);">
+                                    <span>Which colours are available?</span>
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <div class="content">
+                                    <p class="para-text">Most models come in several colours. Open any product in the list above to see all of its colour options.</p>
+                                </div>
+                            </div>
+                            <div class="set">
+                                <a href="javascript:void(0);">
+                                    <span>How can I get the full product catalogue?</span>
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                                <div class="content">
+                                    <p class="para-text">Download the National Plasto Product Catalogue 2026 from the button below, or from the footer of any page.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="store-section">
+            <div class="container" id="store-dealer">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="store-dealer-section">
+                            <div class="store-dealer-info">
+                                <span class="np-store-ico"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></span>
+                                <h4>Find a dealer</h4>
+                                <p>Locate a National Plasto dealer in your city and see our furniture range in person.</p>
+                                <div class="btn_section">
+                                    <a href="distributor.html" class="btn_project_default">Dealer Desk</a>
+                                </div>
+                            </div>
+                            <div class="store-dealer-info">
+                                <span class="np-store-ico"><i class="fas fa-handshake" aria-hidden="true"></i></span>
+                                <h4>Become a dealer</h4>
+                                <p>Become a National Plasto channel partner and join our network of 500+ distributors and dealers.</p>
+                                <div class="btn_section">
+                                    <a href="distributor.html#portal" class="btn_project_default">Join us</a>
+                                </div>
+                            </div>
+                            <div class="store-dealer-info" data-scroll>
+                                <span class="np-store-ico"><i class="fas fa-building" aria-hidden="true"></i></span>
+                                <h4>Bulk &amp; Institutional Orders</h4>
+                                <div class="btn_section">
+                                    <a href="contact.html#enquiry-section" class="btn_project_default">Enquire</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalogue-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="catalogue-info">
+                            <div class="catalogue-inside">
+                                <img src="images/brand/catalogue-mockup.png" loading="lazy" class="img-responsive" alt="National Plasto Product Catalogue 2026">
+                            </div>
+                            <div class="catalogue-inside">
+                                <h2 data-scroll>Catalogue</h2>
+                                <p data-scroll>Browse all 362 models across NEXT, NATIONAL, CAPTAIN and SAPPHIRE in our 2026 product catalogue.</p>
+                                <div class="btn_section">
+                                    <a href="docs/national-plasto-catalogue-2026.pdf" target="_blank" rel="noopener" class="btn_project_default">View catalogue</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+                    <section class="np-all-products" id="all-products">
+            <div class="container">
+                <h2 class="np-all-title" data-scroll>All <span>products</span></h2>
+            </div>
+        </section>
+        <section class="np-shop">
+            <div class="container">
+                <div class="np-shop-layout">
+                    <aside class="np-filter" id="npFilter" aria-label="Filter products">
+                        <div class="np-filter-head">
+                            <span><i class="fas fa-sliders-h" aria-hidden="true"></i> Filter</span>
+                            <button type="button" class="np-filter-x" id="npFilterClose" aria-label="Close filters">&times;</button>
+                        </div>
+                        <div class="np-filter-search">
+                            <input type="search" id="npSearch" placeholder="Search model name" aria-label="Search products">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </div>
+                        <div class="np-filter-group">
+                            <h4>Brand</h4>
+                            <div id="npBrandTabs"></div>
+                        </div>
+                        <div class="np-filter-group">
+                            <h4>Collection</h4>
+                            <div id="npCategoryChips"></div>
+                        </div>
+                        <div class="np-filter-foot">
+                            <button type="button" class="np-filter-clear" data-clear>Clear all</button>
+                            <button type="button" class="btn_project_default np-filter-apply" id="npFilterApply">Show products</button>
+                        </div>
+                    </aside>
+                    <div class="np-filter-backdrop" id="npFilterBackdrop"></div>
+
+                    <div class="np-shop-main">
+                        <div class="np-shop-bar">
+                            <button type="button" class="np-filter-open" id="npFilterOpen"><i class="fas fa-sliders-h" aria-hidden="true"></i> Filter</button>
+                            <p class="np-result-count" id="npResultCount"></p>
+                        </div>
+                        <!-- Catalogue grouped by category (rendered by js/catalogue-page.js) -->
+                        <div id="npCatalogue"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Quick View Modal -->
@@ -641,11 +1260,11 @@
     <!-- Scripts: jQuery, Slick, Supreme JS, Store Data -->
     <script src="js/jquery.min.js"></script>
     <script src="js/slick.min.js"></script>
-    <script src="js/supreme_app.min.js?v=20260926"></script>
+    <script src="js/supreme_app.min.js?v=20260929"></script>
     <script src="js/supreme_mobile.js?v=20260926"></script>
     <script src="js/store.js"></script>
     <script src="js/catalogue-2026.js"></script>
-    <script src="js/catalogue-page.js?v=20260928"></script>
+    <script src="js/catalogue-page.js?v=20260929"></script>
 
     <script>
         $(document).ready(function() {
@@ -673,26 +1292,6 @@
         }
     </script>
 
-    <script>
-    (function () {
-        var wrap = document.getElementById('npChipsWrap');
-        if (!wrap) return;
-        var row = document.getElementById('npCategoryChips');
-        var prev = wrap.querySelector('.np-chips-prev'), next = wrap.querySelector('.np-chips-next');
-        function update() {
-            var left = row.scrollLeft > 4, right = row.scrollLeft + row.clientWidth < row.scrollWidth - 4;
-            prev.hidden = !left; next.hidden = !right;
-            wrap.classList.toggle('can-left', left);
-            wrap.classList.toggle('can-right', right);
-        }
-        prev.addEventListener('click', function () { row.scrollBy({ left: -row.clientWidth * 0.7 }); });
-        next.addEventListener('click', function () { row.scrollBy({ left: row.clientWidth * 0.7 }); });
-        row.addEventListener('scroll', update, { passive: true });
-        window.addEventListener('resize', update);
-        new MutationObserver(update).observe(row, { childList: true });
-        update();
-    })();
-    </script>
     <script src="js/np-reveal.js?v=20260929"></script>
 </body>
 </html>
