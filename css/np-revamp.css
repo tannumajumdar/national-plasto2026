@@ -1326,3 +1326,354 @@ footer.np-sfooter .np-sfooter-top { padding-top: 44px; }
     .np-biz-nav { display: none; }
     .np-biz-title a { -webkit-tap-highlight-color: transparent; }
 }
+
+/* Bigger header logo */
+.header .logo_section img,
+.header .logo_section img.img-responsive {
+    height: 70px !important;
+    max-height: 70px !important;
+    width: auto !important;
+}
+.mobile_navbar .navbar_logo {
+    max-height: 50px !important;
+    max-width: 200px !important;
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .header .logo_section img,
+    .header .logo_section img.img-responsive { height: 60px !important; max-height: 60px !important; }
+}
+
+/* Virtues: larger icons */
+.virtues_main .item .icon_img {
+    width: 128px !important;
+    height: 128px !important;
+    top: -64px !important;
+}
+.virtues_main .item .icon_img img {
+    width: 84px !important;
+    height: 84px !important;
+}
+.virtues_main .item {
+    margin-top: 76px !important;
+    padding-top: 80px !important;
+}
+@media (max-width: 767px) {
+    .virtues_main .item .icon_img { width: 108px !important; height: 108px !important; top: -54px !important; }
+    .virtues_main .item .icon_img img { width: 70px !important; height: 70px !important; }
+    .virtues_main .item { margin-top: 64px !important; padding-top: 68px !important; }
+}
+
+/* Certifications: real certification seals */
+#index_page .np-awards .awards_content .awards_icon_img.np-cert-logo {
+    min-height: 0;
+    height: 120px;
+}
+.np-cert-logo img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+/* Impact banner: wide photo strip, not the photo's full height */
+#index_page .np-innovative .innovative_box { width: 100%; overflow: hidden; }
+#index_page .np-innovative .innovative_img {
+    display: block;
+    width: 100% !important;
+    max-width: none !important;
+    height: 520px !important;
+    object-fit: cover;
+    object-position: center 60%;
+}
+@media (max-width: 991px) { #index_page .np-innovative .innovative_img { height: 400px !important; } }
+@media (max-width: 767px) { #index_page .np-innovative .innovative_img { height: 280px !important; } }
+
+/* Headlines: every card image the same shape */
+#index_page .np-headlines .blogs-img-sec img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+#index_page .np-headlines .slick-track { display: flex !important; }
+#index_page .np-headlines .slick-slide { height: inherit !important; }
+#index_page .np-headlines .slick-slide > div,
+#index_page .np-headlines .blogs_box,
+#index_page .np-headlines .blogs-inside { height: 100%; }
+
+/* Sustainability banner (full-width image above the section, as on supreme.co.in) */
+.np-sust-banner { line-height: 0; background: #EAF3E6; }
+.np-sust-banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 640px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ==========================================================================
+   Responsive pass: no cropped photos, no overflow, no overlaps
+   ========================================================================== */
+
+/* Long footer links (e-mail) wrap instead of pushing the page sideways */
+.np-sfooter-col li a { overflow-wrap: anywhere; }
+html, body { max-width: 100%; }
+
+/* Show a whole photo inside a box of a different shape: the photo is
+   contained and a blurred copy of it fills the empty space. */
+.np-fit-blur { position: relative; overflow: hidden; background: #1F2937; }
+.np-fit-blur::before {
+    content: "";
+    position: absolute;
+    inset: -40px;
+    background: var(--np-photo) center / cover no-repeat;
+    filter: blur(26px) brightness(0.8);
+}
+.np-fit-blur > img {
+    position: relative;
+    z-index: 1;
+    object-fit: contain !important;
+    object-position: center !important;
+}
+#about_us_overview .mgmt_photo.np-fit-blur img { width: 100%; height: 100%; }
+
+/* Impact banner: full photo, centred, on its blurred copy */
+#index_page .np-innovative .innovative_box.np-fit-blur { height: 520px; }
+#index_page .np-innovative .innovative_box.np-fit-blur .innovative_img { height: 100% !important; }
+@media (max-width: 991px) { #index_page .np-innovative .innovative_box.np-fit-blur { height: 420px; } }
+@media (max-width: 767px) {
+    #index_page .np-innovative .innovative_box.np-fit-blur { height: auto; }
+    #index_page .np-innovative .innovative_box.np-fit-blur .innovative_img { height: auto !important; }
+}
+
+/* Milestones: landscape photos keep their shape */
+#index_page .milestones_main .milestones_flex .milestones_img img {
+    width: 100%;
+    height: auto !important;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+}
+
+/* Community (CSR) block */
+@media (min-width: 1200px) {
+    #index_page .np-touching .touching_flex { align-items: stretch !important; flex-wrap: nowrap; overflow: hidden; }
+    #index_page .np-touching .touching_flex .touching_img { width: 56% !important; flex: none; }
+    #index_page .np-touching .touching_flex .touching_img img {
+        height: 100% !important;
+        min-height: 360px;
+        aspect-ratio: 1376 / 768;
+        object-fit: cover;
+    }
+    #index_page .np-touching .touching_flex .touching_content {
+        width: 44% !important;
+        padding: 34px 40px !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #index_page .np-touching .touching_content .heading-text { font-size: 36px !important; line-height: 1.2 !important; margin-bottom: 14px; }
+    #index_page .np-touching .touching_content .para-text { font-size: 15.5px !important; line-height: 1.6 !important; margin-bottom: 20px; }
+}
+@media (max-width: 1199px) {
+    #index_page .np-touching .touching_flex { flex-wrap: wrap !important; overflow: hidden; }
+    #index_page .np-touching .touching_flex .touching_img,
+    #index_page .np-touching .touching_flex .touching_content { width: 100% !important; }
+    #index_page .np-touching .touching_flex .touching_img img {
+        height: auto !important;
+        aspect-ratio: auto;
+        border-radius: 10px 10px 0 0 !important;
+    }
+    #index_page .np-touching .touching_flex .touching_content { padding: 32px 28px 36px !important; }
+}
+@media (max-width: 767px) {
+    #index_page .np-touching .touching_flex .touching_content { padding: 26px 20px 30px !important; }
+    #index_page .np-touching .touching_content .heading-text { font-size: 28px !important; }
+}
+
+/* Manufacturing: plant and lab photos keep their shape */
+#manufacturing_page .plant_img_wrap { height: auto !important; aspect-ratio: 3 / 2; }
+#manufacturing_page .plant_img_wrap img { height: 100% !important; }
+#manufacturing_page img[src*="company-photo.jpg"]:not(.plant_img_wrap img) {
+    height: auto !important;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+}
+
+/* Contact: facility photo keeps its shape */
+#contact_page .facility_photo_card { height: auto !important; aspect-ratio: 3 / 2; }
+.np-map-pin { width: 24px; height: 24px; }
+@media (min-width: 1200px) {
+    #index_page .np-touching .touching_flex .touching_img { width: 58% !important; }
+    #index_page .np-touching .touching_flex .touching_content { width: 42% !important; padding: 28px 36px !important; }
+    #index_page .np-touching .touching_content .heading-text { font-size: 32px !important; margin-bottom: 10px; }
+    #index_page .np-touching .touching_content .para-text { font-size: 15px !important; line-height: 1.55 !important; margin-bottom: 16px; }
+}
+/* Investor's Room photo fills the text height; keep the building's signage in view */
+.np-invest-img img { object-position: 45% 35%; }
+@media (max-width: 1199px) {
+    .np-invest-flex { grid-template-columns: 1fr !important; gap: 36px !important; }
+    .np-invest-img { min-height: 0 !important; }
+    .np-invest-img img { height: auto !important; aspect-ratio: 3 / 2 !important; }
+}
+
+/* Chairman message on tablets: photo on top, text below (same as phones) */
+@media (min-width: 768px) and (max-width: 991px) {
+    #index_page .testimonial_main.np-cmd .testimonial_flex {
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        gap: 28px !important;
+    }
+    #index_page .testimonial_main.np-cmd .testimonial_flex .testimonial_img,
+    #index_page .testimonial_main.np-cmd .testimonial_flex .testimonial_content {
+        width: 100% !important;
+        justify-content: center;
+    }
+    #index_page .testimonial_main.np-cmd .testimonial_img img.np-cmd-cutout { max-width: 400px; margin: 0 auto; }
+}
+
+/* Tablet hero: same as phones, so the headline never covers the building signage */
+@media (min-width: 768px) and (max-width: 1199px) {
+    #index_page .banner-section .banner-slider-img {
+        display: block !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        background: #111827;
+    }
+    #index_page .banner-section .banner-slider-img .banner_img,
+    #index_page .banner-section .banner-slider-img .banner_img img {
+        height: auto !important;
+    }
+    #index_page .banner-section .banner-slider-img .banner_img img.mobile_banner_show {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1080 / 660;
+        object-fit: cover;
+        object-position: center;
+        transform: none !important;
+        animation: none !important;
+    }
+    #index_page .banner-section .banner-slider-img .banner_img::after { display: none; }
+    #index_page .banner-section .banner-slider-img .banner_content {
+        position: relative !important;
+        top: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        margin: 0 16px;
+        padding: 26px 0 56px 16px !important;
+        border-left: 0 !important;
+    }
+    #index_page .banner-section .banner-slider-img .banner_content::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 30px;
+        bottom: 60px;
+        width: 4px;
+        background: var(--np-red);
+    }
+    #index_page .banner-section .banner-slider-img .banner_content h2 {
+        font-size: 27px !important;
+    }
+    #index_page .banner-section .home-banner-slider .slick-dots { bottom: 20px; }
+    #index_page .banner-section .banner_img .mobile_banner_hide { display: none !important; }
+    #index_page .banner-section .banner_img .mobile_banner_show { display: block !important; }
+    #index_page .banner-section .scrool-down { display: none !important; }
+    #index_page .banner-section .banner-slider-img .banner_content { max-width: none; margin: 0 40px; padding: 32px 0 60px 20px !important; }
+    #index_page .banner-section .banner-slider-img .banner_content h2 { font-size: 36px !important; }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+    #index_page .banner-section .banner-slider-img .banner_content {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+    }
+}
+@media (min-width: 1200px) {
+    #index_page .banner-section .banner-slider-img .banner_content { top: 66% !important; }
+}
+
+/* Forms: native dropdowns were hidden by the bundled Materialize styles */
+#distributor_page .form_item select,
+#contact_page .form_field select {
+    display: block !important;
+    width: 100%;
+    height: 44px;
+    padding: 0 4px;
+    border: 0;
+    border-bottom: 1px solid #9E9E9E;
+    border-radius: 0;
+    background: transparent;
+    color: #1E293B;
+    font: 400 14.5px "Work Sans", sans-serif;
+}
+#distributor_page .form_item select:focus,
+#contact_page .form_field select:focus { outline: none; border-bottom-color: var(--np-red); }
+#distributor_page textarea,
+#contact_page textarea {
+    min-height: 110px !important;
+    height: auto;
+    resize: vertical;
+}
+
+/* Page banners: same minimum height everywhere, but grow when the text is longer */
+.banner-section.inner_banner.np-page-banner {
+    height: auto !important;
+    min-height: 300px !important;
+    padding: 40px 0 0 !important;
+}
+.banner-section.inner_banner.np-page-banner > .container { padding-bottom: 72px !important; }
+.banner-section.inner_banner.np-page-banner .heading-text,
+.banner-section.inner_banner.np-page-banner .para-text { text-align: left !important; }
+@media (max-width: 991px) { .banner-section.inner_banner.np-page-banner { min-height: 260px !important; } }
+@media (max-width: 767px) {
+    .banner-section.inner_banner.np-page-banner { min-height: 230px !important; padding-top: 30px !important; }
+    .banner-section.inner_banner.np-page-banner > .container { padding-bottom: 64px !important; }
+}
+.banner-section.inner_banner.np-page-banner .heading-text {
+    padding: 0 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    line-height: 1.25 !important;
+}
+
+/* Impact banner: photo fills the full width, edge to edge */
+#index_page .np-innovative .innovative_box.np-fit-blur { height: auto !important; background: none; }
+#index_page .np-innovative .innovative_box.np-fit-blur::before { display: none; }
+#index_page .np-innovative .innovative_box.np-fit-blur .innovative_img {
+    width: 100% !important;
+    height: min(72vh, 640px) !important;
+    min-height: 420px;
+    object-fit: cover !important;
+    object-position: center 62% !important;
+}
+@media (max-width: 767px) {
+    #index_page .np-innovative .innovative_box.np-fit-blur .innovative_img {
+        height: auto !important;
+        min-height: 0;
+        aspect-ratio: 1062 / 838;
+    }
+}
+
+/* Scroll reveal (see js/np-reveal.js): Supreme-style slide-up / fade-in */
+html.np-anim .np-reveal {
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out !important;
+    will-change: opacity, transform;
+}
+html.np-anim .np-reveal:not(.np-in) {
+    opacity: 0 !important;
+}
+html.np-anim .np-reveal.np-reveal-up:not(.np-in) {
+    transform: translateY(70px) !important;
+}
+html.np-anim .np-reveal.np-in {
+    opacity: 1 !important;
+    transform: none !important;
+}
+@media (max-width: 767px) {
+    html.np-anim .np-reveal.np-reveal-up:not(.np-in) { transform: translateY(40px) !important; }
+}
