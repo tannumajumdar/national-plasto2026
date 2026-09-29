@@ -1,5 +1,5 @@
 /* ==========================================================================
-   National Plasto — UI/UX revision (Sept 2026)
+   National Plasto ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â UI/UX revision (Sept 2026)
    Loaded last on every page. Reference: supreme.co.in
    ========================================================================== */
 
@@ -111,36 +111,9 @@
     #index_page .banner-section .banner-slider-img .banner_content { left: 40px; }
 }
 @media (max-width: 767px) {
-    #index_page .banner-section .banner-slider-img {
-        height: 78vh !important;
-        min-height: 520px !important;
-        max-height: 700px !important;
-    }
-    #index_page .banner-section .banner-slider-img .banner_img,
-    #index_page .banner-section .banner-slider-img .banner_img img {
-        height: 100% !important;
-    }
-    #index_page .banner-section .banner-slider-img .banner_img::after {
-        background: linear-gradient(0deg, rgba(9, 14, 24, 0.86) 0%, rgba(9, 14, 24, 0.55) 38%, rgba(9, 14, 24, 0) 70%);
-    }
-    #index_page .banner-section .banner-slider-img .banner_content {
-        top: auto !important;
-        bottom: 44px;
-        left: 16px !important;
-        right: 16px;
-        transform: none !important;
-        padding: 0 0 0 16px !important;
-    }
-    #index_page .banner-section .banner-slider-img .banner_content h2 {
-        font-size: 30px !important;
-        line-height: 1.22 !important;
-    }
+    /* Early mobile overrides removed - main mobile hero block handles everything */
     .np-hero-eyebrow { margin-bottom: 10px; font-size: 12px; letter-spacing: 2.5px; }
     #index_page .banner-section .np-hero-cta { margin-top: 18px; }
-    #index_page .banner-section .home-banner-slider .slick-dots {
-        display: flex !important;
-        bottom: 16px;
-    }
 }
 
 /* --------------------------------------------------------------------------
@@ -1240,52 +1213,148 @@ footer.np-sfooter hr {
 }
 #index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name { border-top: 0; padding-top: 0; }
 
-/* Mobile hero: show the whole photo, headline in a dark panel below it */
+/* Mobile hero: full photo visible without cropping (16:10 aspect ratio) */
 @media (max-width: 767px) {
-    #index_page .banner-section .banner-slider-img {
+            /* Force immediate visibility on mobile - no delay or flicker */
+            #index_page .banner-section .slick-current .banner_content *,
+            #index_page .banner-section .banner_content *,
+            .banner-section .slick-current .banner_content *,
+            .banner-section .banner_content * {
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: none !important;
+                -webkit-transform: none !important;
+                animation: none !important;
+            }
+
+    #index_page .banner-section,
+    .banner-section {
+        position: relative !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: #000 !important;
+    }
+    #index_page .banner-section .banner-slider-img,
+    .banner-section .banner-slider-img {
+        height: 80vh !important;
+        min-height: 380px !important;
+        max-height: 780px !important;
+        position: relative !important;
+        background: #111827 !important;
         display: block !important;
-        height: auto !important;
-        min-height: 0 !important;
-        max-height: none !important;
-        background: #111827;
+        overflow: hidden !important;
     }
     #index_page .banner-section .banner-slider-img .banner_img,
-    #index_page .banner-section .banner-slider-img .banner_img img {
-        height: auto !important;
-    }
-    #index_page .banner-section .banner-slider-img .banner_img img.mobile_banner_show {
-        display: block;
-        width: 100%;
-        aspect-ratio: 1080 / 660;
-        object-fit: cover;
-        object-position: center;
-        transform: none !important;
-        animation: none !important;
-    }
-    #index_page .banner-section .banner-slider-img .banner_img::after { display: none; }
-    #index_page .banner-section .banner-slider-img .banner_content {
+    .banner-section .banner-slider-img .banner_img {
+        height: 100% !important;
+        width: 100% !important;
         position: relative !important;
+        display: block !important;
+    }
+    #index_page .banner-section .banner-slider-img .banner_img img,
+    .banner-section .banner-slider-img .banner_img img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center top !important;
+        display: block !important;
+    }
+    #index_page .banner-section .banner_img .mobile_banner_hide,
+    .banner-section .banner_img .mobile_banner_hide {
+        display: none !important;
+    }
+    #index_page .banner-section .banner_img .mobile_banner_show,
+    .banner-section .banner_img .mobile_banner_show {
+        display: block !important;
+    }
+    /* Hide text overlay completely on mobile as requested */
+    #index_page .banner-section .banner-slider-img .banner_img::after,
+    .banner-section .banner-slider-img .banner_img::after {
+        display: none !important;
+    }
+    #index_page .banner-section .banner-slider-img .banner_content,
+    .banner-section .banner-slider-img .banner_content,
+    #index_page .banner-section .banner_content,
+    .banner-section .banner_content {
+        display: none !important;
+    }
+    #index_page .banner-section .home-banner-slider .slick-dots,
+    .banner-section .home-banner-slider .slick-dots {
+        display: none !important;
+    }
+
+    /* Scroll Down on Mobile (Centered, white text + vertical red line) */
+    #index_page .banner-section .scrool-down,
+    .banner-section .scrool-down {
+        position: absolute !important;
+        bottom: -18px !important;
+        left: 50% !important;
+        right: auto !important;
         top: auto !important;
-        bottom: auto !important;
+        transform: translateX(-50%) !important;
+        -webkit-transform: translateX(-50%) !important;
+        width: 130px !important;
+        z-index: 25 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    #index_page .banner-section .scroll_down,
+    .banner-section .scroll_down {
+        position: static !important;
         left: auto !important;
         right: auto !important;
-        margin: 0 16px;
-        padding: 26px 0 56px 16px !important;
-        border-left: 0 !important;
+        top: auto !important;
+        bottom: auto !important;
+        margin: 0 0 5px 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        transform: none !important;
+        -webkit-transform: none !important;
+        animation: none !important;
+        -webkit-animation: none !important;
+        text-align: center !important;
+        width: 100% !important;
     }
-    #index_page .banner-section .banner-slider-img .banner_content::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 30px;
-        bottom: 60px;
-        width: 4px;
-        background: var(--np-red);
+    #index_page .banner-section .scroll_down a,
+    .banner-section .scroll_down a {
+        color: #FFFFFF !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9) !important;
+        display: inline-block !important;
+        text-align: center !important;
+        white-space: nowrap !important;
     }
-    #index_page .banner-section .banner-slider-img .banner_content h2 {
-        font-size: 27px !important;
+    #index_page .banner-section .c-scrolldown,
+    .banner-section .c-scrolldown {
+        display: block !important;
+        width: 2px !important;
+        height: 36px !important;
+        border: none !important;
+        margin: 0 auto !important;
+        background: rgba(237, 50, 55, 0.25) !important;
+        position: relative !important;
+        overflow: hidden !important;
     }
-    #index_page .banner-section .home-banner-slider .slick-dots { bottom: 20px; }
+    #index_page .banner-section .c-scrolldown .c-line,
+    .banner-section .c-scrolldown .c-line {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        -webkit-transform: none !important;
+        width: 2px !important;
+        height: 100% !important;
+        background: #ED3237 !important;
+        border-radius: 1px !important;
+        display: block !important;
+        margin: 0 !important;
+        animation: scrollLineAnim 2s infinite ease-in-out !important;
+    }
 }
 
 /* Footer: National + NEXT logos */
@@ -1533,14 +1602,15 @@ html, body { max-width: 100%; }
     #index_page .testimonial_main.np-cmd .testimonial_img img.np-cmd-cutout { max-width: 400px; margin: 0 auto; }
 }
 
-/* Tablet hero: same as phones, so the headline never covers the building signage */
+/* Tablet hero: text overlays on image with gradient (Supreme style) */
 @media (min-width: 768px) and (max-width: 1199px) {
     #index_page .banner-section .banner-slider-img {
         display: block !important;
         height: auto !important;
         min-height: 0 !important;
         max-height: none !important;
-        background: #111827;
+        position: relative;
+        background: none;
     }
     #index_page .banner-section .banner-slider-img .banner_img,
     #index_page .banner-section .banner-slider-img .banner_img img {
@@ -1549,50 +1619,39 @@ html, body { max-width: 100%; }
     #index_page .banner-section .banner-slider-img .banner_img img.mobile_banner_show {
         display: block;
         width: 100%;
-        aspect-ratio: 1080 / 660;
+        aspect-ratio: 3 / 4;
         object-fit: cover;
-        object-position: center;
+        object-position: center top;
         transform: none !important;
         animation: none !important;
     }
-    #index_page .banner-section .banner-slider-img .banner_img::after { display: none; }
-    #index_page .banner-section .banner-slider-img .banner_content {
-        position: relative !important;
-        top: auto !important;
-        bottom: auto !important;
-        left: auto !important;
-        right: auto !important;
-        margin: 0 16px;
-        padding: 26px 0 56px 16px !important;
-        border-left: 0 !important;
-    }
-    #index_page .banner-section .banner-slider-img .banner_content::before {
+    #index_page .banner-section .banner-slider-img .banner_img::after {
+        display: block !important;
         content: "";
         position: absolute;
-        left: 0;
-        top: 30px;
-        bottom: 60px;
-        width: 4px;
-        background: var(--np-red);
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.8) 100%);
+        pointer-events: none;
+        z-index: 1;
     }
-    #index_page .banner-section .banner-slider-img .banner_content h2 {
-        font-size: 27px !important;
+    #index_page .banner-section .banner-slider-img .banner_content {
+        position: absolute !important;
+        top: 32px !important;
+        bottom: auto !important;
+        left: 28px !important;
+        right: 28px !important;
+        margin: 0 !important;
+        padding: 0 0 0 20px !important;
+        border-left: 4px solid var(--np-red, #ED3237) !important;
+        z-index: 2;
     }
+    #index_page .banner-section .banner-slider-img .banner_content::before { display: none; }
+    #index_page .banner-section .banner-slider-img .banner_content h2 { font-size: 36px !important; }
     #index_page .banner-section .home-banner-slider .slick-dots { bottom: 20px; }
     #index_page .banner-section .banner_img .mobile_banner_hide { display: none !important; }
     #index_page .banner-section .banner_img .mobile_banner_show { display: block !important; }
-    #index_page .banner-section .scrool-down { display: none !important; }
-    #index_page .banner-section .banner-slider-img .banner_content { max-width: none; margin: 0 40px; padding: 32px 0 60px 20px !important; }
-    #index_page .banner-section .banner-slider-img .banner_content h2 { font-size: 36px !important; }
 }
-@media (min-width: 768px) and (max-width: 1199px) {
-    #index_page .banner-section .banner-slider-img .banner_content {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-    }
-}
+/* Tablet banner_content override removed - handled in main tablet hero block */
 @media (min-width: 1200px) {
     #index_page .banner-section .banner-slider-img .banner_content { top: 66% !important; }
 }
@@ -2031,4 +2090,122 @@ html.np-anim .np-reveal.np-in {
     .virtues_main .virtues_flex .slick-slide.slick-center,
     #index_page .np-awards .awards_flex .slick-slide.slick-center { opacity: 1; }
     .virtues_main .item_box { padding: 0 8px !important; }
+}
+
+
+/* Scroll Down (Exact Match with Reference Image media_1790702158415.png) */
+.banner-section .scrool-down,
+#index_page .banner-section .scrool-down {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: absolute !important;
+    bottom: -20px !important;
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    transform: translateX(-50%) !important;
+    -webkit-transform: translateX(-50%) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 140px !important;
+    z-index: 25 !important;
+    text-align: center !important;
+    pointer-events: auto !important;
+}
+.banner-section .l-section-top,
+#index_page .banner-section .l-section-top {
+    position: static !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+.banner-section .scroll_down,
+#index_page .banner-section .scroll_down {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    margin: 0 0 6px 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    animation: none !important;
+    -webkit-animation: none !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+.banner-section .scroll_down a,
+#index_page .banner-section .scroll_down a {
+    color: #FFFFFF !important;
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    font-family: 'Poppins', sans-serif !important;
+    letter-spacing: 0.4px !important;
+    text-decoration: none !important;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9) !important;
+    display: inline-block !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+    outline: none !important;
+}
+.banner-section .c-scrolldown,
+#index_page .banner-section .c-scrolldown {
+    display: block !important;
+    width: 2px !important;
+    height: 38px !important;
+    border: none !important;
+    border-radius: 0 !important;
+    position: relative !important;
+    margin: 0 auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    background: rgba(237, 50, 55, 0.25) !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+}
+.banner-section .c-scrolldown .c-line,
+#index_page .banner-section .c-scrolldown .c-line {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    width: 2px !important;
+    height: 100% !important;
+    background: #ED3237 !important;
+    border-radius: 1px !important;
+    display: block !important;
+    margin: 0 !important;
+    animation: scrollLineAnim 2s infinite ease-in-out !important;
+}
+@keyframes scrollLineAnim {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    30% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    70% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
 }

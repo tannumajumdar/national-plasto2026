@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SUPREME COMMON FRAMEWORK — SHARED ACROSS ALL PAGES
+   SUPREME COMMON FRAMEWORK ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â SHARED ACROSS ALL PAGES
    Matches supreme.co.in 1:1 Pixel Clone UI/UX
    ========================================================================== */
 
@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   DESKTOP SUPREME HEADER (Exact Supreme 1:1 — 92px Height)
+   DESKTOP SUPREME HEADER (Exact Supreme 1:1 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â 92px Height)
    ========================================================================== */
 .header {
     background-color: #FFFFFF !important;
@@ -218,7 +218,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   SUPREME SEARCH ICON (PURE ICON ONLY — NO CIRCLE, NO BACKGROUND)
+   SUPREME SEARCH ICON (PURE ICON ONLY ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â NO CIRCLE, NO BACKGROUND)
    ========================================================================== */
 .header .social_links .search_icon {
     display: flex !important;
@@ -760,7 +760,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   HOMEPAGE HERO BANNER — REMOVE GAP BENEATH FIXED HEADER
+   HOMEPAGE HERO BANNER ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â REMOVE GAP BENEATH FIXED HEADER
    ========================================================================== */
 #index_page .banner-section,
 .banner-section {
@@ -801,9 +801,9 @@ h1, h2, h3, h4, h5, h6 {
 
     #index_page .banner-section .banner-slider-img,
     .banner-section .banner-slider-img {
-        height: 75vh !important;
-        min-height: 480px !important;
-        max-height: 600px !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
     }
 
     .banner_content {
@@ -1443,7 +1443,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================
-   Brand intro (index.html) — National from left, Next from right
+   Brand intro (index.html) ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â National from left, Next from right
    ========================================================== */
 .np-intro {
     position: fixed;
@@ -1852,7 +1852,7 @@ footer.np-footer {
 }
 
 /* ==========================================================
-   Our Divisions (index.html) — NEXT, NATIONAL, CAPTAIN, SAPPHIRE
+   Our Divisions (index.html) ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â NEXT, NATIONAL, CAPTAIN, SAPPHIRE
    ========================================================== */
 .np-div {
     padding: 90px 0 60px;
@@ -2572,15 +2572,7 @@ footer.np-footer {
     .np-invest { padding: 40px 0 60px; }
 }
 
-/* ==========================================================
-   Home Hero: Hide scroll down on mobile to prevent overlap
-   ========================================================== */
-@media (max-width: 767px) {
-    #index_page .banner-section .scrool-down,
-    .banner-section .scrool-down {
-        display: none !important;
-    }
-}
+
 
 /* ==========================================================
    Home Plants Slider: Fix plant_btn badge wrapping & shape
@@ -2617,7 +2609,7 @@ footer.np-footer {
 }
 
 /* ==========================================================
-   Home: Contact Us Details — Prominent Bold Styling
+   Home: Contact Us Details ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â Prominent Bold Styling
    ========================================================== */
 #index_page .contact_us .contact_flex .contact_us_content .contact-details-home p,
 #index_page .contact_us .contact_flex .contact_us_content .contact-details-home p span,
@@ -2685,3 +2677,121 @@ footer.np-footer {
 }
 
 
+
+
+/* Scroll Down (Exact Match with Reference Image media_1790702158415.png) */
+.banner-section .scrool-down,
+#index_page .banner-section .scrool-down {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: absolute !important;
+    bottom: -20px !important;
+    left: 50% !important;
+    right: auto !important;
+    top: auto !important;
+    transform: translateX(-50%) !important;
+    -webkit-transform: translateX(-50%) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 140px !important;
+    z-index: 25 !important;
+    text-align: center !important;
+    pointer-events: auto !important;
+}
+.banner-section .l-section-top,
+#index_page .banner-section .l-section-top {
+    position: static !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+.banner-section .scroll_down,
+#index_page .banner-section .scroll_down {
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    margin: 0 0 6px 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    animation: none !important;
+    -webkit-animation: none !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+.banner-section .scroll_down a,
+#index_page .banner-section .scroll_down a {
+    color: #FFFFFF !important;
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    font-family: 'Poppins', sans-serif !important;
+    letter-spacing: 0.4px !important;
+    text-decoration: none !important;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9) !important;
+    display: inline-block !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+    outline: none !important;
+}
+.banner-section .c-scrolldown,
+#index_page .banner-section .c-scrolldown {
+    display: block !important;
+    width: 2px !important;
+    height: 38px !important;
+    border: none !important;
+    border-radius: 0 !important;
+    position: relative !important;
+    margin: 0 auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    background: rgba(237, 50, 55, 0.25) !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+}
+.banner-section .c-scrolldown .c-line,
+#index_page .banner-section .c-scrolldown .c-line {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    width: 2px !important;
+    height: 100% !important;
+    background: #ED3237 !important;
+    border-radius: 1px !important;
+    display: block !important;
+    margin: 0 !important;
+    animation: scrollLineAnim 2s infinite ease-in-out !important;
+}
+@keyframes scrollLineAnim {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    30% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    70% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
