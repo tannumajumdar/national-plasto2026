@@ -1,5 +1,5 @@
 /* ==========================================================================
-   National Plasto ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¦ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â UI/UX revision (Sept 2026)
+   National Plasto — UI/UX revision (Sept 2026)
    Loaded last on every page. Reference: supreme.co.in
    ========================================================================== */
 
@@ -993,7 +993,7 @@ footer.np-sfooter hr {
 
 .np-card-actions {
     display: grid !important;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 36px 36px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 6px !important;
     align-items: stretch;
 }
@@ -1007,23 +1007,6 @@ footer.np-sfooter hr {
     padding: 0 6px;
     box-sizing: border-box;
 }
-.np-btn-shop {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 36px;
-    border: 1px solid #CBD5E1;
-    border-radius: 8px;
-    background: #FFFFFF;
-    color: #111827;
-    font-size: 17px;
-    text-decoration: none;
-    transition: border-color 0.2s ease, background 0.2s ease;
-}
-.np-btn-shop:hover { text-decoration: none; }
-.np-btn-amazon:hover { border-color: #FF9900; background: #FFF7EB; color: #111827; }
-.np-btn-flipkart { background: #2874F0; border-color: #2874F0; }
-.np-btn-flipkart:hover { background: #1F5FCC; border-color: #1F5FCC; }
 @media (max-width: 991px) {
     #products_page .np-cat-controls,
     .np-cat-controls { top: 70px; }
@@ -1038,8 +1021,7 @@ footer.np-sfooter hr {
         flex-direction: row !important;
     }
     .np-card-actions .np-btn-view,
-    .np-card-actions .np-btn-enquire,
-    .np-btn-shop { height: 34px; font-size: 12.5px; }
+    .np-card-actions .np-btn-enquire { height: 34px; font-size: 12.5px; }
 }
 
 /* --------------------------------------------------------------------------
@@ -1469,17 +1451,6 @@ footer.np-sfooter .np-sfooter-top { padding-top: 44px; }
 #index_page .np-headlines .slick-slide > div,
 #index_page .np-headlines .blogs_box,
 #index_page .np-headlines .blogs-inside { height: 100%; }
-
-/* Sustainability banner (full-width image above the section, as on supreme.co.in) */
-.np-sust-banner { line-height: 0; background: #EAF3E6; }
-.np-sust-banner img {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: 640px;
-    object-fit: cover;
-    object-position: center;
-}
 
 /* ==========================================================================
    Responsive pass: no cropped photos, no overflow, no overlaps
@@ -2209,3 +2180,173 @@ html.np-anim .np-reveal.np-in {
         opacity: 0;
     }
 }
+
+/* --------------------------------------------------------------------------
+   Products: catalogue section - separate View and Download buttons
+   -------------------------------------------------------------------------- */
+#furniture .catalogue-section .np-cat-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+#furniture .catalogue-section .np-cat-btns .btn_project_default { margin: 0; width: auto; min-width: 200px; }
+#furniture .catalogue-section .np-cat-btns .btn_project_default i { margin-right: 8px; }
+#furniture .catalogue-section .np-cat-btns .np-btn-outline { background-color: #FFFFFF; color: #C21121; box-shadow: inset 0 0 0 2px #C21121; }
+#furniture .catalogue-section .np-cat-btns .np-btn-outline:hover { background-color: #C21121; color: #FFFFFF; }
+@media (max-width: 767px) {
+    #furniture .catalogue-section .np-cat-btns { justify-content: center; }
+    #furniture .catalogue-section .np-cat-btns .btn_project_default { display: inline-block; margin: 0; width: 230px; }
+}
+
+/* --------------------------------------------------------------------------
+   Pan India map colour key: red head office, green plants,
+   blue distributors & dealers, yellow trade depots
+   -------------------------------------------------------------------------- */
+.np-map-pin--dealer .np-map-pin-dot { background: #1D4ED8; }
+.np-map-pin--dealer .np-map-pin-dot::after { color: rgba(29, 78, 216, 0.5); }
+.np-map-pin--depot .np-map-pin-dot { background: #EAB308; }
+.np-map-pin--depot .np-map-pin-dot::after { color: rgba(234, 179, 8, 0.6); }
+.np-map-card-type.is-dealer { background: #E8EEFD; color: #1D4ED8; }
+.np-map-card-type.is-depot { background: #FEF6D8; color: #8A6A00; }
+.np-loc-chip--dealer::before { background: #1D4ED8; }
+.np-loc-chip--depot::before { background: #EAB308; }
+#index_page .pan_india_main .pan_india_content .np-map-legend { row-gap: 8px; }
+#index_page .pan_india_main .pan_india_content .np-map-legend p { padding-right: 28px; white-space: nowrap; }
+#index_page .pan_india_main .pan_india_content .np-map-legend p[hidden] { display: none; }
+#index_page .pan_india_main .pan_india_content .np-map-legend p span { flex-shrink: 0; }
+#index_page .pan_india_main .pan_india_content .np-map-legend p .np-dealer-color { background-color: #1D4ED8; }
+#index_page .pan_india_main .pan_india_content .np-map-legend p .np-depot-color { background-color: #EAB308; }
+
+/* --------------------------------------------------------------------------
+   Milestones: year timeline above the slider
+   -------------------------------------------------------------------------- */
+.np-tl {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 36px;
+    padding: 0;
+    list-style: none;
+}
+.np-tl::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 9px;
+    border-top: 2px dashed #D5DAE1;
+}
+.np-tl li { position: relative; flex: 1 1 0; text-align: center; }
+.np-tl li:first-child { text-align: left; }
+.np-tl li:last-child { text-align: right; }
+.np-tl-step {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+.np-tl li:first-child .np-tl-step { align-items: flex-start; }
+.np-tl li:last-child .np-tl-step { align-items: flex-end; }
+.np-tl-dot {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #D5DAE1;
+    border-radius: 50%;
+    background: #FFFFFF;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+.np-tl-step strong { color: #3D3D3D; font: 700 20px/1.2 "Poppins", sans-serif; transition: color 0.2s ease; }
+.np-tl-step em { color: #707070; font: 400 13px "Work Sans", sans-serif; font-style: normal; }
+.np-tl-step:hover .np-tl-dot { border-color: #C21121; }
+.np-tl-step.is-active .np-tl-dot { border-color: #C21121; background: #C21121; transform: scale(1.15); }
+.np-tl-step.is-active strong { color: #C21121; }
+.np-tl-step:focus { outline: none; }
+.np-tl-step:focus-visible { outline: 2px solid #C21121; outline-offset: 4px; border-radius: 6px; }
+.np-ms-date {
+    margin: -6px 0 14px;
+    color: #C21121;
+    font: 600 15px "Poppins", sans-serif;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+@media (max-width: 575px) {
+    .np-tl { margin-bottom: 24px; }
+    .np-tl-step strong { font-size: 15px; }
+    .np-tl-step em { font-size: 11px; }
+    .np-tl-dot { width: 16px; height: 16px; }
+    .np-tl::before { top: 7px; }
+}
+
+/* --------------------------------------------------------------------------
+   Header + mobile menu: Amazon and Flipkart store icons
+   -------------------------------------------------------------------------- */
+.header .social_links .header_social a.np-social-amazon,
+.icon-row a.np-social-amazon { background-color: #FFFFFF !important; box-shadow: inset 0 0 0 1px #CBD5E1 !important; }
+.header .social_links .header_social a.np-social-amazon i,
+.icon-row a.np-social-amazon i { color: #111827 !important; }
+.header .social_links .header_social a.np-social-amazon:hover,
+.icon-row a.np-social-amazon:hover { background-color: #FFF7EB !important; box-shadow: inset 0 0 0 1px #FF9900, 0 4px 10px rgba(255, 153, 0, 0.3) !important; }
+.header .social_links .header_social a.np-social-flipkart,
+.icon-row a.np-social-flipkart { background-color: #2874F0 !important; }
+.header .social_links .header_social a.np-social-flipkart:hover,
+.icon-row a.np-social-flipkart:hover { background-color: #1F5FCC !important; box-shadow: 0 4px 10px rgba(40, 116, 240, 0.35) !important; }
+.header .social_links .header_social a.np-social-flipkart svg,
+.icon-row a.np-social-flipkart svg { width: 18px; height: 18px; }
+
+/* --------------------------------------------------------------------------
+   About: Our Journey (year timeline + full milestone details)
+   -------------------------------------------------------------------------- */
+.np-journey { padding: 80px 0; background: #FFFFFF; scroll-margin-top: 90px; }
+.np-journey-head { max-width: 720px; margin: 0 auto 40px; text-align: center; }
+.np-journey-head p { margin: 12px 0 0; color: #64748B; font-size: 17px; line-height: 1.6; }
+.np-journey .np-tl { margin-bottom: 44px; }
+.np-journey-body { position: relative; }
+.np-journey-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 48px;
+    align-items: center;
+    animation: npCardIn 0.3s ease-out;
+}
+.np-journey-panel[hidden] { display: none; }
+.np-journey-img img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 14px;
+}
+.np-journey-year { display: block; margin-bottom: 18px; color: #ED3237; font: 300 96px/1 "Poppins", sans-serif; }
+.np-journey-text .np-ms-date { margin: 0 0 10px; }
+.np-journey-text h3 { margin: 0 0 12px; color: #1E293B; font: 700 26px/1.3 "Poppins", sans-serif; }
+.np-journey-text p { color: #475569; font-size: 17px; line-height: 1.7; }
+.np-journey-text .np-journey-addr { margin-top: 16px; padding-top: 14px; border-top: 1px solid #E2E8F0; font-size: 15px; }
+.np-journey-addr i { margin-right: 6px; color: #C21121; }
+.np-journey-nav { display: flex; justify-content: flex-end; gap: 10px; margin-top: 24px; }
+.np-journey-nav button {
+    width: 44px;
+    height: 44px;
+    border: 1px solid #CBD5E1;
+    border-radius: 50%;
+    background: #FFFFFF;
+    color: #3D3D3D;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.np-journey-nav button:hover { border-color: #C21121; background: #C21121; color: #FFFFFF; }
+@media (max-width: 991px) {
+    .np-journey-panel { grid-template-columns: 1fr; gap: 24px; }
+    .np-journey-year { margin-bottom: 10px; font-size: 64px; }
+}
+@media (max-width: 575px) {
+    .np-journey { padding: 56px 0; }
+    .np-journey-text h3 { font-size: 21px; }
+    .np-journey-text p { font-size: 15.5px; }
+    .np-journey-nav { justify-content: center; }
+}
+
+/* --------------------------------------------------------------------------
+   Products menu: Download Catalogue item (desktop dropdown + mobile menu)
+   -------------------------------------------------------------------------- */
+.np-menu-download { margin-top: 6px; padding-top: 6px; border-top: 1px solid #E2E8F0; }
+.np-menu-download a i { margin-right: 6px; font-size: 0.9em; }

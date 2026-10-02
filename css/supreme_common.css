@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SUPREME COMMON FRAMEWORK ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â SHARED ACROSS ALL PAGES
+   SUPREME COMMON FRAMEWORK — SHARED ACROSS ALL PAGES
    Matches supreme.co.in 1:1 Pixel Clone UI/UX
    ========================================================================== */
 
@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   DESKTOP SUPREME HEADER (Exact Supreme 1:1 ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â 92px Height)
+   DESKTOP SUPREME HEADER (Exact Supreme 1:1 — 92px Height)
    ========================================================================== */
 .header {
     background-color: #FFFFFF !important;
@@ -218,7 +218,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   SUPREME SEARCH ICON (PURE ICON ONLY ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â NO CIRCLE, NO BACKGROUND)
+   SUPREME SEARCH ICON (PURE ICON ONLY — NO CIRCLE, NO BACKGROUND)
    ========================================================================== */
 .header .social_links .search_icon {
     display: flex !important;
@@ -760,7 +760,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   HOMEPAGE HERO BANNER ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â REMOVE GAP BENEATH FIXED HEADER
+   HOMEPAGE HERO BANNER — REMOVE GAP BENEATH FIXED HEADER
    ========================================================================== */
 #index_page .banner-section,
 .banner-section {
@@ -1443,7 +1443,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================
-   Brand intro (index.html) ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â National from left, Next from right
+   Brand intro (index.html) — National from left, Next from right
    ========================================================== */
 .np-intro {
     position: fixed;
@@ -1852,7 +1852,7 @@ footer.np-footer {
 }
 
 /* ==========================================================
-   Our Divisions (index.html) ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â NEXT, NATIONAL, CAPTAIN, SAPPHIRE
+   Our Divisions (index.html) — NEXT, NATIONAL, CAPTAIN, SAPPHIRE
    ========================================================== */
 .np-div {
     padding: 90px 0 60px;
@@ -2609,7 +2609,7 @@ footer.np-footer {
 }
 
 /* ==========================================================
-   Home: Contact Us Details ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â Prominent Bold Styling
+   Home: Contact Us Details — Prominent Bold Styling
    ========================================================== */
 #index_page .contact_us .contact_flex .contact_us_content .contact-details-home p,
 #index_page .contact_us .contact_flex .contact_us_content .contact-details-home p span,

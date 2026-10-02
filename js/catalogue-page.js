@@ -98,22 +98,9 @@
           '<div class="np-card-actions">' +
             '<button type="button" class="np-btn-view" data-idx="' + idx + '">View</button>' +
             '<a class="np-btn-enquire" href="contact.html?product=' + encodeURIComponent(p.b + ' ' + p.n) + '#enquiry-section">Enquire</a>' +
-            shopLinks(p) +
           '</div>' +
         '</div>' +
       '</article>';
-  }
-
-  // Marketplace buttons. Until per-product listing URLs are available these
-  // open a search for the model on each marketplace.
-  var FLIPKART_ICON = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">' +
-    '<path d="M4 7h16l-1.4 12.2a2 2 0 0 1-2 1.8H7.4a2 2 0 0 1-2-1.8L4 7z" fill="#FFE11B"/>' +
-    '<path d="M8.5 7V6a3.5 3.5 0 0 1 7 0v1" fill="none" stroke="#FFE11B" stroke-width="1.8"/>' +
-    '<path d="M13.9 10.2h-1.5c-1 0-1.6.6-1.8 1.6l-.2.9H9.3l-.3 1.5h1.1l-1 4.6h1.8l1-4.6h1.6l.3-1.5h-1.6l.2-.8c.1-.3.2-.4.5-.4h1.1l.2-1.3z" fill="#2874F0"/></svg>';
-  function shopLinks(p) {
-    var q = encodeURIComponent('National Plasto ' + p.b + ' ' + p.n + ' ' + p.c);
-    return '<a class="np-btn-shop np-btn-amazon" href="https://www.amazon.in/s?k=' + q + '" target="_blank" rel="noopener" title="Buy on Amazon" aria-label="Buy ' + esc(p.n) + ' on Amazon"><i class="fab fa-amazon" aria-hidden="true"></i></a>' +
-      '<a class="np-btn-shop np-btn-flipkart" href="https://www.flipkart.com/search?q=' + q + '" target="_blank" rel="noopener" title="Buy on Flipkart" aria-label="Buy ' + esc(p.n) + ' on Flipkart">' + FLIPKART_ICON + '</a>';
   }
 
   function renderGrid() {
