@@ -352,7 +352,7 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="css/np-revamp.css?v=20261002e">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20261006a">
 </head>
 <body id="index_page">
 
@@ -1430,8 +1430,11 @@
     <!-- Supreme 1:1 Homepage Slick Initializations -->
     <script>
     $(document).ready(function() {
-        // Hero Banner Slider
-        if ($('.home-banner-slider').length && !$('.home-banner-slider').hasClass('slick-initialized')) {
+        // Hero Banner Slider — destroy any existing init then re-apply
+        if ($('.home-banner-slider').length) {
+            if ($('.home-banner-slider').hasClass('slick-initialized')) {
+                $('.home-banner-slider').slick('unslick');
+            }
             $('.home-banner-slider').slick({
                 slidesToShow: 1,
                 slidesToScroll: 1,

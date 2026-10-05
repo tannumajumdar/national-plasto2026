@@ -285,8 +285,20 @@
             .form_group_row { grid-template-columns: 1fr; }
             .hubs_grid { grid-template-columns: 1fr; }
         }
+
+        #contact_page .banner-section .banner-slider-img,
+        #contact_page .banner-section .banner-slider-img1 {
+            background-image: url('images/brand/contactus.jpg') !important;
+            background-position: center 60% !important;
+            background-size: cover !important;
+            height: 70vh !important;
+            min-height: 480px !important;
+            max-height: 620px !important;
+            width: 100% !important;
+            display: block !important;
+        }
     </style>
-    <link rel="stylesheet" href="css/np-revamp.css?v=20261002e">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20261006g">
 </head>
 
 <body id="contact_page">
@@ -443,19 +455,34 @@
         </div>
     </div>
 
-    <!-- Inner Page Banner -->
-    <section class="banner-section inner_banner np-page-banner">
-        <div class="container">
-            <h1 class="heading-text">Get In Touch &mdash; <span class="color_red_home">Contact Us</span></h1>
-            <p class="para-text">Kindly share your reviews, feedback, procurement requirements, or commercial dealership queries below.</p>
-        </div>
-        <nav class="np-breadcrumbs" aria-label="Breadcrumb">
-            <div class="container">
-                <a href="index.html">Home</a>
-                <i class="fas fa-chevron-right" aria-hidden="true"></i>
-                <span aria-current="page">Contact Us</span>
+    <!-- Banner Section (Exact Supreme 1:1 with contactus.jpg / contactus4.png) -->
+    <section class="banner-section" style="width:100%; position:relative; overflow:hidden;">
+        <div class="slider home-banner-slider" style="width:100%;">
+            <div class="banner_item" style="width:100%;">
+                <div class="banner-slider-img banner-slider-img1" style="width:100%; position:relative; overflow:hidden;">
+                    <img src="images/brand/contactus.jpg" style="width:100%; height:70vh; min-height:480px; max-height:620px; object-fit:cover; object-position:center 55%; display:block;" alt="National Plasto Team">
+                </div>
+                <img loading="lazy" src="images/brand/contactus.jpg" class="img-responsive mob-banner-img" alt="National Plasto Contact Us">
             </div>
-        </nav>
+        </div>
+
+        <div class="scrool-down">
+            <div class="l-section-top">
+                <div class="c-scrolldown">
+                    <div class="c-line"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="breadcrums">
+            <div class="container">
+                <div class="np-breadcrumb-pill">
+                    <a href="index.html">Home</a>
+                    <span class="np-bc-sep"><i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                    <span class="np-bc-current">Contact Us</span>
+                </div>
+            </div>
+        </div>
     </section>
 
     
