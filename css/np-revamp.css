@@ -147,6 +147,15 @@
         object-position: center bottom !important;
     }
 
+    #index_page .banner-section .banner-slider-img .banner_img video,
+    #index_page .banner-section .banner-slider-img .banner_img .np-hero-video {
+        height: 100% !important;
+        width: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        display: block !important;
+    }
+
     /* Vertically center the text block, keep it left-aligned */
     #index_page .banner-section .banner-slider-img .banner_content {
         top: 50% !important;

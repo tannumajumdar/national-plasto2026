@@ -206,7 +206,9 @@
                 position: relative !important;
             }
             #index_page .banner-section .banner-slider-img .banner_img img,
-            .banner-section .banner-slider-img .banner_img img {
+            .banner-section .banner-slider-img .banner_img img,
+            #index_page .banner-section .banner-slider-img .banner_img video,
+            .banner-section .banner-slider-img .banner_img video {
                 width: 100% !important;
                 height: 100% !important;
                 object-fit: cover !important;
@@ -577,8 +579,9 @@
         <div class="banner_item">
           <div class="banner-slider-img banner-slider-img1">
             <div class="banner_img">
-              <img src="images/hero/image1.png?v=20260929g" class="img-responsive mobile_banner_hide" alt="National Plasto corporate headquarters" width="1920" height="1080" fetchpriority="high">
-              <img src="images/hero/image1-mobile.png?v=20260929_portrait" class="img-responsive mobile_banner_show" alt="National Plasto corporate headquarters" width="1717" height="916">
+              <video class="np-hero-video" autoplay muted loop playsinline poster="images/hero/overview-video-poster.jpg">
+                <source src="videos/hero/national-plasto-overview.mp4" type="video/mp4">
+              </video>
             </div>
             <div class="banner_content white_color">
               <span class="np-hero-eyebrow">Since 1997</span>
