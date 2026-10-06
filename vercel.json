@@ -4,49 +4,38 @@
   "redirects": [
     {
       "source": "/about-us",
-      "destination": "/about.html",
-      "permanent": true
-    },
-    {
-      "source": "/about",
-      "destination": "/about.html",
+      "destination": "/about",
       "permanent": true
     },
     {
       "source": "/product",
-      "destination": "/products.html",
+      "destination": "/products",
       "permanent": true
     },
     {
       "source": "/dealer",
-      "destination": "/distributor.html",
+      "destination": "/distributor",
       "permanent": true
     },
     {
       "source": "/dealers",
-      "destination": "/distributor.html",
+      "destination": "/distributor",
       "permanent": true
     },
     {
       "source": "/dealer-desk",
-      "destination": "/distributor.html",
+      "destination": "/distributor",
       "permanent": true
     },
     {
       "source": "/manufacturing-facilities",
-      "destination": "/manufacturing.html",
-      "permanent": true
-    },
-    {
-      "source": "/contact",
-      "destination": "/contact.html",
+      "destination": "/manufacturing",
       "permanent": true
     },
     {
       "source": "/catalogue",
-      "destination": "/products.html",
+      "destination": "/products",
       "permanent": true
     }
   ]
 }
-
