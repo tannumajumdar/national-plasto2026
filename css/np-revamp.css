@@ -1963,33 +1963,35 @@ footer.np-sfooter hr {
    hanging left of the text, closing one at the bottom right */
 #index_page .testimonial_main.np-cmd .testimonial_content .para-text.np-cmd-quote {
     position: relative;
-    padding-left: 115px;
-    padding-right: 40px;
+    padding-left: 80px;
+    padding-right: 30px;
+    padding-top: 10px;
 }
 
 #index_page .testimonial_main.np-cmd .testimonial_content .testmonial_name {
-    margin-left: 115px;
+    margin-left: 80px;
 }
 
 .np-q {
     position: absolute;
-    color: #E3EBEE;
+    color: #CBD5E1;
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 180px;
+    font-size: 130px;
     font-weight: 700;
     line-height: 1;
     pointer-events: none;
     user-select: none;
+    opacity: 0.55;
 }
 
 .np-q-open {
     left: 0;
-    top: -38px;
+    top: -14px;
 }
 
 .np-q-close {
-    right: -30px;
-    bottom: -118px;
+    right: -10px;
+    bottom: -90px;
 }
 
 .np-cmd-quote>span:not(.np-q) {
@@ -4100,9 +4102,9 @@ html.np-anim .np-reveal.np-in {
 #distributor_page .banner-section .banner-slider-img,
 #manufacturing_page .banner-section .banner-slider-img,
 #contact_page .banner-section .banner-slider-img {
-    height: 70vh !important;
-    min-height: 480px !important;
-    max-height: 620px !important;
+    height: 80vh !important;
+    min-height: 600px !important;
+    max-height: 760px !important;
     width: 100% !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
@@ -4314,14 +4316,19 @@ html.np-anim .np-reveal.np-in {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
-    gap: 30px !important;
+    align-items: stretch !important;
+    gap: 32px !important;
+    max-width: 1120px !important;
+    margin: 0 auto !important;
 }
 
 #about_us_overview .team_main_item {
-    flex: 0 1 calc(25% - 24px) !important;
-    max-width: 280px !important;
-    min-width: 220px !important;
+    flex: 0 1 310px !important;
+    max-width: 330px !important;
+    min-width: 260px !important;
     text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
 }
 
 #about_us_overview .team_main_card {

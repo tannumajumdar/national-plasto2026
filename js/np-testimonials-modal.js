@@ -44,6 +44,7 @@
       video.autoplay = true;
       video.playsInline = true;
       video.preload = 'auto';
+      video.src = src;
 
       var source = document.createElement('source');
       source.src = src;
@@ -59,6 +60,7 @@
       modal.classList.add('active');
       document.body.classList.add('np-modal-open');
 
+      video.load();
       var playPromise = video.play();
       if (playPromise !== undefined) {
         playPromise.catch(function () {

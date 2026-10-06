@@ -2795,3 +2795,68 @@ footer.np-footer {
         opacity: 0;
     }
 }
+
+/* ==========================================================
+   Contact Us: Left-to-Right Shadow Design System
+   ========================================================== */
+.contact_us,
+#index_page .contact_us {
+    background: linear-gradient(105deg, #F8FAFC 0%, #FFFFFF 55%, #F1F5F9 100%) !important;
+    position: relative !important;
+    padding: 80px 0 90px !important;
+}
+
+#index_page .contact_us .contact_flex {
+    background: #FFFFFF !important;
+    border-radius: 16px !important;
+    border: 1px solid #E2E8F0 !important;
+    box-shadow: 22px 26px 60px -12px rgba(15, 23, 42, 0.12), -4px 0 20px rgba(15, 23, 42, 0.03) !important;
+    padding: 48px 40px !important;
+    border-left: 5px solid #ED3237 !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+#index_page .contact_us .contact_flex:hover {
+    box-shadow: 28px 32px 70px -12px rgba(15, 23, 42, 0.16), -4px 0 24px rgba(15, 23, 42, 0.04) !important;
+}
+
+.contact_page_section,
+#contact_page .contact_page_section {
+    background: linear-gradient(105deg, #F8FAFC 0%, #FFFFFF 55%, #F1F5F9 100%) !important;
+}
+
+.contact_card_box,
+#contact_page .contact_card_box {
+    background: #FFFFFF !important;
+    border-radius: 14px !important;
+    border: 1px solid #E2E8F0 !important;
+    border-left: 5px solid #ED3237 !important;
+    box-shadow: 20px 24px 50px -8px rgba(15, 23, 42, 0.12), -4px 4px 18px rgba(15, 23, 42, 0.03) !important;
+    padding: 36px 32px !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.contact_card_box:hover,
+#contact_page .contact_card_box:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 26px 30px 60px -8px rgba(15, 23, 42, 0.16) !important;
+}
+
+.contact_form_col,
+#contact_page .contact_form_col {
+    background: #FFFFFF !important;
+    border-radius: 14px !important;
+    border: 1px solid #E2E8F0 !important;
+    border-left: 5px solid #ED3237 !important;
+    box-shadow: 22px 26px 55px -10px rgba(15, 23, 42, 0.13), -4px 4px 18px rgba(15, 23, 42, 0.03) !important;
+    padding: 44px 40px !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.facility_photo_card,
+#contact_page .facility_photo_card {
+    border-radius: 14px !important;
+    border: 1px solid #E2E8F0 !important;
+    box-shadow: 18px 22px 45px -8px rgba(15, 23, 42, 0.12) !important;
+}
+

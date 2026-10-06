@@ -1,0 +1,52 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/about-us",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/product",
+      "destination": "/products.html",
+      "permanent": true
+    },
+    {
+      "source": "/dealer",
+      "destination": "/distributor.html",
+      "permanent": true
+    },
+    {
+      "source": "/dealers",
+      "destination": "/distributor.html",
+      "permanent": true
+    },
+    {
+      "source": "/dealer-desk",
+      "destination": "/distributor.html",
+      "permanent": true
+    },
+    {
+      "source": "/manufacturing-facilities",
+      "destination": "/manufacturing.html",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html",
+      "permanent": true
+    },
+    {
+      "source": "/catalogue",
+      "destination": "/products.html",
+      "permanent": true
+    }
+  ]
+}
+
