@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/supreme_app.min.css">
     <link rel="stylesheet" href="css/supreme_common.css?v=20260929b">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20261006_testi">
 
     <style>
         /* Advantages Grid */
@@ -256,7 +257,7 @@
                 <ul class="menu">
                     <li><a class="homer" href="index.html">Home</a></li>
                     <li>
-                        <a href="javascript:void(0)">About Us</a>
+                        <a href="about.html">About Us</a>
                         <ul class="sub-menu">
                             <li><a href="about.html">Overview</a></li>
                             <li><a href="about.html#leadership">Leadership</a></li>
@@ -268,7 +269,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0)">Products</a>
+                        <a href="products.html">Products</a>
                         <ul class="sub-menu">
                             <li><a href="products.html?brand=next">NEXT &mdash; Premium Furniture</a></li>
                             <li><a href="products.html?brand=national">NATIONAL &mdash; Moulded Furniture</a></li>
@@ -344,10 +345,10 @@
         <div class="links">
             <li>
                 <div class="dropdown">
-                    <span class="dropdown-toggle" id="dropdownMenuAbout" onclick="$(this).parent().toggleClass('open');">
-                        About us
-                        <span class="caret"></span>
-                    </span>
+                    <div class="sidebar-dropdown-row">
+                        <a href="about.html" class="sidebar-cat-link">About us</a>
+                        <span class="dropdown-caret-btn" onclick="event.preventDefault(); $(this).closest('.dropdown').toggleClass('open');"><span class="caret"></span></span>
+                    </div>
                     <ul class="dropdown-menu">
                         <li><a href="about.html">Overview</a></li>
                         <li><a href="about.html#leadership">Leadership</a></li>
@@ -360,10 +361,10 @@
             </li>
             <li>
                 <div class="dropdown">
-                    <span class="dropdown-toggle" id="dropdownMenuBiz" onclick="$(this).parent().toggleClass('open');">
-                        Products
-                        <span class="caret"></span>
-                    </span>
+                    <div class="sidebar-dropdown-row">
+                        <a href="products.html" class="sidebar-cat-link">Products</a>
+                        <span class="dropdown-caret-btn" onclick="event.preventDefault(); $(this).closest('.dropdown').toggleClass('open');"><span class="caret"></span></span>
+                    </div>
                     <ul class="dropdown-menu">
                         <li><a href="products.html?brand=next">NEXT &mdash; Premium Furniture</a></li>
                         <li><a href="products.html?brand=national">NATIONAL &mdash; Moulded Furniture</a></li>
@@ -464,6 +465,202 @@
                 </div>
             </div>
         </section>
+
+        
+    <!-- DEALER & PARTNER VIDEO TESTIMONIALS -->
+    <section class="np-testimonials-section" id="testimonials">
+      <div class="container">
+        <div class="np-testi-header toTop" data-scroll>
+          <span class="np-testi-badge"><i class="fas fa-video" aria-hidden="true"></i> Video Testimonials</span>
+          <h2 class="heading-text">What Our <span class="color_red_home">Partners &amp; Dealers Say</span></h2>
+          <p class="np-testi-subtitle">Real experiences and feedback from distributors, dealers and partners across India. Click any card to watch.</p>
+        </div>
+        <div class="np-testi-grid">
+          <!-- Featured Factory Facility Card -->
+          <div class="np-testi-card np-photo-trigger toTop" data-scroll
+               data-photo="images/testimonials/dealer-meet-dsc6486.jpg"
+               data-title="Advanced Injection Moulding Plant"
+               data-tag="Manufacturing Hub"
+               data-desc="High-precision Windsor KL 850 machine in operation at our certified manufacturing unit.">
+            <div class="np-testi-photo-wrapper">
+              <img src="images/testimonials/dealer-meet-dsc6486.jpg" loading="lazy" alt="Windsor KL 850 Injection Moulding Facility" class="np-testi-thumb">
+              <div class="np-photo-overlay">
+                <i class="fas fa-search-plus" aria-hidden="true"></i>
+              </div>
+              <span class="np-video-duration"><i class="fas fa-image"></i> Facility</span>
+            </div>
+            <div class="np-testi-card-body">
+              <span class="np-testi-tag"><i class="fas fa-industry" aria-hidden="true"></i> Manufacturing Hub</span>
+              <h3 class="np-testi-title">Advanced Injection Moulding Plant</h3>
+              <p class="np-testi-desc">High-precision Windsor KL 850 machine in operation at our certified manufacturing unit.</p>
+            </div>
+          </div>
+
+          <!-- Video Card 1 -->
+          <div class="np-testi-card np-video-trigger toTop" data-scroll
+               data-video="videos/testimonials/1.mp4"
+               data-title="Dealer Experience &amp; Trust"
+               data-tag="Dealer Story"
+               data-desc="Insights on product demand, customer satisfaction, and smooth dealership operations.">
+            <div class="np-video-wrapper">
+              <img src="images/testimonials/posters/1.jpg" loading="lazy" alt="Dealer Experience &amp; Trust" class="np-testi-thumb">
+              <div class="np-play-overlay">
+                <div class="np-play-pulse"></div>
+                <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
+              </div>
+              <span class="np-video-duration"><i class="fas fa-play-circle"></i> Watch Video</span>
+            </div>
+            <div class="np-testi-card-body">
+              <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> Dealer Story</span>
+              <h3 class="np-testi-title">Dealer Experience &amp; Trust</h3>
+              <p class="np-testi-desc">Insights on product demand, customer satisfaction, and smooth dealership operations.</p>
+            </div>
+          </div>
+
+          <!-- Video Card 2 -->
+          <div class="np-testi-card np-video-trigger toTop" data-scroll
+               data-video="videos/testimonials/2.mp4"
+               data-title="Product Quality &amp; Finish"
+               data-tag="Partner Review"
+               data-desc="Feedback on the durability and design quality of moulded furniture ranges.">
+            <div class="np-video-wrapper">
+              <img src="images/testimonials/posters/2.jpg" loading="lazy" alt="Product Quality &amp; Finish" class="np-testi-thumb">
+              <div class="np-play-overlay">
+                <div class="np-play-pulse"></div>
+                <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
+              </div>
+              <span class="np-video-duration"><i class="fas fa-play-circle"></i> Watch Video</span>
+            </div>
+            <div class="np-testi-card-body">
+              <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> Partner Review</span>
+              <h3 class="np-testi-title">Product Quality &amp; Finish</h3>
+              <p class="np-testi-desc">Feedback on the durability and design quality of moulded furniture ranges.</p>
+            </div>
+          </div>
+
+          <!-- Video Card 3 -->
+          <div class="np-testi-card np-video-trigger toTop" data-scroll
+               data-video="videos/testimonials/12.mp4"
+               data-title="Long-Standing Association"
+               data-tag="Distribution Partner"
+               data-desc="Growing together through reliable supply, fast delivery, and consistent support.">
+            <div class="np-video-wrapper">
+              <img src="images/testimonials/posters/12.jpg" loading="lazy" alt="Long-Standing Association" class="np-testi-thumb">
+              <div class="np-play-overlay">
+                <div class="np-play-pulse"></div>
+                <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
+              </div>
+              <span class="np-video-duration"><i class="fas fa-play-circle"></i> Watch Video</span>
+            </div>
+            <div class="np-testi-card-body">
+              <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> Distribution Partner</span>
+              <h3 class="np-testi-title">Long-Standing Association</h3>
+              <p class="np-testi-desc">Growing together through reliable supply, fast delivery, and consistent support.</p>
+            </div>
+          </div>
+
+          <!-- Video Card 4 -->
+          <div class="np-testi-card np-video-trigger toTop" data-scroll
+               data-video="videos/testimonials/13.mp4"
+               data-title="Retail Demand &amp; Value"
+               data-tag="Market Feedback"
+               data-desc="How National Plasto brands provide competitive advantage in regional markets.">
+            <div class="np-video-wrapper">
+              <img src="images/testimonials/posters/13.jpg" loading="lazy" alt="Retail Demand &amp; Value" class="np-testi-thumb">
+              <div class="np-play-overlay">
+                <div class="np-play-pulse"></div>
+                <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
+              </div>
+              <span class="np-video-duration"><i class="fas fa-play-circle"></i> Watch Video</span>
+            </div>
+            <div class="np-testi-card-body">
+              <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> Market Feedback</span>
+              <h3 class="np-testi-title">Retail Demand &amp; Value</h3>
+              <p class="np-testi-desc">How National Plasto brands provide competitive advantage in regional markets.</p>
+            </div>
+          </div>
+
+          <!-- Video Card 5 -->
+          <div class="np-testi-card np-video-trigger toTop" data-scroll
+               data-video="videos/testimonials/19.mp4"
+               data-title="Pan-India Reach &amp; Service"
+               data-tag="Dealer Testimonial"
+               data-desc="Experiences from dealers serving homes, schools, and commercial establishments.">
+            <div class="np-video-wrapper">
+              <img src="images/testimonials/posters/19.jpg" loading="lazy" alt="Pan-India Reach &amp; Service" class="np-testi-thumb">
+              <div class="np-play-overlay">
+                <div class="np-play-pulse"></div>
+                <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
+              </div>
+              <span class="np-video-duration"><i class="fas fa-play-circle"></i> Watch Video</span>
+            </div>
+            <div class="np-testi-card-body">
+              <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> Dealer Testimonial</span>
+              <h3 class="np-testi-title">Pan-India Reach &amp; Service</h3>
+              <p class="np-testi-desc">Experiences from dealers serving homes, schools, and commercial establishments.</p>
+            </div>
+          </div>
+
+          <!-- Video Card 6 -->
+          <div class="np-testi-card np-video-trigger toTop" data-scroll
+               data-video="videos/testimonials/21.mp4"
+               data-title="Business Relationship"
+               data-tag="Partnership Growth"
+               data-desc="Mutual trust, transparency, and timely deliveries across dealer networks.">
+            <div class="np-video-wrapper">
+              <img src="images/testimonials/posters/21.jpg" loading="lazy" alt="Business Relationship" class="np-testi-thumb">
+              <div class="np-play-overlay">
+                <div class="np-play-pulse"></div>
+                <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
+              </div>
+              <span class="np-video-duration"><i class="fas fa-play-circle"></i> Watch Video</span>
+            </div>
+            <div class="np-testi-card-body">
+              <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> Partnership Growth</span>
+              <h3 class="np-testi-title">Business Relationship</h3>
+              <p class="np-testi-desc">Mutual trust, transparency, and timely deliveries across dealer networks.</p>
+            </div>
+          </div>
+
+          <!-- Video Card 7 -->
+          <div class="np-testi-card np-video-trigger toTop" data-scroll
+               data-video="videos/testimonials/22.mp4"
+               data-title="Durable &amp; Modern Seating"
+               data-tag="Customer Voice"
+               data-desc="Delivering value for money and modern aesthetics for every space.">
+            <div class="np-video-wrapper">
+              <img src="images/testimonials/posters/22.jpg" loading="lazy" alt="Durable &amp; Modern Seating" class="np-testi-thumb">
+              <div class="np-play-overlay">
+                <div class="np-play-pulse"></div>
+                <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
+              </div>
+              <span class="np-video-duration"><i class="fas fa-play-circle"></i> Watch Video</span>
+            </div>
+            <div class="np-testi-card-body">
+              <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> Customer Voice</span>
+              <h3 class="np-testi-title">Durable &amp; Modern Seating</h3>
+              <p class="np-testi-desc">Delivering value for money and modern aesthetics for every space.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIAL VIDEO LIGHTBOX MODAL -->
+    <div class="np-testi-modal" id="npTestiModal" aria-hidden="true" role="dialog">
+      <div class="np-testi-modal__backdrop"></div>
+      <div class="np-testi-modal__dialog">
+        <button type="button" class="np-testi-modal__close" aria-label="Close Modal">&times;</button>
+        <div class="np-testi-modal__content">
+          <div class="np-testi-modal__media-container"></div>
+          <div class="np-testi-modal__caption">
+            <span class="np-testi-modal__badge"></span>
+            <h3 class="np-testi-modal__title"></h3>
+            <p class="np-testi-modal__desc"></p>
+          </div>
+        </div>
+      </div>
+    </div>
 
         <!-- Dealer Registration Form Section -->
         <section class="dealer_form_section" id="portal">
@@ -736,5 +933,6 @@
         }
     </script>
     <script src="js/np-reveal.js?v=20260929"></script>
+    <script src="js/np-testimonials-modal.js?v=20261006"></script>
 </body>
 </html>

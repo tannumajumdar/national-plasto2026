@@ -23,7 +23,7 @@
                 document.body.classList.toggle('overflow-hidden', open);
                 return;
             }
-            var toggle = e.target.closest && e.target.closest('.sidebar_wrap .dropdown-toggle');
+            var toggle = e.target.closest && e.target.closest('.sidebar_wrap .dropdown-caret-btn, .sidebar_wrap .dropdown-toggle');
             if (toggle) {
                 e.preventDefault();
                 e.stopPropagation();

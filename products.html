@@ -335,7 +335,7 @@
                 <ul class="menu">
                     <li><a class="homer" href="index.html">Home</a></li>
                     <li>
-                        <a href="javascript:void(0)">About Us</a>
+                        <a href="about.html">About Us</a>
                         <ul class="sub-menu">
                             <li><a href="about.html">Overview</a></li>
                             <li><a href="about.html#leadership">Leadership</a></li>
@@ -347,7 +347,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0)">Products</a>
+                        <a href="products.html">Products</a>
                         <ul class="sub-menu">
                             <li><a href="products.html?brand=next">NEXT &mdash; Premium Furniture</a></li>
                             <li><a href="products.html?brand=national">NATIONAL &mdash; Moulded Furniture</a></li>
@@ -423,10 +423,10 @@
         <div class="links">
             <li>
                 <div class="dropdown">
-                    <span class="dropdown-toggle" id="dropdownMenuAbout" onclick="$(this).parent().toggleClass('open');">
-                        About us
-                        <span class="caret"></span>
-                    </span>
+                    <div class="sidebar-dropdown-row">
+                        <a href="about.html" class="sidebar-cat-link">About us</a>
+                        <span class="dropdown-caret-btn" onclick="event.preventDefault(); $(this).closest('.dropdown').toggleClass('open');"><span class="caret"></span></span>
+                    </div>
                     <ul class="dropdown-menu">
                         <li><a href="about.html">Overview</a></li>
                         <li><a href="about.html#leadership">Leadership</a></li>
@@ -439,10 +439,10 @@
             </li>
             <li>
                 <div class="dropdown">
-                    <span class="dropdown-toggle" id="dropdownMenuBiz" onclick="$(this).parent().toggleClass('open');">
-                        Products
-                        <span class="caret"></span>
-                    </span>
+                    <div class="sidebar-dropdown-row">
+                        <a href="products.html" class="sidebar-cat-link">Products</a>
+                        <span class="dropdown-caret-btn" onclick="event.preventDefault(); $(this).closest('.dropdown').toggleClass('open');"><span class="caret"></span></span>
+                    </div>
                     <ul class="dropdown-menu">
                         <li><a href="products.html?brand=next">NEXT &mdash; Premium Furniture</a></li>
                         <li><a href="products.html?brand=national">NATIONAL &mdash; Moulded Furniture</a></li>
