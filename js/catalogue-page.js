@@ -160,13 +160,45 @@
   var currentImageIndex = 0;
   var modalAngle = 0;
   var modalSpinRaf = null;
+  var isModalDragging = false;
+  var dragVelocity = 0;
+  var lastDragX = 0;
+  var lastDragTime = 0;
+  var momentumRaf = null;
 
   function setModalAngle(deg, updateSlider) {
     modalAngle = ((deg % 360) + 360) % 360;
-    var turntable = $('npModalTurntable');
-    if (turntable) {
-      turntable.style.transform = 'perspective(1000px) rotateY(' + modalAngle + 'deg)';
+
+    // 1. Frame switching across product angle photographs
+    if (modalProduct && modalProduct.img && modalProduct.img.length) {
+      var numFrames = modalProduct.img.length;
+      var frameIdx = Math.floor((modalAngle / 360) * numFrames) % numFrames;
+      if (frameIdx !== currentImageIndex) {
+        showModalImage(frameIdx, false);
+      }
+
+      // 2. Realistic 3D micro-tilt & volumetric depth (NEVER squashes 2D image flat!)
+      var turntable = $('npModalTurntable');
+      if (turntable) {
+        var frameCenter = (frameIdx + 0.5) * (360 / numFrames);
+        var offset = modalAngle - frameCenter;
+        while (offset > 180) offset -= 360;
+        while (offset < -180) offset += 360;
+
+        var microY = Math.max(-10, Math.min(10, offset * 0.22));
+        var tiltX = isModalDragging ? 2.5 : 1.2;
+        var scale = isModalDragging ? 1.025 : 1.0;
+        turntable.style.transform = 'perspective(900px) rotateX(' + tiltX + 'deg) rotateY(' + microY + 'deg) scale(' + scale + ')';
+      }
     }
+
+    // 3. Rotate 3D Turntable ring on floor plane
+    var ring = $('np360TurntableRing');
+    if (ring) {
+      ring.style.transform = 'rotateX(72deg) rotateZ(' + (-modalAngle) + 'deg)';
+    }
+
+    // 4. Update UI Slider & Step Indicator
     var slider = $('np360Slider');
     if (slider && updateSlider !== false) {
       slider.value = Math.round(modalAngle);
@@ -174,19 +206,13 @@
     var stepEl = $('np360Step');
     if (stepEl) {
       if (modalProduct && modalProduct.img.length > 1) {
-        stepEl.textContent = Math.round(modalAngle) + '° (View ' + (currentImageIndex + 1) + '/' + modalProduct.img.length + ')';
+        stepEl.textContent = Math.round(modalAngle) + '° (Angle ' + (currentImageIndex + 1) + '/' + modalProduct.img.length + ')';
       } else {
         stepEl.textContent = Math.round(modalAngle) + '°';
       }
     }
-    // Synchronize multi-image frame if product has multi angles
-    if (modalProduct && modalProduct.img.length > 1) {
-      var frameIdx = Math.floor((modalAngle / 360) * modalProduct.img.length) % modalProduct.img.length;
-      if (frameIdx !== currentImageIndex) {
-        showModalImage(frameIdx, false);
-      }
-    }
-    // Update active preset button
+
+    // 5. Update active preset button
     var presets = $('np360Presets');
     if (presets) {
       var rounded = Math.round(modalAngle / 90) * 90 % 360;
@@ -201,6 +227,10 @@
     if (modalSpinRaf) {
       cancelAnimationFrame(modalSpinRaf);
       modalSpinRaf = null;
+    }
+    if (momentumRaf) {
+      cancelAnimationFrame(momentumRaf);
+      momentumRaf = null;
     }
     var spinBtn = $('np360AutoSpinBtn');
     if (spinBtn) {
@@ -219,7 +249,7 @@
         spinBtn.innerHTML = '<i class="fas fa-pause"></i> <span>Pause</span>';
       }
       function loop() {
-        setModalAngle(modalAngle + 1.25);
+        setModalAngle(modalAngle + 1.15);
         modalSpinRaf = requestAnimationFrame(loop);
       }
       modalSpinRaf = requestAnimationFrame(loop);
@@ -440,25 +470,35 @@
       });
     }
 
-    // Modal 360 drag & touch scrubbing
+    // Modal 360 drag & touch scrubbing with momentum physics
     var imgStage = $('npModalImgContainer');
     if (imgStage) {
-      var isModalDragging = false;
       var startX = 0;
       var startAngle = 0;
+      var lastX = 0;
+      var lastTime = 0;
 
       imgStage.addEventListener('mousedown', function (e) {
         e.preventDefault();
         isModalDragging = true;
         startX = e.clientX;
+        lastX = e.clientX;
+        lastTime = Date.now();
         startAngle = modalAngle;
+        dragVelocity = 0;
         imgStage.classList.add('is-dragging');
         stopAutoSpin();
       });
 
       window.addEventListener('mousemove', function (e) {
         if (!isModalDragging) return;
-        var diff = (e.clientX - startX) * 0.8;
+        var now = Date.now();
+        var dt = Math.max(1, now - lastTime);
+        dragVelocity = ((e.clientX - lastX) / dt) * 8;
+        lastX = e.clientX;
+        lastTime = now;
+
+        var diff = (e.clientX - startX) * 0.75;
         setModalAngle(startAngle + diff);
       });
 
@@ -466,6 +506,21 @@
         if (isModalDragging) {
           isModalDragging = false;
           imgStage.classList.remove('is-dragging');
+          
+          // Apply silky smooth inertia
+          if (Math.abs(dragVelocity) > 0.4) {
+            var vel = dragVelocity;
+            function momentumStep() {
+              vel *= 0.90;
+              if (Math.abs(vel) > 0.04 && !isModalDragging) {
+                setModalAngle(modalAngle + vel);
+                momentumRaf = requestAnimationFrame(momentumStep);
+              } else {
+                momentumRaf = null;
+              }
+            }
+            momentumRaf = requestAnimationFrame(momentumStep);
+          }
         }
       });
 
@@ -473,7 +528,10 @@
         if (e.touches.length === 1) {
           isModalDragging = true;
           startX = e.touches[0].clientX;
+          lastX = e.touches[0].clientX;
+          lastTime = Date.now();
           startAngle = modalAngle;
+          dragVelocity = 0;
           imgStage.classList.add('is-dragging');
           stopAutoSpin();
         }
@@ -482,14 +540,35 @@
       imgStage.addEventListener('touchmove', function (e) {
         if (!isModalDragging) return;
         if (e.touches.length === 1) {
-          var diff = (e.touches[0].clientX - startX) * 0.8;
+          var now = Date.now();
+          var dt = Math.max(1, now - lastTime);
+          dragVelocity = ((e.touches[0].clientX - lastX) / dt) * 8;
+          lastX = e.touches[0].clientX;
+          lastTime = now;
+
+          var diff = (e.touches[0].clientX - startX) * 0.75;
           setModalAngle(startAngle + diff);
         }
       }, { passive: true });
 
       imgStage.addEventListener('touchend', function () {
-        isModalDragging = false;
-        imgStage.classList.remove('is-dragging');
+        if (isModalDragging) {
+          isModalDragging = false;
+          imgStage.classList.remove('is-dragging');
+          if (Math.abs(dragVelocity) > 0.4) {
+            var vel = dragVelocity;
+            function momentumStepTouch() {
+              vel *= 0.90;
+              if (Math.abs(vel) > 0.04 && !isModalDragging) {
+                setModalAngle(modalAngle + vel);
+                momentumRaf = requestAnimationFrame(momentumStepTouch);
+              } else {
+                momentumRaf = null;
+              }
+            }
+            momentumRaf = requestAnimationFrame(momentumStepTouch);
+          }
+        }
       });
     }
 
