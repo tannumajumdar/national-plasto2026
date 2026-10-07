@@ -171,36 +171,30 @@
     modalAngle = ((deg % 360) + 360) % 360;
     var rad = modalAngle * Math.PI / 180;
 
-    // 1. Full 360 3D rotation across product frames
+    // 1. Frame switching across product angle photographs
     if (modalProduct && modalProduct.img && modalProduct.img.length) {
       var numFrames = modalProduct.img.length;
       var frameSpan = 360 / numFrames;
       var frameIdx = Math.floor(modalAngle / frameSpan) % numFrames;
-      
+
       if (frameIdx !== currentImageIndex) {
         showModalImage(frameIdx, false);
       }
 
       var turntable = $('npModalTurntable');
+      var imgEl = $('npModalImg');
       if (turntable) {
-        if (numFrames > 1) {
-          // Continuous 3D rotation across frames without edge-on flattening
-          var frameCenter = (frameIdx + 0.5) * frameSpan;
-          var relAngle = modalAngle - frameCenter;
-          while (relAngle > 180) relAngle -= 360;
-          while (relAngle < -180) relAngle += 360;
+        var tiltX = isModalDragging ? 3.2 : 1.8;
+        // Pura 360 continuous 3D rotation in one unbroken forward direction
+        turntable.style.transform = 'perspective(1100px) rotateX(' + tiltX + 'deg) rotateY(' + modalAngle + 'deg)';
 
-          var rotY = relAngle * 0.94;
-          var tiltX = isModalDragging ? 3.0 : 1.5;
-          var scale = isModalDragging ? 1.025 : 1.0;
-          turntable.style.transform = 'perspective(1000px) rotateX(' + tiltX + 'deg) rotateY(' + rotY + 'deg) scale(' + scale + ')';
-        } else {
-          // Single image: full 360 3D orbital turn with volumetric depth envelope
-          var rotY = modalAngle;
-          var cosVal = Math.cos(rad);
-          var minScaleX = 0.35 + 0.65 * Math.abs(cosVal);
-          var tiltX = isModalDragging ? 3.0 : 1.5;
-          turntable.style.transform = 'perspective(1000px) rotateX(' + tiltX + 'deg) rotateY(' + rotY + 'deg) scaleX(' + (minScaleX / Math.max(0.01, Math.abs(cosVal))) + ')';
+        // Volumetric depth thickness compensation so the product NEVER thins or flattens at 90/270 degrees
+        if (imgEl) {
+          var cosA = Math.abs(Math.cos(rad));
+          var thicknessFactor = Math.max(0.48, cosA) / Math.max(0.01, cosA);
+          var isBack = modalAngle > 90 && modalAngle < 270;
+          var flipY = isBack ? 180 : 0;
+          imgEl.style.transform = 'rotateY(' + flipY + 'deg) scaleX(' + thicknessFactor + ')';
         }
       }
     }
