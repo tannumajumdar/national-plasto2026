@@ -132,11 +132,11 @@
 
 @media (min-width: 1025px) {
 
-    /* Desktop hero: spacious height to display full products and team */
+    /* Desktop hero: grand, spacious height matching supreme.co.in */
     #index_page .banner-section .banner-slider-img {
-        height: 640px !important;
-        min-height: 580px !important;
-        max-height: 720px !important;
+        height: 680px !important;
+        min-height: 620px !important;
+        max-height: 760px !important;
     }
 
     #index_page .banner-section .banner-slider-img .banner_img,
@@ -156,18 +156,38 @@
         display: block !important;
     }
 
-    /* Vertically center the text block, keep it left-aligned */
-    #index_page .banner-section .banner-slider-img .banner_content {
+    /* Hero Content Side Alignment: Placed strictly on the left side so videos and products remain fully unblocked */
+    #index_page .banner-section .banner-slider-img .banner_content,
+    .banner-section .banner-slider-img .banner_content {
+        position: absolute !important;
         top: 50% !important;
         transform: translateY(-50%) !important;
         -webkit-transform: translateY(-50%) !important;
+        left: 54px !important;
+        right: auto !important;
+        max-width: 460px !important;
+        z-index: 5 !important;
+        text-align: left !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    #index_page .banner-section .banner-slider-img .banner_content,
+    .banner-section .banner-slider-img .banner_content {
+        left: max(60px, calc((100vw - 1320px) / 2)) !important;
+        max-width: 480px !important;
     }
 }
 
 @media (min-width: 1600px) {
     #index_page .banner-section .banner-slider-img {
-        height: 700px !important;
-        max-height: 760px !important;
+        height: 740px !important;
+        max-height: 800px !important;
+    }
+    #index_page .banner-section .banner-slider-img .banner_content,
+    .banner-section .banner-slider-img .banner_content {
+        left: max(80px, calc((100vw - 1440px) / 2)) !important;
+        max-width: 500px !important;
     }
 }
 
@@ -183,7 +203,8 @@
     }
 
     #index_page .banner-section .banner-slider-img .banner_content {
-        left: 40px;
+        left: 32px !important;
+        max-width: 400px !important;
     }
 }
 
@@ -4101,10 +4122,15 @@ html.np-anim .np-reveal.np-in {
 #products_page .banner-section .banner-slider-img,
 #distributor_page .banner-section .banner-slider-img,
 #manufacturing_page .banner-section .banner-slider-img,
-#contact_page .banner-section .banner-slider-img {
-    height: 80vh !important;
-    min-height: 600px !important;
-    max-height: 760px !important;
+#contact_page .banner-section .banner-slider-img,
+#furniture-about-us .banner-section .banner-slider-img,
+#furniture-gallery_page .banner-section .banner-slider-img,
+#furniture-store .banner-section,
+#furniture-listing .banner-section .banner-slider-img,
+#furniture .banner-section .banner-slider-img {
+    height: 480px !important;
+    min-height: 420px !important;
+    max-height: 520px !important;
     width: 100% !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
@@ -4132,31 +4158,72 @@ html.np-anim .np-reveal.np-in {
     background-position: center center !important;
 }
 
+#contact_page .banner-section,
+#contact_page .banner-section .home-banner-slider,
+#contact_page .banner-section .banner_item {
+    position: relative !important;
+    width: 100% !important;
+    height: 520px !important;
+    min-height: 480px !important;
+    max-height: 560px !important;
+    display: block !important;
+    overflow: hidden !important;
+}
+
+#contact_page .banner-section .banner-slider-img,
 #contact_page .banner-section .banner-slider-img1 {
-    background-image: url('../images/brand/contactus.jpg') !important;
-    background-position: center 60% !important;
-    background-size: cover !important;
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 480px !important;
+    max-height: 560px !important;
+    display: block !important;
+    overflow: hidden !important;
+    background-image: none !important;
+}
+
+#contact_page .banner-section .np-inner-hero-img {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 480px !important;
+    max-height: 560px !important;
+    object-fit: cover !important;
+    object-position: center 36% !important;
+    display: block !important;
 }
 
 #about_us_overview .banner-section .mob-banner-img,
 #products_page .banner-section .mob-banner-img,
 #distributor_page .banner-section .mob-banner-img,
-#manufacturing_page .banner-section .mob-banner-img,
-#contact_page .banner-section .mob-banner-img {
+#manufacturing_page .banner-section .mob-banner-img {
     width: 100% !important;
-    height: 46vh !important;
-    min-height: 280px !important;
+    height: auto !important;
+    max-height: 380px !important;
     object-fit: cover !important;
     object-position: center !important;
     display: none !important;
 }
 
 @media (max-width: 767px) {
+    #contact_page .banner-section,
+    #contact_page .banner-section .home-banner-slider,
+    #contact_page .banner-section .banner_item,
+    #contact_page .banner-section .banner-slider-img,
+    #contact_page .banner-section .banner-slider-img1 {
+        height: 280px !important;
+        min-height: 240px !important;
+        max-height: 320px !important;
+    }
+    #contact_page .banner-section .np-inner-hero-img {
+        height: 280px !important;
+        min-height: 240px !important;
+        max-height: 320px !important;
+        object-position: center 58% !important;
+    }
     #about_us_overview .banner-section .banner-slider-img1,
     #products_page .banner-section .banner-slider-img1,
     #distributor_page .banner-section .banner-slider-img1,
-    #manufacturing_page .banner-section .banner-slider-img1,
-    #contact_page .banner-section .banner-slider-img1 {
+    #manufacturing_page .banner-section .banner-slider-img1 {
         background-image: none !important;
         height: auto !important;
         min-height: 0 !important;
@@ -4313,19 +4380,20 @@ html.np-anim .np-reveal.np-in {
    National Plasto About Us Page Polish (Supreme Layout Adaptation)
    ========================================================================== */
 #about_us_overview .team_main_flex {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
     align-items: stretch !important;
-    gap: 32px !important;
-    max-width: 1120px !important;
+    gap: 20px !important;
+    max-width: 1320px !important;
+    width: 100% !important;
     margin: 0 auto !important;
 }
 
 #about_us_overview .team_main_item {
-    flex: 0 1 310px !important;
-    max-width: 330px !important;
-    min-width: 260px !important;
+    flex: 1 1 0 !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    width: 100% !important;
     text-align: center !important;
     display: flex !important;
     flex-direction: column !important;
@@ -4334,35 +4402,39 @@ html.np-anim .np-reveal.np-in {
 #about_us_overview .team_main_card {
     border-radius: 12px !important;
     overflow: hidden !important;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.07) !important;
     background: #f8fafc !important;
     transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    border: 1px solid #E2E8F0 !important;
 }
 
 #about_us_overview .team_main_card:hover {
     transform: translateY(-4px) !important;
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12) !important;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12) !important;
 }
 
 #about_us_overview .team_main_card img {
     width: 100% !important;
-    aspect-ratio: 1 / 1.1 !important;
+    aspect-ratio: 1 / 1.05 !important;
     object-fit: cover !important;
     object-position: top center !important;
     display: block !important;
 }
 
 #about_us_overview .team_desc h4 {
-    margin-top: 14px !important;
-    font-size: 17px !important;
+    margin-top: 12px !important;
+    font-size: 15.5px !important;
     font-weight: 700 !important;
     color: #111827 !important;
+    line-height: 1.3 !important;
 }
 
 #about_us_overview .team_desc p {
-    font-size: 13.5px !important;
+    font-size: 12.5px !important;
     color: #ED3237 !important;
     font-weight: 600 !important;
+    line-height: 1.35 !important;
+    margin-top: 4px !important;
 }
 
 #about_us_overview .care_for_img #product_slider .item_slider img {
@@ -4377,30 +4449,37 @@ html.np-anim .np-reveal.np-in {
 }
 
 @media (max-width: 991px) {
+    #about_us_overview .team_main_flex {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        justify-content: flex-start !important;
+        padding: 10px 16px 20px !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        gap: 16px !important;
+    }
     #about_us_overview .team_main_item {
-        flex: 0 1 calc(50% - 20px) !important;
-        max-width: 320px !important;
+        flex: 0 0 220px !important;
+        min-width: 220px !important;
+        max-width: 220px !important;
+        scroll-snap-align: start !important;
     }
 }
 
-@media (max-width: 575px) {
-    #about_us_overview .team_main_item {
-        flex: 0 1 100% !important;
-        max-width: 280px !important;
-    }
-}
 /* --------------------------------------------------------------------------
-   Testimonials & Dealer Stories Section (Videos + Facility Showcase)
+   Testimonials & Dealer Stories Section (Single-Line Automatic Marquee)
    -------------------------------------------------------------------------- */
 .np-testimonials-section {
-    padding: 70px 0 !important;
+    padding: 70px 0 60px !important;
     background: #F8FAFC !important;
     position: relative !important;
+    overflow: hidden !important;
 }
 .np-testimonials-section .np-testi-header {
     text-align: center !important;
     max-width: 760px !important;
-    margin: 0 auto 40px !important;
+    margin: 0 auto 36px !important;
 }
 .np-testimonials-section .np-testi-badge {
     display: inline-block !important;
@@ -4426,16 +4505,112 @@ html.np-anim .np-reveal.np-in {
     line-height: 1.6 !important;
     margin: 0 !important;
 }
-.np-testi-grid {
-    display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important;
-    gap: 22px !important;
+
+/* Continuous Automatic Single-Line Marquee with Manual Controls */
+.np-testi-marquee-wrapper {
+    position: relative !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
 }
+
+.np-testi-marquee-container {
+    width: 100% !important;
+    overflow: hidden !important;
+    position: relative !important;
+    padding: 12px 0 24px !important;
+    cursor: grab !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    touch-action: pan-y !important;
+    mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent) !important;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent) !important;
+}
+
+.np-testi-marquee-container.np-is-dragging {
+    cursor: grabbing !important;
+}
+
+.np-testi-marquee-track {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    width: max-content !important;
+    gap: 24px !important;
+    will-change: transform !important;
+    touch-action: pan-y !important;
+}
+
+.np-testi-nav-btn {
+    position: absolute !important;
+    top: calc(50% - 6px) !important;
+    transform: translateY(-50%) !important;
+    -webkit-transform: translateY(-50%) !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    color: #1E293B !important;
+    font-size: 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+    cursor: pointer !important;
+    z-index: 25 !important;
+    transition: all 0.25s ease !important;
+    outline: none !important;
+}
+
+.np-testi-nav-btn:hover {
+    background: #ED3237 !important;
+    border-color: #ED3237 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 8px 24px rgba(237, 50, 55, 0.35) !important;
+    transform: translateY(-50%) scale(1.08) !important;
+}
+
+.np-testi-nav-btn.np-testi-prev {
+    left: -22px !important;
+}
+
+.np-testi-nav-btn.np-testi-next {
+    right: -22px !important;
+}
+
+@media (max-width: 991px) {
+    .np-testi-nav-btn.np-testi-prev {
+        left: 4px !important;
+    }
+    .np-testi-nav-btn.np-testi-next {
+        right: 4px !important;
+    }
+    .np-testi-nav-btn {
+        width: 38px !important;
+        height: 38px !important;
+        font-size: 14px !important;
+        background: rgba(255, 255, 255, 0.9) !important;
+    }
+}
+
+.np-testi-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 24px !important;
+    width: max-content !important;
+}
+
 .np-testi-card {
+    flex: 0 0 290px !important;
+    width: 290px !important;
+    max-width: 290px !important;
+    min-width: 290px !important;
     background: #FFFFFF !important;
     border-radius: 14px !important;
     overflow: hidden !important;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06) !important;
     transition: transform 0.3s ease, box-shadow 0.3s ease !important;
     border: 1px solid #E2E8F0 !important;
     display: flex !important;
@@ -4443,8 +4618,8 @@ html.np-anim .np-reveal.np-in {
     cursor: pointer !important;
 }
 .np-testi-card:hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12) !important;
+    transform: translateY(-6px) !important;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12) !important;
 }
 .np-video-wrapper,
 .np-testi-photo-wrapper {
@@ -4810,4 +4985,22 @@ body.np-modal-open {
     transform: rotate(0deg) !important;
     border-top-color: #ED3237 !important;
 }
+
+/* About Page: Pillars of Growth Top Spacing */
+#about_us_overview .plastic_note {
+    margin-top: 36px !important;
+    text-align: center !important;
+}
+
+#about_us_overview .care_for_main {
+    padding: 95px 0 85px 0 !important;
+    margin-top: 40px !important;
+    background: #FFFFFF !important;
+    border-top: 1px solid #E2E8F0 !important;
+}
+
+#about_us_overview .care_for_title {
+    margin-bottom: 48px !important;
+}
+
 
