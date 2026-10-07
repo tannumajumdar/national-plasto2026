@@ -353,8 +353,54 @@
                 border-radius: 6px 6px 0 0 !important;
             }
         }
+
+        /* Hero Text Placement: Strictly at bottom-left corner so background machines/videos are unobstructed */
+        #index_page .banner-section .banner-slider-img .banner_content,
+        .banner-section .banner-slider-img .banner_content {
+            position: absolute !important;
+            bottom: 80px !important;
+            top: auto !important;
+            transform: none !important;
+            -webkit-transform: none !important;
+            left: max(50px, calc((100vw - 1320px) / 2)) !important;
+            right: auto !important;
+            max-width: 460px !important;
+            z-index: 10 !important;
+            text-align: left !important;
+            padding-left: 20px !important;
+            border-left: 4px solid #ED3237 !important;
+        }
+
+        @media (min-width: 1400px) {
+            #index_page .banner-section .banner-slider-img .banner_content,
+            .banner-section .banner-slider-img .banner_content {
+                left: max(60px, calc((100vw - 1320px) / 2)) !important;
+                bottom: 90px !important;
+                max-width: 480px !important;
+            }
+        }
+
+        @media (min-width: 1600px) {
+            #index_page .banner-section .banner-slider-img .banner_content,
+            .banner-section .banner-slider-img .banner_content {
+                left: max(80px, calc((100vw - 1440px) / 2)) !important;
+                bottom: 100px !important;
+                max-width: 500px !important;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            #index_page .banner-section .banner-slider-img .banner_content,
+            .banner-section .banner-slider-img .banner_content {
+                bottom: 50px !important;
+                top: auto !important;
+                transform: none !important;
+                left: 28px !important;
+                max-width: 420px !important;
+            }
+        }
     </style>
-    <link rel="stylesheet" href="css/np-revamp.css?v=20261007_v3">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20261007_v6">
 </head>
 <body id="index_page">
 
