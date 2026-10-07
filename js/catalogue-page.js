@@ -165,37 +165,59 @@
   var lastDragX = 0;
   var lastDragTime = 0;
   var momentumRaf = null;
+  var presetAnimRaf = null;
 
   function setModalAngle(deg, updateSlider) {
     modalAngle = ((deg % 360) + 360) % 360;
+    var rad = modalAngle * Math.PI / 180;
 
-    // 1. Frame switching across product angle photographs
+    // 1. Full 360 3D rotation across product frames
     if (modalProduct && modalProduct.img && modalProduct.img.length) {
       var numFrames = modalProduct.img.length;
-      var frameIdx = Math.floor((modalAngle / 360) * numFrames) % numFrames;
+      var frameSpan = 360 / numFrames;
+      var frameIdx = Math.floor(modalAngle / frameSpan) % numFrames;
+      
       if (frameIdx !== currentImageIndex) {
         showModalImage(frameIdx, false);
       }
 
-      // 2. Realistic 3D micro-tilt & volumetric depth (NEVER squashes 2D image flat!)
       var turntable = $('npModalTurntable');
       if (turntable) {
-        var frameCenter = (frameIdx + 0.5) * (360 / numFrames);
-        var offset = modalAngle - frameCenter;
-        while (offset > 180) offset -= 360;
-        while (offset < -180) offset += 360;
+        if (numFrames > 1) {
+          // Continuous 3D rotation across frames without edge-on flattening
+          var frameCenter = (frameIdx + 0.5) * frameSpan;
+          var relAngle = modalAngle - frameCenter;
+          while (relAngle > 180) relAngle -= 360;
+          while (relAngle < -180) relAngle += 360;
 
-        var microY = Math.max(-10, Math.min(10, offset * 0.22));
-        var tiltX = isModalDragging ? 2.5 : 1.2;
-        var scale = isModalDragging ? 1.025 : 1.0;
-        turntable.style.transform = 'perspective(900px) rotateX(' + tiltX + 'deg) rotateY(' + microY + 'deg) scale(' + scale + ')';
+          var rotY = relAngle * 0.94;
+          var tiltX = isModalDragging ? 3.0 : 1.5;
+          var scale = isModalDragging ? 1.025 : 1.0;
+          turntable.style.transform = 'perspective(1000px) rotateX(' + tiltX + 'deg) rotateY(' + rotY + 'deg) scale(' + scale + ')';
+        } else {
+          // Single image: full 360 3D orbital turn with volumetric depth envelope
+          var rotY = modalAngle;
+          var cosVal = Math.cos(rad);
+          var minScaleX = 0.35 + 0.65 * Math.abs(cosVal);
+          var tiltX = isModalDragging ? 3.0 : 1.5;
+          turntable.style.transform = 'perspective(1000px) rotateX(' + tiltX + 'deg) rotateY(' + rotY + 'deg) scaleX(' + (minScaleX / Math.max(0.01, Math.abs(cosVal))) + ')';
+        }
       }
     }
 
-    // 3. Rotate 3D Turntable ring on floor plane
+    // 2. Rotate 3D Turntable ring on floor plane
     var ring = $('np360TurntableRing');
     if (ring) {
       ring.style.transform = 'rotateX(72deg) rotateZ(' + (-modalAngle) + 'deg)';
+    }
+
+    // 3. Dynamic 3D floor contact shadow tracking angle & light source
+    var shadow = $('np360ContactShadow');
+    if (shadow) {
+      var shadowX = Math.sin(rad) * 12;
+      var shadowY = 2 + Math.cos(rad) * 4;
+      var shadowScale = 0.92 + Math.cos(rad) * 0.08;
+      shadow.style.transform = 'rotateX(72deg) translate(' + shadowX + 'px, ' + shadowY + 'px) scale(' + shadowScale + ')';
     }
 
     // 4. Update UI Slider & Step Indicator
@@ -206,7 +228,7 @@
     var stepEl = $('np360Step');
     if (stepEl) {
       if (modalProduct && modalProduct.img.length > 1) {
-        stepEl.textContent = Math.round(modalAngle) + '° (Angle ' + (currentImageIndex + 1) + '/' + modalProduct.img.length + ')';
+        stepEl.textContent = Math.round(modalAngle) + '° (' + (currentImageIndex + 1) + '/' + modalProduct.img.length + ')';
       } else {
         stepEl.textContent = Math.round(modalAngle) + '°';
       }
@@ -218,9 +240,37 @@
       var rounded = Math.round(modalAngle / 90) * 90 % 360;
       Array.prototype.forEach.call(presets.querySelectorAll('.np-360-preset-btn'), function (btn) {
         var bDeg = +btn.getAttribute('data-deg');
-        btn.classList.toggle('active', Math.abs(bDeg - rounded) < 20);
+        btn.classList.toggle('active', Math.abs(bDeg - rounded) < 25);
       });
     }
+  }
+
+  function animateToAngle(targetDeg) {
+    stopAutoSpin();
+    if (presetAnimRaf) cancelAnimationFrame(presetAnimRaf);
+
+    var startAngle = modalAngle;
+    var target = ((targetDeg % 360) + 360) % 360;
+    var diff = target - startAngle;
+    if (diff > 180) diff -= 360;
+    if (diff < -180) diff += 360;
+
+    var startTime = performance.now();
+    var duration = 400;
+
+    function step(now) {
+      var elapsed = now - startTime;
+      var progress = Math.min(1, elapsed / duration);
+      // easeOutCubic
+      var ease = 1 - Math.pow(1 - progress, 3);
+      setModalAngle(startAngle + diff * ease);
+      if (progress < 1) {
+        presetAnimRaf = requestAnimationFrame(step);
+      } else {
+        presetAnimRaf = null;
+      }
+    }
+    presetAnimRaf = requestAnimationFrame(step);
   }
 
   function stopAutoSpin() {
@@ -231,6 +281,10 @@
     if (momentumRaf) {
       cancelAnimationFrame(momentumRaf);
       momentumRaf = null;
+    }
+    if (presetAnimRaf) {
+      cancelAnimationFrame(presetAnimRaf);
+      presetAnimRaf = null;
     }
     var spinBtn = $('np360AutoSpinBtn');
     if (spinBtn) {
@@ -249,7 +303,7 @@
         spinBtn.innerHTML = '<i class="fas fa-pause"></i> <span>Pause</span>';
       }
       function loop() {
-        setModalAngle(modalAngle + 1.15);
+        setModalAngle(modalAngle + 1.2);
         modalSpinRaf = requestAnimationFrame(loop);
       }
       modalSpinRaf = requestAnimationFrame(loop);
@@ -464,8 +518,7 @@
       presets.addEventListener('click', function (e) {
         var btn = e.target.closest('.np-360-preset-btn');
         if (btn) {
-          stopAutoSpin();
-          setModalAngle(+btn.getAttribute('data-deg'));
+          animateToAngle(+btn.getAttribute('data-deg'));
         }
       });
     }
