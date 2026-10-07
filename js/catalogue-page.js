@@ -170,8 +170,10 @@
   function setModalAngle(deg, updateSlider) {
     modalAngle = ((deg % 360) + 360) % 360;
     var rad = modalAngle * Math.PI / 180;
+    var cosA = Math.cos(rad);
+    var sinA = Math.sin(rad);
 
-    // 1. Frame switching across product angle photographs
+    // 1. Full 360 degree turntable frame synchronization
     if (modalProduct && modalProduct.img && modalProduct.img.length) {
       var numFrames = modalProduct.img.length;
       var frameSpan = 360 / numFrames;
@@ -180,41 +182,48 @@
       if (frameIdx !== currentImageIndex) {
         showModalImage(frameIdx, false);
       }
+    }
 
-      var turntable = $('npModalTurntable');
-      var imgEl = $('npModalImg');
-      if (turntable) {
-        var tiltX = isModalDragging ? 3.2 : 1.8;
-        // Pura 360 continuous 3D rotation in one unbroken forward direction
-        turntable.style.transform = 'perspective(1100px) rotateX(' + tiltX + 'deg) rotateY(' + modalAngle + 'deg)';
+    // 2. Continuous 3D studio volumetric perspective rotation
+    var turntable = $('npModalTurntable');
+    var imgEl = $('npModalImg');
+    if (turntable) {
+      var yawDeg = sinA * 20; // 3D yaw swing
+      var transX = sinA * 12; // 3D orbital sway
+      var transZ = cosA * 22; // depth displacement towards & away from camera
+      var tiltX = isModalDragging ? 3.5 : 2.0;
 
-        // Volumetric depth thickness compensation so the product NEVER thins or flattens at 90/270 degrees
-        if (imgEl) {
-          var cosA = Math.abs(Math.cos(rad));
-          var thicknessFactor = Math.max(0.48, cosA) / Math.max(0.01, cosA);
-          var isBack = modalAngle > 90 && modalAngle < 270;
-          var flipY = isBack ? 180 : 0;
-          imgEl.style.transform = 'rotateY(' + flipY + 'deg) scaleX(' + thicknessFactor + ')';
-        }
+      turntable.style.transform = 'perspective(1200px) rotateX(' + tiltX + 'deg) translateX(' + transX.toFixed(2) + 'px) translateZ(' + transZ.toFixed(2) + 'px) rotateY(' + yawDeg.toFixed(2) + 'deg)';
+
+      if (imgEl) {
+        // Dynamic studio key-light & ambient occlusion based on 360 rotation angle
+        var lightFactor = 1.0 + 0.12 * Math.cos(rad - 0.785); // key light at 45 deg
+        var shadowBlur = (18 + cosA * 8).toFixed(1);
+        var shadowDistY = (16 + cosA * 6).toFixed(1);
+        var shadowDistX = (-sinA * 16).toFixed(1);
+        var shadowAlpha = (0.24 + cosA * 0.06).toFixed(2);
+        
+        imgEl.style.filter = 'brightness(' + lightFactor.toFixed(3) + ') drop-shadow(' + shadowDistX + 'px ' + shadowDistY + 'px ' + shadowBlur + 'px rgba(15, 23, 42, ' + shadowAlpha + '))';
       }
     }
 
-    // 2. Rotate 3D Turntable ring on floor plane
+    // 3. Rotate 3D Turntable ring on floor plane (0° -> 360°)
     var ring = $('np360TurntableRing');
     if (ring) {
       ring.style.transform = 'rotateX(72deg) rotateZ(' + (-modalAngle) + 'deg)';
     }
 
-    // 3. Dynamic 3D floor contact shadow tracking angle & light source
+    // 4. Dynamic floor contact shadow tracking angle & light source
     var shadow = $('np360ContactShadow');
     if (shadow) {
-      var shadowX = Math.sin(rad) * 12;
-      var shadowY = 2 + Math.cos(rad) * 4;
-      var shadowScale = 0.92 + Math.cos(rad) * 0.08;
-      shadow.style.transform = 'rotateX(72deg) translate(' + shadowX + 'px, ' + shadowY + 'px) scale(' + shadowScale + ')';
+      var shadowX = sinA * 15;
+      var shadowY = 2 + cosA * 5;
+      var shadowScaleX = 0.94 + cosA * 0.10;
+      var shadowScaleY = 0.90 + sinA * 0.08;
+      shadow.style.transform = 'rotateX(72deg) translate(' + shadowX.toFixed(1) + 'px, ' + shadowY.toFixed(1) + 'px) scale(' + shadowScaleX.toFixed(2) + ', ' + shadowScaleY.toFixed(2) + ')';
     }
 
-    // 4. Update UI Slider & Step Indicator
+    // 5. Update UI Slider & Step Indicator
     var slider = $('np360Slider');
     if (slider && updateSlider !== false) {
       slider.value = Math.round(modalAngle);
@@ -228,7 +237,7 @@
       }
     }
 
-    // 5. Update active preset button
+    // 6. Update active preset button
     var presets = $('np360Presets');
     if (presets) {
       var rounded = Math.round(modalAngle / 90) * 90 % 360;
@@ -297,7 +306,7 @@
         spinBtn.innerHTML = '<i class="fas fa-pause"></i> <span>Pause</span>';
       }
       function loop() {
-        setModalAngle(modalAngle + 1.2);
+        setModalAngle(modalAngle + 1.25);
         modalSpinRaf = requestAnimationFrame(loop);
       }
       modalSpinRaf = requestAnimationFrame(loop);
@@ -312,6 +321,7 @@
     if (el) {
       el.src = im.f;
       el.alt = modalProduct.b + ' ' + modalProduct.n + (im.v ? ' - ' + im.v : '');
+      el.style.transform = 'none';
     }
     if (resetAngle !== false) {
       var targetAngle = (currentImageIndex / modalProduct.img.length) * 360;
@@ -328,6 +338,14 @@
     modalProduct = p;
     currentImageIndex = 0;
     stopAutoSpin();
+
+    // Preload all angle frames for instant 60fps rotation
+    if (p.img && p.img.length) {
+      p.img.forEach(function (im) {
+        var pre = new Image();
+        pre.src = im.f;
+      });
+    }
 
     $('npModalBrand').textContent = p.b;
     $('npModalBrand').className = 'np-card-brand np-badge-' + p.b.toLowerCase();

@@ -328,32 +328,45 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.95) 0%, rgba(226, 232, 240, 0.8) 55%, rgba(203, 213, 225, 0.4) 75%, transparent 100%);
-            border: 1.5px solid rgba(203, 213, 225, 0.9);
-            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08), inset 0 2px 6px rgba(255, 255, 255, 0.9);
+            background: radial-gradient(ellipse at center,
+                rgba(255, 255, 255, 0.98) 0%,
+                rgba(241, 245, 249, 0.92) 35%,
+                rgba(203, 213, 225, 0.8) 65%,
+                rgba(148, 163, 184, 0.55) 88%,
+                rgba(30, 41, 59, 0.3) 100%
+            );
+            border: 2px solid rgba(255, 255, 255, 0.95);
+            box-shadow: 0 14px 34px rgba(15, 23, 42, 0.18), 0 2px 6px rgba(0,0,0,0.06), inset 0 2px 8px rgba(255, 255, 255, 0.95), inset 0 -4px 10px rgba(15, 23, 42, 0.15);
             transform: rotateX(72deg);
-            transition: transform 0.06s linear;
+            transition: transform 0.05s linear;
+        }
+        .np-360-turntable-ring::after {
+            content: '';
+            position: absolute;
+            inset: 12px;
+            border-radius: 50%;
+            border: 1.5px dashed rgba(100, 116, 139, 0.5);
+            background: radial-gradient(circle at center, rgba(255,255,255,0.45) 0%, transparent 70%);
         }
         .np-360-contact-shadow {
             position: absolute;
-            width: 68%;
-            height: 28px;
+            width: 72%;
+            height: 32px;
             border-radius: 50%;
-            background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.35) 0%, rgba(15, 23, 42, 0.12) 50%, transparent 75%);
-            filter: blur(4px);
+            background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.42) 0%, rgba(15, 23, 42, 0.16) 50%, transparent 75%);
+            filter: blur(5px);
             transform: rotateX(72deg) translateY(2px);
         }
         .np-modal-img-container img {
             max-width: 88%;
             max-height: 88%;
             object-fit: contain;
-            filter: drop-shadow(0 18px 24px rgba(15, 23, 42, 0.22)) drop-shadow(0 3px 6px rgba(15, 23, 42, 0.1));
             pointer-events: none;
             user-select: none;
             -webkit-user-drag: none;
             position: relative;
             z-index: 4;
-            transition: filter 0.2s ease, transform 0.2s ease;
+            transition: filter 0.15s ease;
         }
         .np-360-overlay {
             position: absolute;
@@ -1651,7 +1664,7 @@
     <script src="js/supreme_mobile.js?v=20260926"></script>
     <script src="js/store.js"></script>
     <script src="js/catalogue-2026.js?v=20261002b"></script>
-    <script src="js/catalogue-page.js?v=20261007_v3d_spin360"></script>
+    <script src="js/catalogue-page.js?v=20261007_v3d_final360"></script>
 
     <script>
         $(document).ready(function() {
