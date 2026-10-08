@@ -237,11 +237,12 @@
             padding: 24px;
             border: 1px solid #E2E8F0;
             border-top: 3px solid var(--brand-primary);
+            box-shadow: 14px 18px 40px -8px rgba(15, 23, 42, 0.08), 0 4px 12px rgba(0, 0, 0, 0.02);
             transition: all 0.3s ease;
         }
         .hub_card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+            box-shadow: 18px 22px 45px -8px rgba(15, 23, 42, 0.12);
             border-top-color: var(--brand-icy-blue);
         }
         .hub_card h4 {
@@ -268,6 +269,18 @@
             font-size: 13px;
             font-weight: 600;
             color: #1E293B;
+        }
+
+        /* Find Us map card: same soft left-to-right shadow as the contact cards */
+        #contact_page .np-findus-map {
+            box-shadow: 14px 18px 40px -8px rgba(15, 23, 42, 0.08), 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        /* Tablet: 5 location tabs on a 3-col grid left a hole in row 2 - use 3 + 2 full-width rows */
+        @media (min-width: 576px) and (max-width: 991px) {
+            #contact_page .np-findus-tabs { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+            #contact_page .np-findus-tab { grid-column: span 2; }
+            #contact_page .np-findus-tab:nth-child(n+4) { grid-column: span 3; }
         }
 
         /* Success Alert */
@@ -315,7 +328,7 @@
             display: block !important;
         }
     </style>
-    <link rel="stylesheet" href="css/np-revamp.css?v=20261007_v5">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20261008_layout">
 </head>
 
 <body id="contact_page">
@@ -745,7 +758,7 @@
                     <ul>
                         <li><a href="https://www.google.com/maps/search/?api=1&amp;query=19+Sukeas+Lane+Kolkata+700001" target="_blank" rel="noopener">19 Sukeas Lane, Kolkata, West Bengal 700001</a></li>
                         <li><a href="tel:+919830012345">+91 98300 12345</a></li>
-                        <li><a href="mailto:info@nationalplasto.com">info@nationalplasto.com</a></li>
+                        <li><a href="mailto:info@nationalplasto.com">info@<wbr>nationalplasto.com</a></li>
                         <li><a href="policies.html#privacy">Privacy Policy</a></li>
                         <li><a href="policies.html#terms">Terms &amp; Conditions</a></li>
                     </ul>

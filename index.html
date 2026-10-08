@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="referrer" content="no-referrer">
     <title>National Plasto — Precision Plastic Moulded Products. Built for India.</title>
-    <meta name="description" content="National Plasto Products Pvt. Ltd. (Est. 1997) — Leading Indian manufacturer and processor of precision plastic moulded products, furniture, crates, and custom polymer solutions across India.">
+    <meta name="description" content="National Plasto Products Pvt. Ltd. (family roots since 1942, incorporated 1997) — Leading Indian manufacturer and processor of precision plastic moulded products, furniture, crates, and custom polymer solutions across India.">
     <meta name="keywords" content="National Plasto, plastic furniture India, monoblock chairs, plastic tables, moulded furniture Kolkata, ISO 9001:2015, NPPL National, Next furniture">
 
     <!-- Open Graph / Social Media -->
@@ -399,8 +399,133 @@
                 max-width: 420px !important;
             }
         }
+
+        /* Tablet: every hero slide gets the same frame. Without it the fade
+           slider takes the height of its tallest slide (the 3:4 portrait image,
+           ~1365px at 1024) and the video slide leaves a blank band below it. */
+        @media (min-width: 768px) and (max-width: 1199px) {
+            body#index_page .banner-section .banner-slider-img,
+            body#index_page .banner-section .banner-slider-img .banner_img {
+                height: clamp(560px, 70vw, 820px) !important;
+            }
+            body#index_page .banner-section .banner-slider-img .banner_img img.mobile_banner_show,
+            body#index_page .banner-section .banner-slider-img .banner_img video {
+                width: 100% !important;
+                height: 100% !important;
+                aspect-ratio: auto !important;
+                object-fit: cover !important;
+            }
+        }
+
+        /* ==========================================================================
+           Home responsive pass (below the hero only)
+           ========================================================================== */
+
+        /* Virtues: keep the slider and its arrows inside the viewport.
+           The shared rule pulls the slider 48px outside the container, which is
+           wider than the side gutter at 992-1199px (horizontal scroll @1024). */
+        @media (min-width: 992px) {
+            #index_page .virtues_main .virtues_flex {
+                margin: 0 -40px !important;
+                padding: 20px 40px !important;
+            }
+            #index_page .virtues_main .virtues_flex .slick-prev,
+            #index_page .virtues_main .virtues_flex .slick-next {
+                top: 50% !important;
+                bottom: auto !important;
+            }
+            #index_page .virtues_main .virtues_flex .slick-prev {
+                left: 8px !important;
+                right: auto !important;
+                transform: translateY(-50%) rotate(180deg) !important;
+            }
+            #index_page .virtues_main .virtues_flex .slick-next {
+                right: 8px !important;
+                left: auto !important;
+                transform: translateY(-50%) !important;
+            }
+        }
+
+        /* Phone sliders: the peeking cards stop exactly at the screen edge */
+        @media (max-width: 767px) {
+            #index_page .virtues_main .virtues_flex .slick-list {
+                margin: 0 !important;
+            }
+            #index_page .np-awards .awards_flex .slick-list {
+                margin: 0 -10px !important;
+            }
+        }
+
+        /* Leadership block: photo lines up with the container edge on desktop */
+        @media (min-width: 992px) {
+            #index_page .testimonial_main.np-cmd .testimonial_flex .testimonial_img {
+                justify-content: flex-start;
+            }
+        }
+
+        /* Plants slider: dots sit below the photo on smaller screens so they
+           never cover the plant caption */
+        @media (max-width: 991px) {
+            #index_page .plant_main .slick-dots {
+                position: static !important;
+                margin: 14px 0 0 !important;
+            }
+        }
+
+        /* Milestones: arrows sit below the text instead of on top of it */
+        @media (min-width: 992px) {
+            #index_page .np-milestones #milestones_slider {
+                padding-bottom: 56px;
+            }
+            #index_page .np-milestones #milestones_slider .slick-prev,
+            #index_page .np-milestones #milestones_slider .slick-next {
+                top: auto !important;
+                bottom: 4px !important;
+            }
+            #index_page .np-milestones #milestones_slider .slick-prev {
+                transform: rotate(180deg) !important;
+            }
+            #index_page .np-milestones #milestones_slider .slick-next {
+                transform: none !important;
+            }
+        }
+
+        /* Milestones (stacked layout): right edge matches the page container */
+        @media (max-width: 991px) {
+            #index_page .np-milestones .container.right-zero {
+                padding-right: calc((100vw - var(--container_size)) / 2) !important;
+            }
+        }
+
+        /* Headlines & Updates: show the full title and summary, equal-height
+           cards with "Read More" pinned to the bottom */
+        #index_page .np-headlines .blogs-inside {
+            display: flex;
+            flex-direction: column;
+        }
+        #index_page .np-headlines .blogs-info-sec {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+        }
+        #index_page .np-headlines .blogs-info-sec h3,
+        #index_page .np-headlines .blogs-info-sec h4 {
+            display: block !important;
+            height: auto !important;
+            max-height: none !important;
+            overflow: visible !important;
+            -webkit-line-clamp: unset !important;
+            text-overflow: clip !important;
+        }
+        #index_page .np-headlines .blogs-info-sec h3 {
+            line-height: 1.25 !important;
+        }
+        #index_page .np-headlines .blogs-info-sec .read-more {
+            margin-top: auto;
+            align-self: flex-start;
+        }
     </style>
-    <link rel="stylesheet" href="css/np-revamp.css?v=20261007_v6">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20261008_layout">
 </head>
 <body id="index_page">
 
@@ -673,7 +798,7 @@
       <div class="container">
         <div class="virtues_title">
           <h2 class="heading-text toTop" data-scroll><span class="color_red_home">National Plasto</span> Virtues</h2>
-          <p class="para-text color_para toTop" data-scroll>National Plasto Products Pvt. Ltd., established in 1997, has been delivering precision engineering and premium moulded polymer products for over 29 years across India based on these core tenets.</p>
+          <p class="para-text color_para toTop" data-scroll>National Plasto Products Pvt. Ltd., with family business roots dating back to 1942 and incorporated in 1997, has been delivering precision engineering and premium moulded polymer products for over 29 years across India based on these core tenets.</p>
         </div>
 
         <div class="virtues_flex toTop" id="virtues_slider" data-scroll>
@@ -839,7 +964,7 @@
 <section class="plant_main">
       <div class="plant_slider" id="plant_slider">
         <div class="plant_item">
-          <img src="images/brand/reach-kolkata-hub.jpg" loading="lazy" data-lazy-src="images/brand/reach-kolkata-hub.jpg" class="img-responsive" alt="gadegaon plant">
+          <img src="images/brand/reach-kolkata-hub.jpg" loading="lazy" data-lazy-src="images/brand/reach-kolkata-hub.jpg" class="img-responsive" alt="Kolkata Main Plant, West Bengal">
           <div class="container">
             <a class="plant_btn" href="javascript:void(0)">Kolkata Main Plant (West Bengal)</a>
           </div>
@@ -851,9 +976,9 @@
           </div>
         </div>
         <div class="plant_item">
-          <img src="images/brand/company-photo.jpg" loading="lazy" data-lazy-src="images/brand/company-photo.jpg" class="img-responsive" alt="jadcherla plant">
+          <img src="images/brand/company-photo.jpg" loading="lazy" data-lazy-src="images/brand/company-photo.jpg" class="img-responsive" alt="Central Distribution &amp; Logistics Centre">
           <div class="container">
-            <a class="plant_btn" href="javascript:void(0)">Central Distribution & Logistics Centre</a>
+            <a class="plant_btn" href="javascript:void(0)">Central Distribution &amp; Logistics Centre</a>
           </div>
         </div>
       </div>
@@ -1563,7 +1688,7 @@
           <h2 class="heading-text"><span class="color_red_home">Investor's</span> Room</h2>
           <p>National Plasto Products Pvt. Ltd. has grown steadily for nearly three decades on a foundation of trust, disciplined financial management and long-term relationships with our dealers, partners and employees.</p>
           <ul class="np-invest-points">
-            <li><strong>1997</strong><span>Founded in Kolkata</span></li>
+            <li><strong>1997</strong><span>Incorporated in Kolkata</span></li>
             <li><strong>4</strong><span>Certified manufacturing plants</span></li>
             <li><strong>4</strong><span>Brands across price segments</span></li>
             <li><strong>360+</strong><span>Models in the catalogue</span></li>
@@ -1590,7 +1715,7 @@
                       <h5>2026</h5>
                     </div>
                     <h3>Product Catalogue 2026</h3>
-                    <h4>362 models across NEXT, NATIONAL, CAPTAIN and SAPPHIRE, now in one catalogue...</h4>
+                    <h4>362 models across NEXT, NATIONAL, CAPTAIN and SAPPHIRE, now in one catalogue.</h4>
                     <a href="docs/national-plasto-catalogue-2026.pdf" class="read-more" target="_blank" rel="noopener">Read More</a>
                   </div>
                 </div>
@@ -1606,7 +1731,7 @@
                       <h5>January 2026</h5>
                     </div>
                     <h3>All Four Plants Certified</h3>
-                    <h4>23 certificates for quality, environment, safety and energy, valid until January 2029...</h4>
+                    <h4>23 certificates for quality, environment, safety and energy, valid until January 2029.</h4>
                     <a href="manufacturing.html#certifications" class="read-more">Read More</a>
                   </div>
                 </div>
@@ -1622,7 +1747,7 @@
                       <h5>Pan-India</h5>
                     </div>
                     <h3>Our Dealer Network</h3>
-                    <h4>Join 500+ distributors and dealers across 15+ states of India...</h4>
+                    <h4>Join 500+ distributors and dealers across 15+ states of India.</h4>
                     <a href="distributor.html" class="read-more">Read More</a>
                   </div>
                 </div>
@@ -1823,7 +1948,7 @@
                     <ul>
                         <li><a href="https://www.google.com/maps/search/?api=1&amp;query=19+Sukeas+Lane+Kolkata+700001" target="_blank" rel="noopener">19 Sukeas Lane, Kolkata, West Bengal 700001</a></li>
                         <li><a href="tel:+919830012345">+91 98300 12345</a></li>
-                        <li><a href="mailto:info@nationalplasto.com">info@nationalplasto.com</a></li>
+                        <li><a href="mailto:info@nationalplasto.com">info@<wbr>nationalplasto.com</a></li>
                         <li><a href="policies.html#privacy">Privacy Policy</a></li>
                         <li><a href="policies.html#terms">Terms &amp; Conditions</a></li>
                     </ul>

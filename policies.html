@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/supreme_app.min.css">
     <link rel="stylesheet" href="css/supreme_common.css?v=20260929b">
-    <link rel="stylesheet" href="css/np-revamp.css?v=20261006_menu">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20261008_layout">
 
     <style>
         .np-policies { padding: 60px 0 90px; background: #FFFFFF; }
@@ -53,9 +53,11 @@
             .np-policy-nav a { border-left: none; border-bottom: 2px solid #E2E8F0; padding: 8px 10px; font-size: 14px; }
             .np-policy-nav p { width: 100%; margin: 6px 0 0; }
             .np-policy-body h2 { font-size: 24px; }
+            /* hero intro runs to 3 lines on phones - lift the shared 2-line clamp so it isn't cut off */
+            body .banner-section.inner_banner.np-page-banner .para-text { display: block; -webkit-line-clamp: unset; overflow: visible; }
         }
     </style>
-    <link rel="stylesheet" href="css/np-revamp.css?v=20261002e">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20261008_layout">
 </head>
 
 <body id="policies_page">
@@ -337,7 +339,7 @@
                     <ul>
                         <li><a href="https://www.google.com/maps/search/?api=1&amp;query=19+Sukeas+Lane+Kolkata+700001" target="_blank" rel="noopener">19 Sukeas Lane, Kolkata, West Bengal 700001</a></li>
                         <li><a href="tel:+919830012345">+91 98300 12345</a></li>
-                        <li><a href="mailto:info@nationalplasto.com">info@nationalplasto.com</a></li>
+                        <li><a href="mailto:info@nationalplasto.com">info@<wbr>nationalplasto.com</a></li>
                         <li><a href="policies.html#privacy">Privacy Policy</a></li>
                         <li><a href="policies.html#terms">Terms &amp; Conditions</a></li>
                     </ul>

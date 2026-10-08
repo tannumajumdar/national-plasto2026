@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>About Us — Overview & Pedigree | National Plasto Products Pvt. Ltd.</title>
-    <meta name="description" content="Founded in 1997, National Plasto Products Pvt. Ltd. (NPPL) is a pioneer in plastic injection moulding with 4 modern manufacturing plants and a nationwide dealer network.">
+    <meta name="description" content="Rooted in 1942 and incorporated in 1997, National Plasto Products Pvt. Ltd. (NPPL) is a pioneer in plastic injection moulding with 4 modern manufacturing plants and a nationwide dealer network.">
     <meta name="keywords" content="About National Plasto, plastic furniture manufacturer India, Rajkumar Sharma, injection moulding Kolkata, ISO 9001:2015">
 
     <!-- Open Graph -->
@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/supreme_app.min.css">
     <link rel="stylesheet" href="css/supreme_common.css?v=20260929b">
-    <link rel="stylesheet" href="css/np-revamp.css?v=20261007_v7">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20261008_layout">
 
     <style>
         /* Exact Supreme Overview Page Custom Styling */
@@ -413,8 +413,184 @@
             #about_us_overview .mgmt_quote p { font-size: 16px; }
             #about_us_overview .mgmt_body { padding: 22px 18px 18px; }
         }
+
+        /* ------------------------------------------------------------------
+           Desktop consistency pass (overrides np-revamp.css, which loads
+           after this block with !important, hence body# + !important)
+           ------------------------------------------------------------------ */
+        /* "Our Journey" anchor (linked from index.html) clears the sticky header */
+        body#about_us_overview #our-journey {
+            scroll-margin-top: 110px;
+        }
+
+        /* One heading scale for every section (was 80 / 34 / 50 / 50px) */
+        body#about_us_overview .foundation_title h2.heading-text,
+        body#about_us_overview .we_village_title h2.heading-text,
+        body#about_us_overview .care_for_title h2.heading-text,
+        body#about_us_overview .team_main_title h2.heading-text {
+            font-size: 50px !important;
+            line-height: 1.3 !important;
+        }
+        body#about_us_overview .foundation_title h3.heading-text {
+            font-size: 26px !important;
+            line-height: 1.45 !important;
+            margin-bottom: 20px !important;
+        }
+        @media (max-width: 991px) {
+            body#about_us_overview .foundation_title h2.heading-text,
+            body#about_us_overview .we_village_title h2.heading-text,
+            body#about_us_overview .care_for_title h2.heading-text,
+            body#about_us_overview .team_main_title h2.heading-text {
+                font-size: 38px !important;
+            }
+            body#about_us_overview .foundation_title h3.heading-text {
+                font-size: 22px !important;
+            }
+        }
+        @media (max-width: 575px) {
+            body#about_us_overview .foundation_title h2.heading-text,
+            body#about_us_overview .we_village_title h2.heading-text,
+            body#about_us_overview .care_for_title h2.heading-text,
+            body#about_us_overview .team_main_title h2.heading-text {
+                font-size: 30px !important;
+            }
+            body#about_us_overview .foundation_title h3.heading-text {
+                font-size: 19px !important;
+            }
+        }
+
+        /* wide enough that the 50px headings don't orphan a word ("1997", "Plasto?") */
+        body#about_us_overview .foundation_main .foundation_title,
+        body#about_us_overview .we_village_main .we_village_title {
+            width: 100% !important;
+            max-width: 1040px !important;
+        }
+        body#about_us_overview .foundation_title p,
+        body#about_us_overview .we_village_title p {
+            max-width: 860px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Section titles: centred like the first two sections */
+        body#about_us_overview .care_for_main .care_for_title,
+        body#about_us_overview .team_main .team_main_title {
+            width: 100% !important;
+            max-width: 860px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            text-align: center !important;
+        }
+        body#about_us_overview .team_main .board_title {
+            text-align: center !important;
+            margin-bottom: 28px !important;
+        }
+
+        /* Pillars of Growth: no stray white strip + rule under the grey stats band */
+        body#about_us_overview .care_for_main {
+            margin-top: 0 !important;
+            border-top: none !important;
+            padding: 80px 0 !important;
+        }
+        /* image/logo column sits on the container edge (was -5px outside it) */
+        body#about_us_overview .care_for_main .care_for_flex .care_for_img {
+            margin: 0 !important;
+        }
+        body#about_us_overview .care_for_main .care_for_flex .care_for_img > img {
+            display: block;
+            width: 100% !important;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+        }
+
+        /* Leadership: equal cards, equal 4:5 photo frames, centred last row */
+        body#about_us_overview .team_main {
+            padding: 80px 0 !important;
+            background: #F8FAFC !important;
+            border-top: 1px solid #E2E8F0;
+        }
+        body#about_us_overview .team_main .team_main_flex {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            align-items: stretch !important;
+            gap: 32px 24px !important;
+            max-width: 100% !important;
+            margin: 0 auto !important;
+            padding: 0 !important;
+            overflow: visible !important;
+            scroll-snap-type: none !important;
+        }
+        body#about_us_overview .team_main .team_main_item {
+            flex: 0 0 calc((100% - 4 * 24px) / 5) !important;
+            width: calc((100% - 4 * 24px) / 5) !important;
+            min-width: 0 !important;
+            max-width: calc((100% - 4 * 24px) / 5) !important;
+            display: flex !important;
+            flex-direction: column !important;
+            text-align: center !important;
+        }
+        body#about_us_overview .team_main .team_main_card {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            background: #E2E8F0 !important;
+        }
+        body#about_us_overview .team_main .team_main_card img {
+            width: 100% !important;
+            height: 100% !important;
+            aspect-ratio: auto !important;
+            object-fit: cover !important;
+            object-position: center top !important;
+        }
+        body#about_us_overview .team_main .team_desc h4 {
+            margin: 16px 0 0 !important;
+            font-size: 15px !important;
+        }
+        body#about_us_overview .team_main .team_desc p {
+            margin: 6px 0 0 !important;
+            font-size: 13px !important;
+        }
+        @media (max-width: 1199px) {
+            body#about_us_overview .team_main .team_main_item {
+                flex-basis: calc((100% - 2 * 24px) / 3) !important;
+                width: calc((100% - 2 * 24px) / 3) !important;
+                max-width: 260px !important;
+            }
+        }
+        @media (max-width: 991px) {
+            body#about_us_overview .care_for_main,
+            body#about_us_overview .team_main {
+                padding: 60px 0 !important;
+            }
+        }
+        @media (max-width: 767px) {
+            body#about_us_overview .care_for_main .care_for_flex .care_for_img > img {
+                aspect-ratio: auto;
+            }
+        }
+        @media (max-width: 575px) {
+            body#about_us_overview .team_main .team_main_flex {
+                gap: 24px 14px !important;
+            }
+            body#about_us_overview .team_main .team_main_item {
+                flex-basis: calc((100% - 14px) / 2) !important;
+                width: calc((100% - 14px) / 2) !important;
+                max-width: calc((100% - 14px) / 2) !important;
+            }
+            /* names may wrap at this width: reserve two lines so titles line up */
+            body#about_us_overview .team_main .team_desc h4 {
+                min-height: 2.6em;
+                font-size: 14.5px !important;
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+            }
+            body#about_us_overview .team_main .team_desc p {
+                font-size: 12px !important;
+            }
+        }
     </style>
-    <link rel="stylesheet" href="css/np-revamp.css?v=20261007_v7">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20261008_layout">
 </head>
 
 <body id="about_us_overview">
@@ -603,7 +779,7 @@
     
 
     <main class="smooth_scroll_pages">
-    <section class="foundation_main">
+    <section class="foundation_main" id="our-journey">
         <div class="container">
             <div class="foundation_title">
                 <h2 class="heading-text toTop" data-scroll><span class="color_red_home">Rooted in 1942, Incorporated in 1997</span></h2>
@@ -758,7 +934,7 @@
 
             <div class="care_for_flex flex_direction">
                 <div class="care_for_img toTop" data-scroll>
-                    <img loading="lazy" src="images/brand/quality-lab-qa.jpg" data-lazy-src="images/brand/quality-lab-qa.jpg" class="img-responsive" alt="ISO 9001:2015 Quality &amp; 200kg Load Testing">
+                    <img loading="lazy" src="images/brand/plant-howrah-injection.jpg" data-lazy-src="images/brand/plant-howrah-injection.jpg" class="img-responsive" alt="Injection moulding floor at the National Plasto Howrah plant">
                 </div>
 
                 <div class="care_for_content toTop" data-scroll>
@@ -893,7 +1069,7 @@
                     <ul>
                         <li><a href="https://www.google.com/maps/search/?api=1&amp;query=19+Sukeas+Lane+Kolkata+700001" target="_blank" rel="noopener">19 Sukeas Lane, Kolkata, West Bengal 700001</a></li>
                         <li><a href="tel:+919830012345">+91 98300 12345</a></li>
-                        <li><a href="mailto:info@nationalplasto.com">info@nationalplasto.com</a></li>
+                        <li><a href="mailto:info@nationalplasto.com">info@<wbr>nationalplasto.com</a></li>
                         <li><a href="policies.html#privacy">Privacy Policy</a></li>
                         <li><a href="policies.html#terms">Terms &amp; Conditions</a></li>
                     </ul>

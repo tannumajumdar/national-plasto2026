@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Authorized Dealer Desk &amp; Distribution Portal | National Plasto</title>
-    <meta name="description" content="Partner with National Plasto as an authorized dealer. Access 160+ high-turnover plastic furniture models, protected sales territories, and dedicated trade logistics.">
+    <meta name="description" content="Partner with National Plasto as an authorized dealer. Access 362 plastic furniture models across four brands, protected sales territories, and dedicated trade logistics.">
     <meta name="keywords" content="National Plasto dealer, plastic furniture distributorship, franchise enquiry, furniture wholesale India">
 
     <!-- Open Graph -->
@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/supreme_app.min.css">
     <link rel="stylesheet" href="css/supreme_common.css?v=20260929b">
-    <link rel="stylesheet" href="css/np-revamp.css?v=20261006_testi">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20261008_layout">
 
     <style>
         /* Advantages Grid */
@@ -80,6 +80,107 @@
             color: #475569;
             line-height: 1.6;
             margin: 0;
+        }
+        .advantages_intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .advantages_badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--brand-primary);
+            background: var(--brand-icy-blue-light);
+            padding: 4px 12px;
+            border-radius: 15px;
+            border: 1px solid var(--brand-icy-blue);
+        }
+        .advantages_intro h2 {
+            font-size: 32px;
+            margin: 12px 0;
+        }
+        .advantages_intro p {
+            font-size: 16px;
+            color: #64748B;
+            line-height: 1.65;
+            margin: 0;
+        }
+        .advantage_card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+        /* Align icon / title / text / list rows across cards in the same row */
+        @supports (grid-template-rows: subgrid) {
+            .advantage_card {
+                display: grid;
+                grid-row: span 4;
+                grid-template-rows: subgrid;
+                row-gap: 0;
+                align-content: start;
+            }
+            .advantage_card h4 { align-self: end; }
+        }
+        /* Page-scoped: keep testimonial tag/title/description stacked from the top
+           so titles line up across cards (shared CSS uses space-between) */
+        .np-testimonials-section .np-testi-card .np-testi-card-body {
+            justify-content: flex-start !important;
+        }
+        .advantage_points {
+            list-style: none;
+            padding: 16px 0 0 0;
+            margin: 18px 0 0 0;
+            border-top: 1px dashed #CBD5E1;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            text-align: left;
+        }
+        .advantage_points li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 13.5px;
+            line-height: 1.5;
+            color: #334155;
+        }
+        .advantage_points li i {
+            color: var(--brand-primary);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        .advantages_facts {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin-top: 36px;
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .advantages_fact {
+            padding: 20px 16px;
+            text-align: center;
+            border-left: 1px solid #E2E8F0;
+            min-width: 0;
+        }
+        .advantages_fact:first-child { border-left: none; }
+        .advantages_fact strong {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 22px;
+            color: var(--brand-primary);
+            line-height: 1.2;
+        }
+        .advantages_fact span {
+            display: block;
+            margin-top: 4px;
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.4;
         }
 
         /* Dealer Form & Requirements Section */
@@ -199,6 +300,37 @@
             background: #FFFFFF;
             box-shadow: 0 0 0 3px rgba(194, 17, 33, 0.12);
         }
+        /* Shared site CSS restyles inputs as underline fields with a 20px bottom
+           margin; restore the boxed style intended for this form (page-scoped). */
+        .dealer_form_section .form_item input,
+        .dealer_form_section .form_item select,
+        .dealer_form_section .form_item textarea {
+            margin: 0 !important;
+            padding: 12px 14px !important;
+            border: 1px solid #CBD5E1 !important;
+            border-radius: 6px !important;
+            background: #F8FAFC !important;
+            height: auto !important;
+            min-height: 46px;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        .dealer_form_section .form_item input:focus,
+        .dealer_form_section .form_item select:focus,
+        .dealer_form_section .form_item textarea:focus {
+            border-color: var(--brand-primary) !important;
+            background: #FFFFFF !important;
+        }
+        .dealer_form_section .form_row_dual .form_item { margin-bottom: 0; }
+        .criteria_box ul li {
+            display: flex;
+            align-items: flex-start;
+            line-height: 1.5;
+        }
+        .criteria_box ul li i {
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
         .btn_submit_dealer {
             background: var(--brand-primary);
             color: #FFFFFF;
@@ -231,15 +363,29 @@
 
         @media (max-width: 991px) {
             .advantages_grid { grid-template-columns: repeat(2, 1fr); }
+            .advantages_facts { grid-template-columns: repeat(2, 1fr); }
+            .advantages_fact:nth-child(3) { border-left: none; }
+            .advantages_fact:nth-child(n+3) { border-top: 1px solid #E2E8F0; }
             .dealer_flex_wrap { flex-direction: column; }
             .dealer_form_col { padding: 28px; }
         }
         @media (max-width: 575px) {
             .advantages_grid { grid-template-columns: 1fr; }
+            .partner_advantages_section { padding: 50px 0 60px; }
+            .advantages_intro h2 { font-size: 26px; }
+            .advantages_intro p { font-size: 15px; }
+            .advantages_fact { padding: 16px 10px; }
+            .advantages_fact strong { font-size: 19px; }
+            .advantages_fact span { font-size: 12px; }
+            .dealer_form_section { padding: 50px 0; }
+            .dealer_info_col,
+            .dealer_form_col { padding: 24px 20px; }
+            .dealer_info_col h3,
+            .dealer_form_col h2 { font-size: 23px; }
             .form_row_dual { grid-template-columns: 1fr; }
         }
     </style>
-    <link rel="stylesheet" href="css/np-revamp.css?v=20261007_v3">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20261008_layout">
 </head>
 
 <body id="distributor_page">
@@ -432,36 +578,63 @@
         <!-- Value Proposition Section -->
         <section class="partner_advantages_section">
             <div class="container">
-                <div style="text-align:center;max-width:800px;margin:0 auto;">
-                    <span style="font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--brand-primary);background:var(--brand-icy-blue-light);padding:4px 12px;border-radius:15px;border:1px solid var(--brand-icy-blue);">Why Partner with NPPL</span>
-                    <h2 style="font-size:32px;margin:12px 0;">Commercial <span style="color:var(--brand-primary);">Advantages for Dealers</span></h2>
-                    <p style="font-size:16px;color:#64748B;">Built on 29 years of retail pedigree, we offer competitive trade terms and prompt regional dispatches.</p>
+                <div class="advantages_intro">
+                    <span class="advantages_badge">Why Partner with NPPL</span>
+                    <h2>Commercial <span style="color:var(--brand-primary);">Advantages for Dealers</span></h2>
+                    <p>Built on 29 years of manufacturing since 1997, our dealer programme is designed around what grows your business: healthy trade margins, a protected territory to build in, and established brands your customers already trust.</p>
                 </div>
 
                 <div class="advantages_grid">
                     <div class="advantage_card">
-                        <div class="advantage_icon"><i class="fas fa-chart-line"></i></div>
-                        <h4>High Trade Margins</h4>
-                        <p>Healthy dealer margins backed by annual target achievement rebates and volume festival promotions.</p>
+                        <div class="advantage_icon"><i class="fas fa-chart-line" aria-hidden="true"></i></div>
+                        <h4>Attractive Trade Margins</h4>
+                        <p>Competitive dealer pricing that leaves a healthy margin on every piece you sell, with more to earn as your volumes grow.</p>
+                        <ul class="advantage_points">
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Healthy margins across every price segment</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Annual target achievement rebates</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Volume and festival-season trade promotions</li>
+                        </ul>
                     </div>
 
                     <div class="advantage_card">
-                        <div class="advantage_icon"><i class="fas fa-map-marked-alt"></i></div>
+                        <div class="advantage_icon"><i class="fas fa-map-marked-alt" aria-hidden="true"></i></div>
                         <h4>Protected Territories</h4>
                         <p>Clear regional demarcation ensuring you enjoy exclusive sales distribution rights in your designated district.</p>
+                        <ul class="advantage_points">
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> A defined territory for every appointed partner</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Room to build your local market without channel conflict</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Long-term, relationship-led partnerships</li>
+                        </ul>
                     </div>
 
                     <div class="advantage_card">
-                        <div class="advantage_icon"><i class="fas fa-shipping-fast"></i></div>
-                        <h4>24-48h Dispatches</h4>
-                        <p>Immediate dispatches from our 4 integrated plant hubs across West Bengal, Assam, and Bihar.</p>
+                        <div class="advantage_icon"><i class="fas fa-store" aria-hidden="true"></i></div>
+                        <h4>Retail Brand Advantage</h4>
+                        <p>Four established brands &mdash; NATIONAL, NEXT, SAPPHIRE and CAPTAIN &mdash; give your showroom a ready range from everyday value to premium.</p>
+                        <ul class="advantage_points">
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> 362 models in the 2026 catalogue</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Showroom display stands and glossy product catalogues</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Local advertising and point-of-sale collateral support</li>
+                        </ul>
                     </div>
 
                     <div class="advantage_card">
-                        <div class="advantage_icon"><i class="fas fa-ad"></i></div>
-                        <h4>Retail Branding</h4>
-                        <p>Dedicated showroom display stands, glossy product catalogues, and local advertising collateral support.</p>
+                        <div class="advantage_icon"><i class="fas fa-shipping-fast" aria-hidden="true"></i></div>
+                        <h4>Fast, Reliable Supply</h4>
+                        <p>Four ISO-certified plants at Howrah, Guwahati, Roorkee and Hajipur, backed by regional stock depots, keep your shelves filled.</p>
+                        <ul class="advantage_points">
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> 24&ndash;48 hour transit across key trade corridors</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Regional depots for quicker replenishment</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> ISO 9001:2015 certified quality at every plant</li>
+                        </ul>
                     </div>
+                </div>
+
+                <div class="advantages_facts">
+                    <div class="advantages_fact"><strong>Since 1997</strong><span>Moulded furniture maker</span></div>
+                    <div class="advantages_fact"><strong>4 Brands</strong><span>NATIONAL &middot; NEXT &middot; SAPPHIRE &middot; CAPTAIN</span></div>
+                    <div class="advantages_fact"><strong>362 Models</strong><span>In the 2026 catalogue</span></div>
+                    <div class="advantages_fact"><strong>4 ISO Plants</strong><span>East, North-East &amp; North India</span></div>
                 </div>
             </div>
         </section>
@@ -516,8 +689,8 @@
                 <span class="np-video-duration"><i class="fas fa-play-circle"></i> Watch Video</span>
               </div>
               <div class="np-testi-card-body">
-                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> 18+ Years Partner</span>
-                <h3 class="np-testi-title">Shyam Furniture &mdash; Jhansi (UP)</h3>
+                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> 18+ Years Dealer Partner</span>
+                <h3 class="np-testi-title">Shyam Ji &mdash; Shyam Furniture, Jhansi (UP)</h3>
                 <p class="np-testi-desc">18 years of association with National Plasto &mdash; praising premium polymer strength, finish, and strong consumer demand.</p>
               </div>
             </div>
@@ -529,7 +702,7 @@
                  data-tag="Commercial Trade Partner"
                  data-desc="Uncompromising polymer durability, transparent business dealings, and high customer retention.">
               <div class="np-video-wrapper">
-                <img src="images/testimonials/posters/2.jpg" loading="lazy" alt="Wholesale Stockist" class="np-testi-thumb">
+                <img src="images/testimonials/posters/2.jpg" loading="lazy" alt="Wholesale Stockist, Regional Trade Hub" class="np-testi-thumb">
                 <div class="np-play-overlay">
                   <div class="np-play-pulse"></div>
                   <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
@@ -537,8 +710,8 @@
                 <span class="np-video-duration"><i class="fas fa-play-circle"></i> Watch Video</span>
               </div>
               <div class="np-testi-card-body">
-                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> Trade Partner</span>
-                <h3 class="np-testi-title">Wholesale Stockist &mdash; Regional Hub</h3>
+                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> Commercial Trade Partner</span>
+                <h3 class="np-testi-title">Wholesale Stockist &mdash; Regional Trade Hub</h3>
                 <p class="np-testi-desc">Uncompromising polymer durability, transparent business dealings, and high customer retention.</p>
               </div>
             </div>
@@ -558,8 +731,8 @@
                 <span class="np-video-duration"><i class="fas fa-play-circle"></i> Watch Video</span>
               </div>
               <div class="np-testi-card-body">
-                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> Partner Since 2018</span>
-                <h3 class="np-testi-title">New Chhattisgarh Traders</h3>
+                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> Dealer Partner Since 2018</span>
+                <h3 class="np-testi-title">New Chhattisgarh Traders &mdash; Central Region</h3>
                 <p class="np-testi-desc">Associated with National Plasto since 2018; rapid stock movement and exceptional quality in dining sets &amp; chairs.</p>
               </div>
             </div>
@@ -579,8 +752,8 @@
                 <span class="np-video-duration"><i class="fas fa-play-circle"></i> Watch Video</span>
               </div>
               <div class="np-testi-card-body">
-                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> 10+ Years Distributor</span>
-                <h3 class="np-testi-title">Vishnu Furniture &mdash; Jamshedpur</h3>
+                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> 10+ Years NPPL Distributor</span>
+                <h3 class="np-testi-title">Sachin Agarwal &mdash; Vishnu Furniture, Jamshedpur</h3>
                 <p class="np-testi-desc">10+ years as NPPL Distributor &mdash; superior mould designs, premium gloss finish, and outstanding dealer support.</p>
               </div>
             </div>
@@ -601,7 +774,7 @@
               </div>
               <div class="np-testi-card-body">
                 <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> Distributor Partner</span>
-                <h3 class="np-testi-title">Vijay Enterprises &mdash; Partner Story</h3>
+                <h3 class="np-testi-title">Sumit Kumar Singh &mdash; Vijay Enterprises</h3>
                 <p class="np-testi-desc">Heartfelt appreciation for National Plasto leadership; family-like relationship, mutual respect, and unwavering trust.</p>
               </div>
             </div>
@@ -621,8 +794,8 @@
                 <span class="np-video-duration"><i class="fas fa-play-circle"></i> Watch Video</span>
               </div>
               <div class="np-testi-card-body">
-                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> Retail Partner</span>
-                <h3 class="np-testi-title">AK Steel Furniture &mdash; Bhagalpur</h3>
+                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> Multi-Brand Retail Partner</span>
+                <h3 class="np-testi-title">Abhishek Banka &mdash; AK Steel Furniture, Bhagalpur</h3>
                 <p class="np-testi-desc">Extensive product diversity across all 4 brands &mdash; NEXT, NATIONAL, SAPPHIRE &amp; CAPTAIN at highly competitive pricing.</p>
               </div>
             </div>
@@ -642,8 +815,8 @@
                 <span class="np-video-duration"><i class="fas fa-play-circle"></i> Watch Video</span>
               </div>
               <div class="np-testi-card-body">
-                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> 10+ Years Distributor</span>
-                <h3 class="np-testi-title">Santoshi Distributors &mdash; Odisha</h3>
+                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> 10+ Years Wholesale Distributor</span>
+                <h3 class="np-testi-title">Santoshi Distributors &mdash; Bhubaneswar (Odisha)</h3>
                 <p class="np-testi-desc">10+ years partnership in plastic furniture wholesale; continuous new model launches and 100% issue-free service.</p>
               </div>
             </div>
@@ -684,8 +857,8 @@
                 <span class="np-video-duration"><i class="fas fa-play-circle"></i> Watch Video</span>
               </div>
               <div class="np-testi-card-body">
-                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> 18+ Years Partner</span>
-                <h3 class="np-testi-title">Shyam Furniture &mdash; Jhansi (UP)</h3>
+                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> 18+ Years Dealer Partner</span>
+                <h3 class="np-testi-title">Shyam Ji &mdash; Shyam Furniture, Jhansi (UP)</h3>
                 <p class="np-testi-desc">18 years of association with National Plasto &mdash; praising premium polymer strength, finish, and strong consumer demand.</p>
               </div>
             </div>
@@ -697,7 +870,7 @@
                  data-tag="Commercial Trade Partner"
                  data-desc="Uncompromising polymer durability, transparent business dealings, and high customer retention.">
               <div class="np-video-wrapper">
-                <img src="images/testimonials/posters/2.jpg" loading="lazy" alt="Wholesale Stockist" class="np-testi-thumb">
+                <img src="images/testimonials/posters/2.jpg" loading="lazy" alt="Wholesale Stockist, Regional Trade Hub" class="np-testi-thumb">
                 <div class="np-play-overlay">
                   <div class="np-play-pulse"></div>
                   <div class="np-play-icon"><i class="fas fa-play" aria-hidden="true"></i></div>
@@ -705,8 +878,8 @@
                 <span class="np-video-duration"><i class="fas fa-play-circle"></i> Watch Video</span>
               </div>
               <div class="np-testi-card-body">
-                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> Trade Partner</span>
-                <h3 class="np-testi-title">Wholesale Stockist &mdash; Regional Hub</h3>
+                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> Commercial Trade Partner</span>
+                <h3 class="np-testi-title">Wholesale Stockist &mdash; Regional Trade Hub</h3>
                 <p class="np-testi-desc">Uncompromising polymer durability, transparent business dealings, and high customer retention.</p>
               </div>
             </div>
@@ -726,8 +899,8 @@
                 <span class="np-video-duration"><i class="fas fa-play-circle"></i> Watch Video</span>
               </div>
               <div class="np-testi-card-body">
-                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> Partner Since 2018</span>
-                <h3 class="np-testi-title">New Chhattisgarh Traders</h3>
+                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> Dealer Partner Since 2018</span>
+                <h3 class="np-testi-title">New Chhattisgarh Traders &mdash; Central Region</h3>
                 <p class="np-testi-desc">Associated with National Plasto since 2018; rapid stock movement and exceptional quality in dining sets &amp; chairs.</p>
               </div>
             </div>
@@ -747,8 +920,8 @@
                 <span class="np-video-duration"><i class="fas fa-play-circle"></i> Watch Video</span>
               </div>
               <div class="np-testi-card-body">
-                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> 10+ Years Distributor</span>
-                <h3 class="np-testi-title">Vishnu Furniture &mdash; Jamshedpur</h3>
+                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> 10+ Years NPPL Distributor</span>
+                <h3 class="np-testi-title">Sachin Agarwal &mdash; Vishnu Furniture, Jamshedpur</h3>
                 <p class="np-testi-desc">10+ years as NPPL Distributor &mdash; superior mould designs, premium gloss finish, and outstanding dealer support.</p>
               </div>
             </div>
@@ -769,7 +942,7 @@
               </div>
               <div class="np-testi-card-body">
                 <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> Distributor Partner</span>
-                <h3 class="np-testi-title">Vijay Enterprises &mdash; Partner Story</h3>
+                <h3 class="np-testi-title">Sumit Kumar Singh &mdash; Vijay Enterprises</h3>
                 <p class="np-testi-desc">Heartfelt appreciation for National Plasto leadership; family-like relationship, mutual respect, and unwavering trust.</p>
               </div>
             </div>
@@ -789,8 +962,8 @@
                 <span class="np-video-duration"><i class="fas fa-play-circle"></i> Watch Video</span>
               </div>
               <div class="np-testi-card-body">
-                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> Retail Partner</span>
-                <h3 class="np-testi-title">AK Steel Furniture &mdash; Bhagalpur</h3>
+                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> Multi-Brand Retail Partner</span>
+                <h3 class="np-testi-title">Abhishek Banka &mdash; AK Steel Furniture, Bhagalpur</h3>
                 <p class="np-testi-desc">Extensive product diversity across all 4 brands &mdash; NEXT, NATIONAL, SAPPHIRE &amp; CAPTAIN at highly competitive pricing.</p>
               </div>
             </div>
@@ -810,8 +983,8 @@
                 <span class="np-video-duration"><i class="fas fa-play-circle"></i> Watch Video</span>
               </div>
               <div class="np-testi-card-body">
-                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> 10+ Years Distributor</span>
-                <h3 class="np-testi-title">Santoshi Distributors &mdash; Odisha</h3>
+                <span class="np-testi-tag"><i class="fas fa-play-circle" aria-hidden="true"></i> 10+ Years Wholesale Distributor</span>
+                <h3 class="np-testi-title">Santoshi Distributors &mdash; Bhubaneswar (Odisha)</h3>
                 <p class="np-testi-desc">10+ years partnership in plastic furniture wholesale; continuous new model launches and 100% issue-free service.</p>
               </div>
             </div>
@@ -853,7 +1026,7 @@
         <div class="np-locator-controls" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:32px;">
           <div style="position:relative;width:100%;max-width:380px;">
             <i class="fas fa-search" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#94A3B8;"></i>
-            <input type="text" id="locatorSearch" placeholder="Search by city, state, or PIN code..." style="width:100%;padding:12px 14px 12px 40px;border:1px solid #CBD5E1;border-radius:8px;font-size:14px;outline:none;box-sizing:border-box;">
+            <input type="text" id="locatorSearch" placeholder="Search by city, state, or PIN code..." style="width:100%;margin:0;padding:12px 14px 12px 40px;border:1px solid #CBD5E1;border-radius:8px;font-size:14px;outline:none;box-sizing:border-box;">
           </div>
           <div class="np-locator-states" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;">
             <button type="button" class="np-loc-btn active" data-state="all" style="padding:10px 16px;border-radius:8px;border:1px solid #ED3237;background:#ED3237;color:#FFF;font-weight:600;font-size:13px;cursor:pointer;">All Regions (500+)</button>
@@ -1115,7 +1288,7 @@
                     <ul>
                         <li><a href="https://www.google.com/maps/search/?api=1&amp;query=19+Sukeas+Lane+Kolkata+700001" target="_blank" rel="noopener">19 Sukeas Lane, Kolkata, West Bengal 700001</a></li>
                         <li><a href="tel:+919830012345">+91 98300 12345</a></li>
-                        <li><a href="mailto:info@nationalplasto.com">info@nationalplasto.com</a></li>
+                        <li><a href="mailto:info@nationalplasto.com">info@<wbr>nationalplasto.com</a></li>
                         <li><a href="policies.html#privacy">Privacy Policy</a></li>
                         <li><a href="policies.html#terms">Terms &amp; Conditions</a></li>
                     </ul>

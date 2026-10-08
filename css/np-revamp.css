@@ -1208,6 +1208,10 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+@media (max-width: 767px) {
+    /* Phones need a third line for most intros */
+    .banner-section.inner_banner.np-page-banner .para-text { -webkit-line-clamp: 3; }
+}
 
 .np-breadcrumbs {
     position: absolute;
@@ -4839,7 +4843,7 @@ html.np-anim .np-reveal.np-in {
     flex: 1 !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: space-between !important;
+    justify-content: flex-start !important;
     text-align: left !important;
 }
 .np-testi-tag {

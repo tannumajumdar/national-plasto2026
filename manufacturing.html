@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/supreme_app.min.css">
     <link rel="stylesheet" href="css/supreme_common.css?v=20260929b">
-    <link rel="stylesheet" href="css/np-revamp.css?v=20261006_menu">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20261008_layout">
 
     <style>
         /* Plant Facilities Grid Layout */
@@ -191,12 +191,194 @@
             display: block;
         }
 
+        /* Quality & Testing Laboratory */
+        .np-qlab {
+            padding: 90px 0;
+            background: #FFFFFF;
+            scroll-margin-top: 90px;
+        }
+        .np-qlab-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px;
+        }
+        .np-qlab-card {
+            display: flex;
+            flex-direction: column;
+            padding: 26px 22px;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            background: #F8FAFC;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .np-qlab-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+        }
+        .np-qlab-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            margin-bottom: 18px;
+            border-radius: 10px;
+            background: #FDECEC;
+            color: #ED3237;
+            font-size: 20px;
+        }
+        .np-qlab-card h3 {
+            margin: 0 0 10px;
+            font: 700 18px/1.3 "Poppins", sans-serif;
+            color: #111827;
+        }
+        .np-qlab-card p {
+            margin: 0 0 18px;
+            font: 400 14px/1.65 "Work Sans", sans-serif;
+            color: #475569;
+        }
+        .np-qlab-badge {
+            align-self: flex-start;
+            margin-top: auto;
+            padding: 5px 12px;
+            border-radius: 999px;
+            background: #FFFFFF;
+            border: 1px solid #F5C2C3;
+            color: #ED3237;
+            font: 600 12px/1.4 "Poppins", sans-serif;
+        }
+        .np-qlab-cta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 32px;
+            padding: 24px 32px;
+            border-radius: 12px;
+            background: #0F172A;
+        }
+        .np-qlab-cta h3 {
+            margin: 0 0 4px;
+            font: 700 17px/1.4 "Poppins", sans-serif;
+            color: #FFFFFF;
+        }
+        .np-qlab-cta p {
+            margin: 0;
+            font: 400 13.5px/1.6 "Work Sans", sans-serif;
+            color: #CBD5E1;
+        }
+        .np-qlab-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            background: #ED3237;
+            color: #FFFFFF;
+            font: 700 14px "Poppins", sans-serif;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .np-qlab-btn:hover,
+        .np-qlab-btn:focus {
+            background: #C9252A;
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        /* Certifications: all-plants summary */
+        .np-cert-summary {
+            margin-top: 40px;
+        }
+        .np-cert-summary h3 {
+            margin: 0 0 16px;
+            font: 700 20px "Poppins", sans-serif;
+            color: #111827;
+        }
+        .np-cert-summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+        }
+        .np-cert-summary-card {
+            display: flex;
+            flex-direction: column;
+            padding: 18px;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            background: #FFFFFF;
+            font-family: "Poppins", sans-serif;
+        }
+        .np-cert-summary-card > strong {
+            font-size: 17px;
+            color: #111827;
+        }
+        .np-cert-summary-card > span {
+            margin-bottom: 12px;
+            font-size: 12.5px;
+            color: #64748B;
+        }
+        .np-cert-summary-card ul {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .np-cert-summary-card a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 10px;
+            border-radius: 8px;
+            background: #F4F6F9;
+            color: #111827;
+            font-size: 13.5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        .np-cert-summary-card a i {
+            color: #ED3237;
+        }
+        .np-cert-summary-card a:hover,
+        .np-cert-summary-card a:focus {
+            background: #FDECEC;
+            color: #ED3237;
+            text-decoration: none;
+        }
+
+        /* Plant tabs: keep labels top-aligned when some wrap to an extra line */
+        #manufacturing_page .np-cert-tab {
+            justify-content: flex-start;
+        }
+
+        @media (max-width: 991px) {
+            #manufacturing_page .np-cert-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 1199px) {
+            .np-qlab-grid,
+            .np-cert-summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
         @media (max-width: 991px) {
             .plants_grid { grid-template-columns: 1fr; }
             .toolroom_flex { flex-direction: column; }
         }
+        @media (max-width: 767px) {
+            .np-qlab { padding: 60px 0; }
+            .np-qlab-grid { gap: 12px; }
+            .np-qlab-cta { padding: 20px; }
+            .np-cert-summary-grid { gap: 12px; }
+        }
+        @media (max-width: 575px) {
+            .np-qlab-grid,
+            .np-cert-summary-grid { grid-template-columns: 1fr; }
+            .np-qlab-btn { width: 100%; justify-content: center; }
+        }
     </style>
-    <link rel="stylesheet" href="css/np-revamp.css?v=20261006e">
+    <link rel="stylesheet" href="css/np-revamp.css?v=20261008_layout">
 </head>
 
 <body id="manufacturing_page">
@@ -547,6 +729,52 @@
         </section>
 
 
+        <!-- Quality & Testing Laboratory -->
+        <section class="np-qlab" id="quality-lab">
+            <div class="container">
+                <div class="np-cert-head">
+                    <span class="np-cert-eyebrow">Quality &amp; Testing Laboratory</span>
+                    <h2>Tested In-House, <span>Before It Ships</span></h2>
+                    <p>Every National Plasto product is engineered with high-impact polymer formulation, UV weather stabilizers and reinforced stress-point ribs. Our in-house quality checks run from resin feed to final dispatch, under a quality management system certified to ISO 9001:2015 at all four plants.</p>
+                </div>
+
+                <div class="np-qlab-grid">
+                    <div class="np-qlab-card">
+                        <span class="np-qlab-icon"><i class="fas fa-weight-hanging" aria-hidden="true"></i></span>
+                        <h3>Load-Bearing Strength</h3>
+                        <p>Chairs are tested to withstand up to 200 kg of static and dynamic loads, so seating holds up to everyday home, commercial and institutional use.</p>
+                        <span class="np-qlab-badge">200 kg static &amp; dynamic load tested</span>
+                    </div>
+                    <div class="np-qlab-card">
+                        <span class="np-qlab-icon"><i class="fas fa-flask" aria-hidden="true"></i></span>
+                        <h3>Material Quality</h3>
+                        <p>Polymer batches are checked before moulding, and formulations include UV weather stabilizers for products used indoors and outdoors.</p>
+                        <span class="np-qlab-badge">High-impact polymer &amp; UV stabilized</span>
+                    </div>
+                    <div class="np-qlab-card">
+                        <span class="np-qlab-icon"><i class="fas fa-ruler-combined" aria-hidden="true"></i></span>
+                        <h3>Moulding &amp; Dimensional Checks</h3>
+                        <p>Moulded parts are inspected for fit, wall consistency and stacking, so every unit matches its design and nests correctly.</p>
+                        <span class="np-qlab-badge">In-process inspection</span>
+                    </div>
+                    <div class="np-qlab-card">
+                        <span class="np-qlab-icon"><i class="fas fa-clipboard-check" aria-hidden="true"></i></span>
+                        <h3>Finish &amp; Pre-Dispatch Audit</h3>
+                        <p>Colour, surface finish and packaging are checked before products leave the plant for our dealer and distributor network.</p>
+                        <span class="np-qlab-badge">Final inspection before dispatch</span>
+                    </div>
+                </div>
+
+                <div class="np-qlab-cta">
+                    <div>
+                        <h3>Independently audited at every plant</h3>
+                        <p>ISO 9001, ISO 14001, ISO 45001, ISO 50001, CE and BIFMA certificates for Howrah, Guwahati, Roorkee and Hajipur.</p>
+                    </div>
+                    <a href="#certifications" class="np-qlab-btn">View certificates <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </section>
+
         <!-- Certifications (all four plants) -->
         <section class="np-certs" id="certifications">
             <div class="container">
@@ -796,6 +1024,54 @@
                         </a>
                     </div>
                 </div>
+                <div class="np-cert-summary">
+                    <h3>All plants at a glance</h3>
+                    <div class="np-cert-summary-grid">
+                        <div class="np-cert-summary-card">
+                            <strong>Howrah</strong><span>West Bengal &middot; 6 certificates</span>
+                            <ul>
+                                <li><a href="docs/certificates/howrah/iso-9001.pdf" target="_blank" rel="noopener" aria-label="ISO 9001:2015 certificate, Howrah plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> ISO 9001:2015</a></li>
+                                <li><a href="docs/certificates/howrah/iso-14001.pdf" target="_blank" rel="noopener" aria-label="ISO 14001:2015 certificate, Howrah plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> ISO 14001:2015</a></li>
+                                <li><a href="docs/certificates/howrah/iso-45001.pdf" target="_blank" rel="noopener" aria-label="ISO 45001:2018 certificate, Howrah plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> ISO 45001:2018</a></li>
+                                <li><a href="docs/certificates/howrah/iso-50001.pdf" target="_blank" rel="noopener" aria-label="ISO 50001:2018 certificate, Howrah plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> ISO 50001:2018</a></li>
+                                <li><a href="docs/certificates/howrah/ce.pdf" target="_blank" rel="noopener" aria-label="CE certificate, Howrah plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> CE</a></li>
+                                <li><a href="docs/certificates/howrah/bifma.pdf" target="_blank" rel="noopener" aria-label="BIFMA certificate, Howrah plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> BIFMA</a></li>
+                            </ul>
+                        </div>
+                        <div class="np-cert-summary-card">
+                            <strong>Guwahati</strong><span>Assam &middot; 5 certificates</span>
+                            <ul>
+                                <li><a href="docs/certificates/guwahati/iso-9001.pdf" target="_blank" rel="noopener" aria-label="ISO 9001:2015 certificate, Guwahati plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> ISO 9001:2015</a></li>
+                                <li><a href="docs/certificates/guwahati/iso-14001.pdf" target="_blank" rel="noopener" aria-label="ISO 14001:2015 certificate, Guwahati plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> ISO 14001:2015</a></li>
+                                <li><a href="docs/certificates/guwahati/iso-45001.pdf" target="_blank" rel="noopener" aria-label="ISO 45001:2018 certificate, Guwahati plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> ISO 45001:2018</a></li>
+                                <li><a href="docs/certificates/guwahati/ce.pdf" target="_blank" rel="noopener" aria-label="CE certificate, Guwahati plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> CE</a></li>
+                                <li><a href="docs/certificates/guwahati/bifma.pdf" target="_blank" rel="noopener" aria-label="BIFMA certificate, Guwahati plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> BIFMA</a></li>
+                            </ul>
+                        </div>
+                        <div class="np-cert-summary-card">
+                            <strong>Roorkee</strong><span>Uttarakhand &middot; 6 certificates</span>
+                            <ul>
+                                <li><a href="docs/certificates/roorkee/iso-9001.pdf" target="_blank" rel="noopener" aria-label="ISO 9001:2015 certificate, Roorkee plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> ISO 9001:2015</a></li>
+                                <li><a href="docs/certificates/roorkee/iso-14001.pdf" target="_blank" rel="noopener" aria-label="ISO 14001:2015 certificate, Roorkee plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> ISO 14001:2015</a></li>
+                                <li><a href="docs/certificates/roorkee/iso-45001.pdf" target="_blank" rel="noopener" aria-label="ISO 45001:2018 certificate, Roorkee plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> ISO 45001:2018</a></li>
+                                <li><a href="docs/certificates/roorkee/iso-50001.pdf" target="_blank" rel="noopener" aria-label="ISO 50001:2018 certificate, Roorkee plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> ISO 50001:2018</a></li>
+                                <li><a href="docs/certificates/roorkee/ce.pdf" target="_blank" rel="noopener" aria-label="CE certificate, Roorkee plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> CE</a></li>
+                                <li><a href="docs/certificates/roorkee/bifma.pdf" target="_blank" rel="noopener" aria-label="BIFMA certificate, Roorkee plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> BIFMA</a></li>
+                            </ul>
+                        </div>
+                        <div class="np-cert-summary-card">
+                            <strong>Hajipur</strong><span>Bihar &middot; 6 certificates</span>
+                            <ul>
+                                <li><a href="docs/certificates/hajipur/iso-9001.pdf" target="_blank" rel="noopener" aria-label="ISO 9001:2015 certificate, Hajipur plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> ISO 9001:2015</a></li>
+                                <li><a href="docs/certificates/hajipur/iso-14001.pdf" target="_blank" rel="noopener" aria-label="ISO 14001:2015 certificate, Hajipur plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> ISO 14001:2015</a></li>
+                                <li><a href="docs/certificates/hajipur/iso-45001.pdf" target="_blank" rel="noopener" aria-label="ISO 45001:2018 certificate, Hajipur plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> ISO 45001:2018</a></li>
+                                <li><a href="docs/certificates/hajipur/iso-50001.pdf" target="_blank" rel="noopener" aria-label="ISO 50001:2018 certificate, Hajipur plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> ISO 50001:2018</a></li>
+                                <li><a href="docs/certificates/hajipur/ce.pdf" target="_blank" rel="noopener" aria-label="CE certificate, Hajipur plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> CE</a></li>
+                                <li><a href="docs/certificates/hajipur/bifma.pdf" target="_blank" rel="noopener" aria-label="BIFMA certificate, Hajipur plant (PDF)"><i class="fas fa-file-pdf" aria-hidden="true"></i> BIFMA</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <script>
@@ -874,7 +1150,7 @@
                     <ul>
                         <li><a href="https://www.google.com/maps/search/?api=1&amp;query=19+Sukeas+Lane+Kolkata+700001" target="_blank" rel="noopener">19 Sukeas Lane, Kolkata, West Bengal 700001</a></li>
                         <li><a href="tel:+919830012345">+91 98300 12345</a></li>
-                        <li><a href="mailto:info@nationalplasto.com">info@nationalplasto.com</a></li>
+                        <li><a href="mailto:info@nationalplasto.com">info@<wbr>nationalplasto.com</a></li>
                         <li><a href="policies.html#privacy">Privacy Policy</a></li>
                         <li><a href="policies.html#terms">Terms &amp; Conditions</a></li>
                     </ul>
